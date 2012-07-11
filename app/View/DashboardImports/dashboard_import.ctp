@@ -40,7 +40,7 @@
   }
 </script>
 
-<div>Dashboard Import</div><br>
+<div class='header_txt'>Dashboard</div><br>
 <?php
 	echo $this->Form->create('DashboardImports', array('controller' => 'DashboardImports', 'action' => 'dataParser', 'type' => 'file', 'target'=>'fileUpload', 'class' =>'choose_file'));
 	echo "<div class='uploadfile'>";
@@ -50,9 +50,11 @@
 	echo "<div class='selectfilename'></div><br>";
 	echo $this->Form->submit('importnow_btn.png', array('onclick' => 'return CheckIfFileSelected()'));
 ?>
+<!--
 <div id="importAnimation" style='display:none;'>
 <?php echo $this->Html->image('loading.gif', array('width' => 20, 'height' => 20));?>
 </div>
+-->
 <?php echo $this->Form->end();
 ?>
 			  

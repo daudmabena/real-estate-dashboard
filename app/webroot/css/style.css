@@ -16,4 +16,10 @@ body {
 #content{
 	background: none repeat scroll 0 0 #FFFFFF;
     padding: 25px;
+	border: 1px solid #CCCCCC;
+	box-shadow: 10px 10px 5px #888888;
+}
+
+.header_txt{
+	color:#535353;
 }
