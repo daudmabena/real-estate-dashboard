@@ -40,9 +40,9 @@
   }
 </script>
 
-<div class='header_txt'>Dashboard</div><br>
+<div class='header_txt'>Dashboard Import</div><br>
 <?php
-	echo $this->Form->create('DashboardImports', array('controller' => 'DashboardImports', 'action' => 'dataParser', 'type' => 'file', 'target'=>'fileUpload', 'class' =>'choose_file'));
+	echo $this->Form->create('DashboardImports', array('controller' => 'DashboardImports', 'action' => 'dataParser', 'type' => 'file', 'class' =>'choose_file'));
 	echo "<div class='uploadfile'>";
 	echo $this->Form->file('File', array('name'=>'dashboardImport', 'id'=>'file_path','class'=>'choose_file', 'onchange'=>'getSelectedFile()'));
 	echo "<span class='errMsgChoose' style='display:none;color:red;font-size:14px;margin-left:100px;'>Please upload the data for processing...</span>";
