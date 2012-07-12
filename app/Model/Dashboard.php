@@ -18,7 +18,7 @@ class Dashboard extends AppModel {
     var $useTable = false;
     
 	
-	// {{{ importMedianPrice2Yrs()
+    // {{{ importMedianPrice2Yrs()
     /**
      * Used for importmedianprice for 2 years
      *
@@ -29,27 +29,27 @@ class Dashboard extends AppModel {
      */
     function importMedianPrice2Yrs($tableName, $medianPrice2Yrs){
 		
-		$forSaleMedian = substr( $medianPrice2Yrs[1], 1 );
-		$forSaleMedian = str_replace(',', '', $forSaleMedian);
+        $forSaleMedian = substr( $medianPrice2Yrs[1], 1 );
+        $forSaleMedian = str_replace(',', '', $forSaleMedian);
 
-		$soldMedian = substr( $medianPrice2Yrs[3], 1 );
-		$soldMedian = str_replace(',', '', $soldMedian);
+        $soldMedian = substr( $medianPrice2Yrs[3], 1 );
+        $soldMedian = str_replace(',', '', $soldMedian);
 		
-		$query = "INSERT INTO $tableName (
-					  zip_code, for_sale_median, for_sale, sold_median, sold, average_dom, month_year)
-					  VALUES('78253', '$forSaleMedian', '$medianPrice2Yrs[2]', 
-					  '$soldMedian', '$medianPrice2Yrs[4]', '$medianPrice2Yrs[5]', '$medianPrice2Yrs[0]')";
+        $query = "INSERT INTO $tableName (
+                    zip_code, for_sale_median, for_sale, sold_median, sold, average_dom, month_year)
+                    VALUES('78253', '$forSaleMedian', '$medianPrice2Yrs[2]', 
+                    '$soldMedian', '$medianPrice2Yrs[4]', '$medianPrice2Yrs[5]', '$medianPrice2Yrs[0]')";
 					  
-		$rs = $this->query($query);
+        $rs = $this->query($query);
 		
-		if(!$rs){
+        if(!$rs){
             $this->log("importMedianPrice2Yrs::importMedianPrice2Yrs(). Data not inserted");
             return false;
         }
         return true;
     }
 	
-	// {{{ importMedianNoPrice2Yrs()
+    // {{{ importMedianNoPrice2Yrs()
     /**
      * Used for importmedian for no price 2 years
      *
@@ -58,24 +58,24 @@ class Dashboard extends AppModel {
      *
      * @return boolean
      */
-	function importMedianNoPrice2Yrs($tableName, $medianNoPrice2Yrs){
+    function importMedianNoPrice2Yrs($tableName, $medianNoPrice2Yrs){
 		
-		$soldMedian = str_replace('%', '', $medianNoPrice2Yrs[2]);
-		$query = "INSERT INTO $tableName (
-						month_year, zip_code, sold, avg_sp_op, avg_dom)
-						VALUES('$medianNoPrice2Yrs[0]', '78253', '$medianNoPrice2Yrs[1]', 
-						'$soldMedian', '$medianNoPrice2Yrs[3]')";
+        $soldMedian = str_replace('%', '', $medianNoPrice2Yrs[2]);
+        $query = "INSERT INTO $tableName (
+                    month_year, zip_code, sold, avg_sp_op, avg_dom)
+                    VALUES('$medianNoPrice2Yrs[0]', '78253', '$medianNoPrice2Yrs[1]', 
+                    '$soldMedian', '$medianNoPrice2Yrs[3]')";
 					  
-		$rs = $this->query($query);
+        $rs = $this->query($query);
 		
-		if(!$rs){
+        if(!$rs){
             $this->log("importMedianNoPrice2Yrs::importMedianNoPrice2Yrs(). Data not inserted");
             return false;
         }
         return true;
-	}
+    }
 	
-	// {{{ importMedian1Price2Yrs()
+    // {{{ importMedian1Price2Yrs()
     /**
      * Used for importmedian for +1 price 2yrs
      *
@@ -84,24 +84,24 @@ class Dashboard extends AppModel {
      *
      * @return boolean
      */
-	function importMedian1Price2Yrs($tableName, $median1Price2Yrs){
+    function importMedian1Price2Yrs($tableName, $median1Price2Yrs){
 		
-		$soldMedian = str_replace('%', '', $median1Price2Yrs[2]);
-		$query = "INSERT INTO $tableName (
-					  month_year, zip_code, sold, avg_sp_op, avg_dom)
-					  VALUES('$median1Price2Yrs[0]', '78253', '$median1Price2Yrs[1]', 
-					  '$soldMedian', '$median1Price2Yrs[3]')";
-					  
-		$rs = $this->query($query);
-		
-		if(!$rs){
+        $soldMedian = str_replace('%', '', $median1Price2Yrs[2]);
+        $query = "INSERT INTO $tableName (
+                    month_year, zip_code, sold, avg_sp_op, avg_dom)
+                    VALUES('$median1Price2Yrs[0]', '78253', '$median1Price2Yrs[1]', 
+                    '$soldMedian', '$median1Price2Yrs[3]')";
+
+        $rs = $this->query($query);
+
+        if(!$rs){
             $this->log("importMedian1Price2Yrs::importMedian1Price2Yrs(). Data not inserted");
             return false;
         }
         return true;
-	}
+    }
 	
-	// {{{ importMedianForSalePriceSqft()
+    // {{{ importMedianForSalePriceSqft()
     /**
      * Used for import median for sale price sqft
      *
@@ -110,24 +110,24 @@ class Dashboard extends AppModel {
      *
      * @return boolean
      */
-	function importMedianForSalePriceSqft($tableName, $medianForSalePriceSqft){
+    function importMedianForSalePriceSqft($tableName, $medianForSalePriceSqft){
 
-		$fsAvg = substr( $medianForSalePriceSqft[2], 1 );
-		$fsAvg = str_replace(',', '', $fsAvg);
-		
-		$query = "INSERT INTO $tableName (
-					  month_year, for_sale, for_sale_avg, for_sale_avg_sqft, for_sale_sqft, zip_code)
-					  VALUES('$medianForSalePriceSqft[0]', '$medianForSalePriceSqft[1]', 
-					  '$fsAvg', '$medianForSalePriceSqft[3]', '$medianForSalePriceSqft[4]', '78253')";
-					  
-		$rs = $this->query($query);
-		
-		if(!$rs){
+        $fsAvg = substr( $medianForSalePriceSqft[2], 1 );
+        $fsAvg = str_replace(',', '', $fsAvg);
+
+        $query = "INSERT INTO $tableName (
+                                    month_year, for_sale, for_sale_avg, for_sale_avg_sqft, for_sale_sqft, zip_code)
+                                    VALUES('$medianForSalePriceSqft[0]', '$medianForSalePriceSqft[1]', 
+                                    '$fsAvg', '$medianForSalePriceSqft[3]', '$medianForSalePriceSqft[4]', '78253')";
+
+        $rs = $this->query($query);
+
+        if(!$rs){
             $this->log("importMedianForSalePriceSqft::importMedianForSalePriceSqft(). Data not inserted");
             return false;
         }
-		return true;
-	}
+        return true;
+    }
 
 }
 ?>
