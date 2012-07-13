@@ -1146,3 +1146,351 @@
 #11 /opt/lampp/htdocs/real-estate-dashboard/lib/Cake/Routing/Dispatcher.php(161): Dispatcher->_invoke(Object(DashboardImportsController), Object(CakeRequest), Object(CakeResponse))
 #12 /opt/lampp/htdocs/real-estate-dashboard/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #13 {main}
+2012-07-13 12:09:09 Error: importMedianPrice2Yrs::importMedianPrice2Yrs(). Data not inserted
+2012-07-13 12:09:09 Error: importMedianNoPrice2Yrs::importMedianNoPrice2Yrs(). Data not inserted
+2012-07-13 12:09:09 Error: importMedian1Price2Yrs::importMedian1Price2Yrs(). Data not inserted
+2012-07-13 12:09:09 Error: importMedianForSalePriceSqft::importMedianForSalePriceSqft(). Data not inserted
+2012-07-13 12:09:09 Error: importMedianPrice2Yrs::importMedianPrice2Yrs(). Data not inserted
+2012-07-13 12:09:09 Error: importMedianNoPrice2Yrs::importMedianNoPrice2Yrs(). Data not inserted
+2012-07-13 12:09:09 Error: importMedian1Price2Yrs::importMedian1Price2Yrs(). Data not inserted
+2012-07-13 12:09:09 Error: importMedianForSalePriceSqft::importMedianForSalePriceSqft(). Data not inserted
+2012-07-13 12:09:09 Error: importMedianPrice2Yrs::importMedianPrice2Yrs(). Data not inserted
+2012-07-13 12:09:09 Error: importMedianNoPrice2Yrs::importMedianNoPrice2Yrs(). Data not inserted
+2012-07-13 12:09:09 Error: importMedian1Price2Yrs::importMedian1Price2Yrs(). Data not inserted
+2012-07-13 12:09:09 Error: importMedianForSalePriceSqft::importMedianForSalePriceSqft(). Data not inserted
+2012-07-13 12:09:09 Error: importMedianPrice2Yrs::importMedianPrice2Yrs(). Data not inserted
+2012-07-13 12:09:09 Error: importMedianNoPrice2Yrs::importMedianNoPrice2Yrs(). Data not inserted
+2012-07-13 12:09:09 Error: importMedian1Price2Yrs::importMedian1Price2Yrs(). Data not inserted
+2012-07-13 12:09:09 Error: importMedianForSalePriceSqft::importMedianForSalePriceSqft(). Data not inserted
+2012-07-13 12:09:09 Error: importMedianPrice2Yrs::importMedianPrice2Yrs(). Data not inserted
+2012-07-13 12:09:09 Error: importMedianNoPrice2Yrs::importMedianNoPrice2Yrs(). Data not inserted
+2012-07-13 12:09:09 Error: importMedian1Price2Yrs::importMedian1Price2Yrs(). Data not inserted
+2012-07-13 12:09:09 Error: importMedianForSalePriceSqft::importMedianForSalePriceSqft(). Data not inserted
+2012-07-13 12:09:09 Error: importMedianPrice2Yrs::importMedianPrice2Yrs(). Data not inserted
+2012-07-13 12:09:09 Error: importMedianNoPrice2Yrs::importMedianNoPrice2Yrs(). Data not inserted
+2012-07-13 12:09:09 Error: importMedian1Price2Yrs::importMedian1Price2Yrs(). Data not inserted
+2012-07-13 12:09:09 Error: importMedianForSalePriceSqft::importMedianForSalePriceSqft(). Data not inserted
+2012-07-13 12:09:09 Error: importMedianPrice2Yrs::importMedianPrice2Yrs(). Data not inserted
+2012-07-13 12:09:09 Error: importMedianNoPrice2Yrs::importMedianNoPrice2Yrs(). Data not inserted
+2012-07-13 12:09:09 Error: importMedian1Price2Yrs::importMedian1Price2Yrs(). Data not inserted
+2012-07-13 12:09:09 Error: importMedianForSalePriceSqft::importMedianForSalePriceSqft(). Data not inserted
+2012-07-13 12:09:09 Error: importMedianPrice2Yrs::importMedianPrice2Yrs(). Data not inserted
+2012-07-13 12:09:09 Error: importMedianNoPrice2Yrs::importMedianNoPrice2Yrs(). Data not inserted
+2012-07-13 12:09:09 Error: importMedian1Price2Yrs::importMedian1Price2Yrs(). Data not inserted
+2012-07-13 12:09:09 Error: importMedianForSalePriceSqft::importMedianForSalePriceSqft(). Data not inserted
+2012-07-13 12:09:09 Error: importMedianPrice2Yrs::importMedianPrice2Yrs(). Data not inserted
+2012-07-13 12:09:09 Error: importMedianNoPrice2Yrs::importMedianNoPrice2Yrs(). Data not inserted
+2012-07-13 12:09:09 Error: importMedian1Price2Yrs::importMedian1Price2Yrs(). Data not inserted
+2012-07-13 12:09:09 Error: importMedianForSalePriceSqft::importMedianForSalePriceSqft(). Data not inserted
+2012-07-13 12:09:09 Error: importMedianPrice2Yrs::importMedianPrice2Yrs(). Data not inserted
+2012-07-13 12:09:09 Error: importMedianNoPrice2Yrs::importMedianNoPrice2Yrs(). Data not inserted
+2012-07-13 12:09:09 Error: importMedian1Price2Yrs::importMedian1Price2Yrs(). Data not inserted
+2012-07-13 12:09:09 Error: importMedianForSalePriceSqft::importMedianForSalePriceSqft(). Data not inserted
+2012-07-13 12:09:09 Error: importMedianPrice2Yrs::importMedianPrice2Yrs(). Data not inserted
+2012-07-13 12:09:09 Error: importMedianNoPrice2Yrs::importMedianNoPrice2Yrs(). Data not inserted
+2012-07-13 12:09:09 Error: importMedian1Price2Yrs::importMedian1Price2Yrs(). Data not inserted
+2012-07-13 12:09:09 Error: importMedianForSalePriceSqft::importMedianForSalePriceSqft(). Data not inserted
+2012-07-13 12:09:09 Error: importMedianPrice2Yrs::importMedianPrice2Yrs(). Data not inserted
+2012-07-13 12:09:09 Error: importMedianNoPrice2Yrs::importMedianNoPrice2Yrs(). Data not inserted
+2012-07-13 12:09:09 Error: importMedian1Price2Yrs::importMedian1Price2Yrs(). Data not inserted
+2012-07-13 12:09:09 Error: importMedianForSalePriceSqft::importMedianForSalePriceSqft(). Data not inserted
+2012-07-13 12:09:09 Error: importMedianPrice2Yrs::importMedianPrice2Yrs(). Data not inserted
+2012-07-13 12:09:09 Error: importMedianNoPrice2Yrs::importMedianNoPrice2Yrs(). Data not inserted
+2012-07-13 12:09:09 Error: importMedian1Price2Yrs::importMedian1Price2Yrs(). Data not inserted
+2012-07-13 12:09:09 Error: importMedianForSalePriceSqft::importMedianForSalePriceSqft(). Data not inserted
+2012-07-13 12:09:09 Error: importMedianPrice2Yrs::importMedianPrice2Yrs(). Data not inserted
+2012-07-13 12:09:09 Error: importMedianNoPrice2Yrs::importMedianNoPrice2Yrs(). Data not inserted
+2012-07-13 12:09:09 Error: importMedian1Price2Yrs::importMedian1Price2Yrs(). Data not inserted
+2012-07-13 12:09:09 Error: importMedianForSalePriceSqft::importMedianForSalePriceSqft(). Data not inserted
+2012-07-13 12:09:09 Error: importMedianPrice2Yrs::importMedianPrice2Yrs(). Data not inserted
+2012-07-13 12:09:09 Error: importMedianNoPrice2Yrs::importMedianNoPrice2Yrs(). Data not inserted
+2012-07-13 12:09:09 Error: importMedian1Price2Yrs::importMedian1Price2Yrs(). Data not inserted
+2012-07-13 12:09:09 Error: importMedianForSalePriceSqft::importMedianForSalePriceSqft(). Data not inserted
+2012-07-13 12:09:09 Error: importMedianPrice2Yrs::importMedianPrice2Yrs(). Data not inserted
+2012-07-13 12:09:09 Error: importMedianNoPrice2Yrs::importMedianNoPrice2Yrs(). Data not inserted
+2012-07-13 12:09:09 Error: importMedian1Price2Yrs::importMedian1Price2Yrs(). Data not inserted
+2012-07-13 12:09:09 Error: importMedianForSalePriceSqft::importMedianForSalePriceSqft(). Data not inserted
+2012-07-13 12:09:09 Error: importMedianPrice2Yrs::importMedianPrice2Yrs(). Data not inserted
+2012-07-13 12:09:09 Error: importMedianNoPrice2Yrs::importMedianNoPrice2Yrs(). Data not inserted
+2012-07-13 12:09:09 Error: importMedian1Price2Yrs::importMedian1Price2Yrs(). Data not inserted
+2012-07-13 12:09:09 Error: importMedianForSalePriceSqft::importMedianForSalePriceSqft(). Data not inserted
+2012-07-13 12:09:09 Error: importMedianPrice2Yrs::importMedianPrice2Yrs(). Data not inserted
+2012-07-13 12:09:09 Error: importMedianNoPrice2Yrs::importMedianNoPrice2Yrs(). Data not inserted
+2012-07-13 12:09:09 Error: importMedian1Price2Yrs::importMedian1Price2Yrs(). Data not inserted
+2012-07-13 12:09:09 Error: importMedianForSalePriceSqft::importMedianForSalePriceSqft(). Data not inserted
+2012-07-13 12:09:09 Error: importMedianPrice2Yrs::importMedianPrice2Yrs(). Data not inserted
+2012-07-13 12:09:09 Error: importMedianNoPrice2Yrs::importMedianNoPrice2Yrs(). Data not inserted
+2012-07-13 12:09:09 Error: importMedian1Price2Yrs::importMedian1Price2Yrs(). Data not inserted
+2012-07-13 12:09:09 Error: importMedianForSalePriceSqft::importMedianForSalePriceSqft(). Data not inserted
+2012-07-13 12:09:09 Error: importMedianPrice2Yrs::importMedianPrice2Yrs(). Data not inserted
+2012-07-13 12:09:09 Error: importMedianNoPrice2Yrs::importMedianNoPrice2Yrs(). Data not inserted
+2012-07-13 12:09:09 Error: importMedian1Price2Yrs::importMedian1Price2Yrs(). Data not inserted
+2012-07-13 12:09:09 Error: importMedianForSalePriceSqft::importMedianForSalePriceSqft(). Data not inserted
+2012-07-13 12:09:09 Error: importMedianPrice2Yrs::importMedianPrice2Yrs(). Data not inserted
+2012-07-13 12:09:09 Error: importMedianNoPrice2Yrs::importMedianNoPrice2Yrs(). Data not inserted
+2012-07-13 12:09:09 Error: importMedian1Price2Yrs::importMedian1Price2Yrs(). Data not inserted
+2012-07-13 12:09:09 Error: importMedianForSalePriceSqft::importMedianForSalePriceSqft(). Data not inserted
+2012-07-13 12:09:09 Error: importMedianPrice2Yrs::importMedianPrice2Yrs(). Data not inserted
+2012-07-13 12:09:09 Error: importMedianNoPrice2Yrs::importMedianNoPrice2Yrs(). Data not inserted
+2012-07-13 12:09:09 Error: importMedian1Price2Yrs::importMedian1Price2Yrs(). Data not inserted
+2012-07-13 12:09:09 Error: importMedianForSalePriceSqft::importMedianForSalePriceSqft(). Data not inserted
+2012-07-13 12:09:09 Error: importMedianPrice2Yrs::importMedianPrice2Yrs(). Data not inserted
+2012-07-13 12:09:09 Error: importMedianNoPrice2Yrs::importMedianNoPrice2Yrs(). Data not inserted
+2012-07-13 12:09:09 Error: importMedian1Price2Yrs::importMedian1Price2Yrs(). Data not inserted
+2012-07-13 12:09:09 Error: importMedianForSalePriceSqft::importMedianForSalePriceSqft(). Data not inserted
+2012-07-13 12:09:09 Error: importMedianPrice2Yrs::importMedianPrice2Yrs(). Data not inserted
+2012-07-13 12:09:09 Error: importMedianNoPrice2Yrs::importMedianNoPrice2Yrs(). Data not inserted
+2012-07-13 12:09:09 Error: importMedian1Price2Yrs::importMedian1Price2Yrs(). Data not inserted
+2012-07-13 12:09:09 Error: importMedianForSalePriceSqft::importMedianForSalePriceSqft(). Data not inserted
+2012-07-13 12:29:03 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'CalculateMedianSoldLast12months' at line 1
+#0 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Model/Datasource/DboSource.php(460): PDOStatement->execute(Array)
+#1 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Model/Datasource/DboSource.php(426): DboSource->_execute('CalculateMedian...', Array)
+#2 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Model/Datasource/DboSource.php(670): DboSource->execute('CalculateMedian...', Array, Array)
+#3 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Model/Datasource/DboSource.php(612): DboSource->fetchAll('CalculateMedian...', Array, Array)
+#4 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Model/Model.php(784): DboSource->query('CalculateMedian...', Array, Object(Dashboard))
+#5 /opt/lampp/htdocs/doc/real-estate-dashboard/app/Controller/DashboardImportsController.php(43): Model->__call('CalculateMedian...', Array)
+#6 /opt/lampp/htdocs/doc/real-estate-dashboard/app/Controller/DashboardImportsController.php(43): Dashboard->CalculateMedianSoldLast12months()
+#7 [internal function]: DashboardImportsController->index()
+#8 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Controller/Controller.php(485): ReflectionMethod->invokeArgs(Object(DashboardImportsController), Array)
+#9 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Routing/Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#10 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Routing/Dispatcher.php(161): Dispatcher->_invoke(Object(DashboardImportsController), Object(CakeRequest), Object(CakeResponse))
+#11 /opt/lampp/htdocs/doc/real-estate-dashboard/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2012-07-13 12:29:34 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'CalculateMedianSoldLast12months' at line 1
+#0 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Model/Datasource/DboSource.php(460): PDOStatement->execute(Array)
+#1 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Model/Datasource/DboSource.php(426): DboSource->_execute('CalculateMedian...', Array)
+#2 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Model/Datasource/DboSource.php(670): DboSource->execute('CalculateMedian...', Array, Array)
+#3 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Model/Datasource/DboSource.php(612): DboSource->fetchAll('CalculateMedian...', Array, Array)
+#4 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Model/Model.php(784): DboSource->query('CalculateMedian...', Array, Object(Calculation))
+#5 /opt/lampp/htdocs/doc/real-estate-dashboard/app/Controller/DashboardImportsController.php(43): Model->__call('CalculateMedian...', Array)
+#6 /opt/lampp/htdocs/doc/real-estate-dashboard/app/Controller/DashboardImportsController.php(43): Calculation->CalculateMedianSoldLast12months()
+#7 [internal function]: DashboardImportsController->index()
+#8 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Controller/Controller.php(485): ReflectionMethod->invokeArgs(Object(DashboardImportsController), Array)
+#9 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Routing/Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#10 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Routing/Dispatcher.php(161): Dispatcher->_invoke(Object(DashboardImportsController), Object(CakeRequest), Object(CakeResponse))
+#11 /opt/lampp/htdocs/doc/real-estate-dashboard/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2012-07-13 12:29:36 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'CalculateMedianSoldLast12months' at line 1
+#0 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Model/Datasource/DboSource.php(460): PDOStatement->execute(Array)
+#1 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Model/Datasource/DboSource.php(426): DboSource->_execute('CalculateMedian...', Array)
+#2 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Model/Datasource/DboSource.php(670): DboSource->execute('CalculateMedian...', Array, Array)
+#3 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Model/Datasource/DboSource.php(612): DboSource->fetchAll('CalculateMedian...', Array, Array)
+#4 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Model/Model.php(784): DboSource->query('CalculateMedian...', Array, Object(Calculation))
+#5 /opt/lampp/htdocs/doc/real-estate-dashboard/app/Controller/DashboardImportsController.php(43): Model->__call('CalculateMedian...', Array)
+#6 /opt/lampp/htdocs/doc/real-estate-dashboard/app/Controller/DashboardImportsController.php(43): Calculation->CalculateMedianSoldLast12months()
+#7 [internal function]: DashboardImportsController->index()
+#8 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Controller/Controller.php(485): ReflectionMethod->invokeArgs(Object(DashboardImportsController), Array)
+#9 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Routing/Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#10 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Routing/Dispatcher.php(161): Dispatcher->_invoke(Object(DashboardImportsController), Object(CakeRequest), Object(CakeResponse))
+#11 /opt/lampp/htdocs/doc/real-estate-dashboard/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2012-07-13 12:29:37 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'CalculateMedianSoldLast12months' at line 1
+#0 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Model/Datasource/DboSource.php(460): PDOStatement->execute(Array)
+#1 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Model/Datasource/DboSource.php(426): DboSource->_execute('CalculateMedian...', Array)
+#2 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Model/Datasource/DboSource.php(670): DboSource->execute('CalculateMedian...', Array, Array)
+#3 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Model/Datasource/DboSource.php(612): DboSource->fetchAll('CalculateMedian...', Array, Array)
+#4 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Model/Model.php(784): DboSource->query('CalculateMedian...', Array, Object(Calculation))
+#5 /opt/lampp/htdocs/doc/real-estate-dashboard/app/Controller/DashboardImportsController.php(43): Model->__call('CalculateMedian...', Array)
+#6 /opt/lampp/htdocs/doc/real-estate-dashboard/app/Controller/DashboardImportsController.php(43): Calculation->CalculateMedianSoldLast12months()
+#7 [internal function]: DashboardImportsController->index()
+#8 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Controller/Controller.php(485): ReflectionMethod->invokeArgs(Object(DashboardImportsController), Array)
+#9 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Routing/Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#10 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Routing/Dispatcher.php(161): Dispatcher->_invoke(Object(DashboardImportsController), Object(CakeRequest), Object(CakeResponse))
+#11 /opt/lampp/htdocs/doc/real-estate-dashboard/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2012-07-13 12:29:37 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'CalculateMedianSoldLast12months' at line 1
+#0 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Model/Datasource/DboSource.php(460): PDOStatement->execute(Array)
+#1 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Model/Datasource/DboSource.php(426): DboSource->_execute('CalculateMedian...', Array)
+#2 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Model/Datasource/DboSource.php(670): DboSource->execute('CalculateMedian...', Array, Array)
+#3 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Model/Datasource/DboSource.php(612): DboSource->fetchAll('CalculateMedian...', Array, Array)
+#4 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Model/Model.php(784): DboSource->query('CalculateMedian...', Array, Object(Calculation))
+#5 /opt/lampp/htdocs/doc/real-estate-dashboard/app/Controller/DashboardImportsController.php(43): Model->__call('CalculateMedian...', Array)
+#6 /opt/lampp/htdocs/doc/real-estate-dashboard/app/Controller/DashboardImportsController.php(43): Calculation->CalculateMedianSoldLast12months()
+#7 [internal function]: DashboardImportsController->index()
+#8 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Controller/Controller.php(485): ReflectionMethod->invokeArgs(Object(DashboardImportsController), Array)
+#9 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Routing/Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#10 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Routing/Dispatcher.php(161): Dispatcher->_invoke(Object(DashboardImportsController), Object(CakeRequest), Object(CakeResponse))
+#11 /opt/lampp/htdocs/doc/real-estate-dashboard/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2012-07-13 12:29:37 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'CalculateMedianSoldLast12months' at line 1
+#0 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Model/Datasource/DboSource.php(460): PDOStatement->execute(Array)
+#1 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Model/Datasource/DboSource.php(426): DboSource->_execute('CalculateMedian...', Array)
+#2 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Model/Datasource/DboSource.php(670): DboSource->execute('CalculateMedian...', Array, Array)
+#3 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Model/Datasource/DboSource.php(612): DboSource->fetchAll('CalculateMedian...', Array, Array)
+#4 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Model/Model.php(784): DboSource->query('CalculateMedian...', Array, Object(Calculation))
+#5 /opt/lampp/htdocs/doc/real-estate-dashboard/app/Controller/DashboardImportsController.php(43): Model->__call('CalculateMedian...', Array)
+#6 /opt/lampp/htdocs/doc/real-estate-dashboard/app/Controller/DashboardImportsController.php(43): Calculation->CalculateMedianSoldLast12months()
+#7 [internal function]: DashboardImportsController->index()
+#8 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Controller/Controller.php(485): ReflectionMethod->invokeArgs(Object(DashboardImportsController), Array)
+#9 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Routing/Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#10 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Routing/Dispatcher.php(161): Dispatcher->_invoke(Object(DashboardImportsController), Object(CakeRequest), Object(CakeResponse))
+#11 /opt/lampp/htdocs/doc/real-estate-dashboard/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2012-07-13 12:38:25 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'zipcode' in 'where clause'
+#0 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Model/Datasource/DboSource.php(460): PDOStatement->execute(Array)
+#1 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Model/Datasource/DboSource.php(426): DboSource->_execute('select * from t...', Array)
+#2 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Model/Datasource/DboSource.php(670): DboSource->execute('select * from t...', Array, Array)
+#3 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Model/Datasource/DboSource.php(539): DboSource->fetchAll('select * from t...')
+#4 [internal function]: DboSource->query('select * from t...')
+#5 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Model/Model.php(2997): call_user_func_array(Array, Array)
+#6 /opt/lampp/htdocs/doc/real-estate-dashboard/app/Model/Calculation.php(37): Model->query('select * from t...')
+#7 /opt/lampp/htdocs/doc/real-estate-dashboard/app/Controller/DashboardImportsController.php(43): Calculation->CalculateMedian12months()
+#8 [internal function]: DashboardImportsController->index()
+#9 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Controller/Controller.php(485): ReflectionMethod->invokeArgs(Object(DashboardImportsController), Array)
+#10 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Routing/Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#11 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Routing/Dispatcher.php(161): Dispatcher->_invoke(Object(DashboardImportsController), Object(CakeRequest), Object(CakeResponse))
+#12 /opt/lampp/htdocs/doc/real-estate-dashboard/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2012-07-13 12:47:27 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'month_year between '2011-07-13' and '2012-07-13'' at line 1
+#0 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Model/Datasource/DboSource.php(460): PDOStatement->execute(Array)
+#1 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Model/Datasource/DboSource.php(426): DboSource->_execute('select * from t...', Array)
+#2 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Model/Datasource/DboSource.php(670): DboSource->execute('select * from t...', Array, Array)
+#3 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Model/Datasource/DboSource.php(539): DboSource->fetchAll('select * from t...')
+#4 [internal function]: DboSource->query('select * from t...')
+#5 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Model/Model.php(2997): call_user_func_array(Array, Array)
+#6 /opt/lampp/htdocs/doc/real-estate-dashboard/app/Model/Calculation.php(43): Model->query('select * from t...')
+#7 /opt/lampp/htdocs/doc/real-estate-dashboard/app/Controller/DashboardImportsController.php(43): Calculation->CalculateMedian12months()
+#8 [internal function]: DashboardImportsController->index()
+#9 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Controller/Controller.php(485): ReflectionMethod->invokeArgs(Object(DashboardImportsController), Array)
+#10 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Routing/Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#11 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Routing/Dispatcher.php(161): Dispatcher->_invoke(Object(DashboardImportsController), Object(CakeRequest), Object(CakeResponse))
+#12 /opt/lampp/htdocs/doc/real-estate-dashboard/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2012-07-13 12:47:59 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'month_year between '2011-07-13' and '2012-07-13'' at line 1
+#0 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Model/Datasource/DboSource.php(460): PDOStatement->execute(Array)
+#1 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Model/Datasource/DboSource.php(426): DboSource->_execute('select * from t...', Array)
+#2 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Model/Datasource/DboSource.php(670): DboSource->execute('select * from t...', Array, Array)
+#3 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Model/Datasource/DboSource.php(539): DboSource->fetchAll('select * from t...')
+#4 [internal function]: DboSource->query('select * from t...')
+#5 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Model/Model.php(2997): call_user_func_array(Array, Array)
+#6 /opt/lampp/htdocs/doc/real-estate-dashboard/app/Model/Calculation.php(43): Model->query('select * from t...')
+#7 /opt/lampp/htdocs/doc/real-estate-dashboard/app/Controller/DashboardImportsController.php(43): Calculation->CalculateMedian12months()
+#8 [internal function]: DashboardImportsController->index()
+#9 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Controller/Controller.php(485): ReflectionMethod->invokeArgs(Object(DashboardImportsController), Array)
+#10 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Routing/Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#11 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Routing/Dispatcher.php(161): Dispatcher->_invoke(Object(DashboardImportsController), Object(CakeRequest), Object(CakeResponse))
+#12 /opt/lampp/htdocs/doc/real-estate-dashboard/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2012-07-13 12:48:25 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'month_year between '2011-07-13' and '2012-07-13'' at line 1
+#0 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Model/Datasource/DboSource.php(460): PDOStatement->execute(Array)
+#1 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Model/Datasource/DboSource.php(426): DboSource->_execute('select * from t...', Array)
+#2 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Model/Datasource/DboSource.php(670): DboSource->execute('select * from t...', Array, Array)
+#3 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Model/Datasource/DboSource.php(539): DboSource->fetchAll('select * from t...')
+#4 [internal function]: DboSource->query('select * from t...')
+#5 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Model/Model.php(2997): call_user_func_array(Array, Array)
+#6 /opt/lampp/htdocs/doc/real-estate-dashboard/app/Model/Calculation.php(45): Model->query('select * from t...')
+#7 /opt/lampp/htdocs/doc/real-estate-dashboard/app/Controller/DashboardImportsController.php(43): Calculation->CalculateMedian12months()
+#8 [internal function]: DashboardImportsController->index()
+#9 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Controller/Controller.php(485): ReflectionMethod->invokeArgs(Object(DashboardImportsController), Array)
+#10 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Routing/Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#11 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Routing/Dispatcher.php(161): Dispatcher->_invoke(Object(DashboardImportsController), Object(CakeRequest), Object(CakeResponse))
+#12 /opt/lampp/htdocs/doc/real-estate-dashboard/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2012-07-13 12:49:41 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'zipcode' in 'field list'
+#0 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Model/Datasource/DboSource.php(460): PDOStatement->execute(Array)
+#1 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Model/Datasource/DboSource.php(426): DboSource->_execute('select sum(for_...', Array)
+#2 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Model/Datasource/DboSource.php(670): DboSource->execute('select sum(for_...', Array, Array)
+#3 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Model/Datasource/DboSource.php(539): DboSource->fetchAll('select sum(for_...')
+#4 [internal function]: DboSource->query('select sum(for_...')
+#5 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Model/Model.php(2997): call_user_func_array(Array, Array)
+#6 /opt/lampp/htdocs/doc/real-estate-dashboard/app/Model/Calculation.php(45): Model->query('select sum(for_...')
+#7 /opt/lampp/htdocs/doc/real-estate-dashboard/app/Controller/DashboardImportsController.php(43): Calculation->CalculateMedian12months()
+#8 [internal function]: DashboardImportsController->index()
+#9 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Controller/Controller.php(485): ReflectionMethod->invokeArgs(Object(DashboardImportsController), Array)
+#10 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Routing/Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#11 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Routing/Dispatcher.php(161): Dispatcher->_invoke(Object(DashboardImportsController), Object(CakeRequest), Object(CakeResponse))
+#12 /opt/lampp/htdocs/doc/real-estate-dashboard/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2012-07-13 12:55:33 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'TotalMedianAmount' in 'field list'
+#0 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Model/Datasource/DboSource.php(460): PDOStatement->execute(Array)
+#1 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Model/Datasource/DboSource.php(426): DboSource->_execute('select sum(for_...', Array)
+#2 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Model/Datasource/DboSource.php(670): DboSource->execute('select sum(for_...', Array, Array)
+#3 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Model/Datasource/DboSource.php(539): DboSource->fetchAll('select sum(for_...')
+#4 [internal function]: DboSource->query('select sum(for_...')
+#5 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Model/Model.php(2997): call_user_func_array(Array, Array)
+#6 /opt/lampp/htdocs/doc/real-estate-dashboard/app/Model/Calculation.php(47): Model->query('select sum(for_...')
+#7 /opt/lampp/htdocs/doc/real-estate-dashboard/app/Controller/DashboardImportsController.php(43): Calculation->CalculateMedian12months()
+#8 [internal function]: DashboardImportsController->index()
+#9 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Controller/Controller.php(485): ReflectionMethod->invokeArgs(Object(DashboardImportsController), Array)
+#10 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Routing/Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#11 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Routing/Dispatcher.php(161): Dispatcher->_invoke(Object(DashboardImportsController), Object(CakeRequest), Object(CakeResponse))
+#12 /opt/lampp/htdocs/doc/real-estate-dashboard/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2012-07-13 12:55:54 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'TotalMedianAmount' in 'field list'
+#0 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Model/Datasource/DboSource.php(460): PDOStatement->execute(Array)
+#1 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Model/Datasource/DboSource.php(426): DboSource->_execute('select sum(for_...', Array)
+#2 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Model/Datasource/DboSource.php(670): DboSource->execute('select sum(for_...', Array, Array)
+#3 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Model/Datasource/DboSource.php(539): DboSource->fetchAll('select sum(for_...')
+#4 [internal function]: DboSource->query('select sum(for_...')
+#5 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Model/Model.php(2997): call_user_func_array(Array, Array)
+#6 /opt/lampp/htdocs/doc/real-estate-dashboard/app/Model/Calculation.php(47): Model->query('select sum(for_...')
+#7 /opt/lampp/htdocs/doc/real-estate-dashboard/app/Controller/DashboardImportsController.php(43): Calculation->CalculateMedian12months()
+#8 [internal function]: DashboardImportsController->index()
+#9 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Controller/Controller.php(485): ReflectionMethod->invokeArgs(Object(DashboardImportsController), Array)
+#10 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Routing/Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#11 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Routing/Dispatcher.php(161): Dispatcher->_invoke(Object(DashboardImportsController), Object(CakeRequest), Object(CakeResponse))
+#12 /opt/lampp/htdocs/doc/real-estate-dashboard/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2012-07-13 12:56:03 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'TotalMedianAmount' in 'field list'
+#0 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Model/Datasource/DboSource.php(460): PDOStatement->execute(Array)
+#1 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Model/Datasource/DboSource.php(426): DboSource->_execute('select sum(for_...', Array)
+#2 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Model/Datasource/DboSource.php(670): DboSource->execute('select sum(for_...', Array, Array)
+#3 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Model/Datasource/DboSource.php(539): DboSource->fetchAll('select sum(for_...')
+#4 [internal function]: DboSource->query('select sum(for_...')
+#5 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Model/Model.php(2997): call_user_func_array(Array, Array)
+#6 /opt/lampp/htdocs/doc/real-estate-dashboard/app/Model/Calculation.php(47): Model->query('select sum(for_...')
+#7 /opt/lampp/htdocs/doc/real-estate-dashboard/app/Controller/DashboardImportsController.php(43): Calculation->CalculateMedian12months()
+#8 [internal function]: DashboardImportsController->index()
+#9 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Controller/Controller.php(485): ReflectionMethod->invokeArgs(Object(DashboardImportsController), Array)
+#10 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Routing/Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#11 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Routing/Dispatcher.php(161): Dispatcher->_invoke(Object(DashboardImportsController), Object(CakeRequest), Object(CakeResponse))
+#12 /opt/lampp/htdocs/doc/real-estate-dashboard/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2012-07-13 13:07:28 Error: Fatal Error (1): Call to a member function bind_country() on a non-object in [/opt/lampp/htdocs/doc/real-estate-dashboard/app/Controller/DashboardImportsController.php, line 41]
+2012-07-13 13:07:28 Error: [FatalErrorException] Call to a member function bind_country() on a non-object
+#0 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Error/ErrorHandler.php(162): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/opt/lampp/htdo...', 41)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/opt/lampp/htdo...', 41, Array)
+#2 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Core/App.php(926): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/opt/lampp/htdo...', 41, Array)
+#3 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Core/App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2012-07-13 13:08:31 Error: Fatal Error (1): Class 'AppModel' not found in [/opt/lampp/htdocs/doc/real-estate-dashboard/app/Controller/DashboardImportsController.php, line 41]
+2012-07-13 13:08:31 Error: [FatalErrorException] Class 'AppModel' not found
+#0 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Error/ErrorHandler.php(162): ErrorHandler::handleFatalError(1, 'Class 'AppModel...', '/opt/lampp/htdo...', 41)
+#1 [internal function]: ErrorHandler::handleError(1, 'Class 'AppModel...', '/opt/lampp/htdo...', 41, Array)
+#2 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Core/App.php(926): call_user_func('ErrorHandler::h...', 1, 'Class 'AppModel...', '/opt/lampp/htdo...', 41, Array)
+#3 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Core/App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2012-07-13 13:08:48 Error: Fatal Error (1): Class 'AppModel' not found in [/opt/lampp/htdocs/doc/real-estate-dashboard/app/Controller/DashboardImportsController.php, line 41]
+2012-07-13 13:08:48 Error: [FatalErrorException] Class 'AppModel' not found
+#0 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Error/ErrorHandler.php(162): ErrorHandler::handleFatalError(1, 'Class 'AppModel...', '/opt/lampp/htdo...', 41)
+#1 [internal function]: ErrorHandler::handleError(1, 'Class 'AppModel...', '/opt/lampp/htdo...', 41, Array)
+#2 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Core/App.php(926): call_user_func('ErrorHandler::h...', 1, 'Class 'AppModel...', '/opt/lampp/htdo...', 41, Array)
+#3 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Core/App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2012-07-13 13:08:56 Error: Fatal Error (1): Class 'AppModel' not found in [/opt/lampp/htdocs/doc/real-estate-dashboard/app/Controller/DashboardImportsController.php, line 41]
+2012-07-13 13:08:56 Error: [FatalErrorException] Class 'AppModel' not found
+#0 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Error/ErrorHandler.php(162): ErrorHandler::handleFatalError(1, 'Class 'AppModel...', '/opt/lampp/htdo...', 41)
+#1 [internal function]: ErrorHandler::handleError(1, 'Class 'AppModel...', '/opt/lampp/htdo...', 41, Array)
+#2 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Core/App.php(926): call_user_func('ErrorHandler::h...', 1, 'Class 'AppModel...', '/opt/lampp/htdo...', 41, Array)
+#3 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Core/App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2012-07-13 13:11:06 Error: Fatal Error (1): Class 'AppModel' not found in [/opt/lampp/htdocs/doc/real-estate-dashboard/app/Controller/DashboardImportsController.php, line 41]
+2012-07-13 13:11:06 Error: [FatalErrorException] Class 'AppModel' not found
+#0 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Error/ErrorHandler.php(162): ErrorHandler::handleFatalError(1, 'Class 'AppModel...', '/opt/lampp/htdo...', 41)
+#1 [internal function]: ErrorHandler::handleError(1, 'Class 'AppModel...', '/opt/lampp/htdo...', 41, Array)
+#2 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Core/App.php(926): call_user_func('ErrorHandler::h...', 1, 'Class 'AppModel...', '/opt/lampp/htdo...', 41, Array)
+#3 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Core/App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2012-07-13 13:13:35 Error: Fatal Error (1): Call to undefined method DashboardImportsController::AppModel() in [/opt/lampp/htdocs/doc/real-estate-dashboard/app/Controller/DashboardImportsController.php, line 43]
+2012-07-13 13:13:35 Error: [FatalErrorException] Call to undefined method DashboardImportsController::AppModel()
+#0 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Error/ErrorHandler.php(162): ErrorHandler::handleFatalError(1, 'Call to undefin...', '/opt/lampp/htdo...', 43)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', '/opt/lampp/htdo...', 43, Array)
+#2 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Core/App.php(926): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', '/opt/lampp/htdo...', 43, Array)
+#3 /opt/lampp/htdocs/doc/real-estate-dashboard/lib/Cake/Core/App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}

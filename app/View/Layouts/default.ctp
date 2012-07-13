@@ -30,8 +30,12 @@ $cakeDescription = __d('cake_dev', 'Dashboard');
 		echo $this->Html->meta('icon');
 		//echo $this->Html->css('cake.generic');
 		echo $this->Html->css('style');
+		echo $this->Html->css('jquery.autocomplete');
+		
 		echo $this->Html->script('jquery.min');
 		echo $this->Html->script('jquery.filestyle');
+		echo $this->Html->script('jquery.autocomplete');
+		
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('script');

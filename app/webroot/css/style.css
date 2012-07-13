@@ -6,6 +6,10 @@ body {
 .file{
 	border:1px solid #ccc;
 	padding: 2px;
+	    color: #535353;
+    font-family: arial;
+    font-size: 12px;
+	height:18px;
 }
 
 #container{
@@ -24,6 +28,33 @@ body {
 	color:#535353;
 	font-size: 16px;
     font-weight: bold;
+}
+
+.inputTxt{
+	border: 1px solid #CCCCCC;
+    color: #535353;
+    font-family: arial;
+    font-size: 12px;
+    padding: 2px;
+    width: 250px;
+	height:18px;
+}
+
+.formdivider{
+	padding: 10px 10px 10px 0;
+}
+
+.labelTxt{
+	color: #BBBBBB;
+    float: left;
+    font-size: 14px;
+    width: 100px;
+}
+
+.submit{
+	float:left;
+	margin-left: 269px;
+    margin-top: 10px;
 }
 
 #location-state-div{
