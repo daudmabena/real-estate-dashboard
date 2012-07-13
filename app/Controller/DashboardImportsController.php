@@ -19,7 +19,7 @@ class DashboardImportsController extends AppController {
     * @access public
     * @var string
     */
-   var $uses = array('AppModel','Dashboard');
+   var $uses = array('AppModel','Dashboard','Calculation');
    
    // {{{ method
    /**
@@ -40,6 +40,36 @@ class DashboardImportsController extends AppController {
      
      $this->set('countries', $this->AppModel->bind_country());
      
+     //Current Year Date
+     $CurrentYear = date('Y-m-d');
+     
+     // $date = date('Y-m-d',strtotime('2010-01-01 -1 year'));
+     $lastyear = strtotime("-1 year", strtotime($CurrentYear));
+     
+     // format and display the computed date
+     $LastYear = date("Y-m-d", $lastyear);
+     
+     // ZipCode of city
+     $Zipcode = '78253';
+     
+     $Previouslastyear = strtotime("-1 year", strtotime($LastYear));
+     
+     $PreviousLastYear = date("Y-m-d", $Previouslastyear);
+     
+     $LastYears = array($LastYear, $PreviousLastYear);
+     
+     $CountYears = count($LastYears);
+     
+     while($CountYears != 0){
+          if($CountYears == 2){
+               $this->Calculation->setData($LastYears[0], $CurrentYear, $Zipcode);
+          }
+          else{
+               $this->Calculation->setData($LastYears[1], $LastYears[0], $Zipcode);
+          }
+          echo $this->Calculation->CalculateMedian12months()."</br>";
+          $CountYears--;
+     }
    }
    
    
