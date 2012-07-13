@@ -12,6 +12,14 @@ class DashboardImportsController extends AppController {
     * @var string
     */
    var $name = 'DashboardImports';
+   // {{{ Properties
+   /**
+    * Controller access uses
+    *
+    * @access public
+    * @var string
+    */
+   var $uses = array('AppModel','Dashboard');
    
    // {{{ method
    /**
@@ -21,6 +29,19 @@ class DashboardImportsController extends AppController {
    public function dashboardImport(){
         $this->render('dashboardImport');
    }
+   
+   
+   // {{{ method
+   /**
+    * Controller method Index()
+    *
+    */
+   public function index(){
+     
+     $this->set('countries', $this->AppModel->bind_country());
+     
+   }
+   
    
    // {{{ method
    /**
@@ -41,7 +62,6 @@ class DashboardImportsController extends AppController {
      
      $data = new Spreadsheet_Excel_Reader();
      $data->read($sourcePath);
-     Controller::loadModel('Dashboard');
      
      for ($i = 2; $i <= $data->sheets[0]['numRows']; $i++) {
           
