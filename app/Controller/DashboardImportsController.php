@@ -32,6 +32,10 @@ class DashboardImportsController extends AppController {
    public function dataParser(){
      
      $fileName = $_FILES['dashboardImport']['name'];
+     $city     = $_REQUEST['city'];
+     $state    = $_REQUEST['state'];
+     $zipcode  = $_REQUEST['zipcode'];
+     
      $file     = new File($fileName);
      $fileExt  = $file->ext();
      $fileName = 'data';
@@ -70,21 +74,36 @@ class DashboardImportsController extends AppController {
               }
           }
           if(isset($medianPrice2Yrs) && $medianPrice2Yrs!=''){
-               $impMedianPrice2Yrs = $this->Dashboard->importMedianPrice2Yrs('tab_median_price_2years', $medianPrice2Yrs);
+               $impMedianPrice2Yrs = $this->Dashboard->importMedianPrice2Yrs('tab_median_price_2years', $medianPrice2Yrs, $city, $state, $zipcode);
           }
           if(isset($medianNoPrice2Yrs) && $medianNoPrice2Yrs!=''){
-               $impMedianNoPrice2Yrs = $this->Dashboard->importMedianNoPrice2Yrs('tab_median_noprice_2years', $medianNoPrice2Yrs);
+               $impMedianNoPrice2Yrs = $this->Dashboard->importMedianNoPrice2Yrs('tab_median_noprice_2years', $medianNoPrice2Yrs, $city, $state, $zipcode);
           }
           if(isset($median1Price2Yrs) && $median1Price2Yrs!=''){
-               $impMedian1Price2Yrs = $this->Dashboard->importMedian1Price2Yrs('tab_median_1price_2years', $median1Price2Yrs);
+               $impMedian1Price2Yrs = $this->Dashboard->importMedian1Price2Yrs('tab_median_1price_2years', $median1Price2Yrs, $city, $state, $zipcode);
           }
           if(isset($medianForSalePriceSqft) && $medianForSalePriceSqft!=''){
-               $impMedianForSalePriceSqft = $this->Dashboard->importMedianForSalePriceSqft('tab_media_forsale_sqft', $medianForSalePriceSqft);
+               $impMedianForSalePriceSqft = $this->Dashboard->importMedianForSalePriceSqft('tab_media_forsale_sqft', $medianForSalePriceSqft, $city, $state, $zipcode);
           }
           
      }
      echo "Data Inserted";
      exit;
    }
+   
+   
+   public function getState(){
+     Controller::loadModel('Dashboard');
+     $q = strtoupper($_REQUEST["q"]);
+     if (!$q) return;
+     
+     $stateCode = $this->Dashboard->getStateCode($q);
+     
+     for($i=0;$i<count($stateCode);$i++){
+          echo $stateCode[$i]."\n";
+     }
+     exit;
+   }
 }
 ?>
+

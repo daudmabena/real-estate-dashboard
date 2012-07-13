@@ -16,8 +16,7 @@ class Dashboard extends AppModel {
      * @var string
      */
     var $useTable = false;
-    
-	
+    	
     // {{{ importMedianPrice2Yrs()
     /**
      * Used for importmedianprice for 2 years
@@ -27,7 +26,7 @@ class Dashboard extends AppModel {
      *
      * @return boolean
      */
-    function importMedianPrice2Yrs($tableName, $medianPrice2Yrs){
+    function importMedianPrice2Yrs($tableName, $medianPrice2Yrs, $city, $state, $zipcode){
 		
         $forSaleMedian = substr( $medianPrice2Yrs[1], 1 );
         $forSaleMedian = str_replace(',', '', $forSaleMedian);
@@ -36,9 +35,9 @@ class Dashboard extends AppModel {
         $soldMedian = str_replace(',', '', $soldMedian);
 		
         $query = "INSERT INTO $tableName (
-                    zip_code, for_sale_median, for_sale, sold_median, sold, average_dom, month_year)
-                    VALUES('78253', '$forSaleMedian', '$medianPrice2Yrs[2]', 
-                    '$soldMedian', '$medianPrice2Yrs[4]', '$medianPrice2Yrs[5]', '$medianPrice2Yrs[0]')";
+                    zip_code, for_sale_median, for_sale, sold_median, sold, average_dom, month_year, city, state)
+                    VALUES('$zipcode', '$forSaleMedian', '$medianPrice2Yrs[2]', 
+                    '$soldMedian', '$medianPrice2Yrs[4]', '$medianPrice2Yrs[5]', '$medianPrice2Yrs[0]', '$city', '$state')";
 					  
         $rs = $this->query($query);
 		
@@ -58,13 +57,13 @@ class Dashboard extends AppModel {
      *
      * @return boolean
      */
-    function importMedianNoPrice2Yrs($tableName, $medianNoPrice2Yrs){
+    function importMedianNoPrice2Yrs($tableName, $medianNoPrice2Yrs, $city, $state, $zipcode){
 		
         $soldMedian = str_replace('%', '', $medianNoPrice2Yrs[2]);
         $query = "INSERT INTO $tableName (
-                    month_year, zip_code, sold, avg_sp_op, avg_dom)
-                    VALUES('$medianNoPrice2Yrs[0]', '78253', '$medianNoPrice2Yrs[1]', 
-                    '$soldMedian', '$medianNoPrice2Yrs[3]')";
+                    month_year, zip_code, sold, avg_sp_op, avg_dom, city, state)
+                    VALUES('$medianNoPrice2Yrs[0]', '$zipcode', '$medianNoPrice2Yrs[1]', 
+                    '$soldMedian', '$medianNoPrice2Yrs[3]', '$city', '$state')";
 					  
         $rs = $this->query($query);
 		
@@ -84,13 +83,13 @@ class Dashboard extends AppModel {
      *
      * @return boolean
      */
-    function importMedian1Price2Yrs($tableName, $median1Price2Yrs){
+    function importMedian1Price2Yrs($tableName, $median1Price2Yrs, $city, $state, $zipcode){
 		
         $soldMedian = str_replace('%', '', $median1Price2Yrs[2]);
         $query = "INSERT INTO $tableName (
-                    month_year, zip_code, sold, avg_sp_op, avg_dom)
-                    VALUES('$median1Price2Yrs[0]', '78253', '$median1Price2Yrs[1]', 
-                    '$soldMedian', '$median1Price2Yrs[3]')";
+                    month_year, zip_code, sold, avg_sp_op, avg_dom, city, state)
+                    VALUES('$median1Price2Yrs[0]', '$zipcode', '$median1Price2Yrs[1]', 
+                    '$soldMedian', '$median1Price2Yrs[3]', '$city', '$state')";
 
         $rs = $this->query($query);
 
@@ -110,15 +109,15 @@ class Dashboard extends AppModel {
      *
      * @return boolean
      */
-    function importMedianForSalePriceSqft($tableName, $medianForSalePriceSqft){
+    function importMedianForSalePriceSqft($tableName, $medianForSalePriceSqft, $city, $state, $zipcode){
 
         $fsAvg = substr( $medianForSalePriceSqft[2], 1 );
         $fsAvg = str_replace(',', '', $fsAvg);
 
         $query = "INSERT INTO $tableName (
-                                    month_year, for_sale, for_sale_avg, for_sale_avg_sqft, for_sale_sqft, zip_code)
-                                    VALUES('$medianForSalePriceSqft[0]', '$medianForSalePriceSqft[1]', 
-                                    '$fsAvg', '$medianForSalePriceSqft[3]', '$medianForSalePriceSqft[4]', '78253')";
+					month_year, for_sale, for_sale_avg, for_sale_avg_sqft, for_sale_sqft, zip_code, city, state)
+					VALUES('$medianForSalePriceSqft[0]', '$medianForSalePriceSqft[1]', 
+					'$fsAvg', '$medianForSalePriceSqft[3]', '$medianForSalePriceSqft[4]', '$zipcode', '$city', '$state')";
 
         $rs = $this->query($query);
 
@@ -128,6 +127,24 @@ class Dashboard extends AppModel {
         }
         return true;
     }
+	
+	
+	function getStateCode($stateTxt){
+		
+		$query = "SELECT DISTINCT state from tab_zip_codes where state LIKE '%$stateTxt%'";
+        $rs = $this->query($query);
+		
+		if(!$rs){
+            $this->log("getStateCode::getStateCode(). No data found");
+            return false;
+        }
+		
+		foreach ($rs as $r){
+			$stateCode[] = $r['tab_zip_codes']['state'];
+		}
+		
+		return $stateCode;
+	}
 
 }
 ?>

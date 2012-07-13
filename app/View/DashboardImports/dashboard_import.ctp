@@ -4,7 +4,7 @@
           image: "<?php echo $this->webroot;?>img/choose_file_btn.png",
           imageheight : 24,
           imagewidth : 80,
-          width : 215
+          width : 170
       });            
   });
   
@@ -40,15 +40,45 @@
   }
 </script>
 
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#state").autocomplete("getState", {
+		width: 260,
+		matchContains: true,
+		//mustMatch: true,
+		//minChars: 0,
+		//multiple: true,
+		//highlight: false,
+		//multipleSeparator: ",",
+		selectFirst: false
+	});
+});
+</script>
+
 <div class='header_txt'>Dashboard Import</div><br>
 <?php
 	echo $this->Form->create('DashboardImports', array('controller' => 'DashboardImports', 'action' => 'dataParser', 'type' => 'file', 'class' =>'choose_file'));
-	echo "<div class='uploadfile'>";
+	echo "<div class='formdivider'>";
+	echo "<label class='labelTxt'>State</label>";
+	echo "<input type='text' class='inputTxt' name='state' id='state'></input>";	
+	echo "</div>";
+	echo "<div class='formdivider'>";
+	echo "<label class='labelTxt'>City</label>";
+	echo "<input type='text' class='inputTxt' name='city' id='city'></input>";	
+	echo "</div>";
+	echo "<div class='formdivider'>";
+	echo "<label class='labelTxt'>Zipcode</label>";
+	echo "<input type='text' class='inputTxt' name='zipcode' id='zipcode'></input>";	
+	echo "</div>";
+	echo "<div class='uploadfile formdivider'>";
+	echo "<label class='labelTxt'>Select File</label>";
 	echo $this->Form->file('File', array('name'=>'dashboardImport', 'id'=>'file_path','class'=>'choose_file', 'onchange'=>'getSelectedFile()'));
 	echo "<span class='errMsgChoose' style='display:none;color:red;font-size:14px;margin-left:100px;'>Please upload the data for processing...</span>";
 	echo "</div>";
-	echo "<div class='selectfilename'></div><br>";
+	//echo "<div class='selectfilename'></div><br>";
+	echo "<br>";
 	echo $this->Form->submit('importnow_btn.png', array('onclick' => 'return CheckIfFileSelected()'));
+	echo "<br><br>";
 ?>
 <!--
 <div id="importAnimation" style='display:none;'>
