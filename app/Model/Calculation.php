@@ -20,7 +20,10 @@ class Calculation extends AppModel{
     
     private $__fromDate;
     private $__toDate;
-    private $__zipCode;
+    private $__fieldValue;
+    private $__tableName;
+    private $__fieldName;
+    private $__selectFiledName;
     
     // {{{ setData()
     /**
@@ -31,11 +34,17 @@ class Calculation extends AppModel{
      *
      * @return no return type
      */
-    public function setData($FromDate, $ToDate, $ZipCode) {
+    public function setData($parameters) {
         
-        $this->__fromDate = $FromDate;
-        $this->__toDate = $ToDate;
-        $this->__zipCode = $ZipCode;
+        //This Function will Split the index name as variable name with values.        
+        extract($parameters, EXTR_PREFIX_SAME, 'dup');
+        
+        $this->__fromDate = $fromDate;
+        $this->__toDate = $toDate;
+        $this->__fieldValue = $fieldValue;
+        $this->__fieldName = $fieldName;
+        $this->__tableName = $tableName;
+        $this->__selectFiledName = $selectFieldName;
         
     }
     // {{{ CalculateMedian12months()
@@ -48,9 +57,11 @@ class Calculation extends AppModel{
      */
     function CalculateMedian12months(){
         
-        $MedianPrice2Yearsquery = "select sum(for_sale_median) as TotalMedianAmount,zip_code,count(*) as TotalRecord
-                                    from tab_median_price_2years where zip_code='".$this->__zipCode."' and month_year
+        $MedianPrice2Yearsquery = "select sum(".$this->__selectFiledName.") as TotalMedianAmount,".$this->__fieldName.",count(*) as TotalRecord
+                                    from ".$this->__tableName." where ".$this->__fieldName."='".$this->__fieldValue."' and month_year
                                     between '".$this->__fromDate."' and '".$this->__toDate."'";
+        
+        //echo $MedianPrice2Yearsquery;
         
         $MedianPrice2YearsResult = $this->query($MedianPrice2Yearsquery);
         
