@@ -20,7 +20,10 @@ class Calculation extends AppModel{
     
     private $__fromDate;
     private $__toDate;
-    private $__zipCode;
+    private $__fieldValue;
+    private $__tableName;
+    private $__fieldName;
+    private $__selectFiledName;
     
     // {{{ setData()
     /**
@@ -31,14 +34,20 @@ class Calculation extends AppModel{
      *
      * @return no return type
      */
-    public function setData($FromDate, $ToDate, $ZipCode) {
+    public function setData($parameters) {
         
-        $this->__fromDate = $FromDate;
-        $this->__toDate = $ToDate;
-        $this->__zipCode = $ZipCode;
+        //This Function will Split the index name as variable name with values.        
+        extract($parameters);
+        
+        $this->__fromDate = $fromDate;
+        $this->__toDate = $toDate;
+        $this->__fieldValue = $fieldValue;
+        $this->__fieldName = $fieldName;
+        $this->__tableName = $tableName;
+        $this->__selectFiledName = $selectFieldName;
         
     }
-    // {{{ CalculateMedian12months()
+    // {{{ calculateMedian12months()
     /**
      * Used for Calculate the amount for Last 12 months
      *
@@ -46,19 +55,18 @@ class Calculation extends AppModel{
      *
      * @return array value with 
      */
-    function CalculateMedian12months(){
+    function calculateMedian12months(){
         
-        $MedianPrice2Yearsquery = "select sum(for_sale_median) as TotalMedianAmount,zip_code,count(*) as TotalRecord
-                                    from tab_median_price_2years where zip_code='".$this->__zipCode."' and month_year
-                                    between '".$this->__fromDate."' and '".$this->__toDate."'";
+        $medianPrice2Yearsquery = "SELECT SUM(".$this->__selectFiledName.") AS TOTALMEDIANAMOUNT,
+                                    ".$this->__fieldName.",COUNT(*) as TOTALRECORD
+                                    FROM ".$this->__tableName." WHERE ".$this->__fieldName."='".$this->__fieldValue."'
+                                    AND MONTH_YEAR BETWEEN '".$this->__fromDate."' AND '".$this->__toDate."'";
         
-        $MedianPrice2YearsResult = $this->query($MedianPrice2Yearsquery);
+        $medianPrice2YearsResult = $this->query($medianPrice2Yearsquery);
         
-        $MedianSoldPriceLast12Months = $MedianPrice2YearsResult[0][0]['TotalMedianAmount']/$MedianPrice2YearsResult[0][0]['TotalRecord'];
+        $medianSoldPriceLast12Months = $medianPrice2YearsResult[0][0]['TOTALMEDIANAMOUNT']/$medianPrice2YearsResult[0][0]['TOTALRECORD'];
         
-        //print_r($MedianSoldPriceLast12Months);
-        
-       return $MedianSoldPriceLast12Months;
+       return $medianSoldPriceLast12Months;
     }
     
 }
