@@ -68,6 +68,7 @@ class DashboardImportsController extends AppController {
      //Array Value for Parameters of tableNAme, fieldName, zipCode, fromDate and toDate
           
      $parameters['fieldName'] = 'zip_code';
+     $parameters['selectFieldName'] = 'for_sale_median';
      $parameters['tableName'] = 'tab_median_price_2years';
      
      if($parameters['fieldName'] == "zip_code"){
