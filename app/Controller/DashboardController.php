@@ -23,9 +23,11 @@ class DashboardController extends AppController {
     * Controller method Index()
     *
     */
-   public function index(){
+   public function index($args){
      
      $parameters = array();
+     $returnValues = array();
+     extract($args);
      
      //Current Year Date
      $currentYear = date('Y-m-d');
@@ -36,9 +38,6 @@ class DashboardController extends AppController {
      // format and display the computed date
      $lastYear = date("Y-m-d", $lastyear);
      
-     // ZipCode of city
-     $zipCode = '12207';
-     $city = 'Albany';
      $lastYearTotalSum = "";
      $lastYearTotalDivider = "";
      
@@ -52,15 +51,15 @@ class DashboardController extends AppController {
      
      //Array Value for Parameters of tableNAme, fieldName, zipCode, fromDate and toDate
           
-     $parameters['fieldName'] = 'zip_code';
-     $parameters['selectFieldName'] = 'for_sale_median';
-     $parameters['tableName'] = 'tab_median_price_2years';
+     $parameters['fieldName'] = $fieldName;
+     $parameters['selectFieldName'] = $selectedFieldName;
+     $parameters['tableName'] = $tableName;
      
      if($parameters['fieldName'] == "zip_code"){
-          $parameters['fieldValue'] = $zipCode;
+          $parameters['fieldValue'] = $fieldValue;
      }
      else if($parameters['fieldName'] == "city"){
-          $parameters['fieldValue'] = $city;
+          $parameters['fieldValue'] = $fieldValue;
      }
      
      for($i=0; $i<$countYears; $i++){
@@ -77,14 +76,55 @@ class DashboardController extends AppController {
           if($i == 1){
                //Getting Divider here
                $lastYearTotalDivider = $lastYearValue;
+               $returnValues['previousLastYear'] = $lastYearTotalDivider;
           }
+          else{
+               $returnValues['lastYear'] = $lastYearValue;
+          }
+          
           //Getting Sum of total year with last Two Years
-          echo $lastYearValue."</br>";
           $lastYearTotalSum += $lastYearValue;
           //$countYears--;
      }
-     echo $lastYearTotalSum/$lastYearTotalDivider;
+     $returnValues['avg_of_lastYear_and_previousLastYear'] = $lastYearTotalSum/$lastYearTotalDivider;
+     
+     return $returnValues;
      $this->autoRender = false;
+   }
+   
+   
+   function getJsonFormat(){
+     
+     $args = array();
+     $finalInputToJson = array();
+     
+     /* This is For Sale For Median in tab_median_price_2years*/
+     
+     $args['selectedFieldName'] = 'for_sale_median';
+     $args['tableName']         = 'tab_median_price_2years';
+     $args['fieldName']         = 'zip_code';
+     $args['fieldValue']        = '12207';
+     
+     $finalInputToJson['saleMedian'] = $this->index($args);
+     
+     /* This is For Sold for Median in tab_median_price_2years*/
+     
+     $args['selectedFieldName'] = 'sold_median';
+     $args['tableName']         = 'tab_median_price_2years';
+     $args['fieldName']         = 'zip_code';
+     $args['fieldValue']        = '12207';
+     
+     $finalInputToJson['soldMedian'] = $this->index($args);
+     
+     /* This is For Sold for SQFT in tab_media_sold_sqft*/
+     
+     $args['selectedFieldName'] = 'for_sold_sqft';
+     $args['tableName']         = 'tab_media_sold_sqft';
+     $args['fieldName']         = 'zip_code';
+     $args['fieldValue']        = '23445';
+     
+     $finalInputToJson['soldSqft'] = $this->index($args);
+     
    }
    
    
