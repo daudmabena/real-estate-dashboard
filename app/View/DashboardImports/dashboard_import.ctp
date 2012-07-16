@@ -52,9 +52,44 @@ $(document).ready(function() {
 		//multipleSeparator: ",",
 		selectFirst: false
 	});
+	
+	$("#city").autocomplete("getCity", {
+		width: 260,
+		matchContains: true,
+		//mustMatch: true,
+		//minChars: 0,
+		//multiple: true,
+		//highlight: false,
+		//multipleSeparator: ",",
+		selectFirst: false
+	});
+	
+	$("#zipcode").autocomplete("getZipCode", {
+		width: 260,
+		matchContains: true,
+		//mustMatch: true,
+		//minChars: 0,
+		//multiple: true,
+		//highlight: false,
+		//multipleSeparator: ",",
+		selectFirst: false
+	});
+	
+	$("#state").result(function(event, data, formatted) {
+		$("#state").val(data[0]);
+	});
+	
+	$("#city").result(function(event, data, formatted) {
+		$("#city").val(data[0]);
+	});
+	
+	$("#zipcode").result(function(event, data, formatted) {
+		$("#zipcode").val(data[0]);
+	});
+	
 });
 </script>
-
+<div id="content-import">
 <div class='header_txt'>Dashboard Import</div><br>
 <?php
 	echo $this->Form->create('DashboardImports', array('controller' => 'DashboardImports', 'action' => 'dataParser', 'type' => 'file', 'class' =>'choose_file'));
@@ -87,4 +122,5 @@ $(document).ready(function() {
 -->
 <?php echo $this->Form->end();
 ?>
+</div>
 			  

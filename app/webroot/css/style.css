@@ -6,7 +6,7 @@ body {
 .file{
 	border:1px solid #ccc;
 	padding: 2px;
-	    color: #535353;
+	color: #535353;
     font-family: arial;
     font-size: 12px;
 	height:18px;
@@ -17,7 +17,7 @@ body {
     width: 980px;
 }
 
-#content{
+#content-import{
 	background: none repeat scroll 0 0 #FFFFFF;
     padding: 40px 65px;
 	border: 1px solid #CCCCCC;
@@ -59,4 +59,66 @@ body {
 
 #location-state-div{
     padding-top: 15px;
+}
+
+#wrapper{
+	margin: 0 auto;
+    width: 1070px;
+}
+
+.guage-div{
+	width:254px;
+	background: white url('../img/boc_bg_repeat.jpg') left center repeat;
+	height:200px;
+	float: left;
+	margin-left:15px;
+	border: 1px solid #565656;
+}
+
+.downstrategy{
+	width:210px;
+	background: white url('../img/boc_bg_repeat.jpg') left center repeat;
+	height:200px;
+	float: left;
+	margin-left:15px;
+	border: 1px solid #565656;
+}
+
+.guage_calculation{
+	width:254px;
+	background-color : #666666;
+	height:50px;
+	margin-top: 150px;
+}
+
+.guage_description{
+	width:256px;
+	background-color : #a3a3a3;
+	height:50px;
+	float: left;
+	margin-left:15px;
+	margin-top: 2px;
+}
+
+.guage_description_down{
+	width:212px;
+	background-color : #a3a3a3;
+	height:50px;
+	float: left;
+	margin-left:15px;
+	margin-top: 2px;
+}
+
+.statistics-box{
+	width:149px;
+	border: 1px solid #565656;
+	margin-left:15px;
+	height:150px;
+	float:left;
+	background: white url('../img/boc_bg_repeat.jpg') left center repeat;
+	margin-top: 20px;
+}
+
+#statistics-wrapper{
+	float:left;
 }

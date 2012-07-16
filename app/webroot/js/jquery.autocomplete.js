@@ -19,7 +19,7 @@ $.fn.extend({
 			url: isUrl ? urlOrData : null,
 			data: isUrl ? null : urlOrData,
 			delay: isUrl ? $.Autocompleter.defaults.delay : 10,
-			max: options && !options.scroll ? 10 : 150
+			max: options && !options.scroll ? 50 : 150
 		}, options);
 		
 		// if highlight is set to false, replace it with a do-nothing function
@@ -357,7 +357,8 @@ $.Autocompleter = function(input, options) {
 			$.each(options.extraParams, function(key, param) {
 				extraParams[key] = typeof param == "function" ? param() : param;
 			});
-			
+			var stateVal = $('#state').val();
+			var cityVal = $('#city').val();
 			$.ajax({
 				// try to leverage ajaxQueue plugin to abort previous requests
 				mode: "abort",
@@ -367,7 +368,9 @@ $.Autocompleter = function(input, options) {
 				url: options.url,
 				data: $.extend({
 					q: lastWord(term),
-					limit: options.max
+					limit: options.max,
+					stateVal: stateVal,
+					cityVal: cityVal
 				}, extraParams),
 				success: function(data) {
 					var parsed = options.parse && options.parse(data) || parse(data);

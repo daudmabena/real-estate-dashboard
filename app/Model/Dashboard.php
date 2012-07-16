@@ -129,24 +129,55 @@ class Dashboard extends AppModel {
     }
 
 	
+	function getStateCode($stateTxt){
+		
+		$query = "SELECT DISTINCT state from tab_zip_codes where state LIKE '%$stateTxt%'";
+		$rs = $this->query($query);
+			
+		if(!$rs){
+			$this->log("getStateCode::getStateCode(). No data found");
+			return false;
+		}
+			
+		foreach ($rs as $r){
+			$stateCode[] = $r['tab_zip_codes']['state'];
+		}
+		
+		return $stateCode;
+	}
 	
-	    function getStateCode($stateTxt){
-		    
-		    $query = "SELECT DISTINCT state from tab_zip_codes where state LIKE '%$stateTxt%'";
-	    $rs = $this->query($query);
-		    
-		    if(!$rs){
-		$this->log("getStateCode::getStateCode(). No data found");
-		return false;
-	    }
-		    
-		    foreach ($rs as $r){
-			    $stateCode[] = $r['tab_zip_codes']['state'];
-		    }
-		    
-		    return $stateCode;
-	    }
-
-
+	function getCityCode($cityTxt, $selectedStateCode){
+		
+		$query = "SELECT DISTINCT city FROM tab_zip_codes WHERE state='$selectedStateCode' AND city LIKE '%$cityTxt%'";
+		$rs = $this->query($query);
+			
+		if(!$rs){
+			$this->log("getCityCode::getCityCode(). No data found");
+			return false;
+		}
+			
+		foreach ($rs as $r){
+			$cityCode[] = $r['tab_zip_codes']['city'];
+		}
+		
+		return $cityCode;
+	}
+	
+	
+	function getZipCodes($zipTxt, $selectedCityCode){
+		$query = "SELECT DISTINCT zipcode FROM tab_zip_codes WHERE city='$selectedCityCode' AND zipcode LIKE '%$zipTxt%'";
+		$rs = $this->query($query);
+			
+		if(!$rs){
+			$this->log("getZipCode::getZipCode(). No data found");
+			return false;
+		}
+			
+		foreach ($rs as $r){
+			$zipCode[] = $r['tab_zip_codes']['zipcode'];
+		}
+		
+		return $zipCode;
+	}
 }
 ?>

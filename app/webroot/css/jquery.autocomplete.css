@@ -4,7 +4,6 @@
 	background-color: white;
 	overflow: hidden;
 	z-index: 99999;
-	top: 158px !important;
     width: 254px !important;
 }
 
@@ -30,7 +29,7 @@
 }
 
 .ac_loading {
-	background: white url('../img/indicator.gif') right center no-repeat;
+	background: white url('../img/loader.gif') right center no-repeat;
 }
 
 .ac_odd {
