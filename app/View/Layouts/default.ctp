@@ -31,11 +31,16 @@ $cakeDescription = __d('cake_dev', 'Dashboard');
 		//echo $this->Html->css('cake.generic');
 		echo $this->Html->css('style');
 		echo $this->Html->css('jquery.autocomplete');
+		echo $this->Html->css('jgauge');
 		
 		echo $this->Html->script('jquery.min');
 		echo $this->Html->script('jquery.filestyle');
 		echo $this->Html->script('jquery.autocomplete');
-		
+			
+		echo $this->Html->script('excanvas.min');
+		echo $this->Html->script('jQueryRotate.min');
+		echo $this->Html->script('jgauge-0.3.0.a3');
+
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('script');
