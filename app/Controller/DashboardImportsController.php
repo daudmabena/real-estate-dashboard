@@ -38,6 +38,8 @@ class DashboardImportsController extends AppController {
     */
    public function index(){
      
+    $parameters = array();
+     
      $this->set('countries', $this->AppModel->bind_country());
      
      //Current Year Date
@@ -50,7 +52,10 @@ class DashboardImportsController extends AppController {
      $LastYear = date("Y-m-d", $lastyear);
      
      // ZipCode of city
-     $Zipcode = '78253';
+     $zipCode = '12207';
+     $city = 'Albany';
+     $lastYearTotalSum = "";
+     $lastYearTotalDivider = "";
      
      $Previouslastyear = strtotime("-1 year", strtotime($LastYear));
      
@@ -60,16 +65,39 @@ class DashboardImportsController extends AppController {
      
      $CountYears = count($LastYears);
      
+     //Array Value for Parameters of tableNAme, fieldName, zipCode, fromDate and toDate
+          
+     $parameters['fieldName'] = 'zip_code';
+     $parameters['tableName'] = 'tab_median_price_2years';
+     
+     if($parameters['fieldName'] == "zip_code"){
+          $parameters['fieldValue'] = $zipCode;
+     }
+     else if($parameters['fieldName'] == "city"){
+          $parameters['fieldValue'] = $city;
+     }
+     
      while($CountYears != 0){
           if($CountYears == 2){
-               $this->Calculation->setData($LastYears[0], $CurrentYear, $Zipcode);
+               $parameters['fromDate'] = $LastYears[0];
+               $parameters['toDate'] = $CurrentYear;
           }
           else{
-               $this->Calculation->setData($LastYears[1], $LastYears[0], $Zipcode);
+               $parameters['fromDate'] = $LastYears[1];
+               $parameters['toDate'] = $LastYears[0];
           }
-          echo $this->Calculation->CalculateMedian12months()."</br>";
+          $this->Calculation->setData($parameters);
+          $lastYearValue = $this->Calculation->CalculateMedian12months();
+          if($CountYears == 1){
+               //Getting Divider here
+               $lastYearTotalDivider = $lastYearValue;
+          }
+          //Getting Sum of total year with last Two Years
+          echo $lastYearValue."</br>";
+          $lastYearTotalSum += $lastYearValue;
           $CountYears--;
      }
+     echo $lastYearTotalSum/$lastYearTotalDivider;
    }
    
    
