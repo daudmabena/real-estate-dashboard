@@ -78,8 +78,8 @@ class DashboardImportsController extends AppController {
           $parameters['fieldValue'] = $city;
      }
      
-     while($countYears != 0){
-          if($countYears == 2){
+     for($i=0; $i<$countYears; $i++){
+          if($i == 0){
                $parameters['fromDate'] = $lastYears[0];
                $parameters['toDate'] = $currentYear;
           }
@@ -88,15 +88,15 @@ class DashboardImportsController extends AppController {
                $parameters['toDate'] = $lastYears[0];
           }
           $this->Calculation->setData($parameters);
-          $lastYearValue = $this->Calculation->CalculateMedian12months();
-          if($countYears == 1){
+          $lastYearValue = $this->Calculation->calculateMedian12months();
+          if($i == 1){
                //Getting Divider here
                $lastYearTotalDivider = $lastYearValue;
           }
           //Getting Sum of total year with last Two Years
           echo $lastYearValue."</br>";
           $lastYearTotalSum += $lastYearValue;
-          $countYears--;
+          //$countYears--;
      }
      echo $lastYearTotalSum/$lastYearTotalDivider;
    }
