@@ -72,6 +72,28 @@ class Calculation extends AppModel{
        return $medianSoldPriceLast12Months;
     }
     
+    
+    // {{{ groupBymonthWiseWithDifferentYears()
+    /**
+     * Used for Calculate the amount for Last 12 months
+     *
+     * @access Public
+     *
+     * @return array value with 
+     */
+    public function groupBymonthWiseWithDifferentYears(){
+        
+        $medianPriceWithGroupbyMonthAndYearquery = "SELECT sum(".$this->__selectFiledName.") as MONTHLYTOTAL, month(".$this->__fieldName.") as MONTH, 
+                                    year(".$this->__fieldName.") as YEAR FROM ".$this->__tableName."
+                                    GROUP BY month(".$this->__fieldName.") , year(".$this->__fieldName.")";
+        
+        //echo $medianPrice2Yearsquery."</br></br>";
+        
+        $medianPriceWithGroupbyMonthAndYearResult = $this->query($medianPriceWithGroupbyMonthAndYearquery);
+        
+        return $medianPriceWithGroupbyMonthAndYearResult;
+    }
+    
     // {{{ getSameDateOfLastYear()
     /**
      * Used for Calculate the amount of Last 12th month
