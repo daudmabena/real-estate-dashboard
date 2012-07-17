@@ -5,6 +5,31 @@
 </script>
 <div id='wrapper'>
 	<!--Guage Section -->
+	<div class='searchPanel'>
+	  <div class='searchTxt'>Search</div>
+	  <div class='searchSep'></div>
+	  <?php
+		echo $this->Form->create('Dashboard', array('controller' => 'Dashboard', 'action' => 'dashboard'));
+		echo "<div class='sections'><div class='formdivider'>";
+		echo "<label class='labelTxtSearch'>Date</label>";
+		echo "<input type='text' class='inputTxtSearch' name='date' id='date'></input>";	
+		echo "</div>";
+		echo "<div class='formdivider'>";
+		echo "<label class='labelTxtSearch'>City</label>";
+		echo "<input type='text' class='inputTxtSearch' name='city' id='city'></input>";	
+		echo "</div></div>";
+		echo "<div class='sections'><div class='formdivider'>";
+		echo "<label class='labelTxtSearch'>Zipcode</label>";
+		echo "<input type='text' class='inputTxtSearch' name='zipcode' id='zipcode'></input>";	
+		echo "</div>";
+		echo "<div class='formdivider'>";
+		echo "<label class='labelTxtSearch'>State</label>";
+		echo "<input type='text' class='inputTxtSearch' name='state' id='state'></input>";	
+		echo "</div></div>";
+		echo $this->Form->submit('search_btn.png', array('onclick' => 'return CheckIfFileSelected()'));
+		echo "<br>";
+	?>
+	</div>
 	<div id='guage-wrapper'>
 		<div class='guage-div' style='margin-left:0px;'>
 			<div id="jGaugeDemo1" class="jgauge"></div>
