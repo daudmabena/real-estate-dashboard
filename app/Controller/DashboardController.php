@@ -65,6 +65,7 @@ class DashboardController extends AppController {
           }
           $this->Calculation->setData($parameters);
           $lastYearValue = $this->Calculation->calculateMedian12months();
+          
           if($i == 1){
                //Getting Divider here
                $lastYearTotalDivider = $lastYearValue;
@@ -77,7 +78,10 @@ class DashboardController extends AppController {
           //Getting Sum of total year with last Two Years
           $lastYearTotalSum += $lastYearValue;
           //$countYears--;
+
+          
      }
+     $returnValues['totalOfLastTwoYearsData'] = $lastYearTotalSum;
      $returnValues['avg_of_lastYear_and_previousLastYear'] = $lastYearTotalSum/$lastYearTotalDivider;
      
      return $returnValues;
@@ -118,9 +122,9 @@ class DashboardController extends AppController {
      //Calling the getDatePreviousYearandLastPreviousYear() for GetLast two years from Current date...
      $lastTwoYearsDates = $this->getDatePreviousYearandLastPreviousYear($currentYear);
      
-     $parameters['fieldName'] = $fieldName;
-     $parameters['selectFieldName'] = $selectedFieldName;
-     $parameters['tableName'] = $tableName;
+     $parameters['fieldName']           = $fieldName;
+     $parameters['selectFieldName']     = $selectedFieldName;
+     $parameters['tableName']           = $tableName;
      
      $getMonthOfLastYear = date_parse_from_format('Y-m-d',$lastTwoYearsDates[0]);
      
@@ -134,6 +138,7 @@ class DashboardController extends AppController {
      
      $finalResult['currentYear'] = $lastYearValue[0][0]['CURRENTYEAR'];
      $finalResult['lastYear']    = $lastYearValue[0][0]['LASTYEAR'];
+     $finalResult['difference']  = $lastYearValue[0][0]['DIFFERENCE'];
      $finalResult['changes']     = $lastYearValue[0][0]['DIFFERENCE']/$lastYearValue[0][0]['CURRENTYEAR'];
      
      return $finalResult;
@@ -147,6 +152,8 @@ class DashboardController extends AppController {
      
      $args = array();
      $finalInputToJson = array();
+     
+
      
      /* This is For Sale For Median in tab_median_price_2years*/
      
@@ -175,12 +182,31 @@ class DashboardController extends AppController {
      
      $finalInputToJson['soldSqft'] = $this->index($args);
      
+     /*This is For get the Last Year amount of current month*/
      
      $args['fieldName']           = 'month_year';
      $args['selectedFieldName']   = 'sold';
      $args['tableName']           = 'tab_median_price_2years';
      
      $finalInputToJson['soldDifferenceWithLastYearAndCurrentYear'] = $this->getSameMonthDateOfLastYear($args);
+     
+     /*This is For get the Last Year Avg amount of current month*/
+     
+     $args['fieldName']           = 'month_year';
+     $args['selectedFieldName']   = 'average_dom';
+     $args['tableName']           = 'tab_median_price_2years';
+     
+     $finalInputToJson['avgDifferenceWithLastYearAndCurrentYear'] = $this->getSameMonthDateOfLastYear($args);
+     
+     
+    /* This is For Sold for Avg SQFT in tab_media_sold_sqft*/
+     
+     $args['selectedFieldName'] = 'for_sold_avg_sqft';
+     $args['tableName']         = 'tab_media_sold_sqft';
+     $args['fieldName']         = 'zip_code';
+     $args['fieldValue']        = '12207';
+     
+     $finalInputToJson['soldAvgSqft'] = $this->index($args);
      
      echo "<pre>";
      print_r($finalInputToJson);

@@ -91,7 +91,7 @@ class Calculation extends AppModel{
                                         MONTH(".$this->__fieldName.") = '".date('m')."') - SUM(".$this->__selectFiledName.")) as DIFFERENCE FROM ".$this->__tableName."
                                         WHERE YEAR(".$this->__fieldName.") = '".$this->__fieldValue['year']."'
                                         AND MONTH(".$this->__fieldName.") = '".$this->__fieldValue['month']."'";
-
+        
         $lastYearSameMonthgetResult = $this->query($lastYearSameMonthgetQuery);
         
         return $lastYearSameMonthgetResult;
