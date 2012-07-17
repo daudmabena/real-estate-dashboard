@@ -7,19 +7,39 @@
 	<!--Guage Section -->
 	<div id='guage-wrapper'>
 		<div class='guage-div' style='margin-left:0px;'>
-			<div class='guage_calculation'>
-				<div id="jGaugeDemo3" class="jgauge"></div>
+			<div id="jGaugeDemo1" class="jgauge"></div>
+			<div>
+				<div class='min-max-left'>Min - $70,208</div>
+				<div class='min-max-right'>Max - $270,208</div>
+			</div>
+			<div class='guage_calculation'>$198,208</div>
+		</div>
+		<div class='downstrategy'>
+		    <div class='downTxt'>Down</div>
+			<div class='seperator'></div>
+			<div class='upStrategy'>
+			  <span class='strategyPercentage'>-1.1%</span>
 			</div>
 		</div>
-		<div class='downstrategy'></div>
 		<div class='guage-div'>
-			<div class='guage_calculation'></div>
+		    <div id="jGaugeDemo2" class="jgauge"></div>
+			  <div>
+				  <div class='min-max-left'>Min - $70,208</div>
+				  <div class='min-max-right'>Max - $270,208</div>
+			</div>
+			<div class='guage_calculation'>$111,208</div>
 		</div>
-		<div class='downstrategy'></div>
+		<div class='downstrategy'>
+		    <div class='downTxt'>Down</div>
+			<div class='seperator'></div>
+			<div class='upStrategy'>
+			  <span class='strategyPercentage'>-1.1%</span>
+			</div>
+		</div>
 		
-		<div class='guage_description' style='margin-left:0px;'></div>
-		<div class='guage_description_down'></div>
-		<div class='guage_description'></div>
+		<div class='guage_description' style='margin-left:0px;'>Median Sold Price Last 12 month Avg (do a dial that shows this zip and SA zip $147,212)</div>
+		<div class='guage_description_down'>Previous 12 mos. $200,364</div>
+		<div class='guage_description'>Median SA Price</div>
 		<div class='guage_description_down'></div>
 	</div>
 	
@@ -34,8 +54,8 @@
 	</div>
 </div>
 <script type="text/javascript">
-  /*
-		  // DEMOGAUGE1 - A very basic 'bare-bones' example...
+  
+	  // DEMOGAUGE1 - A very basic 'bare-bones' example...
 	  var demoGauge1 = new jGauge(); // Create a new jGauge.
 	  demoGauge1.id = 'jGaugeDemo1'; // Link the new jGauge to the placeholder DIV.
 	  
@@ -43,12 +63,13 @@
 	  // DEMOGAUGE2 - Using the new binary prefixing...
 	  var demoGauge2 = new jGauge(); // Create a new jGauge.
 	  demoGauge2.id = 'jGaugeDemo2'; // Link the new jGauge to the placeholder DIV.
-	  demoGauge2.label.suffix = 'B'; // Make the value label bytes.
-	  demoGauge2.autoPrefix = autoPrefix.binary; // Use binary prefixing (i.e. 1k = 1024).
-	  demoGauge2.ticks.count = 5;
-	  demoGauge2.ticks.end = 8;
-  */
+	  //demoGauge2.label.suffix = 'B'; // Make the value label bytes.
+	  //demoGauge2.autoPrefix = autoPrefix.binary; // Use binary prefixing (i.e. 1k = 1024).
+	  //demoGauge2.ticks.count = 5;
+	  //demoGauge2.ticks.end = 8;
 	  
+	  
+	  /*
 	  // DEMOGAUGE3 - This gauge is more complex to show a completely different style and is updated with random values...
 	  var demoGauge3 = new jGauge(); // Create a new jGauge.
 	  demoGauge3.id = 'jGaugeDemo3'; // Link the new jGauge to the placeholder DIV.
@@ -72,33 +93,32 @@
 	  demoGauge3.ticks.count = 7;
 	  demoGauge3.ticks.color = 'rgba(0, 0, 0, 0)';
 	  demoGauge3.range.color = 'rgba(0, 0, 0, 0)';
-	  
+	  */
 					  
 	  // This function is called by jQuery once the page has finished loading.
 	  $(document).ready(function()
 	  {
-		  //demoGauge1.init(); // Put the jGauge on the page by initializing it.
-		  //demoGauge2.init(); // Put the jGauge on the page by initializing it.
-		  demoGauge3.init(); // Put the jGauge on the page by initializing it.
+		  demoGauge1.init(); // Put the jGauge on the page by initializing it.
+		  demoGauge2.init(); // Put the jGauge on the page by initializing it.
+		  //demoGauge3.init(); // Put the jGauge on the page by initializing it.
 		  
 		  // Configure demoGauge3 for random value updates.
-		  demoGauge3.setValue(500);
+		  demoGauge1.setValue(198208);
+		  demoGauge2.setValue(556);
 		  setInterval('randVal()', 100);
 	  });
 	  
 	  // That's all folks! We've created a jGauge and put it on the page! :-D
 	  // The following JavaScript functions are for the demonstration.
 	  // ----------------------------------------------------------------------
-	  
-	  
-	  
-	  
+
 	  // This is a test function that changes the gauge value.
 	  function setVal(value)
 	  {
 		  demoGauge1.setValue(value);
 		  demoGauge2.setValue(value);
 	  }
+	  
 	  /*
 	  // This is another test function that changes the gauge value.
 	  function bumpVal(value)
@@ -143,12 +163,12 @@
 			  
 			  if (Math.random() > 0.8) // Allow needle to randomly pause.
 			  {
-					  newValue = demoGauge3.value + (Math.random() * 100 - 50);
+					  newValue = demoGauge1.value + (Math.random() * 10000 - 5000);
 					  
-					  if (newValue >= demoGauge3.ticks.start && newValue <= demoGauge3.ticks.end)
+					  if (newValue >= demoGauge1.ticks.start && newValue <= demoGauge1.ticks.end)
 					  {
 							  // newValue is within range, so update.
-							  demoGauge3.setValue(newValue);
+							  demoGauge1.setValue(newValue);
 					  }
 			  }
 	  }

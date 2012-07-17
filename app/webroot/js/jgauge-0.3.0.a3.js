@@ -115,7 +115,7 @@ function jGauge()
         jG.id = ''; // Default: nothing. Must be unique per jGauge instance.
         jG.segmentStart = -200; // Relative to 0deg (3-o-clock position).
         jG.segmentEnd = 20; // Relative to 0deg (3-o-clock position).
-        jG.imagePath = 'img/jgauge_face_default.png'; // Background image path.
+        jG.imagePath = '../img/chart.png'; // Background image path.
         jG.width = 160; // Total width of jGauge.
         jG.height = 114; // Total height of jGauge.
         jG.showAlerts = false; // Show error alerts? Useful when debugging.
@@ -129,7 +129,7 @@ function jGauge()
         function needle()
         {
                 var ndl = this;
-                ndl.imagePath = 'img/jgauge_needle_default.png'; // Needle image path.
+                ndl.imagePath = '../img/jgauge_needle_default.png'; // Needle image path.
                 ndl.limitAction = limitAction.autoRange; // What to do when the needle hits the limit.
                 ndl.xOffset = 0; // Shift needle position horizontally from center.
                 ndl.yOffset = 24; // Shift needle position vertically from center.
@@ -160,7 +160,7 @@ function jGauge()
                 tks.count = 11; // Number of tick marks around the gauge face.
                 tks.start = 0; // Value of the first tick mark.
                 tks.end = 10; // Value of the last tick mark.
-                tks.color = 'rgba(255, 255, 255, 1)'; // Tick mark color.
+                tks.color = '#535353'; // Tick mark color.
                 tks.thickness = 3; // Tick mark thickness.
                 tks.radius = 76; // Tick mark radius (from gauge center point).
                 tks.labelPrecision = 1; // Rounding decimals for tick labels.

@@ -25,20 +25,28 @@ class DashboardController extends AppController {
     */
    public function index($args){
      
-     extract($args);
-     
      $parameters = array();
      $returnValues = array();
-     $lastYearTotalSum = "";
-     $lastYearTotalDivider = "";
+     extract($args);
      
      //Current Year Date
      $currentYear = date('Y-m-d');
      
-     //Calling the getDatePreviousYearandLastPreviousYear() for GetLast two years from Current date...
-     $lastYears = $this->getDatePreviousYearandLastPreviousYear($currentYear);
+     // $date = date('Y-m-d',strtotime('2010-01-01 -1 year'));
+     $lastyear = strtotime("-1 year", strtotime($currentYear));
      
-     //Get the array count of Years
+     // format and display the computed date
+     $lastYear = date("Y-m-d", $lastyear);
+     
+     $lastYearTotalSum = "";
+     $lastYearTotalDivider = "";
+     
+     $previouslastyear = strtotime("-1 year", strtotime($lastYear));
+     
+     $previousLastYear = date("Y-m-d", $previouslastyear);
+     
+     $lastYears = array($lastYear, $previousLastYear);
+     
      $countYears = count($lastYears);
      
      //Array Value for Parameters of tableNAme, fieldName, zipCode, fromDate and toDate
@@ -85,64 +93,6 @@ class DashboardController extends AppController {
    }
    
    
-   function getDatePreviousYearandLastPreviousYear($currentYear = null){
-     
-     // $date = date('Y-m-d',strtotime('2010-01-01 -1 year'));
-     $lastyear = strtotime("-1 year", strtotime($currentYear));
-     
-     // format and display the computed date
-     $lastYear = date("Y-m-d", $lastyear);
-      
-     //Get Second Prevoius Year from Last Year
-     $previouslastyear = strtotime("-1 year", strtotime($lastYear));
-     
-     // format and display the computed date
-     $previousLastYear = date("Y-m-d", $previouslastyear);
-     
-     $lastYears = array($lastYear, $previousLastYear);
-     
-     return $lastYears;
-   }
-   
-   
-   function getSameMonthDateOfLastYear($args = null){
-     
-     //print_r($ar)
-     
-     extract($args);
-     $finalResult = array();
-     
-     //Current Year Date
-     $currentYear = date('Y-m-d');
-     
-     //Calling the getDatePreviousYearandLastPreviousYear() for GetLast two years from Current date...
-     $lastTwoYearsDates = $this->getDatePreviousYearandLastPreviousYear($currentYear);
-     
-     $parameters['fieldName'] = $fieldName;
-     $parameters['selectFieldName'] = $selectedFieldName;
-     $parameters['tableName'] = $tableName;
-     
-     $getMonthOfLastYear = date_parse_from_format('Y-m-d',$lastTwoYearsDates[0]);
-     
-     /*$parameters['fieldName']           = 'month_year';
-     $parameters['selectFieldName']     = 'sold';
-     $parameters['tableName']           = 'tab_median_price_2years';*/
-     $parameters['fieldValue']          = $getMonthOfLastYear;
-     
-     $this->Calculation->setData($parameters);
-     $lastYearValue = $this->Calculation->getSameDateOfLastYear();
-     
-     $finalResult['currentYear'] = $lastYearValue[0][0]['CURRENTYEAR'];
-     $finalResult['lastYear']    = $lastYearValue[0][0]['LASTYEAR'];
-     $finalResult['changes']     = $lastYearValue[0][0]['DIFFERENCE']/$lastYearValue[0][0]['CURRENTYEAR'];
-     
-     return $finalResult;
-     
-     $this->autoRender = false;
-     
-   }
-   
-   
    function getJsonFormat(){
      
      $args = array();
@@ -174,19 +124,11 @@ class DashboardController extends AppController {
      $args['fieldValue']        = '12207';
      
      $finalInputToJson['soldSqft'] = $this->index($args);
-     
-     
-     $args['fieldName']           = 'month_year';
-     $args['selectedFieldName']   = 'sold';
-     $args['tableName']           = 'tab_median_price_2years';
-     
-     $finalInputToJson['soldDifferenceWithLastYearAndCurrentYear'] = $this->getSameMonthDateOfLastYear($args);
-     
      echo "<pre>";
      print_r($finalInputToJson);
      echo "</pre>";
-     
      $this->autoRender = false;
+     
    }
    
    
