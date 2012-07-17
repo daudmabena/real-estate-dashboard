@@ -153,8 +153,6 @@ class DashboardController extends AppController {
      $args = array();
      $finalInputToJson = array();
      
-
-     
      /* This is For Sale For Median in tab_median_price_2years*/
      
      $args['selectedFieldName'] = 'for_sale_median';
@@ -208,10 +206,7 @@ class DashboardController extends AppController {
      
      $finalInputToJson['soldAvgSqft'] = $this->index($args);
      
-     echo "<pre>";
-     //print_r($finalInputToJson);
-     echo "</pre>";
-     
+     //Group by of Month and YearWise     
      
      $args['selectFieldName'] = 'sold_median';
      $args['tableName']         = 'tab_median_price_2years';
