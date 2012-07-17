@@ -47,6 +47,7 @@ class Calculation extends AppModel{
         $this->__selectFiledName = $selectFieldName;
         
     }
+    
     // {{{ calculateMedian12months()
     /**
      * Used for Calculate the amount for Last 12 months
@@ -55,12 +56,14 @@ class Calculation extends AppModel{
      *
      * @return array value with 
      */
-    function calculateMedian12months(){
+    public function calculateMedian12months(){
         
         $medianPrice2Yearsquery = "SELECT SUM(".$this->__selectFiledName.") AS TOTALMEDIANAMOUNT,
                                     ".$this->__fieldName.",COUNT(*) as TOTALRECORD
                                     FROM ".$this->__tableName." WHERE ".$this->__fieldName."='".$this->__fieldValue."'
                                     AND MONTH_YEAR BETWEEN '".$this->__fromDate."' AND '".$this->__toDate."'";
+        
+        //echo $medianPrice2Yearsquery."</br></br>";
         
         $medianPrice2YearsResult = $this->query($medianPrice2Yearsquery);
         
@@ -68,6 +71,33 @@ class Calculation extends AppModel{
         
        return $medianSoldPriceLast12Months;
     }
+    
+    // {{{ getSameDateOfLastYear()
+    /**
+     * Used for Calculate the amount of Last 12th month
+     *
+     * @access Public
+     *
+     * @return array value with 
+     */
+    public function getSameDateOfLastYear(){
+        
+        $lastYearSameMonthgetQuery = "SELECT (SELECT SUM(".$this->__selectFiledName.")
+                                        FROM ".$this->__tableName." WHERE YEAR(".$this->__fieldName.") = '".date('Y')."'
+                                        AND MONTH(".$this->__fieldName.") = '".date('m')."') as CURRENTYEAR,
+                                        SUM(".$this->__selectFiledName.") as LASTYEAR,
+                                        ((SELECT SUM(".$this->__selectFiledName.") 
+                                        FROM ".$this->__tableName." WHERE YEAR(".$this->__fieldName.") = '".date('Y')."' AND
+                                        MONTH(".$this->__fieldName.") = '".date('m')."') - SUM(".$this->__selectFiledName.")) as DIFFERENCE FROM ".$this->__tableName."
+                                        WHERE YEAR(".$this->__fieldName.") = '".$this->__fieldValue['year']."'
+                                        AND MONTH(".$this->__fieldName.") = '".$this->__fieldValue['month']."'";
+
+        $lastYearSameMonthgetResult = $this->query($lastYearSameMonthgetQuery);
+        
+        return $lastYearSameMonthgetResult;
+        
+    }
+    
     
 }
 
