@@ -40,6 +40,9 @@ $cakeDescription = __d('cake_dev', 'Dashboard');
 		echo $this->Html->script('excanvas.min');
 		echo $this->Html->script('jQueryRotate.min');
 		echo $this->Html->script('jgauge-0.3.0.a3');
+		echo $this->Html->script('highcharts');
+		echo $this->Html->script('exporting');
+		echo $this->Html->script('dashboard');
 
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
