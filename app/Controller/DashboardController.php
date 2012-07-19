@@ -164,10 +164,10 @@ class DashboardController extends AppController {
      
      /* This is For Sold for Median in tab_median_price_2years*/
      
-     $args['selectedFieldName'] = 'sold_median';
+     $args['selectedFieldName'] = 'for_sale_median';
      $args['tableName']         = 'tab_median_price_2years';
-     $args['fieldName']         = 'zip_code';
-     $args['fieldValue']        = '12207';
+     $args['fieldName']         = 'city';
+     $args['fieldValue']        = 'Albany';
      
      $finalInputToJson['soldMedian'] = $this->index($args);
      
