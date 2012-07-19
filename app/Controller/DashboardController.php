@@ -150,6 +150,10 @@ class DashboardController extends AppController {
    
    function getJsonFormat(){
      
+     //Hide the notice from the result page.
+     error_reporting(E_ALL ^ E_NOTICE);
+     error_reporting(0);
+     
      $args = array();
      $finalInputToJson = array();
      
