@@ -1,88 +1,105 @@
-$(function () {
-    var chart;
-    $(document).ready(function() {
-        chart = new Highcharts.Chart({
-            chart: {
-                renderTo: 'chart-render',
-                type: 'line',
-                marginBottom: 35,
-                backgroundColor: '#363636'
-            },
-            title: {
-                text: '',
-                x: -20 //center
-            },
-            subtitle: {
-                text: '',
-                x: -20
-            },
-            xAxis: {
-                categories: ['12 Jan', '11 Feb', '11 Mar', '11 Apr', '11 May', '11 Jun',
-                    '10 Jul', '10 Aug', '10 Sep', '10 Oct', '10 Nov', '10 Dec','12 Jan', '11 Feb', '11 Mar', '11 Apr', '11 May', '11 Jun',
-                    '10 Jul', '10 Aug', '10 Sep', '10 Oct', '10 Nov', '10 Dec']
-            },
-            yAxis: {
-              lineColor: '#ccc',
-              lineWidth: 1,
-                title: {
-                    text: ''
-                },
-                labels: {
-                    formatter: function() {
-                        return '$'+this.value;
-                    }
-                },
-                plotLines: [{
-                    value: 0,
-                    width: 1,
-                    color: '#F8AE33'
-                }]
-            },
-            tooltip: {
-                formatter: function() {
-                        return '<b>'+ this.series.name +'</b><br/>'+
-                        this.x +': '+ this.y;
-                }
-            },
-            plotOptions: {
-            line: {
-                allowPointSelect: true,
-                cursor: 'pointer',
-                shadow: false,
-                marker:{
-                  symbol:'circle',
-                      radius:5,
-                states: {
-                 hover:{
-                  radius:7	
-                   }
-                 }
-                },
-                dataLabels: {
-                    enabled: false
-                },
-                showInLegend: false
-            }},
-            legend: {
-                layout: 'vertical',
-                align: 'right',
-                verticalAlign: 'top',
-                x: -10,
-                y: 100,
-                borderWidth: 0
-            },
-            series: [{
-                name: 'Dashboard',
-                data: [190000, 183560, 180000, 178000, 171760, 166760, 161760, 160000, 159000, 200000, 123400, 115400, 194500, 183450, 180345, 141200, 171450, 162360, 165670, 162309, 134600, 305670, 145400, 10400],
-                color: '#F8AE33'
-            }],
-            exporting: {
-                enabled: false
+$(document).ready(function() {
+    $.ajax({
+        url: "getJsonFormat",
+        type: 'POST',
+        data:  {},
+        dataType: 'json',
+        success: function (json) {
+            if(json){
+                var obj =eval(json);
+                //for(var i=0;i<obj.groupByMonthAndYearForMedian.length;i++){}
+                generateChart(obj.groupByMonthAndYearForMedian['monthlytotal'], obj.groupByMonthAndYearForMedian['monthYear']);
+                $('.saleMedianZipValue').html("$"+obj.saleMedianZip['lastYear']);
+                generateGuage(obj.saleMedianZip['lastYear'], obj.saleMedianCity['lastYear']);
             }
-        });
+        }
     });
 });
 
+function generateChart(monthlyTotal,year){
+    $(function () {
+        var chart;
+        $(document).ready(function() {
+            chart = new Highcharts.Chart({
+                chart: {
+                    renderTo: 'chart-render',
+                    type: 'line',
+                    marginBottom: 35,
+                    backgroundColor: '#363636'
+                },
+                title: {
+                    text: '',
+                    x: -20 //center
+                },
+                subtitle: {
+                    text: '',
+                    x: -20
+                },
+                xAxis: {
+                    categories: year
+                },
+                yAxis: {
+                  lineColor: '#ccc',
+                  lineWidth: 1,
+                    title: {
+                        text: ''
+                    },
+                    labels: {
+                        formatter: function() {
+                            return '$'+this.value;
+                        }
+                    },
+                    plotLines: [{
+                        value: 0,
+                        width: 1,
+                        color: '#F8AE33'
+                    }]
+                },
+                tooltip: {
+                    formatter: function() {
+                            return '<b>'+ this.series.name +'</b><br/>'+
+                            this.x +': '+ this.y;
+                    }
+                },
+                plotOptions: {
+                line: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    shadow: false,
+                    marker:{
+                      symbol:'circle',
+                          radius:5,
+                    states: {
+                     hover:{
+                      radius:7	
+                       }
+                     }
+                    },
+                    dataLabels: {
+                        enabled: false
+                    },
+                    showInLegend: false
+                }},
+                legend: {
+                    layout: 'vertical',
+                    align: 'right',
+                    verticalAlign: 'top',
+                    x: -10,
+                    y: 100,
+                    borderWidth: 0
+                },
+                series: [{
+                    name: 'Dashboard',
+                    data: monthlyTotal,
+                    color: '#F8AE33'
+                }],
+                exporting: {
+                    enabled: false
+                }
+            });
+        });
+    });
+}
 
 
 
@@ -127,17 +144,16 @@ demoGauge3.range.color = 'rgba(0, 0, 0, 0)';
 */
                 
 // This function is called by jQuery once the page has finished loading.
-$(document).ready(function()
-{
+function generateGuage(saleMedianZip, saleMedianCity){
     demoGauge1.init(); // Put the jGauge on the page by initializing it.
     demoGauge2.init(); // Put the jGauge on the page by initializing it.
     //demoGauge3.init(); // Put the jGauge on the page by initializing it.
     
     // Configure demoGauge3 for random value updates.
-    demoGauge1.setValue(198208);
-    demoGauge2.setValue(556);
-    setInterval('randVal()', 100);
-});
+    demoGauge1.setValue(saleMedianZip);
+    demoGauge2.setValue(saleMedianCity);
+    //setInterval('randVal()', 100);
+}
 
 // That's all folks! We've created a jGauge and put it on the page! :-D
 // The following JavaScript functions are for the demonstration.
@@ -203,3 +219,5 @@ function randVal()
                 }
         }
 }
+
+

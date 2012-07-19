@@ -164,7 +164,7 @@ class DashboardController extends AppController {
      $args['fieldName']         = 'zip_code';
      $args['fieldValue']        = '12207';
      
-     $finalInputToJson['saleMedian'] = $this->index($args);
+     $finalInputToJson['saleMedianZip'] = $this->index($args);
      
      /* This is For Sold for Median in tab_median_price_2years*/
      
@@ -173,7 +173,7 @@ class DashboardController extends AppController {
      $args['fieldName']         = 'city';
      $args['fieldValue']        = 'Albany';
      
-     $finalInputToJson['soldMedian'] = $this->index($args);
+     $finalInputToJson['saleMedianCity'] = $this->index($args);
      
      /* This is For Sold for SQFT in tab_media_sold_sqft*/
      

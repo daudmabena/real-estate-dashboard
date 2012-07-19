@@ -37,7 +37,9 @@
 				<div class='min-max-left'>Min - $70,208</div>
 				<div class='min-max-right'>Max - $270,208</div>
 			</div>
-			<div class='guage_calculation'>$198,208</div>
+			<div class='guage_calculation'>
+			  <span class='saleMedianZipValue'></span>
+			</div>
 		</div>
 		<div class='downstrategy'>
 		    <div class='downTxt'>Down</div>
@@ -62,7 +64,7 @@
 			</div>
 		</div>
 		
-		<div class='guage_description' style='margin-left:0px;'>Median Sold Price Last 12 month Avg (do a dial that shows this zip and SA zip $147,212)</div>
+		<div class='guage_description' style='margin-left:0px;'>Median Sold Price Last 12 month Avg</div>
 		<div class='guage_description_down'>Previous 12 mos. $200,364</div>
 		<div class='guage_description'>Median SA Price</div>
 		<div class='guage_description_down'></div>
