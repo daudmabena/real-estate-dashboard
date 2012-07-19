@@ -7,10 +7,16 @@ $(document).ready(function() {
         success: function (json) {
             if(json){
                 var obj =eval(json);
+                
+                //alert(obj);
+                
                 //for(var i=0;i<obj.groupByMonthAndYearForMedian.length;i++){}
                 generateChart(obj.groupByMonthAndYearForMedian['monthlytotal'], obj.groupByMonthAndYearForMedian['monthYear']);
                 $('.saleMedianZipValue').html("$"+obj.saleMedianZip['lastYear']);
                 generateGuage(obj.saleMedianZip['lastYear'], obj.saleMedianCity['lastYear']);
+                $('#perFootLast12Months').html("$"+obj.soldSqft['lastYear']);
+                $('#soldHomeInDate').html("$"+obj.soldDifferenceWithLastYearAndCurrentYear['currentYear']);
+                
             }
         }
     });

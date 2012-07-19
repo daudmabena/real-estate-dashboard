@@ -72,8 +72,16 @@
 	
 	<!--Statistics Section -->
 	<div id='statistics-wrapper'>
-		<div class='statistics-box' style='margin-left:0px;'></div>
-		<div class='statistics-box'></div>
+		<div class='statistics-box' style='margin-left:0px;'>
+		  <div class='downStratergy'>
+		    <span id='perFootLast12Months' class="strategyPercentage"></span>
+		  </div>
+		</div>
+		<div class='statistics-box'>
+		  <div class='normalData'>
+		    <span id='soldHomeInDate' class="strategyPercentage"></span>
+		  </div>
+		</div>
 		<div class='statistics-box'></div>
 		<div class='statistics-box'></div>
 		<div class='statistics-box'></div>
