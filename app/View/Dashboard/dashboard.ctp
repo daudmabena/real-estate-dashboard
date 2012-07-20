@@ -1,12 +1,17 @@
 <script type="text/javascript" charset="utf-8">
   $(document).ready(function() {
       $("body").css("background-color","#151515");
+      $('.searchTxt').click(function(){
+	$('.searchContent').slideToggle();
+	
+      });
   });
 </script>
 <div id='wrapper'>
 	<!--Guage Section -->
 	<div class='searchPanel'>
 	  <div class='searchTxt'>Search</div>
+	  <div class="searchContent">
 	  <div class='searchSep'></div>
 	  <?php
 		echo $this->Form->create('Dashboard', array('controller' => 'Dashboard', 'action' => 'dashboard'));
@@ -29,6 +34,7 @@
 		echo $this->Form->submit('search_btn.png', array('onclick' => 'return CheckIfFileSelected()'));
 		echo "<br>";
 	?>
+	</div>
 	</div>
 	<div id='guage-wrapper'>
 		<div class='guage-div' style='margin-left:0px;'>
