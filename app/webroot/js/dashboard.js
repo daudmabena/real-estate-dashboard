@@ -8,15 +8,25 @@ $(document).ready(function() {
             if(json){
                 var obj =eval(json);
                 
-                //alert(obj);
-                
                 //for(var i=0;i<obj.groupByMonthAndYearForMedian.length;i++){}
                 generateChart(obj.groupByMonthAndYearForMedian['monthlytotal'], obj.groupByMonthAndYearForMedian['monthYear']);
-                $('.saleMedianZipValue').html("$"+obj.saleMedianZip['lastYear']);
                 generateGuage(obj.saleMedianZip['lastYear'], obj.saleMedianCity['lastYear']);
+                
+                $('.saleMedianZipValue').html("$"+obj.saleMedianZip['lastYear']);
+                var avg_of_lastYear_and_previousLastYear = Math.round(obj.saleMedianZip['avg_of_lastYear_and_previousLastYear']*100)/100;
+                $('.strategyPercentageZip').html(avg_of_lastYear_and_previousLastYear);
+                var previousLastYear12Months = Math.round(obj.saleMedianZip['previousLastYear']*100)/100;
+                $('.prev12MonStrategy').html("$"+previousLastYear12Months);
+                
+                
+                $('.saleMedianCityValue').html("$"+obj.saleMedianCity['lastYear']);
+                var avg_of_lastYear_city = Math.round(obj.saleMedianCity['avg_of_lastYear_and_previousLastYear']*100)/100;
+                $('.strategyPercentageCity').html(avg_of_lastYear_city);
+     
+     
                 $('#perFootLast12Months').html("$"+obj.soldSqft['lastYear']);
                 $('#soldHomeInDate').html("$"+obj.soldDifferenceWithLastYearAndCurrentYear['currentYear']);
-                
+
             }
         }
     });

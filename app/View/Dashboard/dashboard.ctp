@@ -51,7 +51,7 @@
 		    <div class='downTxt'>Down</div>
 			<div class='seperator'></div>
 			<div class='upStrategy'>
-			  <span class='strategyPercentage'>-1.1%</span>
+			  <span class='strategyPercentageZip'></span>
 			</div>
 		</div>
 		<div class='guage-div'>
@@ -60,18 +60,20 @@
 				  <div class='min-max-left'>Min - $70,208</div>
 				  <div class='min-max-right'>Max - $270,208</div>
 			</div>
-			<div class='guage_calculation'>$111,208</div>
+			<div class='guage_calculation'>
+			  <span class='saleMedianCityValue'></span>
+			</div>
 		</div>
 		<div class='downstrategy'>
 		    <div class='downTxt'>Down</div>
 			<div class='seperator'></div>
 			<div class='upStrategy'>
-			  <span class='strategyPercentage'>-1.1%</span>
+			  <span class='strategyPercentageCity'></span>
 			</div>
 		</div>
 		
 		<div class='guage_description' style='margin-left:0px;'>Median Sold Price Last 12 month Avg</div>
-		<div class='guage_description_down'>Previous 12 mos. $200,364</div>
+		<div class='guage_description_down'>Previous 12 mos. <span class='prev12MonStrategy'></span></div>
 		<div class='guage_description'>Median SA Price</div>
 		<div class='guage_description_down'></div>
 	</div>
