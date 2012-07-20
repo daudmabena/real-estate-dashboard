@@ -108,7 +108,7 @@ class DashboardController extends AppController {
      return $lastYears;
    }
    
-   
+
    function getSameMonthDateOfLastYear($args = null){
      
      //print_r($ar)
@@ -126,8 +126,10 @@ class DashboardController extends AppController {
      $parameters['selectFieldName']     = $selectedFieldName;
      $parameters['tableName']           = $tableName;
      
-     $getMonthOfLastYear = date_parse_from_format('Y-m-d',$lastTwoYearsDates[0]);
-     
+     //$getMonthOfLastYear = date_parse_from_format('Y-m-d',$lastTwoYearsDates[0]);
+     $dateGetMonLY = explode('-',$lastTwoYearsDates[0]);
+     $getMonthOfLastYear = array('year' => $dateGetMonLY[0],'month' => $dateGetMonLY[1],'day' => $dateGetMonLY[2]);
+
      /*$parameters['fieldName']           = 'month_year';
      $parameters['selectFieldName']     = 'sold';
      $parameters['tableName']           = 'tab_median_price_2years';*/
