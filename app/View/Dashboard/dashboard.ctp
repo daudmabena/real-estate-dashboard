@@ -1,8 +1,18 @@
 <script type="text/javascript" charset="utf-8">
   $(document).ready(function() {
       $("body").css("background-color","#151515");
+      $('.searchContent').hide();
+      var showOrHide;
       $('.searchTxt').click(function(){
-		$('.searchContent').slideToggle();
+	
+		$('.searchContent').slideToggle(showOrHide);
+		//alert(showOrHide);
+		//if(showOrHide == true){
+		//  alert('qwe');
+		//}
+		//else if(showOrHide == false){
+		//  alert('123');
+		//}
       });
   });
 </script>
@@ -113,9 +123,17 @@
 	</div>
 	
 	<div id='video-wrapper'>
-	    <div class='video-panel'></div>
-		<div class='chart-panel'>
-			<div id="chart-render" style="min-width: 400px; height: 500px; margin: 0 auto"></div>
-		</div>
+	    <div class='video-panel'>
+	      <iframe width="364" height="250" src="http://www.youtube.com/embed/x-iOE8pjY-E" frameborder="0" allowfullscreen></iframe>
+	    </div>
+	    <div class='text-panel'>
+	    </div>
+	    
+	      <div class='rssFeed1'></div>
+	      <div class='rssFeed2'></div>
+	    
+	    <div class='chart-panel'>
+	      <div id="chart-render" style="min-width: 400px; height: 500px; margin: 0 auto"></div>
+	    </div>
 	<div>
 </div>
