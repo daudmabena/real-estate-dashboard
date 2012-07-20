@@ -2,15 +2,15 @@
   $(document).ready(function() {
       $("body").css("background-color","#151515");
       $('.searchTxt').click(function(){
-	$('.searchContent').slideToggle();
-	
+		$('.searchContent').slideToggle();
       });
   });
 </script>
 <div id='wrapper'>
 	<!--Guage Section -->
 	<div class='searchPanel'>
-	  <div class='searchTxt'>Search</div>
+	  <div class='searchTxt'>Search<div class="search searchArrow"></div></div>
+	  
 	  <div class="searchContent">
 	  <div class='searchSep'></div>
 	  <?php

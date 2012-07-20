@@ -220,9 +220,7 @@ class DashboardController extends AppController {
      $this->Calculation->setData($args);
      $finalInputToJson['groupByMonthAndYearForMedian'] = $this->Calculation->groupBymonthWiseWithDifferentYears();
 
-     echo "<pre>";
      echo json_encode($finalInputToJson);
-     echo "</pre>";
      $this->autoRender = false;
    }
    
