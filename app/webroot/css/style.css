@@ -173,12 +173,17 @@ background-color: #A3A3A3;
 }
 
 .upStrategy{
-	background: url('../img/green-arrow.png') left center no-repeat;
-	width:28px;
-	height:24px;
-	padding:56px 56px 56px 62px;
-	background-position:25px 70px;
-	width: 110px;
+ background: url("../img/green-arrow.png") no-repeat scroll 25px 78px transparent;
+    height: 24px;
+    padding: 56px 56px 56px 62px;
+    width: 110px;
+}
+
+.upStrategyOuter{
+  background: url("../img/green-arrow.png") no-repeat scroll 15px 71px transparent;
+    height: 24px;
+    padding: 48px 56px 56px 43px;
+    width: 110px;
 }
 
 .downStratergy{
@@ -190,17 +195,29 @@ background-color: #A3A3A3;
 	width: 110px;
 }
 
+.downStratergyOuter{
+ background: url("../img/red_arrow.png") no-repeat scroll 16px 70px transparent;
+    height: 24px;
+    padding: 48px 56px 56px 45px;
+    width: 110px;
+}
 
 .strategyPercentageZip{
 	text-shadow:1px 1px 1px #535353, -2px -2px 2px #535353;
 	color:#D3D4D4;
-	font-size:40px;
+	font-size:50px;
+}
+
+.strategyPercentage{
+	text-shadow:1px 1px 1px #535353, -2px -2px 2px #535353;
+	color:#D3D4D4;
+	font-size:50px;
 }
 
 .strategyPercentageCity{
 	text-shadow:1px 1px 1px #535353, -2px -2px 2px #535353;
 	color:#D3D4D4;
-	font-size:40px;
+	font-size:50px;
 }
 
 .searchPanel{
@@ -282,3 +299,17 @@ background-color: #A3A3A3;
 	margin-left:15px;
 	margin-bottom:25px;
 }
+
+#soldHomeInDate,#avgDifferenceWithLastYearAndCurrentYear{
+	  float: left;
+    margin-left: 44px;
+    margin-top: 47px;
+}
+
+#soldAvgSqft{
+	margin-left:14px;
+	float: left;
+	margin-top: 47px;
+}
+
+

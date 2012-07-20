@@ -15,8 +15,7 @@ $(document).ready(function() {
                 $('.saleMedianZipValue').html("$"+obj.saleMedianZip['lastYear']);
                 var avg_of_lastYear_and_previousLastYear = Math.round(obj.saleMedianZip['avg_of_lastYear_and_previousLastYear']*100)/100;
                 $('.strategyPercentageZip').html(avg_of_lastYear_and_previousLastYear);
-                var previousLastYear12Months = Math.round(obj.saleMedianZip['previousLastYear']*100)/100;
-                $('.prev12MonStrategy').html("$"+previousLastYear12Months);
+                $('.prev12MonStrategy').html("$"+Math.floor(obj.saleMedianZip['previousLastYear']));
                 
                 
                 $('.saleMedianCityValue').html("$"+obj.saleMedianCity['lastYear']);
@@ -25,7 +24,13 @@ $(document).ready(function() {
      
      
                 $('#perFootLast12Months').html("$"+obj.soldSqft['lastYear']);
-                $('#soldHomeInDate').html("$"+obj.soldDifferenceWithLastYearAndCurrentYear['currentYear']);
+                $('#soldHomeInDate').html(obj.soldDifferenceWithLastYearAndCurrentYear['currentYear']);
+                $('#soldDifferenceWithLastYear').html(obj.soldDifferenceWithLastYearAndCurrentYear['lastYear']);
+                $('#avgDifferenceWithLastYearAndCurrentYear').html(obj.avgDifferenceWithLastYearAndCurrentYear['currentYear']);
+                $('#avg_difference').html(obj.avgDifferenceWithLastYearAndCurrentYear['difference']);
+                $('#soldAvgSqft').html(Math.floor(obj.soldAvgSqft['lastYear']));
+                
+                
 
             }
         }

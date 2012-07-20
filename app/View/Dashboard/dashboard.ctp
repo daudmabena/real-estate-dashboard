@@ -75,19 +75,35 @@
 	<!--Statistics Section -->
 	<div id='statistics-wrapper'>
 		<div class='statistics-box' style='margin-left:0px;'>
-		  <div class='downStratergy'>
+		  <div class='upStrategyOuter'>
 		    <span id='perFootLast12Months' class="strategyPercentage"></span>
 		  </div>
 		</div>
 		<div class='statistics-box'>
-		  <div class='normalData'>
+		  <div>
 		    <span id='soldHomeInDate' class="strategyPercentage"></span>
 		  </div>
 		</div>
-		<div class='statistics-box'></div>
-		<div class='statistics-box'></div>
-		<div class='statistics-box'></div>
-		<div class='statistics-box'></div>
+		<div class='statistics-box'>
+		    <div class='upStrategyOuter'>
+			  <span id='soldDifferenceWithLastYear' class="strategyPercentage"></span>
+			</div>
+		</div>
+		<div class='statistics-box'>
+		    <div>
+			  <span id='avgDifferenceWithLastYearAndCurrentYear' class="strategyPercentage"></span>
+			</div>
+		</div>
+		<div class='statistics-box'>
+			<div class='downStratergyOuter'>
+			  <span id='avg_difference' class="strategyPercentage"></span>
+			</div>
+		</div>
+		<div class='statistics-box'>
+			<div>
+			  <span id='soldAvgSqft' class="strategyPercentage"></span>
+			</div>
+		</div>
 	</div>
 	
 	<div id='video-wrapper'>
