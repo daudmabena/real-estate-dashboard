@@ -98,7 +98,6 @@ class DashboardImportsController extends AppController {
      exit;
    }
    
-   
    public function getState(){
         Controller::loadModel('Dashboard');
         $q = strtoupper($_REQUEST["q"]);
