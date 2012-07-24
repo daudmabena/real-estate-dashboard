@@ -1,3 +1,13 @@
+$(document).ready(function() {
+  jQuery(document).ajaxStart(function(){
+            $('#initialContainerMask').show();
+            $('#loader').show();
+    });
+    jQuery(document).ajaxStop(function(){
+        $('#loader').hide();
+        $('#initialContainerMask').hide();
+    });    
+});
 
 function getSearchData(){
 

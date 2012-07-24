@@ -100,17 +100,49 @@ class DashboardImportsController extends AppController {
    
    
    public function getState(){
-     Controller::loadModel('Dashboard');
-     $q = strtoupper($_REQUEST["q"]);
-     if (!$q) return;
-     
-     $stateCode = $this->Dashboard->getStateCode($q);
-     
-     for($i=0;$i<count($stateCode);$i++){
-          echo $stateCode[$i]."\n";
-     }
-     exit;
+        Controller::loadModel('Dashboard');
+        $q = strtoupper($_REQUEST["q"]);
+        if (!$q) return;
+
+        $stateCode = $this->Dashboard->getStateCode($q);
+
+        for($i=0;$i<count($stateCode);$i++){
+            echo $stateCode[$i]."\n";
+        }
+        exit;
    }
+   
+    public function getCity(){
+          $selectedStateCode = $_REQUEST['stateVal'];
+          Controller::loadModel('Dashboard');
+          
+          $q = strtoupper($_REQUEST["q"]);
+          if (!$q) return;
+          
+          $cityCode = $this->Dashboard->getCityCode($q, $selectedStateCode);
+     
+          for($i=0;$i<count($cityCode);$i++){
+               echo $cityCode[$i]."\n";
+          }
+          exit;
+   }
+   
+    public function getZipCode(){
+            $selectedCity = $_REQUEST['cityVal'];
+            Controller::loadModel('Dashboard');
+
+            $q = (string)$_REQUEST["q"];
+
+            if (!isset($q)) return;
+
+            $zipCode = $this->Dashboard->getZipCodes($q, $selectedCity);
+
+            for($i=0;$i<count($zipCode);$i++){
+                echo $zipCode[$i]."\n";
+            }
+            exit;
+    }
+
 }
 ?>
 

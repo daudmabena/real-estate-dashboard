@@ -1,3 +1,53 @@
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#state").autocomplete("getState", {
+		width: 260,
+		matchContains: true,
+		//mustMatch: true,
+		//minChars: 0,
+		//multiple: true,
+		//highlight: false,
+		//multipleSeparator: ",",
+		selectFirst: false
+	});
+	
+	$("#city").autocomplete("getCity", {
+		width: 260,
+		matchContains: true,
+		//mustMatch: true,
+		//minChars: 0,
+		//multiple: true,
+		//highlight: false,
+		//multipleSeparator: ",",
+		selectFirst: false
+	});
+	
+	$("#zipcode").autocomplete("getZipCode", {
+		width: 260,
+		matchContains: true,
+		//mustMatch: true,
+		//minChars: 0,
+		//multiple: true,
+		//highlight: false,
+		//multipleSeparator: ",",
+		selectFirst: false
+	});
+	
+	$("#state").result(function(event, data, formatted) {
+		$("#state").val(data[0]);
+	});
+	
+	$("#city").result(function(event, data, formatted) {
+		$("#city").val(data[0]);
+	});
+	
+	$("#zipcode").result(function(event, data, formatted) {
+		$("#zipcode").val(data[0]);
+	});
+	
+});
+</script>
 <script type="text/javascript" charset="utf-8">
   $(document).ready(function() {
       $("body").css("background-color","#151515");
@@ -7,18 +57,18 @@
 	$('.searchContent').slideToggle(showOrHide);
 	$('.searchUpArrow').toggleClass("searchDownArrow");
 	//$('#range1').val('07/20/2011');
-//$('#range2').val('07/20/2012');
-      });
+//$('#range2').val('07/20/2012'); 
+     });
       
       $('#submitForm').click(function(){
 	getSearchData();
       });
   });
 </script>
+<div id='initialContainerMask'>
+<div id='loader'><img src='../img/loading.gif'><span style='float:right;margin-right:40px;'>Loading</span></img></div>
+</div>
 <div id='wrapper'>
-<?php
-print_r($lastYear);
-?>
 	<!--Guage Section -->
 	<div class="topXLSUploaddiv">
 	  <a href="<?php
@@ -46,15 +96,15 @@ print_r($lastYear);
 		echo "</div>";
 		echo "<div class='formdivider'>";
 		echo "<label class='labelTxtSearch'>City</label>";
-		echo "<input type='text' class='inputTxtSearch' name='city' id='txtcity'></input>";	
+		echo "<input type='text' class='inputTxtSearch' name='city' id='city'></input>";	
 		echo "</div></div>";
 		echo "<div class='sections'><div class='formdivider'>";
-		echo "<label class='labelTxtSearch'>Zipcode</label>";
-		echo "<input type='text' class='inputTxtSearch' name='zipcode' id='txtzipcode'></input>";	
+		echo "<label class='labelTxtSearch'>State</label>";
+		echo "<input type='text' class='inputTxtSearch' name='state' id='state'></input>";	
 		echo "</div>";
 		echo "<div class='formdivider'>";
-		echo "<label class='labelTxtSearch'>State</label>";
-		echo "<input type='text' class='inputTxtSearch' name='state' id='txtstate'></input>";	
+		echo "<label class='labelTxtSearch'>Zipcode</label>";
+		echo "<input type='text' class='inputTxtSearch' name='zipcode' id='zipcode'></input>";	
 		echo "</div></div>";
 		echo "<a href='#' id='submitForm'></a>";
 		echo "<br>";
