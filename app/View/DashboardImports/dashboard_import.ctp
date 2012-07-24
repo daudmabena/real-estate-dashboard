@@ -89,8 +89,9 @@ $(document).ready(function() {
 	
 });
 </script>
+<div class='header_txt'>Dashboard Import</div>
+<div class='searchSep'></div>
 <div id="content-import">
-<div class='header_txt'>Dashboard Import</div><br>
 <?php
 	echo $this->Form->create('DashboardImports', array('controller' => 'DashboardImports', 'action' => 'dataParser', 'type' => 'file', 'class' =>'choose_file'));
 	echo "<div class='formdivider'>";
@@ -123,4 +124,7 @@ $(document).ready(function() {
 <?php echo $this->Form->end();
 ?>
 </div>
+<div class="topXLSUploaddiv" style="margin-right: 0px;">
+	  <a href="#" onclick="history.go(-1);">Back to Dashboard</a>
+	</div>
 			  

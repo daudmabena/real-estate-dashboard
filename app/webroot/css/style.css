@@ -1,5 +1,5 @@
 body {
-    background-color: #F5F5F5;
+    background-color: #151515;
     font-family: "arial",sans-serif;
 }
 
@@ -17,18 +17,15 @@ body {
     width: 980px;
 }
 
-#content-import{
-	background: none repeat scroll 0 0 #FFFFFF;
-    padding: 40px 65px;
-	border: 1px solid #CCCCCC;
-	box-shadow: 10px 10px 5px #888888;
-}
-
 .header_txt{
-	color:#535353;
-	font-size: 16px;
-    font-weight: bold;
-}
+    background: url("../img/boc_bg_repeat.jpg") repeat scroll left center transparent;
+    border: 1px solid #565656;
+    color: #D3D4D4;
+    font-size: 15px;
+    font-weight: normal;
+    padding: 10px;
+    text-transform: uppercase;
+}	
 
 .inputTxt{
 	border: 1px solid #CCCCCC;
@@ -227,6 +224,11 @@ background-color: #A3A3A3;
     float: left;
     margin-bottom: 20px;
     width: 980px;
+    border: 1px solid #565656;
+}
+
+.searchContent{
+    border: none;
 }
 
 .searchTxt{
@@ -236,7 +238,9 @@ background-color: #A3A3A3;
     padding: 10px;
     text-shadow: 1px 1px 1px #535353, -2px -2px 2px #535353;
     text-transform: uppercase;
-    width: 967px;
+    width: 960px;
+    border:1px solid #565656;
+    
 }
 
 .searchSep{
@@ -337,12 +341,14 @@ background-color: #A3A3A3;
    border: 1px solid #565656;
     clear: both;
     float: left;
-    min-height: 115px;
+    height: 79px;
     width: 344px;
     padding: 10px;
     margin-top: 15px;
     color:#D3D4D4;
     text-shadow:1px 1px 1px #535353, -2px -2px 2px #535353;
+    overflow: auto;
+    text-align: justify;
 }
 
 .rssFeed1{
@@ -354,6 +360,7 @@ background-color: #A3A3A3;
     position: absolute;
     width: 164px;
     padding: 10px;
+    overflow: auto;
 }
 
 .rssFeed2{
@@ -366,6 +373,7 @@ background-color: #A3A3A3;
     position: absolute;
     width: 147px;
     padding: 10px;
+    overflow: auto;
 }
 
 .rssReed{
@@ -379,7 +387,8 @@ background-color: #A3A3A3;
 }
 
 .topXLSUploaddiv{
-padding:10px; font-size:16px; color:red; float: right; margin-right: 80px;    
+padding:10px; font-size:13px; color:red; float: right; margin-right: 80px;
+
 }
 
 .topXLSUploaddiv a{
@@ -396,6 +405,12 @@ height: 35px;
 margin-right: 19px;
 }
 
+
+#content-import{
+    background: url('../img/boc_bg_repeat.jpg') left center repeat;
+    border: 1px solid #565656;
+    padding: 40px 65px;
+}
 
 /*Date Picker Style */
 
