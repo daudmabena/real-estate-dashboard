@@ -124,4 +124,7 @@ $(document).ready(function() {
 <?php echo $this->Form->end();
 ?>
 </div>
+<div class="topXLSUploaddiv" style="margin-right: 0px;">
+	  <a href="#" onclick="history.go(-1);">Back to Dashboard</a>
+	</div>
 			  
