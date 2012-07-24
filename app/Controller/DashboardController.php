@@ -107,8 +107,11 @@ class DashboardController extends AppController {
       
      $datetime1 = new DateTime($fromdate);
      $datetime2 = new DateTime($todate);
-     $interval = $datetime1->diff($datetime2);
-     $daysinterval = $interval->format('%a days');
+     //$interval = $datetime1->diff($datetime2);
+     //$daysinterval = $interval->format('%a days');
+     
+     $daysinterval = round(abs($datetime2->format('U') - $datetime1->format('U')) / (60*60*24));
+     $daysinterval = $daysinterval.' days';
 
      // $date = date('Y-m-d',strtotime('2010-01-01 -1 year'));
      $lastyear = strtotime("-$daysinterval", strtotime($todate));
