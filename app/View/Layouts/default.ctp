@@ -32,8 +32,14 @@ $cakeDescription = __d('cake_dev', 'Dashboard');
 		echo $this->Html->css('style');
 		echo $this->Html->css('jquery.autocomplete');
 		echo $this->Html->css('jgauge');
+		echo $this->Html->css('demoPages');		
+		echo $this->Html->css('screen');
 		
-		echo $this->Html->script('jquery.min');
+		echo $this->Html->script('jquery-1.7.2.min');
+		echo $this->Html->script('ui.datepicker');
+		echo $this->Html->script('demoScripts');
+		
+		//echo $this->Html->script('jquery.min');
 		echo $this->Html->script('jquery.filestyle');
 		echo $this->Html->script('jquery.autocomplete');
 			
