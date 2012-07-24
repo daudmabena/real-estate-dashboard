@@ -119,6 +119,8 @@ class Calculation extends AppModel{
                                         WHERE YEAR(".$this->__fieldName.") = '".$this->__fieldValue['year']."'
                                         AND MONTH(".$this->__fieldName.") = '".$this->__fieldValue['month']."'";
         
+        //echo $lastYearSameMonthgetQuery;
+        
         $lastYearSameMonthgetResult = $this->query($lastYearSameMonthgetQuery);
         
         return $lastYearSameMonthgetResult;

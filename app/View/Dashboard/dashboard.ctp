@@ -4,44 +4,59 @@
       $('.searchContent').hide();
       var showOrHide;
       $('.searchTxt').click(function(){
-	
-		$('.searchContent').slideToggle(showOrHide);
-		//alert(showOrHide);
-		//if(showOrHide == true){
-		//  alert('qwe');
-		//}
-		//else if(showOrHide == false){
-		//  alert('123');
-		//}
+	$('.searchContent').slideToggle(showOrHide);
+	$('.searchUpArrow').toggleClass("searchDownArrow");
+	//$('#range1').val('07/20/2011');
+//$('#range2').val('07/20/2012');
+      });
+      
+      $('#submitForm').click(function(){
+	getSearchData();
       });
   });
 </script>
 <div id='wrapper'>
+<?php
+print_r($lastYear);
+?>
 	<!--Guage Section -->
+	<div class="topXLSUploaddiv">
+	  <a href="<?php
+	 echo  Router::url(array('controller' => 'DashboardImports', 'action' => 'dashboardimport'));?>">Click to Upload.XLS File</a>
+	</div>
 	<div class='searchPanel'>
-	  <div class='searchTxt'>Search<div class="search searchArrow"></div></div>
+	  <div class='searchTxt'>
+	    Search
+	    <div class="search searchUpArrow"></div>
+	  </div>
 	  
 	  <div class="searchContent">
 	  <div class='searchSep'></div>
 	  <?php
 		echo $this->Form->create('Dashboard', array('controller' => 'Dashboard', 'action' => 'dashboard'));
-		echo "<div class='sections'><div class='formdivider'>";
+		echo "<div class='sections'>
+		      <div class='formdivider'>";
 		echo "<label class='labelTxtSearch'>Date</label>";
-		echo "<input type='text' class='inputTxtSearch' name='date' id='date'></input>";	
+		echo "<div class='rangePicker futureRange'>
+		      <label for='range1'>From:</label>
+		      <input type='text' name='range1' id='range1' value='".$lastYear."' />
+		      <label for='range1'>To:</label>
+		      <input type='text' name='range2' name='range2' value='".date('m/d/Y')."' />
+		      </div>";	
 		echo "</div>";
 		echo "<div class='formdivider'>";
 		echo "<label class='labelTxtSearch'>City</label>";
-		echo "<input type='text' class='inputTxtSearch' name='city' id='city'></input>";	
+		echo "<input type='text' class='inputTxtSearch' name='city' id='txtcity'></input>";	
 		echo "</div></div>";
 		echo "<div class='sections'><div class='formdivider'>";
 		echo "<label class='labelTxtSearch'>Zipcode</label>";
-		echo "<input type='text' class='inputTxtSearch' name='zipcode' id='zipcode'></input>";	
+		echo "<input type='text' class='inputTxtSearch' name='zipcode' id='txtzipcode'></input>";	
 		echo "</div>";
 		echo "<div class='formdivider'>";
 		echo "<label class='labelTxtSearch'>State</label>";
-		echo "<input type='text' class='inputTxtSearch' name='state' id='state'></input>";	
+		echo "<input type='text' class='inputTxtSearch' name='state' id='txtstate'></input>";	
 		echo "</div></div>";
-		echo $this->Form->submit('search_btn.png', array('onclick' => 'return CheckIfFileSelected()'));
+		echo "<a href='#' id='submitForm'></a>";
 		echo "<br>";
 	?>
 	</div>
@@ -121,19 +136,42 @@
 			</div>
 		</div>
 	</div>
-	
+	<div class="bottom-left-panel">
 	<div id='video-wrapper'>
+	  
 	    <div class='video-panel'>
-	      <iframe width="364" height="250" src="http://www.youtube.com/embed/x-iOE8pjY-E" frameborder="0" allowfullscreen></iframe>
+	      <?php
+	      echo $youtube_data[0]['tab_dashboard_content']['field_value'];
+	      ?>
 	    </div>
 	    <div class='text-panel'>
+	      <?php
+		echo $dashboardData[0]['tab_dashboard_content']['field_value'];
+	      ?>
 	    </div>
-	    
-	      <div class='rssFeed1'></div>
-	      <div class='rssFeed2'></div>
-	    
+	    <div class="rssReed">
+	      <div class='rssFeed1'>
+		<?php
+		//echo $rssFieldData_left[0]['tab_dashboard_content']['field_value'];
+		
+		//$url = urlencode($rssFieldData_left[0]['tab_dashboard_content']['field_value']);
+		//$this->requestAction('/Dashboard/readingRss/'.$url);
+		?>
+	      </div>
+	      <div class='rssFeed2'>
+		<?php
+		//echo $rssFieldData_right[0]['tab_dashboard_content']['field_value'];
+		
+		//$url = urlencode($rssFieldData_right[0]['tab_dashboard_content']['field_value']);
+		//$this->requestAction('/Dashboard/readingRss/'.$url);
+		?>
+	      </div>
+	    </div>
+	  </div>
+	  <div class="bottom-right-panel">
 	    <div class='chart-panel'>
 	      <div id="chart-render" style="min-width: 400px; height: 500px; margin: 0 auto"></div>
 	    </div>
+	  </div>
 	<div>
 </div>

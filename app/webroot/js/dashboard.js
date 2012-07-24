@@ -1,42 +1,57 @@
-$(document).ready(function() {
-    $.ajax({
-        url: "getJsonFormat",
-        type: 'POST',
-        data:  {},
-        dataType: 'json',
-        success: function (json) {
-            if(json){
-                var obj =eval(json);
-                
-                //for(var i=0;i<obj.groupByMonthAndYearForMedian.length;i++){}
-                generateChart(obj.groupByMonthAndYearForMedian['monthlytotal'], obj.groupByMonthAndYearForMedian['monthYear']);
-                generateGuage(obj.saleMedianZip['lastYear'], obj.saleMedianCity['lastYear']);
-                
-                $('.saleMedianZipValue').html(formatDollar(obj.saleMedianZip['lastYear']));
-                var avg_of_lastYear_and_previousLastYear = Math.round(obj.saleMedianZip['avg_of_lastYear_and_previousLastYear']*100)/100;
-                $('.strategyPercentageZip').html(avg_of_lastYear_and_previousLastYear);
-                $('.prev12MonStrategy').html("$"+Math.floor(obj.saleMedianZip['previousLastYear']));
-                
-                
-                $('.saleMedianCityValue').html(formatDollar(obj.saleMedianCity['lastYear']));
-                var avg_of_lastYear_city = Math.round(obj.saleMedianCity['avg_of_lastYear_and_previousLastYear']*100)/100;
-                $('.strategyPercentageCity').html(avg_of_lastYear_city);
-     
-     
-                $('#perFootLast12Months').html("$"+obj.soldSqft['lastYear']);
-                $('#soldHomeInDate').html(obj.soldDifferenceWithLastYearAndCurrentYear['currentYear']);
-                $('#soldDifferenceWithLastYear').html(obj.soldDifferenceWithLastYearAndCurrentYear['lastYear']);
-                $('#avgDifferenceWithLastYearAndCurrentYear').html(obj.avgDifferenceWithLastYearAndCurrentYear['currentYear']);
-                $('#avg_difference').html(obj.avgDifferenceWithLastYearAndCurrentYear['difference']);
-                $('#soldAvgSqft').html(Math.floor(obj.soldAvgSqft['lastYear']));
-                
-                
 
-            }
-        }
+function getSearchData(){
+
+    $(document).ready(function() {
+    
+            
+            var fromDate = $('#range1').val();
+            var toDate   = $('#range2').val();
+            var city     = $('#txtcity').val();
+            var state    = $('#txtstate').val();
+            var zip      = $('#txtzipcode').val();
+            
+            
+            $.ajax({
+                url: "getJsonFormat",
+                type: 'POST',
+                data: "fromdate="+fromDate+"&todate="+toDate+"&city="+city+"&state="+state+"&zip="+zip,
+                dataType: 'json',
+                success: function (json) {
+                    if(json){
+                        var obj =eval(json);
+                        
+                        //for(var i=0;i<obj.groupByMonthAndYearForMedian.length;i++){}
+                        generateChart(obj.groupByMonthAndYearForMedian['monthlytotal'], obj.groupByMonthAndYearForMedian['monthYear']);
+                        generateGuage(obj.saleMedianZip['lastYear'], obj.saleMedianCity['lastYear']);
+                        
+                        $('.saleMedianZipValue').html(formatDollar(obj.saleMedianZip['lastYear']));
+                        var avg_of_lastYear_and_previousLastYear = Math.round(obj.saleMedianZip['avg_of_lastYear_and_previousLastYear']*100)/100;
+                        $('.strategyPercentageZip').html(avg_of_lastYear_and_previousLastYear);
+                        $('.prev12MonStrategy').html("$"+Math.floor(obj.saleMedianZip['previousLastYear']));
+                        
+                        
+                        $('.saleMedianCityValue').html(formatDollar(obj.saleMedianCity['lastYear']));
+                        var avg_of_lastYear_city = Math.round(obj.saleMedianCity['avg_of_lastYear_and_previousLastYear']*100)/100;
+                        $('.strategyPercentageCity').html(avg_of_lastYear_city);
+             
+             
+                        $('#perFootLast12Months').html("$"+obj.soldSqft['lastYear']);
+                        $('#soldHomeInDate').html(obj.soldDifferenceWithLastYearAndCurrentYear['currentYear']);
+                        $('#soldDifferenceWithLastYear').html(obj.soldDifferenceWithLastYearAndCurrentYear['lastYear']);
+                        $('#avgDifferenceWithLastYearAndCurrentYear').html(obj.avgDifferenceWithLastYearAndCurrentYear['currentYear']);
+                        $('#avg_difference').html(obj.avgDifferenceWithLastYearAndCurrentYear['difference']);
+                        $('#soldAvgSqft').html(Math.floor(obj.soldAvgSqft['lastYear']));
+                        
+                        
+        
+                    }
+                }
+            });
+            //return false;
     });
-});
-
+}
+    
+getSearchData();
 
 function formatDollar(num) {
     var p = num.toFixed(2).split(".");
