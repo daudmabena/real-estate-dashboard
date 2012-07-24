@@ -16,14 +16,8 @@
   });
 </script>
 <div id='wrapper'>
-<?php
-print_r($lastYear);
-?>
 	<!--Guage Section -->
-	<div class="topXLSUploaddiv">
-	  <a href="<?php
-	 echo  Router::url(array('controller' => 'DashboardImports', 'action' => 'dashboardimport'));?>">Click to Upload.XLS File</a>
-	</div>
+	
 	<div class='searchPanel'>
 	  <div class='searchTxt'>
 	    Search
@@ -168,10 +162,13 @@ print_r($lastYear);
 	      </div>
 	    </div>
 	  </div>
+	</div>
 	  <div class="bottom-right-panel">
 	    <div class='chart-panel'>
 	      <div id="chart-render" style="min-width: 400px; height: 500px; margin: 0 auto"></div>
 	    </div>
 	  </div>
-	<div>
-</div>
+<div class="topXLSUploaddiv">
+	  <a href="<?php
+	 echo  Router::url(array('controller' => 'DashboardImports', 'action' => 'dashboardimport'));?>">Click to Upload.XLS File</a>
+	</div>

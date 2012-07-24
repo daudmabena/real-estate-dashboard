@@ -2,9 +2,7 @@
 body {
 	font-family: "Segoe UI", Frutiger, Tahoma, "Helvetica", "Helvetica Neue", Arial, sans-serif; 
 	font-size:62.5%;
-	background:#fff; 
-	color: #444;
-margin: 20px;
+	margin: 10px;
 }
 
 #demoHeader {
