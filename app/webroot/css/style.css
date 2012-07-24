@@ -4,12 +4,15 @@ body {
 }
 
 .file{
-	border:1px solid #ccc;
-	padding: 2px;
-	color: #535353;
+	border:1px solid #535353;
+	padding: 0px;
+	color: #fff;
     font-family: arial;
     font-size: 12px;
 	height:18px;
+        background:none repeat scroll 0 0 #535353;
+        width:150px !important;
+        
 }
 
 #container{
@@ -33,8 +36,10 @@ body {
     font-family: arial;
     font-size: 12px;
     padding: 2px;
-    width: 250px;
+    width: 227px;
 	height:18px;
+        background:#535353;
+        border:1px solid #303334;
 }
 
 .formdivider{
@@ -51,7 +56,7 @@ body {
 
 #content-import .submit{
 	float:left;
-	margin-left: 269px;
+	margin-left: 245px;
     margin-top: 10px;
 }
 

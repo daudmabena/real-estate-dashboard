@@ -184,6 +184,9 @@ class DashboardController extends AppController {
      
      $fromDate = $_POST['fromdate'];
      $toDate   = $_POST['todate'];
+     $city   = $_POST['city'];
+     $state   = $_POST['state'];
+     $zip   = $_POST['zip'];
 
      $args = array();
      $finalInputToJson = array();
@@ -193,7 +196,7 @@ class DashboardController extends AppController {
      $args['selectedFieldName'] = 'for_sale_median';
      $args['tableName']         = 'tab_median_price_2years';
      $args['fieldName']         = 'zip_code';
-     $args['fieldValue']        = '12207';
+     $args['fieldValue']        = $zip;
      $args['inputfromDate']     = $fromDate;
      $args['inputtoDate']       = $toDate;  
      
@@ -205,7 +208,7 @@ class DashboardController extends AppController {
      $args['selectedFieldName'] = 'for_sale_median';
      $args['tableName']         = 'tab_median_price_2years';
      $args['fieldName']         = 'city';
-     $args['fieldValue']        = 'Albany';
+     $args['fieldValue']        = $city;
 
      
      $finalInputToJson['saleMedianCity'] = $this->index($args);
@@ -215,7 +218,7 @@ class DashboardController extends AppController {
      $args['selectedFieldName'] = 'for_sold_sqft';
      $args['tableName']         = 'tab_media_sold_sqft';
      $args['fieldName']         = 'zip_code';
-     $args['fieldValue']        = '12207';
+     $args['fieldValue']        = $zip;
 
      
      $finalInputToJson['soldSqft'] = $this->index($args);
@@ -244,7 +247,7 @@ class DashboardController extends AppController {
      $args['selectedFieldName'] = 'for_sold_avg_sqft';
      $args['tableName']         = 'tab_media_sold_sqft';
      $args['fieldName']         = 'zip_code';
-     $args['fieldValue']        = '12207';
+     $args['fieldValue']        = $zip;
      
      $finalInputToJson['soldAvgSqft'] = $this->index($args);
      

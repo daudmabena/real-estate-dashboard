@@ -1,7 +1,7 @@
 
 <script type="text/javascript">
 $(document).ready(function() {
-	$("#state").autocomplete("getState", {
+	$("#state").autocomplete("<?php echo Router::url(array('controller' => 'DashboardImports','action' => 'getState'));?>", {
 		width: 260,
 		matchContains: true,
 		//mustMatch: true,
@@ -12,7 +12,7 @@ $(document).ready(function() {
 		selectFirst: false
 	});
 	
-	$("#city").autocomplete("getCity", {
+	$("#city").autocomplete("<?php echo Router::url(array('controller' => 'DashboardImports','action' => 'getCity'));?>", {
 		width: 260,
 		matchContains: true,
 		//mustMatch: true,
@@ -23,7 +23,7 @@ $(document).ready(function() {
 		selectFirst: false
 	});
 	
-	$("#zipcode").autocomplete("getZipCode", {
+	$("#zipcode").autocomplete("<?php echo Router::url(array('controller' => 'DashboardImports','action' => 'getZipCode'));?>", {
 		width: 260,
 		matchContains: true,
 		//mustMatch: true,
@@ -93,15 +93,15 @@ $(document).ready(function() {
 		echo "</div>";
 		echo "<div class='formdivider'>";
 		echo "<label class='labelTxtSearch'>City</label>";
-		echo "<input type='text' class='inputTxtSearch' name='city' id='city'></input>";	
+		echo "<input type='text' class='inputTxtSearch' name='city' id='city' value='SAN ANTONIO'></input>";	
 		echo "</div></div>";
 		echo "<div class='sections'><div class='formdivider'>";
 		echo "<label class='labelTxtSearch'>State</label>";
-		echo "<input type='text' class='inputTxtSearch' name='state' id='state'></input>";	
+		echo "<input type='text' class='inputTxtSearch' name='state' id='state' value='TX'></input>";	
 		echo "</div>";
 		echo "<div class='formdivider'>";
 		echo "<label class='labelTxtSearch'>Zipcode</label>";
-		echo "<input type='text' class='inputTxtSearch' name='zipcode' id='zipcode'></input>";	
+		echo "<input type='text' class='inputTxtSearch' name='zipcode' id='zipcode' value='78253'></input>";	
 		echo "</div></div>";
 		echo "<a href='#' id='submitForm'></a>";
 		echo "<br>";

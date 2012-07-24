@@ -1,7 +1,7 @@
 $(document).ready(function() {
   jQuery(document).ajaxStart(function(){
-            $('#initialContainerMask').show();
-            $('#loader').show();
+        $('#initialContainerMask').show();
+        $('#loader').show();
     });
     jQuery(document).ajaxStop(function(){
         $('#loader').hide();
@@ -16,9 +16,9 @@ function getSearchData(){
             
             var fromDate = $('#range1').val();
             var toDate   = $('#range2').val();
-            var city     = $('#txtcity').val();
-            var state    = $('#txtstate').val();
-            var zip      = $('#txtzipcode').val();
+            var city     = $('#city').val();
+            var state    = $('#state').val();
+            var zip      = $('#zipcode').val();
             
             
             $.ajax({
@@ -34,18 +34,29 @@ function getSearchData(){
                         generateChart(obj.groupByMonthAndYearForMedian['monthlytotal'], obj.groupByMonthAndYearForMedian['monthYear']);
                         generateGuage(obj.saleMedianZip['lastYear'], obj.saleMedianCity['lastYear']);
                         
-                        $('.saleMedianZipValue').html(formatDollar(obj.saleMedianZip['lastYear']));
+                        if(formatDollar(obj.saleMedianZip['lastYear'])!='$NaN.undefined'){
+                            $('.saleMedianZipValue').html(formatDollar(obj.saleMedianZip['lastYear']));
+                        }else{
+                            $('.saleMedianZipValue').html('$0');
+                        }
+                        
                         var avg_of_lastYear_and_previousLastYear = Math.round(obj.saleMedianZip['avg_of_lastYear_and_previousLastYear']*100)/100;
                         $('.strategyPercentageZip').html(avg_of_lastYear_and_previousLastYear);
                         $('.prev12MonStrategy').html("$"+Math.floor(obj.saleMedianZip['previousLastYear']));
                         
-                        
-                        $('.saleMedianCityValue').html(formatDollar(obj.saleMedianCity['lastYear']));
+                        if(formatDollar(obj.saleMedianCity['lastYear'])!='$NaN.undefined'){
+                            $('.saleMedianCityValue').html(formatDollar(obj.saleMedianCity['lastYear']));
+                        }else{
+                            $('.saleMedianCityValue').html('$0');
+                        }
                         var avg_of_lastYear_city = Math.round(obj.saleMedianCity['avg_of_lastYear_and_previousLastYear']*100)/100;
                         $('.strategyPercentageCity').html(avg_of_lastYear_city);
              
-             
-                        $('#perFootLast12Months').html("$"+obj.soldSqft['lastYear']);
+                        if(obj.soldSqft['lastYear']!=false){
+                            $('#perFootLast12Months').html("$"+obj.soldSqft['lastYear']);
+                        }else{
+                            $('#perFootLast12Months').html("$0");
+                        }
                         $('#soldHomeInDate').html(obj.soldDifferenceWithLastYearAndCurrentYear['currentYear']);
                         $('#soldDifferenceWithLastYear').html(obj.soldDifferenceWithLastYearAndCurrentYear['lastYear']);
                         $('#avgDifferenceWithLastYearAndCurrentYear').html(obj.avgDifferenceWithLastYearAndCurrentYear['currentYear']);
@@ -64,7 +75,7 @@ function getSearchData(){
 getSearchData();
 
 function formatDollar(num) {
-    var p = num.toFixed(2).split(".");
+    var p = parseFloat(num).toFixed(2).split(".");
     return "$" + p[0].split("").reverse().reduce(function(acc, num, i, orig) {
         return  num + (i && !(i % 3) ? "," : "") + acc;
     }, "") + "." + p[1];
