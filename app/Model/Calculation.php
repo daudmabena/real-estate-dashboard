@@ -88,7 +88,7 @@ class Calculation extends AppModel{
         
         $medianPriceWithGroupbyMonthAndYearquery = "SELECT sum(".$this->__selectFiledName.") as MONTHLYTOTAL, month(".$this->__fieldName.") as MONTH, 
                                     year(".$this->__fieldName.") as YEAR FROM ".$this->__tableName."
-                                    GROUP BY month(".$this->__fieldName.") , year(".$this->__fieldName.")";
+                                    GROUP BY month(".$this->__fieldName.") , year(".$this->__fieldName.") ORDER BY month_year";
         
         $medianPriceWithGroupbyMonthAndYearResult = $this->query($medianPriceWithGroupbyMonthAndYearquery);
         for($i=0;$i<count($medianPriceWithGroupbyMonthAndYearResult);$i++){
