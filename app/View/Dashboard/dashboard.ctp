@@ -180,6 +180,12 @@ $(document).ready(function() {
 			  <span id='soldAvgSqft' class="strategyPercentage"></span>
 			</div>
 		</div>
+		<div class='guage_description_panel2' style='margin-left:0px;'>Average $ Per Foot Last 12 Months</div>
+		<div class='guage_description_panel2'>Number of Sold Homes in [Date]</div>
+		<div class='guage_description_panel2'>Number of Sold Homes Same Period Last Yr</div>
+		<div class='guage_description_panel2'>A - Average # Days on Market (Solds)</div>
+		<div class='guage_description_panel2'>B- Same Period Last Year</div>
+		<div class='guage_description_panel2'>Average Sq. Ft. Last 12 Months</div>
 	</div>
 	<div class="bottom-left-panel">
 	<div id='video-wrapper'>
