@@ -35,7 +35,8 @@ function getSearchData(){
                         generateGuage(obj.saleMedianZip['lastYear'], obj.saleMedianCity['lastYear']);
                         
                         if(formatDollar(obj.saleMedianZip['lastYear'])!='$NaN.undefined'){
-                            $('.saleMedianZipValue').html(formatDollar(obj.saleMedianZip['lastYear']));
+                            $('.saleMedianZipValue').html(obj.saleMedianZip['lastYear']);
+                            $('.saleMedianZipValue').formatCurrency({useHtml:true});
                         }else{
                             $('.saleMedianZipValue').html('$0');
                         }
@@ -45,7 +46,8 @@ function getSearchData(){
                         $('.prev12MonStrategy').html("$"+Math.floor(obj.saleMedianZip['previousLastYear']));
                         
                         if(formatDollar(obj.saleMedianCity['lastYear'])!='$NaN.undefined'){
-                            $('.saleMedianCityValue').html(formatDollar(obj.saleMedianCity['lastYear']));
+                            $('.saleMedianCityValue').html(obj.saleMedianCity['lastYear']);
+                            $('.saleMedianCityValue').formatCurrency({useHtml:true});
                         }else{
                             $('.saleMedianCityValue').html('$0');
                         }
@@ -112,7 +114,7 @@ function generateChart(monthlyTotal,year){
                     },
                     labels: {
                         formatter: function() {
-                            return formatDollar(this.value);
+                            return this.value;
                         }
                     },
                     plotLines: [{
@@ -165,6 +167,7 @@ function generateChart(monthlyTotal,year){
             });
         });
     });
+    //$('tspan').formatCurrency({useHtml:true});
 }
 
 
