@@ -56,6 +56,9 @@ $cakeDescription = __d('cake_dev', 'Dashboard');
 		echo $this->fetch('css');
 		echo $this->fetch('script');
 	?>
+<!--[if IE]>
+<script type="text/javascript" src="js/excanvas.js">
+        </script><![endif]-->
 </head>
 <body>
 	<div id="container">
