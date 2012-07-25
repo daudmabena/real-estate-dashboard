@@ -34,22 +34,24 @@ function getSearchData(){
                         generateChart(obj.groupByMonthAndYearForMedian['monthlytotal'], obj.groupByMonthAndYearForMedian['monthYear']);
                         generateGuage(obj.saleMedianZip['lastYear'], obj.saleMedianCity['lastYear']);
                         
-                        if(formatDollar(obj.saleMedianZip['lastYear'])!='$NaN.undefined'){
+                        if(obj.saleMedianZip['lastYear']!='$NaN.undefined'){
                             $('.saleMedianZipValue').html(obj.saleMedianZip['lastYear']);
                             $('.saleMedianZipValue').formatCurrency({useHtml:true});
                         }else{
                             $('.saleMedianZipValue').html('$0');
+                            $('.saleMedianZipValue').formatCurrency({useHtml:true});
                         }
                         
                         var avg_of_lastYear_and_previousLastYear = Math.round(obj.saleMedianZip['avg_of_lastYear_and_previousLastYear']*100)/100;
                         $('.strategyPercentageZip').html(avg_of_lastYear_and_previousLastYear);
                         $('.prev12MonStrategy').html("$"+Math.floor(obj.saleMedianZip['previousLastYear']));
                         
-                        if(formatDollar(obj.saleMedianCity['lastYear'])!='$NaN.undefined'){
+                        if(obj.saleMedianCity['lastYear']!='$NaN.undefined'){
                             $('.saleMedianCityValue').html(obj.saleMedianCity['lastYear']);
                             $('.saleMedianCityValue').formatCurrency({useHtml:true});
                         }else{
                             $('.saleMedianCityValue').html('$0');
+                            $('.saleMedianCityValue').formatCurrency({useHtml:true});
                         }
                         var avg_of_lastYear_city = Math.round(obj.saleMedianCity['avg_of_lastYear_and_previousLastYear']*100)/100;
                         $('.strategyPercentageCity').html(avg_of_lastYear_city);
@@ -76,12 +78,12 @@ function getSearchData(){
     
 getSearchData();
 
-function formatDollar(num) {
-    var p = parseFloat(num).toFixed(2).split(".");
-    return "$" + p[0].split("").reverse().reduce(function(acc, num, i, orig) {
-        return  num + (i && !(i % 3) ? "," : "") + acc;
-    }, "") + "." + p[1];
-}
+//function formatDollar(num) {
+//    var p = parseFloat(num).toFixed(2).split(".");
+//    return "$" + p[0].split("").reverse().reduce(function(acc, num, i, orig) {
+//        return  num + (i && !(i % 3) ? "," : "") + acc;
+//    }, "") + "." + p[1];
+//}
 
 
 function generateChart(monthlyTotal,year){

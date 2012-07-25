@@ -56,8 +56,6 @@ $(document).ready(function() {
       $('.searchTxt').click(function(){
 	$('.searchContent').slideToggle(showOrHide);
 	$('.searchUpArrow').toggleClass("searchDownArrow");
-	//$('#range1').val('07/20/2011');
-//$('#range2').val('07/20/2012'); 
      });
       
       $('#submitForm').click(function(){
