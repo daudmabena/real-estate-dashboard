@@ -95,11 +95,13 @@ function generateChart(monthlyTotal,year){
                     renderTo: 'chart-render',
                     type: 'line',
                     marginBottom: 35,
-                    backgroundColor: '#363636'
-                },
+                    backgroundColor: '#363636',
+                    color:'#000',
+                    width: 645
+                },  
                 title: {
-                    text: '',
-                    x: -20 //center
+                    text: 'Median Price Over Time',
+                    x: -20
                 },
                 subtitle: {
                     text: '',
