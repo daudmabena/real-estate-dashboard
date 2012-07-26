@@ -60,7 +60,8 @@ class Calculation extends AppModel{
     public function calculateMedian12months(){
         
         $medianPrice2Yearsquery = "SELECT SUM(".$this->__selectFiledName.") AS TOTALMEDIANAMOUNT,
-                                    ".$this->__fieldName.",COUNT(*) as TOTALRECORD
+                                    ".$this->__fieldName.",COUNT(*) as TOTALRECORD, MIN(".$this->__selectFiledName.") AS MIN
+                                    , MAX(".$this->__selectFiledName.") AS MAX
                                     FROM ".$this->__tableName." WHERE ".$this->__fieldName."='".$this->__fieldValue."'
                                     AND MONTH_YEAR BETWEEN '".$this->__fromDate."' AND '".$this->__toDate."'";
         
@@ -68,7 +69,14 @@ class Calculation extends AppModel{
         
         $medianPrice2YearsResult = $this->query($medianPrice2Yearsquery);
         
-        $medianSoldPriceLast12Months = $medianPrice2YearsResult[0][0]['TOTALMEDIANAMOUNT']/$medianPrice2YearsResult[0][0]['TOTALRECORD'];
+        $medianSoldPriceLast12Months['MAXValue'] = $medianPrice2YearsResult[0][0]['MAX'];
+        $medianSoldPriceLast12Months['MINValue'] = $medianPrice2YearsResult[0][0]['MIN'];
+        
+        $medianSoldPriceLast12Months['Value'] = $medianPrice2YearsResult[0][0]['TOTALMEDIANAMOUNT']/$medianPrice2YearsResult[0][0]['TOTALRECORD'];
+        
+        //print_r($medianSoldPriceLast12Months);
+        
+        //exit;
         
        return $medianSoldPriceLast12Months;
     }

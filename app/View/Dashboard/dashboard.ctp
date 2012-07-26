@@ -107,9 +107,13 @@ $(document).ready(function() {
 	</div>
 	</div>
 	<div id='guage-wrapper'>
+	  <div class="firstGuageGroup">
+	    <div class="header" id="ZipLabel">
+	      
+	    </div>
 		<div class='guage-div' style='margin-left:0px;'>
 			<div id="jGaugeDemo1" class="jgauge"></div>
-			<div>
+			<div class="min-max">
 				<div class='min-max-left'>Min - $70,208</div>
 				<div class='min-max-right'>Max - $270,208</div>
 			</div>
@@ -124,9 +128,14 @@ $(document).ready(function() {
 			  <span class='strategyPercentageZip'></span>
 			</div>
 		</div>
+	  </div>
+	  <div class="secondGuageGroup">
+	    <div class="header" id="CityValue">
+	      
+	    </div>
 		<div class='guage-div'>
 		    <div id="jGaugeDemo2" class="jgauge"></div>
-			  <div>
+			  <div class="min-max">
 				  <div class='min-max-left'>Min - $70,208</div>
 				  <div class='min-max-right'>Max - $270,208</div>
 			</div>
@@ -141,7 +150,7 @@ $(document).ready(function() {
 			  <span class='strategyPercentageCity'></span>
 			</div>
 		</div>
-		
+	  </div>
 		<div class='guage_description' style='margin-left:0px;'>Median Sold Price Last 12 month Avg</div>
 		<div class='guage_description_down'>Previous 12 mos. <span class='prev12MonStrategy'></span></div>
 		<div class='guage_description'>Median SA Price</div>
@@ -183,42 +192,42 @@ $(document).ready(function() {
 		<div class='guage_description_panel2' style='margin-left:0px;'>Average $ Per Foot Last 12 Months</div>
 		<div class='guage_description_panel2'>Number of Sold Homes in [Date]</div>
 		<div class='guage_description_panel2'>Number of Sold Homes Same Period Last Yr</div>
-		<div class='guage_description_panel2'>A - Average # Days on Market (Solds)</div>
-		<div class='guage_description_panel2'>B- Same Period Last Year</div>
+		<div class='guage_description_panel2'>Average # Days on Market (Solds)</div>
+		<div class='guage_description_panel2'>Same Period Last Year</div>
 		<div class='guage_description_panel2'>Average Sq. Ft. Last 12 Months</div>
 	</div>
 	<div class="bottom-left-panel">
-	<div id='video-wrapper'>
-	  
-	    <div class='video-panel'>
-	      <?php
-	      echo $youtube_data[0]['tab_dashboard_content']['field_value'];
-	      ?>
-	    </div>
-	    <div class='text-panel'>
-	      <?php
-		echo $dashboardData[0]['tab_dashboard_content']['field_value'];
-	      ?>
-	    </div>
-	    <div class="rssReed">
-	      <div class='rssFeed1'>
+	  <div id='video-wrapper'>
+	    
+	      <div class='video-panel'>
 		<?php
-		//echo $rssFieldData_left[0]['tab_dashboard_content']['field_value'];
-		
-		//$url = urlencode($rssFieldData_left[0]['tab_dashboard_content']['field_value']);
-		//$this->requestAction('/Dashboard/readingRss/'.$url);
+		echo $youtube_data[0]['tab_dashboard_content']['field_value'];
 		?>
 	      </div>
-	      <div class='rssFeed2'>
+	      <div class='text-panel'>
 		<?php
-		//echo $rssFieldData_right[0]['tab_dashboard_content']['field_value'];
-		
-		//$url = urlencode($rssFieldData_right[0]['tab_dashboard_content']['field_value']);
-		//$this->requestAction('/Dashboard/readingRss/'.$url);
+		  echo $dashboardData[0]['tab_dashboard_content']['field_value'];
 		?>
 	      </div>
+	      <div class="rssReed">
+		<div class='rssFeed1'>
+		  <?php
+		  //echo $rssFieldData_left[0]['tab_dashboard_content']['field_value'];
+		  
+		  //$url = urlencode($rssFieldData_left[0]['tab_dashboard_content']['field_value']);
+		  //$this->requestAction('/Dashboard/readingRss/'.$url);
+		  ?>
+		</div>
+		<div class='rssFeed2'>
+		  <?php
+		  //echo $rssFieldData_right[0]['tab_dashboard_content']['field_value'];
+		  
+		  //$url = urlencode($rssFieldData_right[0]['tab_dashboard_content']['field_value']);
+		  //$this->requestAction('/Dashboard/readingRss/'.$url);
+		  ?>
+		</div>
+	      </div>
 	    </div>
-	  </div>
 	</div>
 	  <div class="bottom-right-panel">
 	    <div class='chart-panel'>

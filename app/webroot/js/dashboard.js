@@ -19,6 +19,8 @@ function getSearchData(){
             var city     = $('#city').val();
             var state    = $('#state').val();
             var zip      = $('#zipcode').val();
+            $('#ZipLabel').html(zip+" Median Price");
+            $('#CityValue').html(city+" Median Price");      
             
             
             $.ajax({
@@ -29,10 +31,48 @@ function getSearchData(){
                 success: function (json) {
                     if(json){
                         var obj =eval(json);
-                        
+
                         //for(var i=0;i<obj.groupByMonthAndYearForMedian.length;i++){}
                         generateChart(obj.groupByMonthAndYearForMedian['monthlytotal'], obj.groupByMonthAndYearForMedian['monthYear']);
                         generateGuage(obj.saleMedianZip['lastYear'], obj.saleMedianCity['lastYear']);
+                        
+                        if(obj.saleMedianZip['MIN'] != null){
+                          $('.firstGuageGroup .guage-div .min-max .min-max-left').html(obj.saleMedianZip['MIN']);
+                          $('.firstGuageGroup .guage-div .min-max .min-max-left').formatCurrency({useHtml:true});
+                          $('.firstGuageGroup .guage-div .min-max .min-max-left').html("Min -"+$('.firstGuageGroup .guage-div .min-max .min-max-left').html())
+                        }
+                        else{
+                          $('.firstGuageGroup .guage-div .min-max .min-max-left').html("Min - $0");
+                        }
+                        
+                        if(obj.saleMedianZip['MAX'] != null){
+                          $('.firstGuageGroup .guage-div .min-max .min-max-right').html(obj.saleMedianZip['MAX']);
+                          $('.firstGuageGroup .guage-div .min-max .min-max-right').formatCurrency({useHtml:true});
+                          $('.firstGuageGroup .guage-div .min-max .min-max-right').html("Max -"+$('.firstGuageGroup .guage-div .min-max .min-max-right').html())
+                        }
+                        else{
+                          $('.firstGuageGroup .guage-div .min-max .min-max-right').html("Max - $10");
+                        }
+                        
+                        /*Second Gadget Min and Max*/
+                        
+                        if(obj.saleMedianCity['MIN'] != null){
+                          $('.secondGuageGroup .guage-div .min-max .min-max-left').html(obj.saleMedianCity['MIN']);
+                          $('.secondGuageGroup .guage-div .min-max .min-max-left').formatCurrency({useHtml:true});
+                          $('.secondGuageGroup .guage-div .min-max .min-max-left').html("Min -"+$('.secondGuageGroup .guage-div .min-max .min-max-left').html())
+                        }
+                        else{
+                          $('.secondGuageGroup .guage-div .min-max .min-max-left').html("Min - $0");
+                        }
+                        
+                        if(obj.saleMedianCity['MAX'] != null){
+                          $('.secondGuageGroup .guage-div .min-max .min-max-right').html(obj.saleMedianCity['MAX']);
+                          $('.secondGuageGroup .guage-div .min-max .min-max-right').formatCurrency({useHtml:true});
+                          $('.secondGuageGroup .guage-div .min-max .min-max-right').html("Max -"+$('.secondGuageGroup .guage-div .min-max .min-max-right').html())
+                        }
+                        else{
+                          $('.secondGuageGroup .guage-div .min-max .min-max-right').html("Max - $10");
+                        }
                         
                         if(obj.saleMedianZip['lastYear']!='$NaN.undefined'){
                             $('.saleMedianZipValue').html(obj.saleMedianZip['lastYear']);
@@ -43,8 +83,9 @@ function getSearchData(){
                         }
                         
                         var avg_of_lastYear_and_previousLastYear = Math.round(obj.saleMedianZip['avg_of_lastYear_and_previousLastYear']*100)/100;
-                        $('.strategyPercentageZip').html(avg_of_lastYear_and_previousLastYear);
+                        $('.strategyPercentageZip').html(avg_of_lastYear_and_previousLastYear+"%");
                         $('.prev12MonStrategy').html("$"+Math.floor(obj.saleMedianZip['previousLastYear']));
+                        $('.prev12MonStrategy').formatCurrency({useHtml:true});
                         
                         if(obj.saleMedianCity['lastYear']!='$NaN.undefined'){
                             $('.saleMedianCityValue').html(obj.saleMedianCity['lastYear']);
@@ -54,7 +95,7 @@ function getSearchData(){
                             $('.saleMedianCityValue').formatCurrency({useHtml:true});
                         }
                         var avg_of_lastYear_city = Math.round(obj.saleMedianCity['avg_of_lastYear_and_previousLastYear']*100)/100;
-                        $('.strategyPercentageCity').html(avg_of_lastYear_city);
+                        $('.strategyPercentageCity').html(avg_of_lastYear_city+"%");
              
                         if(obj.soldSqft['lastYear']!=false){
                             $('#perFootLast12Months').html("$"+obj.soldSqft['lastYear']);

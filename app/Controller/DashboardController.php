@@ -30,6 +30,7 @@ class DashboardController extends AppController {
      $parameters = array();
      $returnValues = array();
      $currentYear = array();
+     $lastYearValue = array();
      $lastYearTotalSum = "";
      $lastYearTotalDivider = "";
      
@@ -75,26 +76,33 @@ class DashboardController extends AppController {
           
           if($i == 1){
                //Getting Divider here
-               $lastYearTotalDivider = $lastYearValue;
+               $lastYearTotalDivider = $lastYearValue['Value'];
                $returnValues['previousLastYear'] = $lastYearTotalDivider;
           }
           else{
-               $returnValues['lastYear'] = $lastYearValue;
+               $returnValues['lastYear'] = $lastYearValue['Value'];
           }
           
+          $returnValues['MAX'] = $lastYearValue['MAXValue'];
+          $returnValues['MIN'] = $lastYearValue['MINValue'];
           //Getting Sum of total year with last Two Years
-          $lastYearTotalSum += $lastYearValue;
+          $lastYearTotalSum += $lastYearValue['Value'];
           //$countYears--;
 
           
      }
      $returnValues['totalOfLastTwoYearsData'] = $lastYearTotalSum;
      
+     $returnValues['diffFromLastYear'] = $returnValues['lastYear'] - $returnValues['previousLastYear'];
+     
+
+     
+     
      //echo "first".$lastYearTotalSum."</br>";
      
     /// echo "second".$lastYearTotalDivider."</br>";
      
-     $returnValues['avg_of_lastYear_and_previousLastYear'] = $lastYearTotalSum/$lastYearTotalDivider;
+     $returnValues['avg_of_lastYear_and_previousLastYear'] = $returnValues['diffFromLastYear']/$lastYearTotalDivider;
      
      return $returnValues;
      $this->autoRender = false;
@@ -276,17 +284,18 @@ class DashboardController extends AppController {
      */
      
      public function dashboard(){
-          
-          $currentDate = date('Y-m-d');
-          $lastyear = strtotime("-1 year", strtotime($currentDate));
-          $lastYear = date("m/d/Y", $lastyear);
-          $this->set('lastYear', $lastYear);
-          
-       $this->set('youtube_data',$this->Dashboard->getFieldDatas('youtube_data'));
-       $this->set('dashboardData',$this->Dashboard->getFieldDatas('text_message'));
-       $this->set('rssFieldData_left',$this->Dashboard->getFieldDatas('rss_field_left'));
-       $this->set('rssFieldData_right',$this->Dashboard->getFieldDatas('rss_feed_right'));
-       $this->render('dashboard');
+      
+      
+      $currentDate = date('Y-m-d');
+      $lastyear = strtotime("-1 year", strtotime($currentDate));
+      $lastYear = date("m/d/Y", $lastyear);
+      $this->set('lastYear', $lastYear);
+      
+      $this->set('youtube_data',$this->Dashboard->getFieldDatas('youtube_data'));
+      $this->set('dashboardData',$this->Dashboard->getFieldDatas('text_message'));
+      $this->set('rssFieldData_left',$this->Dashboard->getFieldDatas('rss_field_left'));
+      $this->set('rssFieldData_right',$this->Dashboard->getFieldDatas('rss_feed_right'));
+      $this->render('dashboard');
        
      }
    
