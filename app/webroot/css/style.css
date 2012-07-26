@@ -3,16 +3,19 @@ body {
     font-family: "arial",sans-serif;
 }
 
+iframe{
+    width:316px;
+    height: 250px;
+}
 .file{
-	border:1px solid #535353;
-	padding: 0px;
-	color: #fff;
+    border:1px solid #535353;
+    padding: 0px;
+    color: #fff;
     font-family: arial;
     font-size: 12px;
-	height:18px;
-        background:none repeat scroll 0 0 #535353;
-        width:150px !important;
-        
+    height:18px;
+    background:none repeat scroll 0 0 #535353;
+    width:150px !important;
 }
 
 #container{
@@ -43,7 +46,6 @@ body {
 }
 
 .formdivider{
-	padding: 10px 10px 10px 0;
 	clear:both;
 }
 /*label text*/
@@ -173,7 +175,7 @@ background-color: #A3A3A3;
     width: 80px;
     float: right;
     margin-top: 20px;
-    padding-right: 10px;
+    padding-right: 0px;
 }
 
 .downTxt{
@@ -238,11 +240,19 @@ background-color: #A3A3A3;
 	font-size:50px;
 }
 
-.searchPanel, .searchContent{
+.searchPanel{
     background: url("../img/boc_bg_repeat.jpg") repeat scroll left center white;
     clear: both;
     float: left;
     margin-bottom: 20px;
+    width: 980px;
+    border: 1px solid #565656;
+}
+
+.searchContent{
+    background: url("../img/boc_bg_repeat.jpg") repeat scroll left center white;
+    clear: both;
+    float: left;
     width: 980px;
     border: 1px solid #565656;
 }
@@ -272,7 +282,7 @@ background-color: #A3A3A3;
 .labelTxtSearch{
 	color: #707275;
     font-size: 12px;
-    padding: 10px;
+    padding: 7px;
     text-shadow: 0 -1px 1px #000000;
     text-transform: uppercase;
     width: 60px;
@@ -281,7 +291,7 @@ background-color: #A3A3A3;
 
 .sections{
 	float: left;
-    width: 450px;
+    width: 341px;
 	padding: 16px;
 }
 
@@ -422,7 +432,8 @@ background-image: url('../img/search_btn.png');
 float: right;
 width: 89px;
 height: 35px;
-margin-right: 19px;
+margin-right: 144px;
+margin-top: 39px;
 }
 
 

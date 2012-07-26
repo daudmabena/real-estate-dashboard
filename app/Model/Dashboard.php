@@ -195,6 +195,21 @@ class Dashboard extends AppModel {
 		return $getfieldData;
 	    
 	    }
+	    
+	    function insertDashboardData($data){
+		
+		
+		//print_r($data);
+		
+		extract($data);
+		
+		$query = "update `tab_dashboard_content` set field_value='".$fieldValue."' WHERE field_name='".$selectedFieldValue."'";
+		
+		//echo $query;
+		
+		$rs = $this->query($query);
+		
+	    }
 	
 	
 }

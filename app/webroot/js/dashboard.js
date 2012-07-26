@@ -13,12 +13,26 @@ function getSearchData(){
 
     $(document).ready(function() {
     
+            var toDate = new Date();
+            
             
             var fromDate = $('#range1').val();
-            var toDate   = $('#range2').val();
+                toDate   = $('#range2').val();
             var city     = $('#city').val();
             var state    = $('#state').val();
             var zip      = $('#zipcode').val();
+            
+            //alert(toDate.split("/")[0]);
+            var monthVal = toDate.split("/")[0];
+            var MonthName;
+            
+            if(monthVal == 1){MonthName = 'January';}else if(monthVal == 2){MonthName = 'February';}else if(monthVal == 3){MonthName = 'March';}
+            else if(monthVal == 4){MonthName = 'April'}else if(monthVal == 5){MonthName = 'May'}else if(monthVal == 6){MonthName = 'June'}
+            else if(monthVal == 7){MonthName = 'July'}else if(monthVal == 8){MonthName = 'August'}else if(monthVal == 9){MonthName = 'September'}
+            else if(monthVal == 10){MonthName = 'October'}else if(monthVal == 11){MonthName = 'November'}else if(monthVal == 12){MonthName = 'December'};
+            
+            $('#guage_description_panel2').html('Number of Sold Homes in ['+MonthName+']');
+            
             $('#ZipLabel').html(zip+" Median Price");
             $('#CityValue').html(city+" Median Price");      
             
@@ -107,9 +121,6 @@ function getSearchData(){
                         $('#avgDifferenceWithLastYearAndCurrentYear').html(obj.avgDifferenceWithLastYearAndCurrentYear['currentYear']);
                         $('#avg_difference').html(obj.avgDifferenceWithLastYearAndCurrentYear['difference']);
                         $('#soldAvgSqft').html(Math.floor(obj.soldAvgSqft['lastYear']));
-                        
-                        
-        
                     }
                 }
             });

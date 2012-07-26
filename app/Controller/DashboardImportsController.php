@@ -141,6 +141,31 @@ class DashboardImportsController extends AppController {
             }
             exit;
     }
+    
+    public function dashboardAdd(){
+          $this->render('dashboardAdd');
+    }
+    
+    public function insertDashboardData(){
+     Controller::loadModel('Dashboard');
+     $data = array();
+
+     
+     $data['selectedFieldValue']  = 'youtube_data';
+     $data['fieldValue']    = $_REQUEST['youtube_data'];
+     $this->Dashboard->insertDashboardData($data);
+     
+     $data['selectedFieldValue']  = 'rss_field_left';
+     $data['fieldValue']    = $_REQUEST['rss_left'];
+     $this->Dashboard->insertDashboardData($data);
+     
+     $data['selectedFieldValue']  = 'rss_field_right';
+     $data['fieldValue']    = $_REQUEST['rss_right'];    
+     $this->Dashboard->insertDashboardData($data);
+     
+     $this->autoRender = false;
+     exit;
+    }
 
 }
 ?>
