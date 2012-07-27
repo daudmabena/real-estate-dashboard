@@ -154,31 +154,35 @@ class DashboardImportsController extends AppController {
      
      Controller::loadModel('Dashboard');
      $data = array();
-     
+     $status = "";
      if($_REQUEST['youtube'] != ""){
           $data['selectedFieldValue']  = 'youtube_data';
           $data['fieldValue']    = mysql_escape_string($_REQUEST['youtube']);
-          $this->Dashboard->insertDashboardData($data);
+          $status = $this->Dashboard->insertDashboardData($data);
      }
      
      
      if($_REQUEST['rssleft'] != ""){
           $data['selectedFieldValue']  = 'rss_field_left';
           $data['fieldValue']    = $_REQUEST['rssleft'];
-          $this->Dashboard->insertDashboardData($data);
+          $status = $this->Dashboard->insertDashboardData($data);
      }
      
      
      if($_REQUEST['rssright'] != ""){
           $data['selectedFieldValue']  = 'rss_feed_right';
           $data['fieldValue']    = $_REQUEST['rssright'];   
-          $this->Dashboard->insertDashboardData($data);
+          $status = $this->Dashboard->insertDashboardData($data);
      }
      
      if($_REQUEST['dashboarddata'] != ""){
           $data['selectedFieldValue']  = 'text_message';
           $data['fieldValue']    = $_REQUEST['dashboarddata'];   
-          $this->Dashboard->insertDashboardData($data);
+          $status = $this->Dashboard->insertDashboardData($data);
+     }
+     
+     if($status == 1){
+          echo "success";
      }
      
      $this->autoRender = false;

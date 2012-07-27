@@ -4,7 +4,7 @@
       var youtubeData  = $('#youtube_data').val();
       var rssLeft      = $('#rss_left').val();
       var rssRight     = $('#rss_right').val();
-      var dashboardText= $('#dashboard_text').val();
+      var dashboardText= $('#dashboard_text').val();  
       
       $.ajax({
 	url: "<?php echo  Router::url(array('controller' => 'DashboardImports', 'action' => 'insertDashboardData'));?>",
@@ -12,12 +12,25 @@
 	data: "youtube="+youtubeData+"&rssleft="+rssLeft+"&rssright="+rssRight+"&dashboarddata="+dashboardText,
 	success: function (json) {
 	  alert(json);
+	  jQuery(document).ajaxStart(function(){
+	    $('#initialContainerMask').show();
+	    $('#loader').show();
+	  });
+	  
+	  jQuery(document).ajaxStop(function(){
+	    $('#loader').hide();
+	    $('#initialContainerMask').hide();
+	  });  
+	  
 	}
       });
     });
   });
   
 </script>
+<div id='initialContainerMask'>
+<div id='loader'><img src='../img/loading.gif'><span style='float:right;margin-right:40px;'>Changing</span></img></div>
+</div>
 <div class='header_txt'>Dashboard Import</div>
 <div class='searchSep'></div>
 <div id="content-import">

@@ -73,18 +73,21 @@ class DashboardController extends AppController {
           }
           $this->Calculation->setData($parameters);
           $lastYearValue = $this->Calculation->calculateMedian12months();
-          
+
           if($i == 1){
                //Getting Divider here
                $lastYearTotalDivider = $lastYearValue['Value'];
                $returnValues['previousLastYear'] = $lastYearTotalDivider;
+               $returnValues['MAXPreviousYear'] = $lastYearValue['MAXValue'];
+               $returnValues['MINPreviousYear'] = $lastYearValue['MINValue'];
           }
           else{
-               $returnValues['lastYear'] = $lastYearValue['Value'];
+              $returnValues['MAXLastYear'] = $lastYearValue['MAXValue'];
+              $returnValues['MINLastYear'] = $lastYearValue['MINValue'];
+              $returnValues['lastYear'] = $lastYearValue['Value'];
           }
           
-          $returnValues['MAX'] = $lastYearValue['MAXValue'];
-          $returnValues['MIN'] = $lastYearValue['MINValue'];
+
           //Getting Sum of total year with last Two Years
           $lastYearTotalSum += $lastYearValue['Value'];
           //$countYears--;
@@ -103,6 +106,9 @@ class DashboardController extends AppController {
     /// echo "second".$lastYearTotalDivider."</br>";
      
      $returnValues['avg_of_lastYear_and_previousLastYear'] = $returnValues['diffFromLastYear']/$lastYearTotalDivider;
+     
+     //print_r($returnValues);
+     
      
      return $returnValues;
      $this->autoRender = false;
