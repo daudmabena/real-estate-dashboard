@@ -53,14 +53,14 @@ function getSearchData(){
                 success: function (json) {
                     if(json){
                         var obj =eval(json);
-                        MinRange = obj.saleMedianZip['MIN'];
-                        MaxRange = obj.saleMedianZip['MAX'];
+                        MinRange = obj.saleMedianZip['MINLastYear'];
+                        MaxRange = obj.saleMedianZip['MAXLastYear'];
                         //for(var i=0;i<obj.groupByMonthAndYearForMedian.length;i++){}
                         generateChart(obj.groupByMonthAndYearForMedian['monthlytotal'], obj.groupByMonthAndYearForMedian['monthYear']);
                         generateGuage(obj.saleMedianZip['lastYear'], obj.saleMedianCity['lastYear']);
                         
-                        if(obj.saleMedianZip['MIN'] != null){
-                          $('.firstGuageGroup .guage-div .min-max .min-max-left').html(obj.saleMedianZip['MIN']);
+                        if(obj.saleMedianZip['MINLastYear'] != null){
+                          $('.firstGuageGroup .guage-div .min-max .min-max-left').html(obj.saleMedianZip['MINLastYear']);
                           $('.firstGuageGroup .guage-div .min-max .min-max-left').formatCurrency({useHtml:true});
                           $('.firstGuageGroup .guage-div .min-max .min-max-left').html("Min -"+$('.firstGuageGroup .guage-div .min-max .min-max-left').html())
                         }
@@ -68,8 +68,8 @@ function getSearchData(){
                           $('.firstGuageGroup .guage-div .min-max .min-max-left').html("Min - $0");
                         }
                         
-                        if(obj.saleMedianZip['MAX'] != null){
-                          $('.firstGuageGroup .guage-div .min-max .min-max-right').html(obj.saleMedianZip['MAX']);
+                        if(obj.saleMedianZip['MAXLastYear'] != null){
+                          $('.firstGuageGroup .guage-div .min-max .min-max-right').html(obj.saleMedianZip['MAXLastYear']);
                           $('.firstGuageGroup .guage-div .min-max .min-max-right').formatCurrency({useHtml:true});
                           $('.firstGuageGroup .guage-div .min-max .min-max-right').html("Max -"+$('.firstGuageGroup .guage-div .min-max .min-max-right').html())
                         }
@@ -79,8 +79,8 @@ function getSearchData(){
                         
                         /*Second Gadget Min and Max*/
                         
-                        if(obj.saleMedianCity['MIN'] != null){
-                          $('.secondGuageGroup .guage-div .min-max .min-max-left').html(obj.saleMedianCity['MIN']);
+                        if(obj.saleMedianCity['MINLastYear'] != null){
+                          $('.secondGuageGroup .guage-div .min-max .min-max-left').html(obj.saleMedianCity['MINLastYear']);
                           $('.secondGuageGroup .guage-div .min-max .min-max-left').formatCurrency({useHtml:true});
                           $('.secondGuageGroup .guage-div .min-max .min-max-left').html("Min -"+$('.secondGuageGroup .guage-div .min-max .min-max-left').html())
                         }
@@ -88,8 +88,8 @@ function getSearchData(){
                           $('.secondGuageGroup .guage-div .min-max .min-max-left').html("Min - $0");
                         }
                         
-                        if(obj.saleMedianCity['MAX'] != null){
-                          $('.secondGuageGroup .guage-div .min-max .min-max-right').html(obj.saleMedianCity['MAX']);
+                        if(obj.saleMedianCity['MAXLastYear'] != null){
+                          $('.secondGuageGroup .guage-div .min-max .min-max-right').html(obj.saleMedianCity['MAXLastYear']);
                           $('.secondGuageGroup .guage-div .min-max .min-max-right').formatCurrency({useHtml:true});
                           $('.secondGuageGroup .guage-div .min-max .min-max-right').html("Max -"+$('.secondGuageGroup .guage-div .min-max .min-max-right').html())
                         }
