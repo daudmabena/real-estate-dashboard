@@ -288,8 +288,8 @@ function generateGuage(saleMedianZip, saleMedianCity){
     
     //alert(MinRange);
     //alert(MaxRange);
-    demoGauge1.ticks.start = MinRange;
-    demoGauge1.ticks.end = MaxRange;
+    demoGauge1.ticks.start = parseFloat(MinRange);
+    demoGauge1.ticks.end = parseFloat(MinRange);
     
     demoGauge2.setValue(saleMedianCity);
     //setInterval('randVal()', 100);
