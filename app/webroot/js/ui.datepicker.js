@@ -991,7 +991,8 @@ $.fn.dateRangePicker = function(options){
 					//'<li class="dateRange_allBefore"><a href="javascript://">All Dates Before...</a></li>'+
 					//'<li class="dateRange_allAfter"><a href="javascript://">All Dates After...</a></li>'+
 					//'<li class="dateRange_specificDate"><a href="javascript://">Specific Date...</a></li>'+
-					'<li class="dateRange_dateRange"><a href="javascript://">Date Range...</a></li>'+
+					//'<li class="dateRange_dateRange"><a href="javascript://">Date Range...</a></li>'+
+					'<li class="dateRange_SixMonthYear"><a href="javascript://">Past 6 Months</a></li>'+
 					'</ul>'+
 					'<a href="javascript://" class="dateRange_close">Done</a>'+
 					'<h2 class="selectDate" style="display: none;"></h2>'+
@@ -1322,6 +1323,11 @@ $.fn.dateRangePicker = function(options){
 					date.setDate(date.getDate()-365);
 					return date.getMonth()+1+'/'+date.getDate()+'/'+date.getFullYear();
 				},
+				sixMonthsAgo: function(){
+					var date = new Date();
+					date.setDate(date.getDate()-182);
+					return date.getMonth()+1+'/'+date.getDate()+'/'+date.getFullYear();
+				},
 				ytdStart: function(){
 					var date = new Date();
 					return '1/1/'+(date.getFullYear());
@@ -1455,6 +1461,12 @@ $.fn.dateRangePicker = function(options){
 			if($(this).is('.dateRange_lastYear')) {
 				$(this).smallMenu();
 				range1.val(dates.yearAgo());
+				range2.val(dates.today());
+//alert("12");
+			}
+			if($(this).is('.dateRange_SixMonthYear')) {
+				$(this).smallMenu();
+				range1.val(dates.sixMonthsAgo());
 				range2.val(dates.today());
 //alert("12");
 			}
