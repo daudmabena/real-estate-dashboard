@@ -50,7 +50,7 @@ $cakeDescription = __d('cake_dev', 'Dashboard');
 
 		$pageInnerURL = (@$_SERVER["HTTPS"] == "on") ? "https://" : "http://";
 		
-		if($_SERVER["SERVER_NAME"] == 'localhost'){
+		if($_SERVER["SERVER_NAME"] == 'ranjith.local.dev'){
 				
 			$pageInnerURL .= $_SERVER["SERVER_NAME"].'/real-estate-dashboard';
 			
@@ -83,7 +83,7 @@ $cakeDescription = __d('cake_dev', 'Dashboard');
 		
 		$pageInnerURL = (@$_SERVER["HTTPS"] == "on") ? "https://" : "http://";
 		
-		if($_SERVER["SERVER_NAME"] == 'localhost'){
+		if($_SERVER["SERVER_NAME"] == 'ranjith.local.dev'){
 			$pageInnerURL .= $_SERVER["SERVER_NAME"].'/real-estate-dashboard';
 			
 			if($pageURL == $pageInnerURL.'/dashboard/dashboard'){

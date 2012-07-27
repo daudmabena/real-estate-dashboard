@@ -9,8 +9,7 @@ $(document).ready(function() {
     });    
 });
 
-var MinRange;
-var MaxRange;
+var MinRange,MaxRange,MinRange1,MaxRange1;
 
 function getSearchData(){
 
@@ -55,6 +54,8 @@ function getSearchData(){
                         var obj =eval(json);
                         MinRange = obj.saleMedianZip['MINLastYear'];
                         MaxRange = obj.saleMedianZip['MAXLastYear'];
+                        MinRange1 = obj.saleMedianCity['MINLastYear'];
+                        MaxRange1 = obj.saleMedianCity['MAXLastYear'];
                         //for(var i=0;i<obj.groupByMonthAndYearForMedian.length;i++){}
                         generateChart(obj.groupByMonthAndYearForMedian['monthlytotal'], obj.groupByMonthAndYearForMedian['monthYear']);
                         generateGuage(obj.saleMedianZip['lastYear'], obj.saleMedianCity['lastYear']);
@@ -236,15 +237,19 @@ function generateChart(monthlyTotal,year){
 }
 
 
-
+function generateGuage(saleMedianZip, saleMedianCity){
 // DEMOGAUGE1 - A very basic 'bare-bones' example...
 var demoGauge1 = new jGauge(); // Create a new jGauge.
 demoGauge1.id = 'jGaugeDemo1'; // Link the new jGauge to the placeholder DIV.
+demoGauge1.ticks.start = parseFloat(MinRange);
+demoGauge1.ticks.end = parseFloat(MaxRange);
 
 
 // DEMOGAUGE2 - Using the new binary prefixing...
 var demoGauge2 = new jGauge(); // Create a new jGauge.
 demoGauge2.id = 'jGaugeDemo2'; // Link the new jGauge to the placeholder DIV.
+demoGauge2.ticks.start = parseFloat(MinRange1);
+demoGauge2.ticks.end = parseFloat(MaxRange1);
 //demoGauge2.label.suffix = 'B'; // Make the value label bytes.
 //demoGauge2.autoPrefix = autoPrefix.binary; // Use binary prefixing (i.e. 1k = 1024).
 //demoGauge2.ticks.count = 5;
@@ -278,7 +283,7 @@ demoGauge3.range.color = 'rgba(0, 0, 0, 0)';
 */
                 
 // This function is called by jQuery once the page has finished loading.
-function generateGuage(saleMedianZip, saleMedianCity){
+
     demoGauge1.init(); // Put the jGauge on the page by initializing it.
     demoGauge2.init(); // Put the jGauge on the page by initializing it.
     //demoGauge3.init(); // Put the jGauge on the page by initializing it.
@@ -288,8 +293,6 @@ function generateGuage(saleMedianZip, saleMedianCity){
     
     //alert(MinRange);
     //alert(MaxRange);
-    demoGauge1.ticks.start = parseFloat(MinRange);
-    demoGauge1.ticks.end = parseFloat(MinRange);
     
     demoGauge2.setValue(saleMedianCity);
     //setInterval('randVal()', 100);

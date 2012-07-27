@@ -984,13 +984,13 @@ $.fn.dateRangePicker = function(options){
 
 		var presetMenu = {
 				pastRange: '<div class="dateRange_contain dateRange_wide"><div class="dateRange"><ul class="dateRange_presets">'+
-					'<li class="dateRange_last30"><a href="javascript://">Past 30 Days</a></li>'+
+					//'<li class="dateRange_last30"><a href="javascript://">Past 30 Days</a></li>'+
 					'<li class="dateRange_lastYear"><a href="javascript://">Past 12 Months</a></li>'+
-					'<li class="dateRange_yearToDate"><a href="javascript://">Current YTD</a></li>'+
-					'<li class="dateRange_allDates"><a href="javascript://">All Dates</a></li>'+
-					'<li class="dateRange_allBefore"><a href="javascript://">All Dates Before...</a></li>'+
-					'<li class="dateRange_allAfter"><a href="javascript://">All Dates After...</a></li>'+
-					'<li class="dateRange_specificDate"><a href="javascript://">Specific Date...</a></li>'+
+					//'<li class="dateRange_yearToDate"><a href="javascript://">Current YTD</a></li>'+
+					//'<li class="dateRange_allDates"><a href="javascript://">All Dates</a></li>'+
+					//'<li class="dateRange_allBefore"><a href="javascript://">All Dates Before...</a></li>'+
+					//'<li class="dateRange_allAfter"><a href="javascript://">All Dates After...</a></li>'+
+					//'<li class="dateRange_specificDate"><a href="javascript://">Specific Date...</a></li>'+
 					'<li class="dateRange_dateRange"><a href="javascript://">Date Range...</a></li>'+
 					'</ul>'+
 					'<a href="javascript://" class="dateRange_close">Done</a>'+
