@@ -215,16 +215,16 @@ $(document).ready(function() {
 		  <?php
 		  //echo $rssFieldData_left[0]['tab_dashboard_content']['field_value'];
 		  
-		  //$url = urlencode($rssFieldData_left[0]['tab_dashboard_content']['field_value']);
-		  //$this->requestAction('/Dashboard/readingRss/'.$url);
+		  $url = urlencode($rssFieldData_left[0]['tab_dashboard_content']['field_value']);
+		  $this->requestAction('/Dashboard/readingRss/'.$url);
 		  ?>
 		</div>
 		<div class='rssFeed2'>
 		  <?php
 		  //echo $rssFieldData_right[0]['tab_dashboard_content']['field_value'];
 		  
-		  //$url = urlencode($rssFieldData_right[0]['tab_dashboard_content']['field_value']);
-		  //$this->requestAction('/Dashboard/readingRss/'.$url);
+		  $url = urlencode($rssFieldData_right[0]['tab_dashboard_content']['field_value']);
+		  $this->requestAction('/Dashboard/readingRss/'.$url);
 		  ?>
 		</div>
 	      </div>
