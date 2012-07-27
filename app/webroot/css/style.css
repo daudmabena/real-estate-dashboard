@@ -416,15 +416,29 @@ background-color: #A3A3A3;
     font-size: 12px;
 }
 
-.topXLSUploaddiv{
+.bottomright{
 padding:10px; font-size:13px; color:red; float: right; margin-right: 80px;
 
 }
 
-.topXLSUploaddiv a{
+#submitDashboardData{
+    background-image: url("../img/changenw_btn.png");
+    background-repeat: no-repeat;
+    float: right;
+    height: 22px;
+    padding-right: 474px;
+    width: 89px;
+}
+
+.bottomright a, .bottomleft a{
     color:#D3D4D4;
     text-shadow: 1px 1px 1px #535353, -2px -2px 2px #535353;
     text-decoration: none;
+}
+
+
+.bottomleft{
+   padding:10px; font-size:13px; color:red; float: left; margin-right: 80px; 
 }
 
 #submitForm{
@@ -441,6 +455,13 @@ margin-top: 39px;
     background: url('../img/boc_bg_repeat.jpg') left center repeat;
     border: 1px solid #565656;
     padding: 40px 65px;
+}
+
+#msg{
+    color: red;
+    font-size: 16px;
+    padding-bottom: 10px;
+    padding-left: 148px;
 }
 
 /*Date Picker Style */

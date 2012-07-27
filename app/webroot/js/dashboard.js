@@ -38,7 +38,7 @@ function getSearchData(){
               else if(monthVal == 7){MonthName = 'July'}else if(monthVal == 8){MonthName = 'August'}else if(monthVal == 9){MonthName = 'September'}
               else if(monthVal == 10){MonthName = 'October'}else if(monthVal == 11){MonthName = 'November'}else if(monthVal == 12){MonthName = 'December'};
               
-              $('#guage_description_panel2').html('Number of Sold Homes in ['+MonthName+']');
+              $('#guage_description_panel2').html('Number of Sold Homes in ['+MonthName+'-'+toDate.split("/")[2]+']');
             }
             $('#ZipLabel').html(zip+" Median Price");
             $('#CityValue').html(city+" Median Price");      
@@ -54,6 +54,7 @@ function getSearchData(){
                         var obj =eval(json);
                         MinRange = obj.saleMedianZip['MINLastYear'];
                         MaxRange = obj.saleMedianZip['MAXLastYear'];
+                        
                         MinRange1 = obj.saleMedianCity['MINLastYear'];
                         MaxRange1 = obj.saleMedianCity['MAXLastYear'];
                         //for(var i=0;i<obj.groupByMonthAndYearForMedian.length;i++){}
@@ -108,6 +109,9 @@ function getSearchData(){
                         
                         var avg_of_lastYear_and_previousLastYear = Math.round(obj.saleMedianZip['avg_of_lastYear_and_previousLastYear']*100)/100;
                         $('.strategyPercentageZip').html(avg_of_lastYear_and_previousLastYear+"%");
+                        if(avg_of_lastYear_and_previousLastYear < 0){
+                           $('#firstgauageStrategy').attr('class','downStratergy');
+                        }
                         $('.prev12MonStrategy').html("$"+Math.floor(obj.saleMedianZip['previousLastYear']));
                         $('.prev12MonStrategy').formatCurrency({useHtml:true});
                         
@@ -120,16 +124,34 @@ function getSearchData(){
                         }
                         var avg_of_lastYear_city = Math.round(obj.saleMedianCity['avg_of_lastYear_and_previousLastYear']*100)/100;
                         $('.strategyPercentageCity').html(avg_of_lastYear_city+"%");
+                        
+                        if(avg_of_lastYear_city < 0){
+                          $('#secondgauageStrategy').attr('class','downStratergy');
+                        }
              
                         if(obj.soldSqft['lastYear']!=false){
                             $('#perFootLast12Months').html("$"+obj.soldSqft['lastYear']);
+                            if(obj.soldSqft['lastYear'] < 0){
+                              $('#firstStrategyOuter').attr('class','downStratergyOuter');
+                            }
+                            
                         }else{
                             $('#perFootLast12Months').html("$0");
                         }
                         $('#soldHomeInDate').html(obj.soldDifferenceWithLastYearAndCurrentYear['currentYear']);
                         $('#soldDifferenceWithLastYear').html(obj.soldDifferenceWithLastYearAndCurrentYear['lastYear']);
+                        
+                        if(obj.soldDifferenceWithLastYearAndCurrentYear['lastYear'] < 0){
+                          $('#secondStrategyOuter').attr('class','downStratergyOuter');
+                        }
+                        
                         $('#avgDifferenceWithLastYearAndCurrentYear').html(obj.avgDifferenceWithLastYearAndCurrentYear['currentYear']);
                         $('#avg_difference').html(obj.avgDifferenceWithLastYearAndCurrentYear['difference']);
+                        
+                        if(obj.avgDifferenceWithLastYearAndCurrentYear['difference'] < 0){
+                          $('#thirdStrategyOuter').attr('class','downStratergyOuter');
+                        }
+                        
                         $('#soldAvgSqft').html(Math.floor(obj.soldAvgSqft['lastYear']));
                     }
                 }
@@ -241,15 +263,23 @@ function generateGuage(saleMedianZip, saleMedianCity){
 // DEMOGAUGE1 - A very basic 'bare-bones' example...
 var demoGauge1 = new jGauge(); // Create a new jGauge.
 demoGauge1.id = 'jGaugeDemo1'; // Link the new jGauge to the placeholder DIV.
+
+if((MinRange != null)||(MaxRange != null)){
 demoGauge1.ticks.start = parseFloat(MinRange);
 demoGauge1.ticks.end = parseFloat(MaxRange);
+}
 
 
 // DEMOGAUGE2 - Using the new binary prefixing...
 var demoGauge2 = new jGauge(); // Create a new jGauge.
-demoGauge2.id = 'jGaugeDemo2'; // Link the new jGauge to the placeholder DIV.
+demoGauge2.id = 'jGaugeDemo2';
+
+// Link the new jGauge to the placeholder DIV.
+
+if((MinRange1 != null)||(MaxRange1 != null)){
 demoGauge2.ticks.start = parseFloat(MinRange1);
 demoGauge2.ticks.end = parseFloat(MaxRange1);
+}
 //demoGauge2.label.suffix = 'B'; // Make the value label bytes.
 //demoGauge2.autoPrefix = autoPrefix.binary; // Use binary prefixing (i.e. 1k = 1024).
 //demoGauge2.ticks.count = 5;

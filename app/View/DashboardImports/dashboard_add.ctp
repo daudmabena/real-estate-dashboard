@@ -4,26 +4,38 @@
       var youtubeData  = $('#youtube_data').val();
       var rssLeft      = $('#rss_left').val();
       var rssRight     = $('#rss_right').val();
-      var dashboardText= $('#dashboard_text').val();  
+      var dashboardText= $('#dashboard_text').val();
       
-      $.ajax({
-	url: "<?php echo  Router::url(array('controller' => 'DashboardImports', 'action' => 'insertDashboardData'));?>",
-	type: 'POST',
-	data: "youtube="+youtubeData+"&rssleft="+rssLeft+"&rssright="+rssRight+"&dashboarddata="+dashboardText,
-	success: function (json) {
-	  alert(json);
-	  jQuery(document).ajaxStart(function(){
-	    $('#initialContainerMask').show();
-	    $('#loader').show();
-	  });
-	  
-	  jQuery(document).ajaxStop(function(){
-	    $('#loader').hide();
-	    $('#initialContainerMask').hide();
-	  });  
-	  
-	}
-      });
+      if((youtubeData != "")||(rssLeft != "")||(rssRight != "")||(dashboardText != "")){
+	//alert('sdsd');
+	$.ajax({
+	  url: "<?php echo  Router::url(array('controller' => 'DashboardImports', 'action' => 'insertDashboardData'));?>",
+	  type: 'POST',
+	  data: "youtube="+youtubeData+"&rssleft="+rssLeft+"&rssright="+rssRight+"&dashboarddata="+dashboardText,
+	  success: function (json) {
+	    //alert(json);
+	    if($.trim(json) == 'success'){
+	      jQuery(document).ajaxStart(function(){
+		$('#initialContainerMask').show();
+		$('#loader').show();
+	      });
+	      
+	      jQuery(document).ajaxStop(function(){
+		$('#loader').hide();
+		$('#initialContainerMask').hide();
+	      });
+	    setTimeout(function(){ window.location = "<?php echo  Router::url(array('controller' => 'dashboard', 'action' => 'dashboard'));?>"; }, 1000);
+	    }
+	    else{
+	      ///alert("Erro");
+	    }
+	    
+	  }
+	});
+      }
+      else{
+	$('#msg').html('Please enter atleast one value');
+      }
     });
   });
   
@@ -33,10 +45,12 @@
 </div>
 <div class='header_txt'>Dashboard Import</div>
 <div class='searchSep'></div>
+
+
 <div id="content-import">
 <?php
 	echo $this->Form->create('DashboardImports', array('controller' => 'DashboardImports', 'action' => 'insertDashboardData', 'class' =>'choose_file'));
-	echo "<div class='formdivider'>";
+	echo "<div id='msg'></div><div class='formdivider'>";
 	echo "<label class='labelTxt'>Youtube</label>";
 	//ho "<input type='text' class='inputTxt' name='youtube_data' id='youtube_data'></input>";
         echo "<textarea class='inputTxt' name='youtube_data' id='youtube_data' style='width: 267px; height: 84px;'></textarea>";
@@ -55,7 +69,7 @@
 	echo "</div>";
 	//echo "<div class='selectfilename'></div><br>";
 	echo "<br>";
-	echo "<a href='#' id='submitDashboardData'>Click to cubmit</a>";
+	echo "<a href='javascript:void(0)' id='submitDashboardData'></a>";
 	echo "<br><br>";
 ?>
 <!--
@@ -66,6 +80,7 @@
 <?php echo $this->Form->end();
 ?>
 </div>
-<div class="topXLSUploaddiv" style="margin-right: 0px;">
-  <a href="#" onclick="history.go(-1);">Back to Dashboard</a>
+<div class="bottomright" style="margin-right: 0px;">
+  <a href="<?php
+	 echo  Router::url(array('controller' => 'dashboard', 'action' => 'dashboard'));?>">Back to Dashboard</a>
 </div>

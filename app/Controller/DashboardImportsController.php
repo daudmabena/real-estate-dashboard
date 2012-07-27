@@ -164,25 +164,28 @@ class DashboardImportsController extends AppController {
      
      if($_REQUEST['rssleft'] != ""){
           $data['selectedFieldValue']  = 'rss_field_left';
-          $data['fieldValue']    = $_REQUEST['rssleft'];
+          $data['fieldValue']    = str_replace("'", "&#39;", $_REQUEST['rssleft']);
           $status = $this->Dashboard->insertDashboardData($data);
      }
      
      
      if($_REQUEST['rssright'] != ""){
           $data['selectedFieldValue']  = 'rss_feed_right';
-          $data['fieldValue']    = $_REQUEST['rssright'];   
+          $data['fieldValue']    = str_replace("'", "&#39;", $_REQUEST['rssright']);
           $status = $this->Dashboard->insertDashboardData($data);
      }
      
      if($_REQUEST['dashboarddata'] != ""){
           $data['selectedFieldValue']  = 'text_message';
-          $data['fieldValue']    = $_REQUEST['dashboarddata'];   
+          $data['fieldValue']    = str_replace("'", "&#39;", $_REQUEST['dashboarddata']); 
           $status = $this->Dashboard->insertDashboardData($data);
      }
      
      if($status == 1){
           echo "success";
+     }
+     else{
+          echo "Error";
      }
      
      $this->autoRender = false;

@@ -125,7 +125,7 @@ $(document).ready(function() {
 		<div class='downstrategy'>
 		    <div class='downTxt'>Down</div>
 			<div class='seperator'></div>
-			<div class='upStrategy'>
+			<div class='upStrategy' id="firstgauageStrategy">
 			  <span class='strategyPercentageZip'></span>
 			</div>
 		</div>
@@ -147,7 +147,7 @@ $(document).ready(function() {
 		<div class='downstrategy'>
 		    <div class='downTxt'>Down</div>
 			<div class='seperator'></div>
-			<div class='upStrategy'>
+			<div class='upStrategy' id="secondgauageStrategy">
 			  <span class='strategyPercentageCity'></span>
 			</div>
 		</div>
@@ -161,7 +161,7 @@ $(document).ready(function() {
 	<!--Statistics Section -->
 	<div id='statistics-wrapper'>
 		<div class='statistics-box' style='margin-left:0px;'>
-		  <div class='upStrategyOuter'>
+		  <div class='upStrategyOuter' id="firstStrategyOuter">
 		    <span id='perFootLast12Months' class="strategyPercentage"></span>
 		  </div>
 		</div>
@@ -171,7 +171,7 @@ $(document).ready(function() {
 		  </div>
 		</div>
 		<div class='statistics-box'>
-		    <div class='upStrategyOuter'>
+		    <div class='upStrategyOuter' id="secondStrategyOuter">
 			  <span id='soldDifferenceWithLastYear' class="strategyPercentage"></span>
 			</div>
 		</div>
@@ -181,7 +181,7 @@ $(document).ready(function() {
 			</div>
 		</div>
 		<div class='statistics-box'>
-			<div class='downStratergyOuter'>
+			<div class='upStrategyOuter' id="thirdStrategyOuter">
 			  <span id='avg_difference' class="strategyPercentage"></span>
 			</div>
 		</div>
@@ -235,7 +235,12 @@ $(document).ready(function() {
 	      <div id="chart-render" style="min-width: 400px; height: 500px; margin: 0 auto"></div>
 	    </div>
 	  </div>
-<div class="topXLSUploaddiv">
+	  <div class="bottomleft">
+	    <a href="<?php
+	 echo  Router::url(array('controller' => 'DashboardImports', 'action' => 'dashboardAdd'));?>">Click to change youtube data</a>
+	  </div>
+<div class="bottomright">
+  
 	  <a href="<?php
 	 echo  Router::url(array('controller' => 'DashboardImports', 'action' => 'dashboardimport'));?>">Click to Upload.XLS File</a>
 	</div>

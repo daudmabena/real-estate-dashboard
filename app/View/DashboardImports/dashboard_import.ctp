@@ -124,7 +124,8 @@ $(document).ready(function() {
 <?php echo $this->Form->end();
 ?>
 </div>
-<div class="topXLSUploaddiv" style="margin-right: 0px;">
-	  <a href="#" onclick="history.go(-1);">Back to Dashboard</a>
+<div class="bottomright" style="margin-right: 0px;">
+	  <a href="<?php
+	 echo  Router::url(array('controller' => 'dashboard', 'action' => 'dashboard'));?>">Back to Dashboard</a>
 	</div>
 			  
