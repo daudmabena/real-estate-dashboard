@@ -195,19 +195,19 @@ class Dashboard extends AppModel {
 		return $getfieldData;
 	    
 	    }
-	    
+	    // {{{ insertDashboardData()
+	    /**
+	     * Used for update particular field value with fieldname
+	     *
+	     * @access  Public
+	     * @param array $data
+	     *
+	     * @return boolean
+	     */
 	    function insertDashboardData($data){
-		
-		
-		//print_r($data);
-		
 		extract($data);
-		
 		$query = "update `tab_dashboard_content` set field_value='".$fieldValue."' WHERE field_name='".$selectedFieldValue."'";
-		
-		//echo $query;
-		
-		$rs = $this->query($query);
+		$this->query($query);
 		
 	    }
 	

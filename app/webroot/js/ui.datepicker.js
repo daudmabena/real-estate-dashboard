@@ -1134,29 +1134,32 @@ $.fn.dateRangePicker = function(options){
 		//loop to set the range input based on the 2 hidden inputs
 		function setRangeVal (){
 			setTimeout(function(){
-				var val1 = range1.val();
-				var val2 = range2.val();
-				var str = '';
-				if(val1 != ''){
-					var splitter = ' to '
-					if(val1 == 'All Dates After' || val1 == 'All Dates Before' || val1 == 'All Dates'  ||  val1 == 'End of Week'  || val1 == 'End of Month'  || val1 == 'Start of Week'  || val1 == 'Start of Month'  || val1 == '') splitter = ' ';
-					else {
-						val1 = val1.split('/');
-						val1 = monthNames[val1[0]-1]+' '+ val1[1] + ', ' + val1[2];
+				if((range1.val() != undefined) || (range2.val() != undefined)){
+					var val1 = range1.val();
+					var val2 = range2.val();
+					var str = '';
+					if(val1 != ''){
+						var splitter = ' to '
+						if(val1 == 'All Dates After' || val1 == 'All Dates Before' || val1 == 'All Dates'  ||  val1 == 'End of Week'  || val1 == 'End of Month'  || val1 == 'Start of Week'  || val1 == 'Start of Month'  || val1 == '') splitter = ' ';
+						else {
+							val1 = val1.split('/');
+							val1 = monthNames[val1[0]-1]+' '+ val1[1] + ', ' + val1[2];
+							
+						}
+						if(val2){
+							val2 = val2.split('/');
+							val2 = monthNames[val2[0]-1]+' '+ val2[1] + ', ' + val2[2];
+						}
+	
 						
+						if(val1 && val2 && val1 != val2) str = val1 + splitter + val2;
+						else str = val1;
 					}
-					if(val2){
-						val2 = val2.split('/');
-						val2 = monthNames[val2[0]-1]+' '+ val2[1] + ', ' + val2[2];
-					}
-
-					
-					if(val1 && val2 && val1 != val2) str = val1 + splitter + val2;
-					else str = val1;
+					if(rangeType == 'input') rangeElement.val(str);
+					else rangeElement.find('span').text(str);
+					setRangeVal();
 				}
-				if(rangeType == 'input') rangeElement.val(str);
-				else rangeElement.find('span').text(str);
-				setRangeVal();
+
 			}, 300);
 		}
 		setRangeVal();

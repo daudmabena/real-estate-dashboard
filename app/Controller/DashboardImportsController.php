@@ -147,24 +147,42 @@ class DashboardImportsController extends AppController {
     }
     
     public function insertDashboardData(){
+     
+     //echo $_REQUEST['youtube'];
+     //echo $_REQUEST['rssleft'];
+     //echo $_REQUEST['rssright'];
+     
      Controller::loadModel('Dashboard');
      $data = array();
-
      
-     $data['selectedFieldValue']  = 'youtube_data';
-     $data['fieldValue']    = $_REQUEST['youtube_data'];
-     $this->Dashboard->insertDashboardData($data);
+     if($_REQUEST['youtube'] != ""){
+          $data['selectedFieldValue']  = 'youtube_data';
+          $data['fieldValue']    = mysql_escape_string($_REQUEST['youtube']);
+          $this->Dashboard->insertDashboardData($data);
+     }
      
-     $data['selectedFieldValue']  = 'rss_field_left';
-     $data['fieldValue']    = $_REQUEST['rss_left'];
-     $this->Dashboard->insertDashboardData($data);
      
-     $data['selectedFieldValue']  = 'rss_field_right';
-     $data['fieldValue']    = $_REQUEST['rss_right'];    
-     $this->Dashboard->insertDashboardData($data);
+     if($_REQUEST['rssleft'] != ""){
+          $data['selectedFieldValue']  = 'rss_field_left';
+          $data['fieldValue']    = $_REQUEST['rssleft'];
+          $this->Dashboard->insertDashboardData($data);
+     }
+     
+     
+     if($_REQUEST['rssright'] != ""){
+          $data['selectedFieldValue']  = 'rss_feed_right';
+          $data['fieldValue']    = $_REQUEST['rssright'];   
+          $this->Dashboard->insertDashboardData($data);
+     }
+     
+     if($_REQUEST['dashboarddata'] != ""){
+          $data['selectedFieldValue']  = 'text_message';
+          $data['fieldValue']    = $_REQUEST['dashboarddata'];   
+          $this->Dashboard->insertDashboardData($data);
+     }
      
      $this->autoRender = false;
-     exit;
+     //exit;
     }
 
 }

@@ -27,6 +27,16 @@ $cakeDescription = __d('cake_dev', 'Dashboard');
 		<?php echo $title_for_layout; ?>
 	</title>
 	<?php
+		$pageURL = (@$_SERVER["HTTPS"] == "on") ? "https://" : "http://";
+		if ($_SERVER["SERVER_PORT"] != "80")
+		{
+		    $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"];
+		} 
+		else 
+		{
+		    $pageURL .= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
+		}
+
 		echo $this->Html->meta('icon');
 		//echo $this->Html->css('cake.generic');
 		echo $this->Html->css('style');
@@ -38,8 +48,26 @@ $cakeDescription = __d('cake_dev', 'Dashboard');
 		echo $this->Html->script('jquery-1.7.2.min');
 		echo $this->Html->script('jquery.formatCurrency');
 
-		echo $this->Html->script('ui.datepicker');
-		echo $this->Html->script('demoScripts');
+		$pageInnerURL = (@$_SERVER["HTTPS"] == "on") ? "https://" : "http://";
+		
+		if($_SERVER["SERVER_NAME"] == 'localhost'){
+				
+			$pageInnerURL .= $_SERVER["SERVER_NAME"].'/real-estate-dashboard';
+			
+			if($pageURL == $pageInnerURL.'/dashboard/dashboard'){
+				echo $this->Html->script('ui.datepicker');
+				echo $this->Html->script('demoScripts');
+			}
+		}
+		else{
+			$pageInnerURL .= $_SERVER["SERVER_NAME"];
+			
+			if($pageURL == $pageInnerURL.'/dashboard/dashboard'){
+				echo $this->Html->script('ui.datepicker');
+				echo $this->Html->script('demoScripts');
+			}
+			
+		}
 		
 		//echo $this->Html->script('jquery.min');
 		echo $this->Html->script('jquery.filestyle');
@@ -50,15 +78,32 @@ $cakeDescription = __d('cake_dev', 'Dashboard');
 		echo $this->Html->script('jgauge-0.3.0.a3');
 		echo $this->Html->script('highcharts');
 		echo $this->Html->script('exporting');
-		echo $this->Html->script('dashboard');
-
+		
+		$pageInnerURL = "";
+		
+		$pageInnerURL = (@$_SERVER["HTTPS"] == "on") ? "https://" : "http://";
+		
+		if($_SERVER["SERVER_NAME"] == 'localhost'){
+			$pageInnerURL .= $_SERVER["SERVER_NAME"].'/real-estate-dashboard';
+			
+			if($pageURL == $pageInnerURL.'/dashboard/dashboard'){
+				echo $this->Html->script('dashboard');
+			}
+		}
+		else{
+			$pageInnerURL .= $_SERVER["SERVER_NAME"];
+			
+			if($pageURL == $pageInnerURL.'/dashboard/dashboard'){
+				echo $this->Html->script('dashboard');
+			}
+			
+		}
+		
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('script');
 	?>
-<!--[if IE]>
-<script type="text/javascript" src="js/excanvas.js">
-        </script><![endif]-->
+
 </head>
 <body>
 	<div id="container">

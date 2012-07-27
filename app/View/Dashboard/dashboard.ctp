@@ -1,4 +1,5 @@
 
+
 <script type="text/javascript">
 $(document).ready(function() {
 	$("#state").autocomplete("<?php echo Router::url(array('controller' => 'DashboardImports','action' => 'getState'));?>", {
@@ -190,7 +191,7 @@ $(document).ready(function() {
 			</div>
 		</div>
 		<div class='guage_description_panel2' style='margin-left:0px;'>Average $ Per Foot Last 12 Months</div>
-		<div class='guage_description_panel2'>Number of Sold Homes in [Date]</div>
+		<div class='guage_description_panel2' id="guage_description_panel2">Number of Sold Homes in [Date]</div>
 		<div class='guage_description_panel2'>Number of Sold Homes Same Period Last Yr</div>
 		<div class='guage_description_panel2'>Average # Days on Market (Solds)</div>
 		<div class='guage_description_panel2'>Same Period Last Year</div>

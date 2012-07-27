@@ -9,6 +9,9 @@ $(document).ready(function() {
     });    
 });
 
+var MinRange;
+var MaxRange;
+
 function getSearchData(){
 
     $(document).ready(function() {
@@ -23,16 +26,21 @@ function getSearchData(){
             var zip      = $('#zipcode').val();
             
             //alert(toDate.split("/")[0]);
-            var monthVal = toDate.split("/")[0];
-            var MonthName;
-            
-            if(monthVal == 1){MonthName = 'January';}else if(monthVal == 2){MonthName = 'February';}else if(monthVal == 3){MonthName = 'March';}
-            else if(monthVal == 4){MonthName = 'April'}else if(monthVal == 5){MonthName = 'May'}else if(monthVal == 6){MonthName = 'June'}
-            else if(monthVal == 7){MonthName = 'July'}else if(monthVal == 8){MonthName = 'August'}else if(monthVal == 9){MonthName = 'September'}
-            else if(monthVal == 10){MonthName = 'October'}else if(monthVal == 11){MonthName = 'November'}else if(monthVal == 12){MonthName = 'December'};
-            
-            $('#guage_description_panel2').html('Number of Sold Homes in ['+MonthName+']');
-            
+            var undefined = false;  // Shockingly, this is completely legal!
+            if(monthVal === undefined) {
+              alert("You have been mislead. Run away!");
+            }
+            else{
+              var monthVal = toDate.split("/")[0];
+              var MonthName;
+              
+              if(monthVal == 1){MonthName = 'January';}else if(monthVal == 2){MonthName = 'February';}else if(monthVal == 3){MonthName = 'March';}
+              else if(monthVal == 4){MonthName = 'April'}else if(monthVal == 5){MonthName = 'May'}else if(monthVal == 6){MonthName = 'June'}
+              else if(monthVal == 7){MonthName = 'July'}else if(monthVal == 8){MonthName = 'August'}else if(monthVal == 9){MonthName = 'September'}
+              else if(monthVal == 10){MonthName = 'October'}else if(monthVal == 11){MonthName = 'November'}else if(monthVal == 12){MonthName = 'December'};
+              
+              $('#guage_description_panel2').html('Number of Sold Homes in ['+MonthName+']');
+            }
             $('#ZipLabel').html(zip+" Median Price");
             $('#CityValue').html(city+" Median Price");      
             
@@ -45,7 +53,8 @@ function getSearchData(){
                 success: function (json) {
                     if(json){
                         var obj =eval(json);
-
+                        MinRange = obj.saleMedianZip['MIN'];
+                        MaxRange = obj.saleMedianZip['MAX'];
                         //for(var i=0;i<obj.groupByMonthAndYearForMedian.length;i++){}
                         generateChart(obj.groupByMonthAndYearForMedian['monthlytotal'], obj.groupByMonthAndYearForMedian['monthYear']);
                         generateGuage(obj.saleMedianZip['lastYear'], obj.saleMedianCity['lastYear']);
@@ -276,6 +285,12 @@ function generateGuage(saleMedianZip, saleMedianCity){
     
     // Configure demoGauge3 for random value updates.
     demoGauge1.setValue(saleMedianZip);
+    
+    //alert(MinRange);
+    //alert(MaxRange);
+    demoGauge1.ticks.start = MinRange;
+    demoGauge1.ticks.end = MaxRange;
+    
     demoGauge2.setValue(saleMedianCity);
     //setInterval('randVal()', 100);
 }

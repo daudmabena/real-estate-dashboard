@@ -1,6 +1,20 @@
 <script type="text/javascript" charset="utf-8">
   $(document).ready(function() {
-
+    $('#submitDashboardData').click(function(){
+      var youtubeData  = $('#youtube_data').val();
+      var rssLeft      = $('#rss_left').val();
+      var rssRight     = $('#rss_right').val();
+      var dashboardText= $('#dashboard_text').val();
+      
+      $.ajax({
+	url: "<?php echo  Router::url(array('controller' => 'DashboardImports', 'action' => 'insertDashboardData'));?>",
+	type: 'POST',
+	data: "youtube="+youtubeData+"&rssleft="+rssLeft+"&rssright="+rssRight+"&dashboarddata="+dashboardText,
+	success: function (json) {
+	  alert(json);
+	}
+      });
+    });
   });
   
 </script>
@@ -15,6 +29,10 @@
         echo "<textarea class='inputTxt' name='youtube_data' id='youtube_data' style='width: 267px; height: 84px;'></textarea>";
 	echo "</div>";
 	echo "<div class='formdivider'>";
+	echo "<label class='labelTxt'>Dashboard text</label>";
+        echo "<textarea class='inputTxt' name='dashboard_text' id='dashboard_text' style='width: 267px; height: 84px;'></textarea>";
+	echo "</div>";
+	echo "<div class='formdivider'>";
 	echo "<label class='labelTxt'>Rss Left</label>";
 	echo "<textarea class='inputTxt' name='rss_left' id='rss_left' style='width: 267px; height: 84px;'></textarea>";
 	echo "</div>";
@@ -24,7 +42,7 @@
 	echo "</div>";
 	//echo "<div class='selectfilename'></div><br>";
 	echo "<br>";
-	echo $this->Form->submit('Change Data');
+	echo "<a href='#' id='submitDashboardData'>Click to cubmit</a>";
 	echo "<br><br>";
 ?>
 <!--
