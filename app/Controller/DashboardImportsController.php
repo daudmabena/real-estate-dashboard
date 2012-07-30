@@ -143,6 +143,18 @@ class DashboardImportsController extends AppController {
     }
     
     public function dashboardAdd(){
+          
+          
+          
+          $youtube = $this->Dashboard->getFieldDatas('youtube_data');
+          $rss_feed_right = $this->Dashboard->getFieldDatas('rss_feed_right');
+          $text_message = $this->Dashboard->getFieldDatas('text_message');
+          $rss_field_left = $this->Dashboard->getFieldDatas('rss_field_left');
+          
+          $this->set('youtube',$youtube);
+          $this->set('rss_feed_right',$rss_feed_right);
+          $this->set('text_message',$text_message);
+          $this->set('rss_field_left',$rss_field_left);
           $this->render('dashboardAdd');
     }
     
