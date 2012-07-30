@@ -132,7 +132,7 @@ $(document).ready(function() {
 	  </div>
 	  <div class="secondGuageGroup">
 	    <div class="header" id="CityValue">
-	      
+	      SAN ANTONIO Median Price
 	    </div>
 		<div class='guage-div'>
 		    <div id="jGaugeDemo2" class="jgauge"></div>
@@ -155,7 +155,7 @@ $(document).ready(function() {
 		<div class='guage_description' style='margin-left:0px;'>Median Sold Price Last 12 month Avg</div>
 		<div class='guage_description_down'>Previous 12 mos. <span class='prev12MonStrategy'></span></div>
 		<div class='guage_description'>Median SA Price</div>
-		<div class='guage_description_down'></div>
+		<div class='guage_description_down'>SA Previous 12 Months, <span class='prev12MonStrategyCity'></span></div>
 	</div>
 	
 	<!--Statistics Section -->

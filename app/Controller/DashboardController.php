@@ -225,7 +225,7 @@ class DashboardController extends AppController {
      $args['selectedFieldName'] = 'for_sale_median';
      $args['tableName']         = 'tab_median_price_2years';
      $args['fieldName']         = 'city';
-     $args['fieldValue']        = $city;
+     $args['fieldValue']        = 'san antonio';
 
      
      $finalInputToJson['saleMedianCity'] = $this->index($args);

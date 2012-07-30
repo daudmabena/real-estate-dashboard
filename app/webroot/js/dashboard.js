@@ -41,7 +41,7 @@ function getSearchData(){
               $('#guage_description_panel2').html('Number of Sold Homes in ['+MonthName+'-'+toDate.split("/")[2]+']');
             }
             $('#ZipLabel').html(zip+" Median Price");
-            $('#CityValue').html(city+" Median Price");      
+            //$('#CityValue').html(city+" Median Price");      
             
             
             $.ajax({
@@ -115,6 +115,9 @@ function getSearchData(){
                         $('.prev12MonStrategy').html("$"+Math.floor(obj.saleMedianZip['previousLastYear']));
                         $('.prev12MonStrategy').formatCurrency({useHtml:true});
                         
+                        $('.prev12MonStrategyCity').html("$"+Math.floor(obj.saleMedianCity['previousLastYear']));
+                        $('.prev12MonStrategyCity').formatCurrency({useHtml:true});
+                        
                         if(obj.saleMedianCity['lastYear']!='$NaN.undefined'){
                             $('.saleMedianCityValue').html(obj.saleMedianCity['lastYear']);
                             $('.saleMedianCityValue').formatCurrency({useHtml:true});
@@ -185,7 +188,10 @@ function generateChart(monthlyTotal,year){
                 },  
                 title: {
                     text: 'Median Price Over Time',
-                    x: -20
+                    x: -20,
+                    style:{
+                      color: '#fff',
+                    }
                 },
                 subtitle: {
                     text: '',
