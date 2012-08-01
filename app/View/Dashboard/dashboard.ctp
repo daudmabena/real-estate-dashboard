@@ -56,13 +56,13 @@ $(document).ready(function() {
 	if($(".searchContent").is(":hidden"))
 	{
 	  $('#searchText').html('Search');
-	  $('#searchArrow').attr("class","searchUpArrow");
+	  $('#searchArrow').attr("class","searchDownArrow");
 	}
 	else{
 	  $('#searchText').html('<?php $zipData = $this->requestAction("/Dashboard/getZipArea/".$_SESSION["zip"]);
 				      echo $zipData[0]["tab_median_price_2years"]["zip_code"]." ".$zipData[0]["tab_median_price_2years"]["zip_code_area"];
 				?>');
-	  $('#searchArrow').attr("class","searchDownArrow");
+	  $('#searchArrow').attr("class","searchUpArrow");
 	  
 	}
 	$('.searchContent').slideToggle(showOrHide);
