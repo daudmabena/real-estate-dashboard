@@ -106,6 +106,10 @@ $(document).ready(function() {
 	echo "<label class='labelTxt'>Zipcode</label>";
 	echo "<input type='text' class='inputTxt' name='zipcode' id='zipcode'></input>";	
 	echo "</div>";
+	echo "<div class='formdivider'>";
+	echo "<label class='labelTxt'>Area</label>";
+	echo "<input type='text' class='inputTxt' name='zipcodearea' id='zipcodearea'></input>";	
+	echo "</div>";
 	echo "<div class='uploadfile formdivider'>";
 	echo "<label class='labelTxt'>Select File</label>";
 	echo $this->Form->file('File', array('name'=>'dashboardImport', 'id'=>'file_path','class'=>'choose_file', 'onchange'=>'getSelectedFile()'));

@@ -15,14 +15,43 @@ function getSearchData(){
 
     $(document).ready(function() {
     
-            var toDate = new Date();
+            var fromDate,toDate = new Date();
             
-            
-            var fromDate = $('#range1').val();
+                fromDate = $('#range1').val();
                 toDate   = $('#range2').val();
             var city     = $('#city').val();
             var state    = $('#state').val();
             var zip      = $('#zipcode').val();
+            
+            function parseDate(str) {
+              var mdy = str.split('/')
+              return new Date(mdy[2], mdy[0]-1, mdy[1]);
+            }
+            
+            function daydiff(first, second) {
+              return (second-first)/(1000*60*60*24)
+            }
+            
+            function getMonthName(monthVal){
+              var MonthName;
+              if(monthVal == 1){MonthName = 'January';}else if(monthVal == 2){MonthName = 'February';}else if(monthVal == 3){MonthName = 'March';}
+              else if(monthVal == 4){MonthName = 'April'}else if(monthVal == 5){MonthName = 'May'}else if(monthVal == 6){MonthName = 'June'}
+              else if(monthVal == 7){MonthName = 'July'}else if(monthVal == 8){MonthName = 'August'}else if(monthVal == 9){MonthName = 'September'}
+              else if(monthVal == 10){MonthName = 'October'}else if(monthVal == 11){MonthName = 'November'}else if(monthVal == 12){MonthName = 'December'};
+              
+              return MonthName;
+            }
+            
+            var days = daydiff(parseDate(fromDate), parseDate(toDate));
+            
+            var monthName = getMonthName(fromDate.split("/")[0])
+            
+            if((days == 365) || (days == 366)){
+              $('#guage_description_panel1').html('Average $ Per Foot Last 12 Months From '+monthName+' '+fromDate.split("/")[2]);
+            }
+            else{
+              $('#guage_description_panel1').html('Average $ Per Foot Last 6 Months From '+monthName+' '+fromDate.split("/")[2]);
+            }
             
             //alert(toDate.split("/")[0]);
             var undefined = false;  // Shockingly, this is completely legal!
@@ -31,16 +60,12 @@ function getSearchData(){
             }
             else{
               var monthVal = toDate.split("/")[0];
-              var MonthName;
-              
-              if(monthVal == 1){MonthName = 'January';}else if(monthVal == 2){MonthName = 'February';}else if(monthVal == 3){MonthName = 'March';}
-              else if(monthVal == 4){MonthName = 'April'}else if(monthVal == 5){MonthName = 'May'}else if(monthVal == 6){MonthName = 'June'}
-              else if(monthVal == 7){MonthName = 'July'}else if(monthVal == 8){MonthName = 'August'}else if(monthVal == 9){MonthName = 'September'}
-              else if(monthVal == 10){MonthName = 'October'}else if(monthVal == 11){MonthName = 'November'}else if(monthVal == 12){MonthName = 'December'};
+              //alert(monthVal);
+              var MonthName = getMonthName(monthVal);
               
               $('#guage_description_panel2').html('Number of Sold Homes in ['+MonthName+'-'+toDate.split("/")[2]+']');
             }
-            $('#ZipLabel').html(zip+" Median Price");
+            //$('#ZipLabel').html(zip+" Median Price");
             //$('#CityValue').html(city+" Median Price");      
             
             
@@ -144,8 +169,14 @@ function getSearchData(){
                         $('#soldHomeInDate').html(obj.soldDifferenceWithLastYearAndCurrentYear['currentYear']);
                         $('#soldDifferenceWithLastYear').html(obj.soldDifferenceWithLastYearAndCurrentYear['lastYear']);
                         
+                        
+                        if(obj.soldDifferenceWithLastYearAndCurrentYear['currentYear'] < 0){
+                          $('#soldHomeInDate').attr('class','downStratergyOuter');
+                        }
+                        
+                        
                         if(obj.soldDifferenceWithLastYearAndCurrentYear['lastYear'] < 0){
-                          $('#secondStrategyOuter').attr('class','downStratergyOuter');
+                          $('#firstsubStrategyOuter').attr('class','downStratergyOuter');
                         }
                         
                         $('#avgDifferenceWithLastYearAndCurrentYear').html(obj.avgDifferenceWithLastYearAndCurrentYear['currentYear']);

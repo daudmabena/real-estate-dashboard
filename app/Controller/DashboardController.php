@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 class DashboardController extends AppController {
    // {{{ Properties
    /**
@@ -18,6 +18,7 @@ class DashboardController extends AppController {
     */
    var $uses = array('Dashboard','Calculation');
    
+    public $components = array('Cookie');
    // {{{ method
    /**
     * Controller method Index()
@@ -204,6 +205,7 @@ class DashboardController extends AppController {
      $city   = $_POST['city'];
      $state   = $_POST['state'];
      $zip   = $_POST['zip'];
+     $_SESSION['zip'] = $zip;
 
      $args = array();
      $finalInputToJson = array();
@@ -291,7 +293,6 @@ class DashboardController extends AppController {
      
      public function dashboard(){
       
-      
       $currentDate = date('Y-m-d');
       $lastyear = strtotime("-1 year", strtotime($currentDate));
       $lastYear = date("m/d/Y", $lastyear);
@@ -302,7 +303,7 @@ class DashboardController extends AppController {
       $this->set('rssFieldData_left',$this->Dashboard->getFieldDatas('rss_field_left'));
       $this->set('rssFieldData_right',$this->Dashboard->getFieldDatas('rss_feed_right'));
       $this->render('dashboard');
-       
+      
      }
    
    
@@ -356,6 +357,10 @@ class DashboardController extends AppController {
           {
                return $this->parseAtom($url,$doc);
           }
+     }
+     
+     function getZipArea($zip = null){
+        return $this->Dashboard->getZipCodeAreaName($zip);
      }
 }
 ?>

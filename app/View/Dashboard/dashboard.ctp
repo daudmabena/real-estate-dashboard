@@ -1,5 +1,3 @@
-
-
 <script type="text/javascript">
 $(document).ready(function() {
 	$("#state").autocomplete("<?php echo Router::url(array('controller' => 'DashboardImports','action' => 'getState'));?>", {
@@ -55,9 +53,20 @@ $(document).ready(function() {
       $('.searchContent').hide();
       var showOrHide;
       $('.searchTxt').click(function(){
+	if($(".searchContent").is(":hidden"))
+	{
+	  $('#searchText').html('Search');
+	  $('#searchArrow').attr("class","searchUpArrow");
+	}
+	else{
+	  $('#searchText').html('<?php $zipData = $this->requestAction("/Dashboard/getZipArea/".$_SESSION["zip"]);
+				      echo $zipData[0]["tab_median_price_2years"]["zip_code"]." ".$zipData[0]["tab_median_price_2years"]["zip_code_area"];
+				?>');
+	  $('#searchArrow').attr("class","searchDownArrow");
+	  
+	}
 	$('.searchContent').slideToggle(showOrHide);
-	$('.searchUpArrow').toggleClass("searchDownArrow");
-     });
+      });
       
       $('#submitForm').click(function(){
 	getSearchData();
@@ -72,45 +81,52 @@ $(document).ready(function() {
 	
 	<div class='searchPanel'>
 	  <div class='searchTxt'>
-	    Search
-	    <div class="search searchUpArrow"></div>
+	    <div id="searchText" style="float: left">
+	    <?php
+	      $zipData = $this->requestAction('/Dashboard/getZipArea/'.$_SESSION['zip']);
+	      echo $zipData[0]['tab_median_price_2years']['zip_code']." ".$zipData[0]['tab_median_price_2years']['zip_code_area'];
+	    ?>
+	    </div>
+	    <div class="search searchUpArrow" id="searchArrow"></div>
 	  </div>
 	  
-	  <div class="searchContent">
-	  <div class='searchSep'></div>
-	  <?php
-		echo $this->Form->create('Dashboard', array('controller' => 'Dashboard', 'action' => 'dashboard'));
-		echo "<div class='sections'>
-		      <div class='formdivider'>";
-		echo "<label class='labelTxtSearch'>Date</label>";
-		echo "<div class='rangePicker futureRange'>
-		      <label for='range1'>From:</label>
-		      <input type='text' name='range1' id='range1' value='".$lastYear."' />
-		      <label for='range1'>To:</label>
-		      <input type='text' name='range2' name='range2' value='".date('m/d/Y')."' />
-		      </div>";	
-		echo "</div>";
-		echo "<div class='formdivider'>";
-		echo "<label class='labelTxtSearch'>City</label>";
-		echo "<input type='text' class='inputTxtSearch' name='city' id='city' value='SAN ANTONIO'></input>";	
-		echo "</div></div>";
-		echo "<div class='sections'><div class='formdivider'>";
-		echo "<label class='labelTxtSearch'>State</label>";
-		echo "<input type='text' class='inputTxtSearch' name='state' id='state' value='TX'></input>";	
-		echo "</div>";
-		echo "<div class='formdivider'>";
-		echo "<label class='labelTxtSearch'>Zipcode</label>";
-		echo "<input type='text' class='inputTxtSearch' name='zipcode' id='zipcode' value='78253'></input>";	
-		echo "</div></div>";
-		echo "<a href='#' id='submitForm'></a>";
-		echo "<br>";
-	?>
+    	  <div class="searchContent">
+	    <div class='searchSep'></div>
+	    <?php
+		  echo $this->Form->create('Dashboard', array('controller' => 'Dashboard', 'action' => 'dashboard'));
+		  echo "<div class='sections'>
+			<div class='formdivider'>";
+		  echo "<label class='labelTxtSearch'>Date</label>";
+		  echo "<div class='rangePicker futureRange'>
+			<label for='range1'>From:</label>
+			<input type='text' name='range1' id='range1' value='".$lastYear."' />
+			<label for='range1'>To:</label>
+			<input type='text' name='range2' name='range2' value='".date('m/d/Y')."' />
+			</div>";	
+		  echo "</div>";
+		  echo "<div class='formdivider'>";
+		  echo "<label class='labelTxtSearch'>City</label>";
+		  echo "<input type='text' class='inputTxtSearch' name='city' id='city' value='SAN ANTONIO'></input>";	
+		  echo "</div></div>";
+		  echo "<div class='sections'><div class='formdivider'>";
+		  echo "<label class='labelTxtSearch'>State</label>";
+		  echo "<input type='text' class='inputTxtSearch' name='state' id='state' value='TX'></input>";	
+		  echo "</div>";
+		  echo "<div class='formdivider'>";
+		  echo "<label class='labelTxtSearch'>Zipcode</label>";
+		  echo "<input type='text' class='inputTxtSearch' name='zipcode' id='zipcode' value='78253'></input>";	
+		  echo "</div></div>";
+		  echo "<a href='#' id='submitForm'></a>";
+		  echo "<br>";
+	  ?>
+	  </div>
 	</div>
-	</div>
+	
+
 	<div id='guage-wrapper'>
 	  <div class="firstGuageGroup">
 	    <div class="header" id="ZipLabel">
-	      
+	   <?php echo $_SESSION['zip']." Median Price"; ?>
 	    </div>
 		<div class='guage-div' style='margin-left:0px;'>
 			<div id="jGaugeDemo1" class="jgauge"></div>
@@ -161,40 +177,58 @@ $(document).ready(function() {
 	<!--Statistics Section -->
 	<div id='statistics-wrapper'>
 		<div class='statistics-box' style='margin-left:0px;'>
+		  <div class="statisticsboxHeader">
+		    Avg. $ / Ft.(6 mos)
+		  </div>
 		  <div class='upStrategyOuter' id="firstStrategyOuter">
 		    <span id='perFootLast12Months' class="strategyPercentage"></span>
 		  </div>
 		</div>
 		<div class='statistics-box'>
-		  <div>
+		  <div class="statisticsboxHeader">
+		    # Sold Homes
+		  </div>
+		  <div class="upStrategyOuter" id="firstsubStrategyOuter">
 		    <span id='soldHomeInDate' class="strategyPercentage"></span>
 		  </div>
 		</div>
 		<div class='statistics-box'>
+		  <div class="statisticsboxHeader">
+		    Sold Hms Last Yr.
+		  </div>
 		    <div class='upStrategyOuter' id="secondStrategyOuter">
 			  <span id='soldDifferenceWithLastYear' class="strategyPercentage"></span>
 			</div>
 		</div>
 		<div class='statistics-box'>
-		    <div>
+		  <div class="statisticsboxHeader">
+		    Days on Market
+		  </div>
+		    <div class="strategyOuter">
 			  <span id='avgDifferenceWithLastYearAndCurrentYear' class="strategyPercentage"></span>
 			</div>
 		</div>
 		<div class='statistics-box'>
+		  <div class="statisticsboxHeader">
+		    DOM Last Yr.
+		  </div>
 			<div class='upStrategyOuter' id="thirdStrategyOuter">
 			  <span id='avg_difference' class="strategyPercentage"></span>
 			</div>
 		</div>
 		<div class='statistics-box'>
-			<div>
+		  <div class="statisticsboxHeader">
+		    Avg. Home Size
+		  </div>
+			<div class="strategyOuter">
 			  <span id='soldAvgSqft' class="strategyPercentage"></span>
 			</div>
 		</div>
-		<div class='guage_description_panel2' style='margin-left:0px;'>Average $ Per Foot Last 12 Months</div>
+		<div class='guage_description_panel2' id="guage_description_panel1" style='margin-left:0px;'></div>
 		<div class='guage_description_panel2' id="guage_description_panel2">Number of Sold Homes in [Date]</div>
 		<div class='guage_description_panel2'>Number of Sold Homes Same Period Last Yr</div>
-		<div class='guage_description_panel2'>Average # Days on Market (Solds)</div>
-		<div class='guage_description_panel2'>Same Period Last Year</div>
+		<div class='guage_description_panel2'>Avg. # Days on Market Last 6 Months (Solds).</div>
+		<div class='guage_description_panel2'>Avg. # Days on Market Same Period Last Yr.</div>
 		<div class='guage_description_panel2'>Average Sq. Ft. Last 12 Months</div>
 	</div>
 	<div class="bottom-left-panel">
@@ -202,7 +236,7 @@ $(document).ready(function() {
 	    
 	      <div class='video-panel'>
 		<?php
-		echo $youtube_data[0]['tab_dashboard_content']['field_value'];
+		//echo $youtube_data[0]['tab_dashboard_content']['field_value'];
 		?>
 	      </div>
 	      <div class='text-panel'>
@@ -215,16 +249,16 @@ $(document).ready(function() {
 		  <?php
 		  //echo $rssFieldData_left[0]['tab_dashboard_content']['field_value'];
 		  
-		  $url = urlencode($rssFieldData_left[0]['tab_dashboard_content']['field_value']);
-		  $this->requestAction('/Dashboard/readingRss/'.$url);
+		  //$url = urlencode($rssFieldData_left[0]['tab_dashboard_content']['field_value']);
+		  //$this->requestAction('/Dashboard/readingRss/'.$url);
 		  ?>
 		</div>
 		<div class='rssFeed2'>
 		  <?php
 		  //echo $rssFieldData_right[0]['tab_dashboard_content']['field_value'];
 		  
-		  $url = urlencode($rssFieldData_right[0]['tab_dashboard_content']['field_value']);
-		  $this->requestAction('/Dashboard/readingRss/'.$url);
+		  //$url = urlencode($rssFieldData_right[0]['tab_dashboard_content']['field_value']);
+		  //$this->requestAction('/Dashboard/readingRss/'.$url);
 		  ?>
 		</div>
 	      </div>
