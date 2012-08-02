@@ -50,8 +50,18 @@ $cakeDescription = __d('cake_dev', 'Dashboard');
 
 		$pageInnerURL = (@$_SERVER["HTTPS"] == "on") ? "https://" : "http://";
 		
-		if($_SERVER["SERVER_NAME"] == 'ranjith.local.dev'){
-				
+
+		$pageInnerURL .= $_SERVER["SERVER_NAME"];
+			
+		if($pageURL == $pageInnerURL.'/dashboard/dashboard'){
+			echo $this->Html->script('ui.datepicker');
+			echo $this->Html->script('demoScripts');
+		}
+		else if($pageInnerURL){
+			echo $this->Html->script('ui.datepicker');
+			echo $this->Html->script('demoScripts');
+		}
+		else {
 			$pageInnerURL .= $_SERVER["SERVER_NAME"].'/real-estate-dashboard';
 			
 			if($pageURL == $pageInnerURL.'/dashboard/dashboard'){
@@ -59,16 +69,7 @@ $cakeDescription = __d('cake_dev', 'Dashboard');
 				echo $this->Html->script('demoScripts');
 			}
 		}
-		else{
-			$pageInnerURL .= $_SERVER["SERVER_NAME"];
-			
-			if($pageURL == $pageInnerURL.'/dashboard/dashboard'){
-				echo $this->Html->script('ui.datepicker');
-				echo $this->Html->script('demoScripts');
-			}
-			
-		}
-		
+	
 		//echo $this->Html->script('jquery.min');
 		echo $this->Html->script('jquery.filestyle');
 		echo $this->Html->script('jquery.autocomplete');
@@ -82,30 +83,42 @@ $cakeDescription = __d('cake_dev', 'Dashboard');
 		$pageInnerURL = "";
 		
 		$pageInnerURL = (@$_SERVER["HTTPS"] == "on") ? "https://" : "http://";
-		
-		if($_SERVER["SERVER_NAME"] == 'ranjith.local.dev'){
+
+		$pageInnerURL .= $_SERVER["SERVER_NAME"]."/";
+
+		if($pageURL == $pageInnerURL.'/dashboard/dashboard'){
+			echo $this->Html->script('dashboard');
+			?>
+			<script>
+			getSearchData("<?php echo Router::url(array('controller' => 'dashboard', 'action' => 'getJsonFormat'));?>");
+			</script>
+			<?php
+		}
+		else if($pageURL == $pageInnerURL){
+			echo $this->Html->script('dashboard');
+			?>
+			<script>
+			getSearchData("<?php echo Router::url(array('controller' => 'dashboard', 'action' => 'getJsonFormat'));?>");
+			</script>
+			<?php
+		}
+		else{
 			$pageInnerURL .= $_SERVER["SERVER_NAME"].'/real-estate-dashboard';
 			
 			if($pageURL == $pageInnerURL.'/dashboard/dashboard'){
 				echo $this->Html->script('dashboard');
+			?>
+			<script>
+			getSearchData("<?php echo Router::url(array('controller' => 'dashboard', 'action' => 'getJsonFormat'));?>");
+			</script>
+			<?php
 			}
-		}
-		else{
-			$pageInnerURL .= $_SERVER["SERVER_NAME"];
-			
-			if($pageURL == $pageInnerURL.'/dashboard/dashboard'){
-				echo $this->Html->script('dashboard');
-			}
-			
 		}
 		
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('script');
 	?>
-<script>
-//getSearchData("<?php //echo Router::url(array('controller' => 'DashboardImports', 'action' => 'getJsonFormat'));?>");
-</script>
 </head>
 <body>
 	<div id="container">
