@@ -1,9 +1,3 @@
-<?php
-
-$zip = $_SESSION["zip"];
-
-?>
-
 <script type="text/javascript">
 $(document).ready(function() {
 	$("#state").autocomplete("<?php echo Router::url(array('controller' => 'DashboardImports','action' => 'getState'));?>", {
@@ -58,33 +52,53 @@ $(document).ready(function() {
       $("body").css("background-color","#151515");
       $('.searchContent').hide();
       var showOrHide;
+      var zipValue = $('#zipcode').val();
+      $('#ZipLabel').html(zipValue+" Median Price");
+      
+      
+      var jsonValue;
+      var zipValue = $('#zipcode').val();
+      $.ajax({
+	url: '/dashboard/getZipArea',
+	type: 'POST',
+	async: true,
+	data: "zipValue="+zipValue,
+	dataType: 'html',
+	success: function (jsonValue) {
+	  $('#searchText').html(zipValue+" "+jsonValue);
+	}
+      });
+      
+      
       $('.searchTxt').click(function(){
+
 	if($(".searchContent").is(":hidden"))
 	{
 	  $('#searchText').html('Search');
 	  $('#searchArrow').attr("class","searchDownArrow");
 	}
 	else{
-	  $('#searchText').html('<?php $zipData = $this->requestAction("/Dashboard/getZipArea/".$zip);
-				      echo $zipData[0]["tab_median_price_2years"]["zip_code"]." ".$zipData[0]["tab_median_price_2years"]["zip_code_area"];
-				?>');
-	  $('#searchArrow').attr("class","searchUpArrow");
-	  
+	  var jsonValue;
+	  var zipValue = $('#zipcode').val();
+	  $.ajax({
+	    url: '/dashboard/getZipArea',
+	    type: 'POST',
+	    async: false,
+	    data: "zipValue="+zipValue,
+	    dataType: 'html',
+	    success: function (jsonValue) {
+	     
+	      $('#searchText').html(zipValue+" "+jsonValue);
+	    }
+	  });
 	}
 	$('.searchContent').slideToggle(showOrHide);
       });
       
       $('#submitForm').click(function(){
-	//$.ajax({
-	//    url: 'dashboard/getZipArea/'+<?php echo $zip ?>,
-	//    type: 'POST',
-	//    success: function (jsqon) {
-	//      alert(jqson)
-	//    }
-	//});
-	//alert($('#zipcode').val());
-	$('#ZipLabel').html($('#zipcode').val()+" Median Price");
-	getSearchData('<?php echo Router::url(array('controller' => 'dashboard', 'action' => 'getJsonFormat'));?>');
+	var zipValue = $('#zipcode').val();
+	$('#ZipLabel').html(zipValue+" Median Price");
+	getSearchData("<?php echo Router::url(array('controller' => 'dashboard', 'action' => 'getJsonFormat'));?>");
       });
   });
 </script>
@@ -97,10 +111,6 @@ $(document).ready(function() {
 	<div class='searchPanel'>
 	  <div class='searchTxt'>
 	    <div id="searchText" style="float: left">
-	    <?php
-	      $zipData = $this->requestAction('/Dashboard/getZipArea/'.$zip);
-	      echo $zipData[0]['tab_median_price_2years']['zip_code']." ".$zipData[0]['tab_median_price_2years']['zip_code_area'];
-	    ?>
 	    </div>
 	    <div class="search searchUpArrow" id="searchArrow"></div>
 	  </div>
@@ -141,7 +151,6 @@ $(document).ready(function() {
 	<div id='guage-wrapper'>
 	  <div class="firstGuageGroup">
 	    <div class="header" id="ZipLabel">
-	   <?php echo $_SESSION['zip']." Median Price"; ?>
 	    </div>
 		<div class='guage-div' style='margin-left:0px;'>
 			<div id="jGaugeDemo1" class="jgauge"></div>
@@ -251,7 +260,7 @@ $(document).ready(function() {
 	    
 	      <div class='video-panel'>
 		<?php
-		echo $youtube_data[0]['tab_dashboard_content']['field_value'];
+		//echo $youtube_data[0]['tab_dashboard_content']['field_value'];
 		?>
 	      </div>
 	      <div class='text-panel'>

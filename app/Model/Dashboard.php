@@ -253,9 +253,10 @@ class Dashboard extends AppModel {
 	     * @return boolean
 	     */
 	    function getZipCodeAreaName($zipcode){
-			$query = "SELECT * FROM tab_median_price_2years WHERE zip_code ='".$zipcode."' GROUP BY zip_code";
-			$data = $this->query($query);
-			return $data;
+		$query = "SELECT * FROM `tab_median_price_2years` where  `zip_code`= $zipcode ";
+		$data = $this->query($query);
+		$ziparea = $data[0]['tab_median_price_2years']['zip_code_area'];
+		return $ziparea;
 	    }
 	
 }
