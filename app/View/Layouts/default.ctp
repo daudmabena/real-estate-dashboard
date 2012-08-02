@@ -85,12 +85,6 @@ $cakeDescription = __d('cake_dev', 'Dashboard');
 		$pageInnerURL = (@$_SERVER["HTTPS"] == "on") ? "https://" : "http://";
 
 		$pageInnerURL .= $_SERVER["SERVER_NAME"]."/";
-		
-//$string = 'this is my world, not my world';
-//$find = 'world';
-//$replace = 'farm';
-//$result = preg_replace(strrev("/$find/"),strrev($replace),strrev($string),1);
-//echo strrev($result);
 
 		if($pageURL == $pageInnerURL.'/dashboard/dashboard'){
 			echo $this->Html->script('dashboard');
