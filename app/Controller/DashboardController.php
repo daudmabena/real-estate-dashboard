@@ -261,6 +261,7 @@ class DashboardController extends AppController {
      $finalInputToJson['avgDifferenceWithLastYearAndCurrentYear'] = $this->getSameMonthDateOfLastYear($args);
      
      
+     
     /* This is For Sold for Avg SQFT in tab_media_sold_sqft*/
      
      $args['selectedFieldName'] = 'for_sold_avg_sqft';
