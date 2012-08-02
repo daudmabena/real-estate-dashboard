@@ -220,7 +220,7 @@ class Dashboard extends AppModel {
 	     * @return boolean
 	     */
 	    function getZipCodeAreaName($zipcode){
-		$query = "SELECT * FROM `tab_median_price_2years` where  `zip_code`= $zipcode  group by zip_code_area";
+		$query = "SELECT * FROM `tab_median_price_2years` where  `zip_code`= $zipcode ";
 		$data = $this->query($query);
 		return $data;
 	    }

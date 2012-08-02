@@ -103,7 +103,9 @@ $cakeDescription = __d('cake_dev', 'Dashboard');
 		echo $this->fetch('css');
 		echo $this->fetch('script');
 	?>
-
+<script>
+//getSearchData("<?php //echo Router::url(array('controller' => 'DashboardImports', 'action' => 'getJsonFormat'));?>");
+</script>
 </head>
 <body>
 	<div id="container">

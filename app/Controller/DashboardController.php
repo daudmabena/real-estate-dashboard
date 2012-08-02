@@ -337,9 +337,6 @@ class DashboardController extends AppController {
      }
    
      public function readingRss($url = null){
-          
-         // echo "hello".$url;
-          
           $ch = curl_init($url);
           curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
           curl_setopt($ch, CURLOPT_HEADER, 0);
