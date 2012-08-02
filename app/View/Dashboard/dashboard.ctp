@@ -56,18 +56,18 @@ $(document).ready(function() {
       $('#ZipLabel').html(zipValue+" Median Price");
       
       
-//      var jsonValue;
-//      var zipValue = $('#zipcode').val();
-//      $.ajax({
-//	url: '/dashboard/getZipArea',
-//	type: 'POST',
-//	async: true,
-//	data: "zipValue="+zipValue,
-//	dataType: 'html',
-//	success: function (jsonValue) {
-//	  $('#searchText').html(zipValue+" "+jsonValue);
-//	}
-//      });
+      var jsonValue;
+      var zipValue = $('#zipcode').val();
+      $.ajax({
+	url: '/dashboard/getZipArea',
+	type: 'POST',
+	async: true,
+	data: "zipValue="+zipValue,
+	dataType: 'html',
+	success: function (jsonValue) {
+	  $('#searchText').html(zipValue+" "+jsonValue);
+	}
+      });
       
       
       $('.searchTxt').click(function(){
