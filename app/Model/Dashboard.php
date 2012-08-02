@@ -16,7 +16,7 @@ class Dashboard extends AppModel {
 	     * @var string
 	     */
 	    var $useTable = false;
-    	
+		
 	    // {{{ importMedianPrice2Yrs()
 	    /**
 	     * Used for importmedianprice for 2 years
@@ -127,6 +127,39 @@ class Dashboard extends AppModel {
 		}
 		return true;
 	    }
+		
+		
+		// {{{ importMedianForSoldPriceSqft()
+	    /**
+	     * Used for import median for sold price sqft
+	     *
+	     * @access  Public
+	     * @param array $medianForSoldPriceSqft
+	     *
+	     * @return boolean
+	     */
+	    function importMedianForSoldPriceSqft($tableName, $medianForSoldPriceSqft, $city, $state, $zipcode, $zipcodearea){
+	    
+		$fsAvg = substr( $medianForSoldPriceSqft[2], 1 );
+		$fsAvg = str_replace(',', '', $fsAvg);
+		
+		$fsAvgSold = substr( $medianForSoldPriceSqft[4], 1 );
+		$fsAvgSold = str_replace(',', '', $fsAvgSold);
+
+		$query = "INSERT INTO $tableName (
+						for_sold, for_avg_sold, for_sold_avg_sqft , for_sold_sqft, month_year, zip_code, city, state, zip_code_area)
+						VALUES('$medianForSoldPriceSqft[1]', 
+						'$fsAvg', '$medianForSoldPriceSqft[3]', '$fsAvgSold', '$medianForSoldPriceSqft[0]','$zipcode', '$city', '$state','$zipcodearea')";
+
+		$rs = $this->query($query);
+	    
+		if(!$rs){
+		    $this->log("importMedianForSoldPriceSqft::importMedianForSoldPriceSqft(). Data not inserted");
+		    return false;
+		}
+		return true;
+	    }
+		
 
 	    
 	    function getStateCode($stateTxt){
