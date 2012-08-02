@@ -103,7 +103,8 @@ $cakeDescription = __d('cake_dev', 'Dashboard');
 			<?php
 		}
 		else{
-			$pageInnerURL .= $_SERVER["SERVER_NAME"].'/real-estate-dashboard';
+			$pageInnerURL='';
+			$pageInnerURL .= 'http://'.$_SERVER["SERVER_NAME"].'/real-estate-dashboard';
 			
 			if($pageURL == $pageInnerURL.'/dashboard/dashboard'){
 				echo $this->Html->script('dashboard');
