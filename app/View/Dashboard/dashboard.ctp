@@ -260,7 +260,7 @@ $(document).ready(function() {
 	    
 	      <div class='video-panel'>
 		<?php
-		//echo $youtube_data[0]['tab_dashboard_content']['field_value'];
+		echo $youtube_data[0]['tab_dashboard_content']['field_value'];
 		?>
 	      </div>
 	      <div class='text-panel'>
@@ -273,16 +273,16 @@ $(document).ready(function() {
 		  <?php
 		  //echo $rssFieldData_left[0]['tab_dashboard_content']['field_value'];
 		  
-		  //$url = urlencode($rssFieldData_left[0]['tab_dashboard_content']['field_value']);
-		  //$this->requestAction('/Dashboard/readingRss/'.$url);
+		  $url = urlencode($rssFieldData_left[0]['tab_dashboard_content']['field_value']);
+		  $this->requestAction('/Dashboard/readingRss/'.$url);
 		  ?>
 		</div>
 		<div class='rssFeed2'>
 		  <?php
 		  //echo $rssFieldData_right[0]['tab_dashboard_content']['field_value'];
 		  
-		  //$url = urlencode($rssFieldData_right[0]['tab_dashboard_content']['field_value']);
-		  //$this->requestAction('/Dashboard/readingRss/'.$url);
+		  $url = urlencode($rssFieldData_right[0]['tab_dashboard_content']['field_value']);
+		  $this->requestAction('/Dashboard/readingRss/'.$url);
 		  ?>
 		</div>
 	      </div>
