@@ -261,7 +261,6 @@ class DashboardController extends AppController {
      $finalInputToJson['avgDifferenceWithLastYearAndCurrentYear'] = $this->getSameMonthDateOfLastYear($args);
      
      
-     
     /* This is For Sold for Avg SQFT in tab_media_sold_sqft*/
      
      $args['selectedFieldName'] = 'for_sold_avg_sqft';
@@ -357,8 +356,9 @@ class DashboardController extends AppController {
           }
      }
      
-     function getZipArea($zip = null){
-        return $this->Dashboard->getZipCodeAreaName($zip);
+     public function getZipArea(){
+      $zipValue = $_REQUEST['zipValue'];
+      echo $this->Dashboard->getZipCodeAreaName($zipValue);exit;
      }
 }
 ?>

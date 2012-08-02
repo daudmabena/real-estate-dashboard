@@ -12,7 +12,6 @@ $(document).ready(function() {
 var MinRange,MaxRange,MinRange1,MaxRange1,urldata;
 
 function getSearchData(urldata){
-
     $(document).ready(function() {
     
             var fromDate,toDate = new Date();

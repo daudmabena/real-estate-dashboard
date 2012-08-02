@@ -84,7 +84,11 @@ $cakeDescription = __d('cake_dev', 'Dashboard');
 		
 		$pageInnerURL = (@$_SERVER["HTTPS"] == "on") ? "https://" : "http://";
 
-		$pageInnerURL .= $_SERVER["SERVER_NAME"]."/";
+		$pageInnerURLMaster = (@$_SERVER["HTTPS"] == "on") ? "https://" : "http://";
+		
+		$pageInnerURL .= $_SERVER["SERVER_NAME"];
+		
+		$pageInnerURLMaster .= $_SERVER["SERVER_NAME"]."/";
 
 		if($pageURL == $pageInnerURL.'/dashboard/dashboard'){
 			echo $this->Html->script('dashboard');
@@ -94,7 +98,7 @@ $cakeDescription = __d('cake_dev', 'Dashboard');
 			</script>
 			<?php
 		}
-		else if($pageURL == $pageInnerURL){
+		else if($pageURL == $pageInnerURLMaster){
 			echo $this->Html->script('dashboard');
 			?>
 			<script>
