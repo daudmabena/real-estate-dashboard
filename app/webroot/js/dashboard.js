@@ -9,9 +9,9 @@ $(document).ready(function() {
     });    
 });
 
-var MinRange,MaxRange,MinRange1,MaxRange1;
+var MinRange,MaxRange,MinRange1,MaxRange1,urldata;
 
-function getSearchData(){
+function getSearchData(urldata){
 
     $(document).ready(function() {
     
@@ -70,7 +70,7 @@ function getSearchData(){
             
             
             $.ajax({
-                url: "getJsonFormat",
+                url: urldata,
                 type: 'POST',
                 data: "fromdate="+fromDate+"&todate="+toDate+"&city="+city+"&state="+state+"&zip="+zip,
                 dataType: 'json',
@@ -194,7 +194,7 @@ function getSearchData(){
     });
 }
     
-getSearchData();
+
 
 //function formatDollar(num) {
 //    var p = parseFloat(num).toFixed(2).split(".");

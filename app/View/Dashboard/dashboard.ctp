@@ -69,7 +69,7 @@ $(document).ready(function() {
       });
       
       $('#submitForm').click(function(){
-	getSearchData();
+	getSearchData('<?php echo Router::url(array('controller' => 'dashboard', 'action' => 'getJsonFormat'));?>');
       });
   });
 </script>
@@ -236,7 +236,7 @@ $(document).ready(function() {
 	    
 	      <div class='video-panel'>
 		<?php
-		//echo $youtube_data[0]['tab_dashboard_content']['field_value'];
+		echo $youtube_data[0]['tab_dashboard_content']['field_value'];
 		?>
 	      </div>
 	      <div class='text-panel'>
