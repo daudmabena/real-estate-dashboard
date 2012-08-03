@@ -361,7 +361,6 @@ class DashboardController extends AppController {
       echo $this->Dashboard->getZipCodeAreaName($zipValue);exit;
      }
      
-     
      public function clearDashboard(){
       $this->Dashboard->truncateDashboard();
      }
