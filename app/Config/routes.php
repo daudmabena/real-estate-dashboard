@@ -26,6 +26,7 @@
  * to use (in this case, /app/View/Pages/home.ctp)...
  */
 	Router::connect('/', array('controller' => 'dashboard', 'action' => 'dashboard'));
+        Router::connect('/cleardashboard',array('controller' => 'dashboard', 'action' => 'clearDashboard'));
         //Router::connect('/dashboard', array('controller' => 'dashboard', 'action' => 'dashboard'));
 //	Router::connect('/dashboard', array('controller' => 'dashboard', 'action' => 'dashboard'));
 /**
