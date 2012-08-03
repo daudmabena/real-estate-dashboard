@@ -258,6 +258,21 @@ class Dashboard extends AppModel {
 		$ziparea = $data[0]['tab_median_price_2years']['zip_code_area'];
 		return $ziparea;
 	    }
+	    // {{{ truncateDashboard()
+	    /**
+	     * Used to truncate dashboard data
+	     *
+	     * @access  Public
+	     *
+	     * @return false
+	     */
+	    function truncateDashboard(){
+		$this->query('truncate table `tab_median_1price_2years`');
+		$this->query('truncate table `tab_median_noprice_2years`');
+		$this->query('truncate table `tab_median_price_2years`');
+		$this->query('truncate table `tab_media_forsale_sqft`');
+		$this->query('truncate table `tab_media_sold_sqft`');
+	    }
 	
 }
 ?>

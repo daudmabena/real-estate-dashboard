@@ -82,7 +82,11 @@ function getSearchData(urldata){
                         MinRange1 = obj.saleMedianCity['MINLastYear'];
                         MaxRange1 = obj.saleMedianCity['MAXLastYear'];
                         //for(var i=0;i<obj.groupByMonthAndYearForMedian.length;i++){}
-                        generateChart(obj.groupByMonthAndYearForMedian['monthlytotal'], obj.groupByMonthAndYearForMedian['monthYear']);
+
+                        if(obj.groupByMonthAndYearForMedian != null){
+                        generateChart(obj.groupByMonthAndYearForMedian['monthlytotal'], obj.groupByMonthAndYearForMedian['monthYear']);  
+                        }
+                        
                         generateGuage(obj.saleMedianZip['lastYear'], obj.saleMedianCity['lastYear']);
                         
                         if(obj.saleMedianZip['MINLastYear'] != null){

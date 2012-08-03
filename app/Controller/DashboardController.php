@@ -360,6 +360,11 @@ class DashboardController extends AppController {
       $zipValue = $_REQUEST['zipValue'];
       echo $this->Dashboard->getZipCodeAreaName($zipValue);exit;
      }
+     
+     
+     public function clearDashboard(){
+      $this->Dashboard->truncateDashboard();
+     }
 }
 ?>
 

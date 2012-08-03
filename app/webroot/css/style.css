@@ -556,3 +556,10 @@ input {
     padding: 9px;
     color: #ffffff;
 }
+
+.clearDashboard{
+ border: 1px solid red;
+    color: #FFFFFF;
+    font-size: 18px;
+    padding: 18px;
+}
