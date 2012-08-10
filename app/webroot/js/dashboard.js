@@ -144,6 +144,9 @@ function getSearchData(urldata){
                         if(obj.saleMedianZip['lastYear']!='$NaN.undefined'){
                             $('.saleMedianZipValue').html(obj.saleMedianZip['lastYear']);
                             $('.saleMedianZipValue').formatCurrency({useHtml:true});
+                            var str = $('.saleMedianZipValue').html();
+                            var n=str.split(".");
+                            $('.saleMedianZipValue').html(n[0]);
                         }else{
                             $('.saleMedianZipValue').html('$0');
                             $('.saleMedianZipValue').formatCurrency({useHtml:true});
@@ -164,6 +167,9 @@ function getSearchData(urldata){
                         if(obj.saleMedianCity['lastYear']!='$NaN.undefined'){
                             $('.saleMedianCityValue').html(obj.saleMedianCity['lastYear']);
                             $('.saleMedianCityValue').formatCurrency({useHtml:true});
+                            var str = $('.saleMedianCityValue').html();
+                            var n=str.split(".");
+                            $('.saleMedianCityValue').html(n[0]);
                         }else{
                             $('.saleMedianCityValue').html('$0');
                             $('.saleMedianCityValue').formatCurrency({useHtml:true});
