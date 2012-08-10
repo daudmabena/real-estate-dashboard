@@ -261,10 +261,10 @@ class Dashboard extends AppModel {
 	     * @return false
 	     */
 	    function truncateDashboard(){
-		$this->query('truncate table `tab_median_1price_2years`');
-		$this->query('truncate table `tab_median_noprice_2years`');
+		//$this->query('truncate table `tab_median_1price_2years`');
+		//$this->query('truncate table `tab_median_noprice_2years`');
 		$this->query('truncate table `tab_median_price_2years`');
-		$this->query('truncate table `tab_media_forsale_sqft`');
+		//$this->query('truncate table `tab_media_forsale_sqft`');
 		$this->query('truncate table `tab_media_sold_sqft`');
 	    }
 	
