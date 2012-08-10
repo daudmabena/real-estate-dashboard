@@ -69,10 +69,13 @@ class DashboardImportsController extends AppController {
           for ($j = 1; $j <= $data->sheets[0]['numCols']; $j++) {
               if(isset($data->sheets[0]['cells'][$i][$j])){
                     // $j represents the column for appropriate tables splitted the $j into the tables.     
-                    if($j>=1 && $j<=6){
+                    if($j>=1 && $j<=5){
                          $medianPrice2Yrs[] = $data->sheets[0]['cells'][$i][$j];
                     }
-                    if($j>=7 && $j<=10){
+                    if($j>=6 && $j<=8){
+                         $medianForSoldPriceSqft[] = $data->sheets[0]['cells'][$i][$j];
+                    }
+                    /*if($j>=7 && $j<=10){
                          $medianNoPrice2Yrs[] = $data->sheets[0]['cells'][$i][$j];
                     }
                     if($j>=11 && $j<=14){
@@ -86,7 +89,7 @@ class DashboardImportsController extends AppController {
                     }
                     if($j>=20 && $j<=23){
                          $medianForSoldPriceSqft[] = $data->sheets[0]['cells'][$i][$j];
-                    }
+                    }*/
               }else{
                     $datas[] = '';
               }
@@ -97,7 +100,11 @@ class DashboardImportsController extends AppController {
           if(isset($medianPrice2Yrs) && $medianPrice2Yrs!=''){
                $impMedianPrice2Yrs = $this->Dashboard->importMedianPrice2Yrs('tab_median_price_2years', $medianPrice2Yrs, $city, $state, $zipcode,$zipcodearea);
           }
-          if(isset($medianNoPrice2Yrs) && $medianNoPrice2Yrs!=''){
+          
+          if(isset($medianForSoldPriceSqft) && $medianForSoldPriceSqft!=''){
+               $impMedianForSoldPriceSqft = $this->Dashboard->importMedianForSoldPriceSqft('tab_media_sold_sqft', $medianForSoldPriceSqft, $city, $state, $zipcode,$zipcodearea);
+          }
+          /*if(isset($medianNoPrice2Yrs) && $medianNoPrice2Yrs!=''){
                $impMedianNoPrice2Yrs = $this->Dashboard->importMedianNoPrice2Yrs('tab_median_noprice_2years', $medianNoPrice2Yrs, $city, $state, $zipcode,$zipcodearea);
           }
           if(isset($median1Price2Yrs) && $median1Price2Yrs!=''){
@@ -108,7 +115,7 @@ class DashboardImportsController extends AppController {
           }
           if(isset($medianForSoldPriceSqft) && $medianForSoldPriceSqft!=''){
                $impMedianForSoldPriceSqft = $this->Dashboard->importMedianForSoldPriceSqft('tab_media_sold_sqft', $medianForSoldPriceSqft, $city, $state, $zipcode,$zipcodearea);
-          }
+          }*/
           
           
      }
