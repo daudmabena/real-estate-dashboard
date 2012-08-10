@@ -11,6 +11,20 @@ $(document).ready(function() {
 
 var MinRange,MaxRange,MinRange1,MaxRange1,urldata;
 
+function addCommas(nStr) {
+    nStr += '';
+    var x = nStr.split('.');
+    var x1 = x[0];
+    var x2 = x.length > 1 ? '.' + x[1] : '';
+    var rgx = /(\d+)(\d{3})/;
+    while (rgx.test(x1)) {
+        x1 = x1.replace(rgx, '$1' + ',' + '$2');
+    }
+    return x1 + x2;
+}
+
+
+
 function getSearchData(urldata){
     $(document).ready(function() {
     
@@ -62,7 +76,7 @@ function getSearchData(urldata){
               //alert(monthVal);
               var MonthName = getMonthName(monthVal);
               
-              $('#guage_description_panel2').html('Number of Sold Homes in ['+MonthName+'-'+toDate.split("/")[2]+']');
+              $('#guage_description_panel2').html('Number of Sold Homes in '+MonthName+'-'+toDate.split("/")[2]);
             }
             //$('#ZipLabel').html(zip+" Median Price");
             //$('#CityValue').html(city+" Median Price");      
@@ -139,6 +153,7 @@ function getSearchData(urldata){
                         $('.strategyPercentageZip').html(avg_of_lastYear_and_previousLastYear+"%");
                         if(avg_of_lastYear_and_previousLastYear < 0){
                            $('#firstgauageStrategy').attr('class','downStratergy');
+                           $('#firstgauageStrategyLabel').html('Down');
                         }
                         $('.prev12MonStrategy').html("$"+Math.floor(obj.saleMedianZip['previousLastYear']));
                         $('.prev12MonStrategy').formatCurrency({useHtml:true});
@@ -158,10 +173,12 @@ function getSearchData(urldata){
                         
                         if(avg_of_lastYear_city < 0){
                           $('#secondgauageStrategy').attr('class','downStratergy');
+                          $('#secondgauageStrategyLabel').html('Down');
                         }
+                        
              
                         if(obj.soldSqft['lastYear']!=false){
-                            $('#perFootLast12Months').html("$"+obj.soldSqft['lastYear']);
+                            $('#perFootLast12Months').text(obj.soldSqft['lastYear']).formatCurrency();
                             if(obj.soldSqft['lastYear'] < 0){
                               $('#firstStrategyOuter').attr('class','downStratergyOuter');
                             }
@@ -173,9 +190,9 @@ function getSearchData(urldata){
                         $('#soldDifferenceWithLastYear').html(obj.soldDifferenceWithLastYearAndCurrentYear['lastYear']);
                         
                         
-                        if(obj.soldDifferenceWithLastYearAndCurrentYear['currentYear'] < 0){
-                          $('#soldHomeInDate').attr('class','downStratergyOuter');
-                        }
+                        //if(obj.soldDifferenceWithLastYearAndCurrentYear['currentYear'] < 0){
+                        //  $('#soldHomeInDate').attr('class','downStratergyOuter');
+                        //}
                         
                         
                         if(obj.soldDifferenceWithLastYearAndCurrentYear['lastYear'] < 0){
@@ -190,6 +207,7 @@ function getSearchData(urldata){
                         }
                         
                         $('#soldAvgSqft').html(Math.floor(obj.soldAvgSqft['lastYear']));
+                        $('#soldAvgSqft').html(addCommas($('#soldAvgSqft').html()));
                     }
                 }
             });

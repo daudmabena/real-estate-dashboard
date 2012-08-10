@@ -46,7 +46,7 @@ $cakeDescription = __d('cake_dev', 'Dashboard');
 		echo $this->Html->css('screen');
 		
 		echo $this->Html->script('jquery-1.7.2.min');
-		echo $this->Html->script('jquery.formatCurrency');
+		echo $this->Html->script('jquery.formatCurrency-1.4.0');
 
 		$pageInnerURL = (@$_SERVER["HTTPS"] == "on") ? "https://" : "http://";
 		

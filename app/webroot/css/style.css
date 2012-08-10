@@ -591,3 +591,19 @@ input {
     width: 89px;
     float: left;
 }
+
+#soldHome{
+    width: 155.5px;
+}
+
+#soldHomeLastYr{margin-left: 2px; width: 155.5px;}
+
+#daysOnMarket{width: 155.5px;}
+
+#domLastYr{width: 155.5px; margin-left: 2px;}
+
+#guage_description_panel2{width: 147.5px;}
+
+#guage_description_panel3{margin-left: 2px; width: 147.5px;}
+#guage_description_panel4{width: 148.5px;}
+#guage_description_panel5{margin-left: 2px; width: 147.5px;}
