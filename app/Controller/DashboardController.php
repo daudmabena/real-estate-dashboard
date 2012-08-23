@@ -129,7 +129,7 @@ class DashboardController extends AppController {
    }
    
 
-   function getSameMonthDateOfLastYear($args = null){
+   function getSameMonthDateOfLastYear($args = null,$zip){
      
      //print_r($ar)
      
@@ -157,6 +157,7 @@ class DashboardController extends AppController {
      $parameters['selectFieldName']     = 'sold';
      $parameters['tableName']           = 'tab_median_price_2years';*/
      $parameters['fieldValue']          = $getMonthOfLastYear;
+     $parameters['extrafieldValue']     = $zip;
      
      $this->Calculation->setData($parameters);
      $lastYearValue = $this->Calculation->getSameDateOfLastYear();
@@ -231,7 +232,7 @@ class DashboardController extends AppController {
      $args['tableName']           = 'tab_median_price_2years';
 
      
-     $finalInputToJson['soldDifferenceWithLastYearAndCurrentYear'] = $this->getSameMonthDateOfLastYear($args);
+     $finalInputToJson['soldDifferenceWithLastYearAndCurrentYear'] = $this->getSameMonthDateOfLastYear($args,$zip);
      
      /*This is For get the Last Year Avg amount of current month*/
      
@@ -240,7 +241,7 @@ class DashboardController extends AppController {
      $args['tableName']           = 'tab_median_price_2years';
 
      
-     $finalInputToJson['avgDifferenceWithLastYearAndCurrentYear'] = $this->getSameMonthDateOfLastYear($args);
+     $finalInputToJson['avgDifferenceWithLastYearAndCurrentYear'] = $this->getSameMonthDateOfLastYear($args,$zip);
      
      
     /* This is For Sold for Avg SQFT in tab_media_sold_sqft*/
@@ -260,7 +261,7 @@ class DashboardController extends AppController {
      //$args['fieldValue']        = '12207';
      
      $this->Calculation->setData($args);
-     $finalInputToJson['groupByMonthAndYearForMedian'] = $this->Calculation->groupBymonthWiseWithDifferentYears();
+     $finalInputToJson['groupByMonthAndYearForMedian'] = $this->Calculation->groupBymonthWiseWithDifferentYears($zip);
 
      echo json_encode($finalInputToJson);
      $this->autoRender = false;

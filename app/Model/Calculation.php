@@ -24,6 +24,7 @@ class Calculation extends AppModel{
     private $__tableName;
     private $__fieldName;
     private $__selectFiledName;
+    private $__extrafieldValue;
     
     // {{{ setData()
     /**
@@ -46,7 +47,7 @@ class Calculation extends AppModel{
         $this->__fieldName = $fieldName;
         $this->__tableName = $tableName;
         $this->__selectFiledName = $selectFieldName;
-        
+        $this->__extrafieldValue = $extrafieldValue;
     }
     
     // {{{ calculateMedian12months()
@@ -90,13 +91,16 @@ class Calculation extends AppModel{
      *
      * @return array value with 
      */
-    public function groupBymonthWiseWithDifferentYears(){
+    public function groupBymonthWiseWithDifferentYears($zip = null){
         
         $monthName = array("1"=>"JAN","2"=>"FEB","3"=>"MAR","4"=>"APR","5"=>"MAY","6"=>"JUN","7"=>"JUL","8"=>"AUG","9"=>"SEP","10"=>"OCT","11"=>"NOV","12"=>"DEC");
         
         $medianPriceWithGroupbyMonthAndYearquery = "SELECT sum(".$this->__selectFiledName.") as MONTHLYTOTAL, month(".$this->__fieldName.") as MONTH, 
-                                    year(".$this->__fieldName.") as YEAR FROM ".$this->__tableName."
+                                    year(".$this->__fieldName.") as YEAR FROM ".$this->__tableName." WHERE ZIP_CODE_AREA='".$zip."'
                                     GROUP BY month(".$this->__fieldName.") , year(".$this->__fieldName.") ORDER BY month_year";
+        
+        
+        //echo  $medianPriceWithGroupbyMonthAndYearquery;
         
         $medianPriceWithGroupbyMonthAndYearResult = $this->query($medianPriceWithGroupbyMonthAndYearquery);
         for($i=0;$i<count($medianPriceWithGroupbyMonthAndYearResult);$i++){
@@ -119,13 +123,13 @@ class Calculation extends AppModel{
         
         $lastYearSameMonthgetQuery = "SELECT (SELECT SUM(".$this->__selectFiledName.")
                                         FROM ".$this->__tableName." WHERE YEAR(".$this->__fieldName.") = '".date('Y')."'
-                                        AND MONTH(".$this->__fieldName.") = '".date('m')."') as CURRENTYEAR,
+                                        AND MONTH(".$this->__fieldName.") = '".date('m')."' AND ZIP_CODE_AREA='".$this->__extrafieldValue."') as CURRENTYEAR,
                                         SUM(".$this->__selectFiledName.") as LASTYEAR,
                                         ((SELECT SUM(".$this->__selectFiledName.") 
                                         FROM ".$this->__tableName." WHERE YEAR(".$this->__fieldName.") = '".date('Y')."' AND
-                                        MONTH(".$this->__fieldName.") = '".date('m')."') - SUM(".$this->__selectFiledName.")) as DIFFERENCE FROM ".$this->__tableName."
+                                        MONTH(".$this->__fieldName.") = '".date('m')."' AND ZIP_CODE_AREA='".$this->__extrafieldValue."') - SUM(".$this->__selectFiledName.")) as DIFFERENCE FROM ".$this->__tableName."
                                         WHERE YEAR(".$this->__fieldName.") = '".$this->__fieldValue['year']."'
-                                        AND MONTH(".$this->__fieldName.") = '".$this->__fieldValue['month']."'";
+                                        AND MONTH(".$this->__fieldName.") = '".$this->__fieldValue['month']."' AND ZIP_CODE_AREA='".$this->__extrafieldValue."'";
         
         //echo $lastYearSameMonthgetQuery;
         

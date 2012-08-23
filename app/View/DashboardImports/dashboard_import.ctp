@@ -107,6 +107,12 @@ $(document).ready(function() {
 	$('.zipcodeholder').hide();
 	$('#sbtbutton').show();
       }
+      else{
+	$('.zipcodeholder').hide();
+	$('.cityholder').hide();
+	$('.uploadfile').hide();
+	$('#sbtbutton').hide();
+      }
     });
   });
 
@@ -118,8 +124,8 @@ $(document).ready(function() {
 <?php
 	echo $this->Form->create('DashboardImports', array('controller' => 'DashboardImports', 'action' => 'dataParser', 'type' => 'file', 'class' =>'choose_file'));
 	echo "<div class='formdivider'>";
-	echo "<label class='labelTxt'>State</label>";
-	echo "<select id='uploadType' name='uploadType'><option value='1'>By Zipcode</option><option value='2'>By City</option></select>";	
+	echo "<label class='labelTxt'>Upload Type</label>";
+	echo "<select id='uploadType' name='uploadType'><option value='0'>--Select--</option><option value='1'>By Zipcode</option><option value='2'>By City</option></select>";	
 	echo "</div><div class='zipcodeholder'>";
 	echo "<div class='formdivider'>";
 	echo "<label class='labelTxt'>Zipcode/Area</label>";
