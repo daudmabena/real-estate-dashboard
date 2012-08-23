@@ -56,61 +56,44 @@ class DashboardController extends AppController {
      $parameters['selectFieldName'] = $selectedFieldName;
      $parameters['tableName'] = $tableName;
      
-     if($parameters['fieldName'] == "zip_code"){
+     if($parameters['fieldName'] == "zip_code_area"){
           $parameters['fieldValue'] = $fieldValue;
      }
      else if($parameters['fieldName'] == "city"){
           $parameters['fieldValue'] = $fieldValue;
      }
      
-     for($i=0; $i<$countYears; $i++){
-          if($i == 0){
-               $parameters['fromDate'] = $lastYears[0];
-               $parameters['toDate'] = $currentYear['todate'];
-          }
-          else{
-               $parameters['fromDate'] = $lastYears[1];
-               $parameters['toDate'] = $lastYears[0];
-          }
-          $this->Calculation->setData($parameters);
-          $lastYearValue = $this->Calculation->calculateMedian12months();
+    for($i=0; $i<$countYears; $i++){
+      if($i == 0){
+        $parameters['fromDate'] = $lastYears[0];
+        $parameters['toDate'] = $currentYear['todate'];
+      }
+      else{
+        $parameters['fromDate'] = $lastYears[1];
+        $parameters['toDate'] = $lastYears[0];
+      }
+      $this->Calculation->setData($parameters);
+      $lastYearValue = $this->Calculation->calculateMedian12months();
 
-          if($i == 1){
-               //Getting Divider here
-               $lastYearTotalDivider = $lastYearValue['Value'];
-               $returnValues['previousLastYear'] = $lastYearTotalDivider;
-               $returnValues['MAXPreviousYear'] = $lastYearValue['MAXValue'];
-               $returnValues['MINPreviousYear'] = $lastYearValue['MINValue'];
-          }
-          else{
-              $returnValues['MAXLastYear'] = $lastYearValue['MAXValue'];
-              $returnValues['MINLastYear'] = $lastYearValue['MINValue'];
-              $returnValues['lastYear'] = $lastYearValue['Value'];
-          }
-          
+      if($i == 1){
+        //Getting Divider here
+        $lastYearTotalDivider = $lastYearValue['Value'];
+        $returnValues['previousLastYear'] = $lastYearTotalDivider;
+        $returnValues['MAXPreviousYear'] = $lastYearValue['MAXValue'];
+        $returnValues['MINPreviousYear'] = $lastYearValue['MINValue'];
+      }
+      else{
+        $returnValues['MAXLastYear'] = $lastYearValue['MAXValue'];
+        $returnValues['MINLastYear'] = $lastYearValue['MINValue'];
+        $returnValues['lastYear'] = $lastYearValue['Value'];
+      }
+      $lastYearTotalSum += $lastYearValue['Value'];
+    }
+    
+    $returnValues['totalOfLastTwoYearsData'] = $lastYearTotalSum;
+    $returnValues['diffFromLastYear'] = $returnValues['lastYear'] - $returnValues['previousLastYear'];
+    $returnValues['avg_of_lastYear_and_previousLastYear'] = $returnValues['diffFromLastYear']/$lastYearTotalDivider;
 
-          //Getting Sum of total year with last Two Years
-          $lastYearTotalSum += $lastYearValue['Value'];
-          //$countYears--;
-
-          
-     }
-     $returnValues['totalOfLastTwoYearsData'] = $lastYearTotalSum;
-     
-     $returnValues['diffFromLastYear'] = $returnValues['lastYear'] - $returnValues['previousLastYear'];
-     
-
-     
-     
-     //echo "first".$lastYearTotalSum."</br>";
-     
-    /// echo "second".$lastYearTotalDivider."</br>";
-     
-     $returnValues['avg_of_lastYear_and_previousLastYear'] = $returnValues['diffFromLastYear']/$lastYearTotalDivider;
-     
-     //print_r($returnValues);
-     
-     
      return $returnValues;
      $this->autoRender = false;
    }
@@ -202,8 +185,8 @@ class DashboardController extends AppController {
      
      $fromDate = $_POST['fromdate'];
      $toDate   = $_POST['todate'];
-     $city   = $_POST['city'];
-     $state   = $_POST['state'];
+     //$city   = $_POST['city'];
+     //$state   = $_POST['state'];
      $zip   = $_POST['zip'];
      $_SESSION['zip'] = $zip;
 
@@ -214,7 +197,7 @@ class DashboardController extends AppController {
      
      $args['selectedFieldName'] = 'for_sale_median';
      $args['tableName']         = 'tab_median_price_2years';
-     $args['fieldName']         = 'zip_code';
+     $args['fieldName']         = 'zip_code_area';
      $args['fieldValue']        = $zip;
      $args['inputfromDate']     = $fromDate;
      $args['inputtoDate']       = $toDate;  
@@ -229,14 +212,13 @@ class DashboardController extends AppController {
      $args['fieldName']         = 'city';
      $args['fieldValue']        = 'san antonio';
 
-     
      $finalInputToJson['saleMedianCity'] = $this->index($args);
     // 
      /* This is For Sold for SQFT in tab_media_sold_sqft*/
      
      $args['selectedFieldName'] = 'for_sold_sqft';
      $args['tableName']         = 'tab_media_sold_sqft';
-     $args['fieldName']         = 'zip_code';
+     $args['fieldName']         = 'zip_code_area';
      $args['fieldValue']        = $zip;
 
      
@@ -265,7 +247,7 @@ class DashboardController extends AppController {
      
      $args['selectedFieldName'] = 'for_sold_avg_sqft';
      $args['tableName']         = 'tab_media_sold_sqft';
-     $args['fieldName']         = 'zip_code';
+     $args['fieldName']         = 'zip_code_area';
      $args['fieldValue']        = $zip;
      
      $finalInputToJson['soldAvgSqft'] = $this->index($args);
@@ -361,8 +343,13 @@ class DashboardController extends AppController {
       echo $this->Dashboard->getZipCodeAreaName($zipValue);exit;
      }
      
-     public function clearDashboard(){
-      $this->Dashboard->truncateDashboard();
+     public function clearDashboard($bools = null){
+      if($bools == true){
+        $this->Dashboard->truncateDashboard();  
+      }
+      else{
+        
+      }
      }
 }
 ?>

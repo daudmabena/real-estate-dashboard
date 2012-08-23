@@ -1,49 +1,49 @@
 <script type="text/javascript">
 $(document).ready(function() {
-	$("#state").autocomplete("<?php echo Router::url(array('controller' => 'DashboardImports','action' => 'getState'));?>", {
-		width: 260,
-		matchContains: true,
-		//mustMatch: true,
-		//minChars: 0,
-		//multiple: true,
-		//highlight: false,
-		//multipleSeparator: ",",
-		selectFirst: false
-	});
+	//$("#state").autocomplete("<?php echo Router::url(array('controller' => 'DashboardImports','action' => 'getState'));?>", {
+	//	width: 260,
+	//	matchContains: true,
+	//	//mustMatch: true,
+	//	//minChars: 0,
+	//	//multiple: true,
+	//	//highlight: false,
+	//	//multipleSeparator: ",",
+	//	selectFirst: false
+	//});
+	//
+	//$("#city").autocomplete("<?php echo Router::url(array('controller' => 'DashboardImports','action' => 'getCity'));?>", {
+	//	width: 260,
+	//	matchContains: true,
+	//	//mustMatch: true,
+	//	//minChars: 0,
+	//	//multiple: true,
+	//	//highlight: false,
+	//	//multipleSeparator: ",",
+	//	selectFirst: false
+	//});
 	
-	$("#city").autocomplete("<?php echo Router::url(array('controller' => 'DashboardImports','action' => 'getCity'));?>", {
-		width: 260,
-		matchContains: true,
-		//mustMatch: true,
-		//minChars: 0,
-		//multiple: true,
-		//highlight: false,
-		//multipleSeparator: ",",
-		selectFirst: false
-	});
+	//$("#zipcode").autocomplete("<?php echo Router::url(array('controller' => 'DashboardImports','action' => 'getZipCode'));?>", {
+	//	width: 260,
+	//	matchContains: true,
+	//	//mustMatch: true,
+	//	//minChars: 0,
+	//	//multiple: true,
+	//	//highlight: false,
+	//	//multipleSeparator: ",",
+	//	selectFirst: false
+	//});
 	
-	$("#zipcode").autocomplete("<?php echo Router::url(array('controller' => 'DashboardImports','action' => 'getZipCode'));?>", {
-		width: 260,
-		matchContains: true,
-		//mustMatch: true,
-		//minChars: 0,
-		//multiple: true,
-		//highlight: false,
-		//multipleSeparator: ",",
-		selectFirst: false
-	});
+	//$("#state").result(function(event, data, formatted) {
+	//	$("#state").val(data[0]);
+	//});
+	//
+	//$("#city").result(function(event, data, formatted) {
+	//	$("#city").val(data[0]);
+	//});
 	
-	$("#state").result(function(event, data, formatted) {
-		$("#state").val(data[0]);
-	});
-	
-	$("#city").result(function(event, data, formatted) {
-		$("#city").val(data[0]);
-	});
-	
-	$("#zipcode").result(function(event, data, formatted) {
-		$("#zipcode").val(data[0]);
-	});
+	//$("#zipcode").result(function(event, data, formatted) {
+	//	$("#zipcode").val(data[0]);
+	//});
 	
 });
 </script>
@@ -132,14 +132,14 @@ $(document).ready(function() {
 			<input type='text' name='range2' name='range2' value='".date('m/d/Y')."' />
 			</div>";	
 		  echo "</div>";
-		  echo "<div class='formdivider'>";
-		  echo "<label class='labelTxtSearch'>City</label>";
-		  echo "<input type='text' class='inputTxtSearch' name='city' id='city' value='SAN ANTONIO'></input>";	
-		  echo "</div></div>";
-		  echo "<div class='sections'><div class='formdivider'>";
-		  echo "<label class='labelTxtSearch'>State</label>";
-		  echo "<input type='text' class='inputTxtSearch' name='state' id='state' value='TX'></input>";	
-		  echo "</div>";
+		  //echo "<div class='formdivider'>";
+		  //echo "<label class='labelTxtSearch'>City</label>";
+		  //echo "<input type='text' class='inputTxtSearch' name='city' id='city' value='SAN ANTONIO'></input>";	
+		  //echo "</div></div>";
+		  //echo "<div class='sections'><div class='formdivider'>";
+		  //echo "<label class='labelTxtSearch'>State</label>";
+		  //echo "<input type='text' class='inputTxtSearch' name='state' id='state' value='TX'></input>";	
+		  //echo "</div>";
 		  echo "<div class='formdivider'>";
 		  echo "<label class='labelTxtSearch'>Zipcode</label>";
 		  echo "<input type='text' class='inputTxtSearch' name='zipcode' id='zipcode' value='78253'></input>";	

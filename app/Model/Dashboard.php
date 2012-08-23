@@ -26,20 +26,29 @@ class Dashboard extends AppModel {
 	     *
 	     * @return boolean
 	     */
-	    function importMedianPrice2Yrs($tableName, $medianPrice2Yrs, $city, $state, $zipcode, $zipcodearea){
-
+	    function importMedianPrice2Yrs($tableName, $medianPrice2Yrs, $city, $state, $zipcodearea, $uploadType){
+	    
 		$forSaleMedian = substr( $medianPrice2Yrs[1], 1 );
 		$forSaleMedian = str_replace(',', '', $forSaleMedian);
 	    
 		$soldMedian = substr( $medianPrice2Yrs[2], 1 );
 		$soldMedian = str_replace(',', '', $soldMedian);
-			
-		$query = "INSERT INTO $tableName (
-			    zip_code, for_sale_median, sold_median, sold, average_dom, month_year, city, state,zip_code_area)
-			    VALUES('$zipcode', '$forSaleMedian', $soldMedian, '$medianPrice2Yrs[3]', '$medianPrice2Yrs[4]', '$medianPrice2Yrs[0]', '$city', '$state','$zipcodearea')";
 
-		$rs = $this->query($query);
-			
+		if($uploadType == 1){
+		    $query = "INSERT INTO $tableName (
+				for_sale_median, sold_median, sold, average_dom, month_year, zip_code_area)
+				VALUES('$forSaleMedian', $soldMedian, '$medianPrice2Yrs[3]', '$medianPrice2Yrs[4]', '$medianPrice2Yrs[0]', '$zipcodearea')";
+    
+		    $rs = $this->query($query);
+		}
+		else if($uploadType == 2){
+		    $query = "INSERT INTO $tableName (
+				for_sale_median, sold_median, sold, average_dom, month_year, city, state)
+				VALUES('$forSaleMedian', $soldMedian, '$medianPrice2Yrs[3]', '$medianPrice2Yrs[4]', '$medianPrice2Yrs[0]', '$city', '$state')";
+    
+		    $rs = $this->query($query);   
+		}
+
 		if(!$rs){
 		    $this->log("importMedianPrice2Yrs::importMedianPrice2Yrs(). Data not inserted");
 		    return false;
@@ -137,15 +146,22 @@ class Dashboard extends AppModel {
 	     *
 	     * @return boolean
 	     */
-	    function importMedianForSoldPriceSqft($tableName, $medianForSoldPriceSqft, $city, $state, $zipcode, $zipcodearea){
+	    function importMedianForSoldPriceSqft($tableName, $medianForSoldPriceSqft, $city, $state, $zipcodearea, $uploadType){
 	    
 		$fsAvg = substr( $medianForSoldPriceSqft[3], 1 );
 		$fsAvg = str_replace(',', '', $fsAvg);
-
-		$query = "INSERT INTO $tableName (for_sold_avg_sqft , for_sold_sqft, month_year, zip_code, city, state, zip_code_area)
-						VALUES('$medianForSoldPriceSqft[2]', '$fsAvg', '$medianForSoldPriceSqft[1]','$zipcode', '$city', '$state','$zipcodearea')";
+		if($uploadType == 1){
+		    $query = "INSERT INTO $tableName (for_sold_avg_sqft , for_sold_sqft, month_year, zip_code_area)
+		    				VALUES('$medianForSoldPriceSqft[2]', '$fsAvg', '$medianForSoldPriceSqft[1]','$zipcodearea')";
 	
-		$rs = $this->query($query);
+		    $rs = $this->query($query);
+		}
+		else if($uploadType == 2){
+		    $query = "INSERT INTO $tableName (for_sold_avg_sqft , for_sold_sqft, month_year, city, state)
+		    				VALUES('$medianForSoldPriceSqft[2]', '$fsAvg', '$medianForSoldPriceSqft[1]','$city', '$state')";
+	
+		    $rs = $this->query($query);
+		}
 	    
 		if(!$rs){
 		    $this->log("importMedianForSoldPriceSqft::importMedianForSoldPriceSqft(). Data not inserted");

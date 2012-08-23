@@ -42,51 +42,74 @@
 
 <script type="text/javascript">
 $(document).ready(function() {
-	$("#state").autocomplete("getState", {
-		width: 260,
-		matchContains: true,
-		//mustMatch: true,
-		//minChars: 0,
-		//multiple: true,
-		//highlight: false,
-		//multipleSeparator: ",",
-		selectFirst: false
-	});
-	
-	$("#city").autocomplete("getCity", {
-		width: 260,
-		matchContains: true,
-		//mustMatch: true,
-		//minChars: 0,
-		//multiple: true,
-		//highlight: false,
-		//multipleSeparator: ",",
-		selectFirst: false
-	});
-	
-	$("#zipcode").autocomplete("getZipCode", {
-		width: 260,
-		matchContains: true,
-		//mustMatch: true,
-		//minChars: 0,
-		//multiple: true,
-		//highlight: false,
-		//multipleSeparator: ",",
-		selectFirst: false
-	});
-	
-	$("#state").result(function(event, data, formatted) {
-		$("#state").val(data[0]);
-	});
-	
-	$("#city").result(function(event, data, formatted) {
-		$("#city").val(data[0]);
-	});
-	
-	$("#zipcode").result(function(event, data, formatted) {
-		$("#zipcode").val(data[0]);
-	});
-	
+  $("#state").autocomplete("getState", {
+    width: 260,
+    matchContains: true,
+    //mustMatch: true,
+    //minChars: 0,
+    //multiple: true,
+    //highlight: false,
+    //multipleSeparator: ",",
+    selectFirst: false
+  });
+  
+  $("#city").autocomplete("getCity", {
+    width: 260,
+    matchContains: true,
+    //mustMatch: true,
+    //minChars: 0,
+    //multiple: true,
+    //highlight: false,
+    //multipleSeparator: ",",
+    selectFirst: false
+  });
+  
+  $("#zipcode").autocomplete("getZipCode", {
+    width: 260,
+    matchContains: true,
+    //mustMatch: true,
+    //minChars: 0,
+    //multiple: true,
+    //highlight: false,
+    //multipleSeparator: ",",
+    selectFirst: false
+  });
+  
+  $("#state").result(function(event, data, formatted) {
+    $("#state").val(data[0]);
+  });
+  
+  $("#city").result(function(event, data, formatted) {
+    $("#city").val(data[0]);
+  });
+  
+  $("#zipcode").result(function(event, data, formatted) {
+    $("#zipcode").val(data[0]);
+  });
+  
+  $('.zipcodeholder').hide();
+  $('.cityholder').hide();
+  $('.uploadfile').hide();
+  $('#sbtbutton').hide();
+  
+  $("#uploadType").change(function () {
+    $("select option:selected").each(function () {
+      var options = $(this).val();
+      if(options==1){
+	$('.zipcodeholder').show();
+	$('.uploadfile').show();
+	$('.cityholder').hide();
+	$('#sbtbutton').show();
+      }
+      else if(options==2){
+	$('.cityholder').show();
+	$('.uploadfile').show();
+	$('.zipcodeholder').hide();
+	$('#sbtbutton').show();
+      }
+    });
+  });
+
 });
 </script>
 <div class='header_txt'>Dashboard Import</div>
@@ -96,20 +119,29 @@ $(document).ready(function() {
 	echo $this->Form->create('DashboardImports', array('controller' => 'DashboardImports', 'action' => 'dataParser', 'type' => 'file', 'class' =>'choose_file'));
 	echo "<div class='formdivider'>";
 	echo "<label class='labelTxt'>State</label>";
-	echo "<input type='text' class='inputTxt' name='state' id='state'></input>";	
+	echo "<select id='uploadType' name='uploadType'><option value='1'>By Zipcode</option><option value='2'>By City</option></select>";	
+	echo "</div><div class='zipcodeholder'>";
+	echo "<div class='formdivider'>";
+	echo "<label class='labelTxt'>Zipcode/Area</label>";
+	echo "<input type='text' class='inputTxt' name='zipcodarea' id='zipcodarea'></input>";	
+	echo "</div>";
+	echo "</div><div class='cityholder'>";
+	echo "<div class='formdivider'>";
+	echo "<label class='labelTxt'>State</label>";
+	echo "<input type='text' class='inputTxt' name='state' id='state' value='TX'></input>";	
 	echo "</div>";
 	echo "<div class='formdivider'>";
 	echo "<label class='labelTxt'>City</label>";
-	echo "<input type='text' class='inputTxt' name='city' id='city'></input>";	
-	echo "</div>";
-	echo "<div class='formdivider'>";
-	echo "<label class='labelTxt'>Zipcode</label>";
-	echo "<input type='text' class='inputTxt' name='zipcode' id='zipcode'></input>";	
-	echo "</div>";
-	echo "<div class='formdivider'>";
-	echo "<label class='labelTxt'>Area</label>";
-	echo "<input type='text' class='inputTxt' name='zipcodearea' id='zipcodearea'></input>";	
-	echo "</div>";
+	echo "<input type='text' class='inputTxt' name='city' id='city' value='SAN ANTONIO'></input>";	
+	echo "</div></div>";
+	//echo "<div class='formdivider'>";
+	//echo "<label class='labelTxt'>Zipcode</label>";
+	//echo "<input type='text' class='inputTxt' name='zipcode' id='zipcode'></input>";	
+	//echo "</div>";
+	//echo "<div class='formdivider'>";
+	//echo "<label class='labelTxt'>Area</label>";
+	//echo "<input type='text' class='inputTxt' name='zipcodearea' id='zipcodearea'></input>";	
+	//echo "</div>";
 	echo "<div class='uploadfile formdivider'>";
 	echo "<label class='labelTxt'>Select File</label>";
 	echo $this->Form->file('File', array('name'=>'dashboardImport', 'id'=>'file_path','class'=>'choose_file', 'onchange'=>'getSelectedFile()'));
@@ -117,7 +149,7 @@ $(document).ready(function() {
 	echo "</div>";
 	//echo "<div class='selectfilename'></div><br>";
 	echo "<br>";
-	echo $this->Form->submit('importnow_btn.png', array('onclick' => 'return CheckIfFileSelected()'));
+	echo $this->Form->submit('importnow_btn.png', array('onclick' => 'return CheckIfFileSelected()','id'=>'sbtbutton'));
 	echo "<br><br>";
 ?>
 <!--

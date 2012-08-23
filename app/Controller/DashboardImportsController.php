@@ -39,11 +39,23 @@ class DashboardImportsController extends AppController {
     */
    public function dataParser(){
      
-     $fileName      = $_FILES['dashboardImport']['name'];
-     $city          = $_REQUEST['city'];
-     $state         = $_REQUEST['state'];
-     $zipcode       = $_REQUEST['zipcode'];
-     $zipcodearea   = $_REQUEST['zipcodearea'];
+     $zipcodearea = 0;
+     $city = 0;
+     $state = 0;
+     
+     $uploadType = $_REQUEST['uploadType'];
+     $fileName   = $_FILES['dashboardImport']['name'];
+
+     if($uploadType == 1){
+          $zipcodearea   = $_REQUEST['zipcodarea'];
+     }
+     else if($uploadType == 2){
+          $city          = $_REQUEST['city'];
+          $state         = $_REQUEST['state'];
+     }
+
+     //$zipcode       = $_REQUEST['zipcode'];
+     //$zipcodearea   = $_REQUEST['zipcodearea'];
      
      $file     = new File($fileName);
      $fileExt  = $file->ext();
@@ -98,11 +110,11 @@ class DashboardImportsController extends AppController {
           array_unshift($medianForSoldPriceSqft, $medianForSoldPriceDate);
 
           if(isset($medianPrice2Yrs) && $medianPrice2Yrs!=''){
-               $impMedianPrice2Yrs = $this->Dashboard->importMedianPrice2Yrs('tab_median_price_2years', $medianPrice2Yrs, $city, $state, $zipcode,$zipcodearea);
+               $impMedianPrice2Yrs = $this->Dashboard->importMedianPrice2Yrs('tab_median_price_2years', $medianPrice2Yrs, $city, $state, $zipcodearea,$uploadType);
           }
           
           if(isset($medianForSoldPriceSqft) && $medianForSoldPriceSqft!=''){
-               $impMedianForSoldPriceSqft = $this->Dashboard->importMedianForSoldPriceSqft('tab_media_sold_sqft', $medianForSoldPriceSqft, $city, $state, $zipcode,$zipcodearea);
+               $impMedianForSoldPriceSqft = $this->Dashboard->importMedianForSoldPriceSqft('tab_media_sold_sqft', $medianForSoldPriceSqft, $city, $state, $zipcodearea, $uploadType);
           }
           /*if(isset($medianNoPrice2Yrs) && $medianNoPrice2Yrs!=''){
                $impMedianNoPrice2Yrs = $this->Dashboard->importMedianNoPrice2Yrs('tab_median_noprice_2years', $medianNoPrice2Yrs, $city, $state, $zipcode,$zipcodearea);
