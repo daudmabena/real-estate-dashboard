@@ -30,21 +30,21 @@ class Dashboard extends AppModel {
 	    
 		$forSaleMedian = substr( $medianPrice2Yrs[1], 1 );
 		$forSaleMedian = str_replace(',', '', $forSaleMedian);
-	    
+
 		$soldMedian = substr( $medianPrice2Yrs[2], 1 );
 		$soldMedian = str_replace(',', '', $soldMedian);
 
 		if($uploadType == 1){
 		    $query = "INSERT INTO $tableName (
 				for_sale_median, sold_median, sold, average_dom, month_year, zip_code_area)
-				VALUES('$forSaleMedian', $soldMedian, '$medianPrice2Yrs[3]', '$medianPrice2Yrs[4]', '$medianPrice2Yrs[0]', '$zipcodearea')";
+				VALUES('$forSaleMedian', '$soldMedian', '$medianPrice2Yrs[3]', '$medianPrice2Yrs[4]', '$medianPrice2Yrs[0]', '$zipcodearea')";
     
 		    $rs = $this->query($query);
 		}
 		else if($uploadType == 2){
 		    $query = "INSERT INTO $tableName (
 				for_sale_median, sold_median, sold, average_dom, month_year, city, state)
-				VALUES('$forSaleMedian', $soldMedian, '$medianPrice2Yrs[3]', '$medianPrice2Yrs[4]', '$medianPrice2Yrs[0]', '$city', '$state')";
+				VALUES('$forSaleMedian', '$soldMedian', '$medianPrice2Yrs[3]', '$medianPrice2Yrs[4]', '$medianPrice2Yrs[0]', '$city', '$state')";
     
 		    $rs = $this->query($query);   
 		}
