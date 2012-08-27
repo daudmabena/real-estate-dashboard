@@ -55,6 +55,45 @@ class Dashboard extends AppModel {
 		}
 		return true;
 	    }
+	    
+	    // {{{ importMedianPrice2YrsForCty()
+	    /**
+	     * Used for importmedianprice for 2 years
+	     *
+	     * @access  Public
+	     * @param array $medianPrice2Yrs
+	     *
+	     * @return boolean
+	     */
+	    function importMedianPrice2YrsForCty($tableName, $medianPrice2Yrs, $city, $state, $zipcodearea, $uploadType){
+	    
+		$forSaleMedian = substr( $medianPrice2Yrs[1], 1 );
+		$forSaleMedian = str_replace(',', '', $forSaleMedian);
+
+		$soldMedian = substr( $medianPrice2Yrs[2], 1 );
+		$soldMedian = str_replace(',', '', $soldMedian);
+
+		if($uploadType == 1){
+		    $query = "INSERT INTO $tableName (
+				for_sale_median, sold_median, sold, month_year, zip_code_area)
+				VALUES('$forSaleMedian', '$soldMedian', '$medianPrice2Yrs[3]', '$medianPrice2Yrs[0]', '$zipcodearea')";
+    
+		    $rs = $this->query($query);
+		}
+		else if($uploadType == 2){
+		    $query = "INSERT INTO $tableName (
+				for_sale_median, sold_median, sold, month_year, city, state)
+				VALUES('$forSaleMedian', '$soldMedian', '$medianPrice2Yrs[3]', '$medianPrice2Yrs[0]', '$city', '$state')";
+    
+		    $rs = $this->query($query);   
+		}
+
+		if(!$rs){
+		    $this->log("importMedianPrice2Yrs::importMedianPrice2Yrs(). Data not inserted");
+		    return false;
+		}
+		return true;
+	    }
 	
 	    // {{{ importMedianNoPrice2Yrs()
 	    /**

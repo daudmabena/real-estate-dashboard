@@ -48,10 +48,12 @@ class DashboardImportsController extends AppController {
 
      if($uploadType == 1){
           $zipcodearea   = $_REQUEST['zipcodarea'];
+          $fileName = 'data';
      }
      else if($uploadType == 2){
           $city          = $_REQUEST['city'];
           $state         = $_REQUEST['state'];
+          $fileName      = 'data_city';
      }
 
      //$zipcode       = $_REQUEST['zipcode'];
@@ -59,10 +61,10 @@ class DashboardImportsController extends AppController {
      
      $file     = new File($fileName);
      $fileExt  = $file->ext();
-     $fileName = 'data';
+     //$fileName = 'data';
      
      //location for Tmp file uploaded into the db
-     $sourcePath =  TMP . 'files' . DS  .$fileName.'.'.$fileExt;
+     $sourcePath =  TMP . 'files' . DS  .$fileName.'.'.'xls';
      
      $data = new Spreadsheet_Excel_Reader();
      $data->read($sourcePath);
@@ -109,13 +111,21 @@ class DashboardImportsController extends AppController {
 
           array_unshift($medianForSoldPriceSqft, $medianForSoldPriceDate);
 
-          if(isset($medianPrice2Yrs) && $medianPrice2Yrs!=''){
-               $impMedianPrice2Yrs = $this->Dashboard->importMedianPrice2Yrs('tab_median_price_2years', $medianPrice2Yrs, $city, $state, $zipcodearea,$uploadType);
+          if($uploadType == 1){
+               if(isset($medianPrice2Yrs) && $medianPrice2Yrs!=''){
+                    $impMedianPrice2Yrs = $this->Dashboard->importMedianPrice2Yrs('tab_median_price_2years', $medianPrice2Yrs, $city, $state, $zipcodearea,$uploadType);
+               }
+               
+               if(isset($medianForSoldPriceSqft) && $medianForSoldPriceSqft!=''){
+                    $impMedianForSoldPriceSqft = $this->Dashboard->importMedianForSoldPriceSqft('tab_media_sold_sqft', $medianForSoldPriceSqft, $city, $state, $zipcodearea, $uploadType);
+               } 
           }
-          
-          if(isset($medianForSoldPriceSqft) && $medianForSoldPriceSqft!=''){
-               $impMedianForSoldPriceSqft = $this->Dashboard->importMedianForSoldPriceSqft('tab_media_sold_sqft', $medianForSoldPriceSqft, $city, $state, $zipcodearea, $uploadType);
+          else if($uploadType == 2){
+               if(isset($medianPrice2Yrs) && $medianPrice2Yrs!=''){
+                    $impMedianPrice2Yrs = $this->Dashboard->importMedianPrice2YrsForCty('tab_median_price_2years', $medianPrice2Yrs, $city, $state, $zipcodearea,$uploadType);
+               }
           }
+
           /*if(isset($medianNoPrice2Yrs) && $medianNoPrice2Yrs!=''){
                $impMedianNoPrice2Yrs = $this->Dashboard->importMedianNoPrice2Yrs('tab_median_noprice_2years', $medianNoPrice2Yrs, $city, $state, $zipcode,$zipcodearea);
           }
