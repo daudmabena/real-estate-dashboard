@@ -48,12 +48,12 @@ class DashboardImportsController extends AppController {
 
      if($uploadType == 1){
           $zipcodearea   = $_REQUEST['zipcodarea'];
-          $fileName = 'data';
+         // $fileName = 'data';
      }
      else if($uploadType == 2){
           $city          = $_REQUEST['city'];
           $state         = $_REQUEST['state'];
-          $fileName      = 'data_city';
+        ///  $fileName      = 'data_city';
      }
 
      //$zipcode       = $_REQUEST['zipcode'];
@@ -63,8 +63,25 @@ class DashboardImportsController extends AppController {
      $fileExt  = $file->ext();
      //$fileName = 'data';
      
+     // Example of accessing data for a newly uploaded file
+    // $fileName = $_FILES["dashboardImport"]["name"]; 
+     $fileTmpLoc = $_FILES["dashboardImport"]["tmp_name"];
+     // Path and file name
+     //$pathAndName = "uploads/".$fileName;
+     $sourcePath =  TMP . 'files' . DS  .$fileName;
+     
+     // Run the move_uploaded_file() function here
+     $moveResult = move_uploaded_file($fileTmpLoc, $sourcePath);
+     // Evaluate the value returned from the function if needed
+     if ($moveResult == true) {
+          echo "File has been moved from " . $fileTmpLoc . " to" . $pathAndName;
+     } else {
+          echo "ERROR: File not moved correctly";
+     }
+
+     
      //location for Tmp file uploaded into the db
-     $sourcePath =  TMP . 'files' . DS  .$fileName.'.'.'xls';
+    // $sourcePath =  TMP . 'files' . DS  .$fileName.'.'.'xls';
      
      $data = new Spreadsheet_Excel_Reader();
      $data->read($sourcePath);
