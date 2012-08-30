@@ -121,17 +121,23 @@ class Calculation extends AppModel{
      */
     public function getSameDateOfLastYear(){
         
+        //echo $this->__fromDate;
+        //echo $this->__toDate;
+        $month = date("m",strtotime($this->__toDate));
+        $year = date("Y",strtotime($this->__toDate));
+
+        
         $lastYearSameMonthgetQuery = "SELECT (SELECT SUM(".$this->__selectFiledName.")
-                                        FROM ".$this->__tableName." WHERE YEAR(".$this->__fieldName.") = '".date('Y')."'
-                                        AND MONTH(".$this->__fieldName.") = '".date('m')."' AND ZIP_CODE_AREA='".$this->__extrafieldValue."') as CURRENTYEAR,
+                                        FROM ".$this->__tableName." WHERE YEAR(".$this->__fieldName.") = '".$year."'
+                                        AND MONTH(".$this->__fieldName.") = '".$month."' AND ZIP_CODE_AREA='".$this->__extrafieldValue."') as CURRENTYEAR,
                                         SUM(".$this->__selectFiledName.") as LASTYEAR,
                                         ((SELECT SUM(".$this->__selectFiledName.") 
-                                        FROM ".$this->__tableName." WHERE YEAR(".$this->__fieldName.") = '".date('Y')."' AND
-                                        MONTH(".$this->__fieldName.") = '".date('m')."' AND ZIP_CODE_AREA='".$this->__extrafieldValue."') - SUM(".$this->__selectFiledName.")) as DIFFERENCE FROM ".$this->__tableName."
+                                        FROM ".$this->__tableName." WHERE YEAR(".$this->__fieldName.") = '".$year."' AND
+                                        MONTH(".$this->__fieldName.") = '".$month."' AND ZIP_CODE_AREA='".$this->__extrafieldValue."') - SUM(".$this->__selectFiledName.")) as DIFFERENCE FROM ".$this->__tableName."
                                         WHERE YEAR(".$this->__fieldName.") = '".$this->__fieldValue['year']."'
                                         AND MONTH(".$this->__fieldName.") = '".$this->__fieldValue['month']."' AND ZIP_CODE_AREA='".$this->__extrafieldValue."'";
         
-        //echo $lastYearSameMonthgetQuery;
+        echo $lastYearSameMonthgetQuery;
         
         $lastYearSameMonthgetResult = $this->query($lastYearSameMonthgetQuery);
         
