@@ -111,11 +111,15 @@ class DashboardController extends AppController {
      $daysinterval = round(abs($datetime2->format('U') - $datetime1->format('U')) / (60*60*24));
      $daysinterval = $daysinterval.' days';
 
+     
+     
      // $date = date('Y-m-d',strtotime('2010-01-01 -1 year'));
      $lastyear = strtotime("-$daysinterval", strtotime($todate));
      
      // format and display the computed date
      $lastYear = date("Y-m-d", $lastyear);
+      
+      //echo $lastYear;
       
      //Get Second Prevoius Year from Last Year
      $previouslastyear = strtotime("-$daysinterval", strtotime($lastYear));
@@ -124,6 +128,8 @@ class DashboardController extends AppController {
      $previousLastYear = date("Y-m-d", $previouslastyear);
      
      $lastYears = array($lastYear, $previousLastYear);
+     
+     //print_r($lastYears);
      
      return $lastYears;
    }
@@ -145,6 +151,8 @@ class DashboardController extends AppController {
      //Calling the getDatePreviousYearandLastPreviousYear() for GetLast two years from Current date...
      $lastTwoYearsDates = $this->getDatePreviousYearandLastPreviousYear($currentYear);
      
+     //print_r($lastTwoYearsDates);
+     
      $parameters['fieldName']           = $fieldName;
      $parameters['selectFieldName']     = $selectedFieldName;
      $parameters['tableName']           = $tableName;
@@ -158,6 +166,8 @@ class DashboardController extends AppController {
      $parameters['tableName']           = 'tab_median_price_2years';*/
      $parameters['fieldValue']          = $getMonthOfLastYear;
      $parameters['extrafieldValue']     = $zip;
+      $parameters['fromDate'] = $inputfromDate;
+      $parameters['toDate'] = $inputtoDate;
      
      $this->Calculation->setData($parameters);
      $lastYearValue = $this->Calculation->getSameDateOfLastYear();
@@ -230,7 +240,8 @@ class DashboardController extends AppController {
      $args['fieldName']           = 'month_year';
      $args['selectedFieldName']   = 'sold';
      $args['tableName']           = 'tab_median_price_2years';
-
+     $args['inputfromDate']     = $fromDate;
+     $args['inputtoDate']       = $toDate; 
      
      $finalInputToJson['soldDifferenceWithLastYearAndCurrentYear'] = $this->getSameMonthDateOfLastYear($args,$zip);
      
