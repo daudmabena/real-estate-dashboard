@@ -291,23 +291,25 @@ background-color: #A3A3A3;
     padding: 7px;
     text-shadow: 0 -1px 1px #000000;
     text-transform: uppercase;
-    width: 60px;
+    width: 66px;
     float: left;
 }
 
 .sections{
 	float: left;
-    width: 341px;
+    width: 580px;
 	padding: 16px;
 }
 
 .inputTxtSearch{
-	background-color: #535353;
+background-color: #535353;
     border: 1px solid #303334;
-    color: #fff;
+    color: #FFFFFF;
+    float: left;
     font-family: arial;
     font-size: 12px;
     height: 18px;
+    margin-right: 16px;
     padding: 2px;
     width: 228px;
 }
@@ -450,7 +452,7 @@ float: right;
 width: 89px;
 height: 35px;
 margin-right: 144px;
-margin-top: 39px;
+margin-top: 83px;
 }
 
 

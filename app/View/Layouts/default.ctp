@@ -44,9 +44,13 @@ $cakeDescription = __d('cake_dev', 'Dashboard');
 		echo $this->Html->css('jgauge');
 		echo $this->Html->css('demoPages');		
 		echo $this->Html->css('screen');
+		echo $this->Html->css('jquery-ui-1.8.23.custom.css');
+		
 		
 		echo $this->Html->script('jquery-1.7.2.min');
+		echo $this->Html->script('jquery-1.8.0.min.js');
 		echo $this->Html->script('jquery.formatCurrency-1.4.0');
+		echo $this->Html->script('jquery-ui-1.8.23.custom.min.js');
 
 		$pageInnerURL = (@$_SERVER["HTTPS"] == "on") ? "https://" : "http://";
 		

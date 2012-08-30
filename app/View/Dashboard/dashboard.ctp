@@ -98,6 +98,26 @@ $(document).ready(function() {
 	$('.searchContent').slideToggle(showOrHide);
       });
       
+      $('#range1').datepicker();
+      $('#range2').datepicker();
+      
+      $('#dateType').change(function(){
+	var typeDate = $('#dateType option:selected').val();
+	alert(typeDate);
+	  $.ajax({
+	    url: '/dashboard/getMinAndMaxDate',
+	    type: 'POST',
+	    async: true,
+	    data: "typeDate="+typeDate,
+	    success: function (jsonValue) {
+	      //alert(jsonValue);
+	      var da = jsonValue.split("--");
+	      $('#range1').val(da[0]);
+	      $('#range2').val(da[1]);
+	    }
+	  });
+      })
+      
       $('#submitForm').click(function(){
 	var zipValue = $('#zipcode').val();
 	$('#ZipLabel').html(zipValue+" Median Price");
@@ -121,31 +141,33 @@ $(document).ready(function() {
     	  <div class="searchContent">
 	    <div class='searchSep'></div>
 	    <?php
-		  echo $this->Form->create('Dashboard', array('controller' => 'Dashboard', 'action' => 'dashboard'));
-		  echo "<div class='sections'>
-			<div class='formdivider'>";
-		  echo "<label class='labelTxtSearch'>Date</label>";
-		  echo "<div class='rangePicker futureRange'>
-			<label for='range1'>From:</label>
-			<input type='text' name='range1' id='range1' value='".$lastYear."' />
-			<label for='range1'>To:</label>
-			<input type='text' name='range2' name='range2' value='".date('m/d/Y')."' />
-			</div>";	
-		  echo "</div>";
-		  //echo "<div class='formdivider'>";
-		  //echo "<label class='labelTxtSearch'>City</label>";
-		  //echo "<input type='text' class='inputTxtSearch' name='city' id='city' value='SAN ANTONIO'></input>";	
-		  //echo "</div></div>";
-		  //echo "<div class='sections'><div class='formdivider'>";
-		  //echo "<label class='labelTxtSearch'>State</label>";
-		  //echo "<input type='text' class='inputTxtSearch' name='state' id='state' value='TX'></input>";	
-		  //echo "</div>";
-		  echo "<div class='formdivider'>";
-		  echo "<label class='labelTxtSearch'>Zipcode</label>";
-		  echo "<input type='text' class='inputTxtSearch' name='zipcode' id='zipcode' value='78253'></input>";	
-		  echo "</div></div>";
-		  echo "<a href='#' id='submitForm'></a>";
-		  echo "<br>";
+	      echo $this->Form->create('Dashboard', array('controller' => 'Dashboard', 'action' => 'dashboard'));
+	      echo "<div class='sections'>
+		    <div class='formdivider'>";
+	      echo "<label class='labelTxtSearch'>Date Type</label>";
+	      echo "<select id='dateType'  name='dateType'>
+		    <option value='0'>--Select--</option>
+		    <option value='1'>Past 6 Months</option>
+		    <option value='2'>Past 1 Year</option>
+		    </select></div><div class='formdivider'>";
+	      echo "<label class='labelTxtSearch'>Date</label>";
+	      echo "<input type='text' class='inputTxtSearch' name='range1' id='range1'  value='".$lastYear."' />
+		    <input type='text' class='inputTxtSearch' name='range2' id='range2' value='".date('m/d/Y')."' />";	
+	      echo "</div>";
+	      //echo "<div class='formdivider'>";
+	      //echo "<label class='labelTxtSearch'>City</label>";
+	      //echo "<input type='text' class='inputTxtSearch' name='city' id='city' value='SAN ANTONIO'></input>";	
+	      //echo "</div></div>";
+	      //echo "<div class='sections'><div class='formdivider'>";
+	      //echo "<label class='labelTxtSearch'>State</label>";
+	      //echo "<input type='text' class='inputTxtSearch' name='state' id='state' value='TX'></input>";	
+	      //echo "</div>";
+	      echo "<div class='formdivider'>";
+	      echo "<label class='labelTxtSearch'>Zipcode</label>";
+	      echo "<input type='text' class='inputTxtSearch' name='zipcode' id='zipcode' value='78253'></input>";	
+	      echo "</div></div>";
+	      echo "<a href='#' id='submitForm'></a>";
+	      echo "<br>";
 	  ?>
 	  </div>
 	</div>

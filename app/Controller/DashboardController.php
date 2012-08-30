@@ -217,7 +217,7 @@ class DashboardController extends AppController {
     // 
      /* This is For Sold for SQFT in tab_media_sold_sqft*/
      
-     $args['selectedFieldName'] = 'for_sold_sqft';
+     $args['selectedFieldName'] = 'for_sold_avg_sqft';
      $args['tableName']         = 'tab_media_sold_sqft';
      $args['fieldName']         = 'zip_code_area';
      $args['fieldValue']        = $zip;
@@ -351,6 +351,20 @@ class DashboardController extends AppController {
       else{
         
       }
+     }
+     
+     public function getMinAndMaxDate(){
+      $typeDate = $_REQUEST['typeDate'];
+      $ts = date('Y-m-d');
+      $lastday = date('t',strtotime($ts));
+      $thismonthLastDay = date('Y')."-".date('m')."-".$lastday."<br/>";
+      $sixMonthFirstDay = date('Y-m-d',strtotime("$ts -6 month"))."<br/>";
+      $oneyearFirstDay = date('Y-m-d',strtotime("$ts -12 month"))."<br/>";
+      
+      //date("m/d/Y", strtotime(date('m').'/01/'.date('Y').' 00:00:00'));
+      echo $this->Dashboard->getDateMM($typeDate, $thismonthLastDay, $sixMonthFirstDay, $oneyearFirstDay);
+      
+      $this->autoRender = false;
      }
 }
 ?>

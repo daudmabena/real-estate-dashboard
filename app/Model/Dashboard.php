@@ -322,6 +322,34 @@ class Dashboard extends AppModel {
 		//$this->query('truncate table `tab_media_forsale_sqft`');
 		$this->query('truncate table `tab_media_sold_sqft`');
 	    }
+	    
+	    function getDateMM($typeDate, $thismonthLastDay, $sixMonthFirstDay, $oneyearFirstDay){
+		$result = "";
+		//echo $typeDate;
+		//exit;
+		if($typeDate == 1){
+		    $query = "SELECT min(month_year) as minval, max(month_year) as maxval FROM tab_median_price_2years
+				where month_year  between '$sixMonthFirstDay' and '$thismonthLastDay'";
+		    $result = $this->query($query);
+		}
+		else if($typeDate == 2){
+		    $query = "SELECT min(month_year) as minval, max(month_year) as maxval FROM tab_median_price_2years
+				where month_year  between '$oneyearFirstDay' and '$thismonthLastDay'";
+		    $result = $this->query($query);
+		}
+		
+		//print_r($result);
+		
+		$min = $result[0][0]['minval'];
+		$max = $result[0][0]['maxval'];
+		
+		$min = date('m/d/Y',strtotime($min));
+		$max = date('m/d/Y',strtotime($max));
+		
+		$val = $min."--".$max;
+		
+		return $val;
+	    }
 	
 }
 ?>
