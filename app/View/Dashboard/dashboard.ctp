@@ -103,7 +103,7 @@ $(document).ready(function() {
       
       $('#dateType').change(function(){
 	var typeDate = $('#dateType option:selected').val();
-	alert(typeDate);
+	//alert(typeDate);
 	  $.ajax({
 	    url: '/dashboard/getMinAndMaxDate',
 	    type: 'POST',
