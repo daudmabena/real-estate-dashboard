@@ -227,7 +227,7 @@ class DashboardController extends AppController {
     // 
      /* This is For Sold for SQFT in tab_media_sold_sqft*/
      
-     $args['selectedFieldName'] = 'for_sold_avg_sqft';
+     $args['selectedFieldName'] = 'for_sold_sqft';
      $args['tableName']         = 'tab_media_sold_sqft';
      $args['fieldName']         = 'zip_code_area';
      $args['fieldValue']        = $zip;
