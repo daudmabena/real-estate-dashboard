@@ -22,16 +22,67 @@ function addCommas(nStr) {
     }
     return x1 + x2;
 }
-
-
+function daysInMonth(month,year) {
+var m = [31,28,31,30,31,30,31,31,30,31,30,31];
+if (month != 2) return m[month - 1];
+if (year%4 != 0) return m[1];
+if (year%100 == 0 && year%400 != 0) return m[1];
+return m[1] + 1;
+} 
 
 function getSearchData(urldata){
     $(document).ready(function() {
-    
+      
+            var typeDate = $('#dateType option:selected').val();
+            
+            if(typeDate ==1){
+              $('#soldHomeLastYrLabel').html('Sold Hms Last 6 Mos')
+              $('#guage_description_panel3').html('Number of Sold Homes Same Period Last 6 Mos');
+              $('#domLastYrLabel').html('DOM Last 6 Mos');
+              $('#guage_description_panel5').html('Avg. # Days on Market Same Period Last 6 Mos');
+              $('#guage_description_panel6').html('Average Sq. Ft. Last 6 Months');
+            }
+            
+            $.ajax({
+              url: '/dashboard/getMinAndMaxDate',
+              type: 'POST',
+              async: false,
+              data: "typeDate="+typeDate,
+              success: function (jsonValue) {
+                //alert(jsonValue);
+                var da = jsonValue.split("--");
+                
+                var dateTo = da[0].split("-");
+                $('#range1Month option').eq(dateTo[0]).attr('selected', 'selected');
+                $('#range1Year option[value='+dateTo[1]+']').attr('selected', 'selected')
+                
+                var dateFrom = da[1].split("-");
+                $('#range2Month option').eq(dateFrom[0]).attr('selected', 'selected');
+                $('#range2Year option[value='+dateFrom[1]+']').attr('selected', 'selected')
+              }
+            });
+      
             var fromDate,toDate = new Date();
             
-                fromDate = $('#range1').val();
-                toDate   = $('#range2').val();
+            fromDateMonth = $('#range1Month').val();
+            fromDateYear = $('#range1Year').val();
+            toDateMonth   = $('#range2Month').val();
+            toDateYear   = $('#range2Year').val();
+            
+            fromDate = fromDateMonth+"/"+"01"+"/"+fromDateYear;
+            
+            var endDate;
+            endDate = daysInMonth(toDateMonth,toDateYear);
+            toDate = toDateMonth+"/"+endDate+"/"+toDateYear;
+            
+            //if((toDate == "0/undefined/0") && (fromDate == "0/01/0")){
+            //  alert("sd");
+            //  
+            //}
+            
+            //alert(fromDate);
+            //alert(toDate);
+                
             var city     = $('#city').val();
             var state    = $('#state').val();
             var zip      = $('#zipcode').val();
@@ -78,14 +129,14 @@ function getSearchData(urldata){
               
               $('#guage_description_panel2').html('Number of Sold Homes in '+MonthName+'-'+toDate.split("/")[2]);
             }
-            //$('#ZipLabel').html(zip+" Median Price");
+            $('#ZipLabel').html(zip+" Median Price");
             //$('#CityValue').html(city+" Median Price");      
             
             
             $.ajax({
                 url: urldata,
                 type: 'POST',
-                data: "fromdate="+fromDate+"&todate="+toDate+"&city="+city+"&state="+state+"&zip="+zip,
+                data: "fromdate="+fromDate+"&todate="+toDate+"&zip="+zip,
                 dataType: 'json',
                 success: function (json) {
                     if(json){

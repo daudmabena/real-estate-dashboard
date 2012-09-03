@@ -296,8 +296,12 @@ class DashboardController extends AppController {
       $this->set('dashboardData',$this->Dashboard->getFieldDatas('text_message'));
       $this->set('rssFieldData_left',$this->Dashboard->getFieldDatas('rss_field_left'));
       $this->set('rssFieldData_right',$this->Dashboard->getFieldDatas('rss_feed_right'));
-      $this->render('dashboard');
+     
       
+      $this->set('zipCode',$this->Dashboard->getDataFromDB('zip_code_area','tab_median_price_2years','normalType'));
+      $this->set('dateRangeTo',$this->Dashboard->getDataFromDB('month_year','tab_median_price_2years','dateType'));
+      $this->set('dateRangeFrom',$this->Dashboard->getDataFromDB('month_year','tab_median_price_2years','dateType'));
+      $this->render('dashboard');
      }
    
    
@@ -373,9 +377,22 @@ class DashboardController extends AppController {
       $oneyearFirstDay = date('Y-m-d',strtotime("$ts -12 month"))."<br/>";
       
       //date("m/d/Y", strtotime(date('m').'/01/'.date('Y').' 00:00:00'));
-      echo $this->Dashboard->getDateMM($typeDate, $thismonthLastDay, $sixMonthFirstDay, $oneyearFirstDay);
       
-      $this->autoRender = false;
+      
+      $str = $this->Dashboard->getDateMM($typeDate, $thismonthLastDay, $sixMonthFirstDay, $oneyearFirstDay);
+      
+      $str = explode("--",$str);
+      $strTo = explode("/",$str[0]);
+      $strToMonth = $strTo[0];
+      $strToYear = $strTo[2];
+      
+      $strFrom = explode("/",$str[1]);
+      $strFromMonth = $strFrom[0];
+      $strFromYear = $strFrom[2];
+      
+      echo $strToMonth."-".$strToYear."--".$strFromMonth."-".$strFromYear;
+      
+     $this->autoRender = false;
      }
 }
 ?>

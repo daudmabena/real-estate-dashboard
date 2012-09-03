@@ -98,8 +98,9 @@ $(document).ready(function() {
 	$('.searchContent').slideToggle(showOrHide);
       });
       
-      $('#range1').datepicker();
-      $('#range2').datepicker();
+      //$('#range1').datepicker();
+      //$('#range2').datepicker();
+
       
       $('#dateType').change(function(){
 	var typeDate = $('#dateType option:selected').val();
@@ -112,8 +113,14 @@ $(document).ready(function() {
 	    success: function (jsonValue) {
 	      //alert(jsonValue);
 	      var da = jsonValue.split("--");
-	      $('#range1').val(da[0]);
-	      $('#range2').val(da[1]);
+	      
+	      var dateTo = da[0].split("-");
+	      $('#range1Month option[value='+dateTo[0]+']').attr('selected', 'selected');
+	      $('#range1Year option[value='+dateTo[1]+']').attr('selected', 'selected')
+	      
+	      var dateFrom = da[1].split("-");
+	      $('#range2Month option[value='+dateFrom[0]+']').attr('selected', 'selected');
+	      $('#range2Year option[value='+dateFrom[1]+']').attr('selected', 'selected')
 	    }
 	  });
       })
@@ -145,14 +152,58 @@ $(document).ready(function() {
 	      echo "<div class='sections'>
 		    <div class='formdivider'>";
 	      echo "<label class='labelTxtSearch'>Date Type</label>";
-	      echo "<select id='dateType'  name='dateType'>
+	      echo "<select id='dateType'  name='dateType' style='width:227px'>
 		    <option value='0'>--Select--</option>
 		    <option value='1'>Past 6 Months</option>
 		    <option value='2'>Past 1 Year</option>
 		    </select></div><div class='formdivider'>";
-	      echo "<label class='labelTxtSearch'>Date</label>";
-	      echo "<input type='text' class='inputTxtSearch' name='range1' id='range1'  value='".$lastYear."' />
-		    <input type='text' class='inputTxtSearch' name='range2' id='range2' value='".date('m/d/Y')."' />";	
+	      echo "<label class='labelTxtSearch' style='float:left'>Date</label>";
+	      echo "<div style=''><label class='labelTxtSearch' style='float: left; width: 39px !important; padding-left:0px'>From</label>
+		    <select name='range1Month' id='range1Month' style='float:left'>
+		    <option value='0'>--Month--</option>
+		    <option value='01'>Jan</option>
+		    <option value='02'>Feb</option>
+		    <option value='03'>Mar</option>
+		    <option value='04'>Apl</option>
+		    <option value='05'>May</option>
+		    <option value='06'>Jun</option>
+		    <option value='07'>Jul</option>
+		    <option value='08'>Aug</option>
+		    <option value='09'>Sep</option>
+		    <option value='10'>Oct</option>
+		    <option value='11'>Nov</option>
+		    <option value='12'>Dec</option>
+			</select>";
+		    echo "<select name='range1Year' id='range1Year' style='float:left'>
+		    <option value='0'>--Year--</option>";
+		    foreach($dateRangeTo as $dateRangeTo){
+		    $dateYear = $dateRangeTo[0]['Year'];
+		    echo "<option value='$dateYear'>$dateYear</option>";
+		    }
+		    echo "</select></div><div style='clear:both; margin-left:81px;'>
+		    <label class='labelTxtSearch' style='float:left; width: 39px !important;'>To</label>
+		    <select name='range2Month' id='range2Month' style='float:left'>
+		    <option value='0'>--Month--</option>
+		    <option value='01'>Jan</option>
+		    <option value='02'>Feb</option>
+		    <option value='03'>Mar</option>
+		    <option value='04'>Apl</option>
+		    <option value='05'>May</option>
+		    <option value='06'>Jun</option>
+		    <option value='07'>Jul</option>
+		    <option value='08'>Aug</option>
+		    <option value='09'>Sep</option>
+		    <option value='10'>Oct</option>
+		    <option value='11'>Nov</option>
+		    <option value='12'>Dec</option>
+		    </select>";
+	      echo "<select name='range2Year' id='range2Year' style='float:left'>
+		<option value='0'>--Year--</option>";
+	      foreach($dateRangeFrom as $dateRangeFrom){
+		$dateYear = $dateRangeFrom[0]['Year'];
+		echo "<option value='$dateYear'>$dateYear</option>";
+	      }
+	      echo "</select></div>";	
 	      echo "</div>";
 	      //echo "<div class='formdivider'>";
 	      //echo "<label class='labelTxtSearch'>City</label>";
@@ -163,9 +214,17 @@ $(document).ready(function() {
 	      //echo "<input type='text' class='inputTxtSearch' name='state' id='state' value='TX'></input>";	
 	      //echo "</div>";
 	      echo "<div class='formdivider'>";
+	      //	      print_r($zipCode);
 	      echo "<label class='labelTxtSearch'>Zipcode</label>";
-	      echo "<input type='text' class='inputTxtSearch' name='zipcode' id='zipcode' value='78253'></input>";	
-	      echo "</div></div>";
+	      echo "<select name='zipcode' id='zipcode' style='float:left;width:230px'>";
+
+	      foreach($zipCode as $zipCode){
+		
+		$zip = $zipCode['tab_median_price_2years']['zip_code_area'];
+		echo "<option value='$zip'>$zip</option>";
+	      }
+	    
+	      echo "</select></div></div>";
 	      echo "<a href='#' id='submitForm'></a>";
 	      echo "<br>";
 	  ?>
@@ -242,7 +301,7 @@ $(document).ready(function() {
 		  </div>
 		</div>
 		<div class='statistics-box' id="soldHomeLastYr">
-		  <div class="statisticsboxHeader">
+		  <div class="statisticsboxHeader" id="soldHomeLastYrLabel">
 		    Sold Hms Last Yr.
 		  </div>
 		    <div class='strategyOuter' id="secondStrategyOuter">
@@ -258,7 +317,7 @@ $(document).ready(function() {
 			</div>
 		</div>
 		<div class='statistics-box' id="domLastYr">
-		  <div class="statisticsboxHeader">
+		  <div class="statisticsboxHeader" id="domLastYrLabel">
 		    DOM Last Yr.
 		  </div>
 			<div class='upStrategyOuter' id="thirdStrategyOuter">
@@ -278,7 +337,7 @@ $(document).ready(function() {
 		<div class='guage_description_panel2' id="guage_description_panel3">Number of Sold Homes Same Period Last Yr</div>
 		<div class='guage_description_panel2' id="guage_description_panel4">Avg. # Days on Market Last 6 Months (Solds).</div>
 		<div class='guage_description_panel2' id="guage_description_panel5">Avg. # Days on Market Same Period Last Yr.</div>
-		<div class='guage_description_panel2'>Average Sq. Ft. Last 12 Months</div>
+		<div class='guage_description_panel2' id="guage_description_panel6">Average Sq. Ft. Last 12 Months</div>
 	</div>
 	<div class="bottom-left-panel">
 	  <div id='video-wrapper'>

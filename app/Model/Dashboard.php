@@ -327,7 +327,11 @@ class Dashboard extends AppModel {
 		$result = "";
 		//echo $typeDate;
 		//exit;
-		if($typeDate == 1){
+		if($typeDate == 0){
+		    $query = "SELECT min(month_year) as minval, max(month_year) as maxval FROM tab_median_price_2years";
+		    $result = $this->query($query);
+		}
+		else if($typeDate == 1){
 		    $query = "SELECT min(month_year) as minval, max(month_year) as maxval FROM tab_median_price_2years
 				where month_year  between '$sixMonthFirstDay' and '$thismonthLastDay'";
 		    $result = $this->query($query);
@@ -349,6 +353,19 @@ class Dashboard extends AppModel {
 		$val = $min."--".$max;
 		
 		return $val;
+	    }
+	    
+	    function getDataFromDB($fieldName,$tableName,$type){
+		if($type == "normalType"){
+		    $query = "SELECT $fieldName FROM $tableName GROUP BY $fieldName";
+		    $result = $this->query($query);
+		}
+		else if($type == "dateType"){
+		    $query = "SELECT YEAR($fieldName) AS Year FROM $tableName
+				GROUP BY YEAR($fieldName) ORDER BY YEAR($fieldName)";
+		    $result = $this->query($query);
+		}
+		return $result;
 	    }
 	
 }
