@@ -358,7 +358,7 @@ class Dashboard extends AppModel {
 	    function getDataFromDB($fieldName,$tableName,$type){
 		if($type == "normalType"){
 		    $query = "SELECT GROUP_CONCAT($fieldName) FROM $tableName  GROUP BY $fieldName IS NOT NULL";
-		    echo $query;
+		    //echo $query;
 		    $result = $this->query($query);
 		}
 		else if($type == "dateType"){
