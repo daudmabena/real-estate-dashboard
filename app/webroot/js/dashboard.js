@@ -177,7 +177,7 @@ function getSearchData(urldata,sbttype){
                           $('guage_description_panel1').html('Average $ Per Foot Last '+obj.months+' Months From June 2012');
                           $('#guage_description_panel4').html('Avg. # Days on Market Last '+obj.months+' Months (Solds).');
                         }
-                        alert(obj.months);
+                       // alert(obj.months);
                         MinRange = obj.saleMedianZip['MINLastYear'];
                         MaxRange = obj.saleMedianZip['MAXLastYear'];
                         
