@@ -98,7 +98,7 @@ $cakeDescription = __d('cake_dev', 'Dashboard');
 			echo $this->Html->script('dashboard');
 			?>
 			<script>
-			getSearchData("<?php echo Router::url(array('controller' => 'dashboard', 'action' => 'getJsonFormat'));?>");
+			getSearchData("<?php echo Router::url(array('controller' => 'dashboard', 'action' => 'getJsonFormat'));?>",1);
 			</script>
 			<?php
 		}
@@ -106,7 +106,7 @@ $cakeDescription = __d('cake_dev', 'Dashboard');
 			echo $this->Html->script('dashboard');
 			?>
 			<script>
-			getSearchData("<?php echo Router::url(array('controller' => 'dashboard', 'action' => 'getJsonFormat'));?>");
+			getSearchData("<?php echo Router::url(array('controller' => 'dashboard', 'action' => 'getJsonFormat'));?>",1);
 			</script>
 			<?php
 		}
@@ -118,7 +118,7 @@ $cakeDescription = __d('cake_dev', 'Dashboard');
 				echo $this->Html->script('dashboard');
 			?>
 			<script>
-			getSearchData("<?php echo Router::url(array('controller' => 'dashboard', 'action' => 'getJsonFormat'));?>");
+			getSearchData("<?php echo Router::url(array('controller' => 'dashboard', 'action' => 'getJsonFormat'));?>",1);
 			</script>
 			<?php
 			}

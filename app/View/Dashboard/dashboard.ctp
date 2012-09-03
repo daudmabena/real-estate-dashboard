@@ -128,7 +128,7 @@ $(document).ready(function() {
       $('#submitForm').click(function(){
 	var zipValue = $('#zipcode').val();
 	$('#ZipLabel').html(zipValue+" Median Price");
-	getSearchData("<?php echo Router::url(array('controller' => 'dashboard', 'action' => 'getJsonFormat'));?>");
+	getSearchData("<?php echo Router::url(array('controller' => 'dashboard', 'action' => 'getJsonFormat'));?>",0);
       });
   });
 </script>
@@ -285,7 +285,7 @@ $(document).ready(function() {
 	<!--Statistics Section -->
 	<div id='statistics-wrapper'>
 		<div class='statistics-box' style='margin-left:0px;'>
-		  <div class="statisticsboxHeader">
+		  <div class="statisticsboxHeader" id="perFootLast12MonthsLabel">
 		    Avg. $ / Ft.(6 mos)
 		  </div>
 		  <div class='upStrategyOuter' id="firstStrategyOuter">

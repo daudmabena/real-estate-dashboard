@@ -196,6 +196,9 @@ class DashboardController extends AppController {
      
      $fromDate = $_POST['fromdate'];
      $toDate   = $_POST['todate'];
+     
+     $months = (int)abs((strtotime($fromDate) - strtotime($toDate))/(60*60*24*30));
+     
      //$city   = $_POST['city'];
      //$state   = $_POST['state'];
      $zip   = $_POST['zip'];
@@ -274,6 +277,8 @@ class DashboardController extends AppController {
      $this->Calculation->setData($args);
      $finalInputToJson['groupByMonthAndYearForMedian'] = $this->Calculation->groupBymonthWiseWithDifferentYears($zip);
 
+     $finalInputToJson['months'] = $months;
+     
      echo json_encode($finalInputToJson);
      $this->autoRender = false;
    }
