@@ -293,7 +293,7 @@ function getSearchData(urldata,sbttype){
                         var curValSoldDifference = parseInt(obj.soldDifferenceWithLastYearAndCurrentYear['currentYear']);
                         var lastYearValSoldDifference = parseInt(obj.soldDifferenceWithLastYearAndCurrentYear['lastYear']);
                         
-                        alert(curValSoldDifference);
+                        
                         
                         if(!curValSoldDifference){
                           $('#firstsubStrategyOuter').attr('class','strategyOuter');
@@ -305,7 +305,7 @@ function getSearchData(urldata,sbttype){
                           $('#firstsubStrategyOuter').attr('class','strategyOuter');
                         }
                         else{
-
+                          $('#firstsubStrategyOuter').attr('class','upStrategyOuter');
                         }
                         
                         
@@ -325,7 +325,7 @@ function getSearchData(urldata,sbttype){
                           $('#fourStrategyOuter').attr('class','strategyOuter');
                         }
                         else{
-                          
+                          $('#fourStrategyOuter').attr('class','upStrategyOuter');
                         }
                         
                         $('#soldAvgSqft').html(Math.floor(obj.soldAvgSqft['lastYear']));
