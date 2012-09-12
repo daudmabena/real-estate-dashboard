@@ -135,12 +135,12 @@ function getSearchData(urldata,sbttype){
             
 
             
-            if((days == 365) || (days == 366)){
-              $('#guage_description_panel1').html('Average $ Per Foot Last 12 Months From '+monthName+' '+fromDate.split("/")[2]);
-            }
-            else{
-              $('#guage_description_panel1').html('Average $ Per Foot Last 6 Months From '+monthName+' '+fromDate.split("/")[2]);
-            }
+            //if((days == 365) || (days == 366)){
+            //  $('#guage_description_panel1').html('Average $ Per Foot Last 12 Months From '+monthName+' '+fromDate.split("/")[2]);
+            //}
+            //else{
+            //  $('#guage_description_panel1').html('Average $ Per Foot Last 6 Months From '+monthName+' '+fromDate.split("/")[2]);
+            //}
             
             //alert(toDate.split("/")[0]);
             var undefined = false;  // Shockingly, this is completely legal!
@@ -149,10 +149,16 @@ function getSearchData(urldata,sbttype){
             }
             else{
               var monthVal = toDate.split("/")[0];
+              var monthVal1 = fromDate.split("/")[0];
               //alert(monthVal);
               var MonthName = getMonthName(monthVal);
               
+              var MonthName1 = getMonthName(monthVal1);
+              $('#guage_description_panel1').html('Average $ Per Foot since '+MonthName+'-'+fromDate.split("/")[2]);
               $('#guage_description_panel2').html('Number of Sold Homes in '+MonthName+'-'+toDate.split("/")[2]);
+              $('#guage_description_panel3').html('Number of Sold Homes in '+MonthName1+'-'+fromDate.split("/")[2]);
+              $('#guage_description_panel4').html('# Days on Market in '+MonthName+'-'+toDate.split("/")[2]+" (Solds)");
+              $('#guage_description_panel5').html('# Days on Market in '+MonthName1+'-'+fromDate.split("/")[2]+" (Solds)");
             }
             $('#ZipLabel').html(zip+" Median Price");
             //$('#CityValue').html(city+" Median Price");      
@@ -169,13 +175,13 @@ function getSearchData(urldata,sbttype){
                         var obj =eval(json);
                         if(typeDate ==1){
                           $('#soldHomeLastYrLabel').html('Sold Hms Last '+obj.months+' Mos.')
-                          $('#guage_description_panel3').html('Number of Sold Homes Same Period Last '+obj.months+' Mos.');
+                          //$('#guage_description_panel3').html('Number of Sold Homes Same Period Last '+obj.months+' Mos.');
                           $('#domLastYrLabel').html('DOM Last '+obj.months+' mos.');
-                          $('#guage_description_panel5').html('Avg. # Days on Market Same Period Last '+obj.months+' Mos.');
-                          $('#guage_description_panel6').html('Average Sq. Ft. Last '+obj.months+' Mos.');
+                          //$('#guage_description_panel5').html('Avg. # Days on Market Same Period Last '+obj.months+' Mos.');
+                          //$('#guage_description_panel6').html('Average Sq. Ft. Last '+obj.months+' Mos.');
                           $('#perFootLast12MonthsLabel').html('Avg. $ / Ft.('+obj.months+' Mos.)');
                           
-                          $('#guage_description_panel4').html('Avg. # Days on Market Last '+obj.months+' Months (Solds).');
+                          //$('#guage_description_panel4').html('Avg. # Days on Market Last '+obj.months+' Months (Solds).');
                         }
                        // alert(obj.months);
                         MinRange = obj.saleMedianZip['MINLastYear'];
