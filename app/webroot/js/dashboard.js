@@ -295,7 +295,7 @@ function getSearchData(urldata,sbttype){
                           $('#firstsubStrategyOuter').attr('class','strategyOuter');
                           //alert('s');
                         }
-                        else if(obj.soldDifferenceWithLastYearAndCurrentYear['currentYear'] < obj.soldDifferenceWithLastYearAndCurrentYear['lastYear']){
+                        else if((obj.soldDifferenceWithLastYearAndCurrentYear['currentYear']) < (obj.soldDifferenceWithLastYearAndCurrentYear['lastYear'])){
                           $('#firstsubStrategyOuter').attr('class','downStratergyOuter');
                         }
                         else if(obj.soldDifferenceWithLastYearAndCurrentYear['currentYear'] == obj.soldDifferenceWithLastYearAndCurrentYear['lastYear']){
@@ -312,6 +312,9 @@ function getSearchData(urldata,sbttype){
                         }
                         else if(obj.avgDifferenceWithLastYearAndCurrentYear['currentYear'] < obj.avgDifferenceWithLastYearAndCurrentYear['lastYear']){
                           $('#fourStrategyOuter').attr('class','downStratergyOuter');
+                        }
+                        else if(obj.avgDifferenceWithLastYearAndCurrentYear['currentYear'] == obj.avgDifferenceWithLastYearAndCurrentYear['lastYear']){
+                          $('#fourStrategyOuter').attr('class','strategyOuter');
                         }
                         
                         $('#soldAvgSqft').html(Math.floor(obj.soldAvgSqft['lastYear']));
