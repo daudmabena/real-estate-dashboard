@@ -304,7 +304,7 @@ function getSearchData(urldata,sbttype){
                           alert('l');
                         }
                         else{
-                          alert(obj.soldDifferenceWithLastYearAndCurrentYear['currentYear']);
+                          alert("--"+obj.soldDifferenceWithLastYearAndCurrentYear['currentYear']+"--");
                         }
                         
                         
