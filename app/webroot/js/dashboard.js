@@ -296,8 +296,13 @@ function getSearchData(urldata,sbttype){
                         }
                         else if(obj.soldDifferenceWithLastYearAndCurrentYear['currentYear'] == obj.soldDifferenceWithLastYearAndCurrentYear['lastYear']){
                           $('#firstsubStrategyOuter').attr('class','strategyOuter');
-                          alert('s');
+                          //alert('s');
                         }
+                        else if(obj.soldDifferenceWithLastYearAndCurrentYear['currentYear'] != ""){
+                          $('#firstsubStrategyOuter').attr('class','strategyOuter');
+                          //alert('s');
+                        }
+                        
                         
                         $('#avgDifferenceWithLastYearAndCurrentYear').html(obj.avgDifferenceWithLastYearAndCurrentYear['currentYear']);
                         $('#avg_difference').html(obj.avgDifferenceWithLastYearAndCurrentYear['lastYear']);
