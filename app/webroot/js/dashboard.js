@@ -293,6 +293,8 @@ function getSearchData(urldata,sbttype){
                         var curValSoldDifference = parseInt(obj.soldDifferenceWithLastYearAndCurrentYear['currentYear']);
                         var lastYearValSoldDifference = parseInt(obj.soldDifferenceWithLastYearAndCurrentYear['lastYear']);
                         
+                        alert(curValSoldDifference);
+                        
                         if(curValSoldDifference == ""){
                           $('#firstsubStrategyOuter').attr('class','strategyOuter');
                         }
