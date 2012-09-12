@@ -293,14 +293,15 @@ function getSearchData(urldata,sbttype){
                         
                         if(obj.soldDifferenceWithLastYearAndCurrentYear['currentYear'] == null){
                           $('#firstsubStrategyOuter').attr('class','strategyOuter');
-                          //alert('s');
+                          alert('s');
                         }
                         else if((obj.soldDifferenceWithLastYearAndCurrentYear['currentYear']) < (obj.soldDifferenceWithLastYearAndCurrentYear['lastYear'])){
                           $('#firstsubStrategyOuter').attr('class','downStratergyOuter');
+                          alert('M');
                         }
                         else if(obj.soldDifferenceWithLastYearAndCurrentYear['currentYear'] == obj.soldDifferenceWithLastYearAndCurrentYear['lastYear']){
                           $('#firstsubStrategyOuter').attr('class','strategyOuter');
-                          //alert('s');
+                          alert('l');
                         }
                         
                         
