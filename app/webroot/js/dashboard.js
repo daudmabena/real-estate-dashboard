@@ -303,6 +303,9 @@ function getSearchData(urldata,sbttype){
                           $('#firstsubStrategyOuter').attr('class','strategyOuter');
                           alert('l');
                         }
+                        else{
+                          alert(obj.soldDifferenceWithLastYearAndCurrentYear['currentYear']);
+                        }
                         
                         
                         $('#avgDifferenceWithLastYearAndCurrentYear').html(obj.avgDifferenceWithLastYearAndCurrentYear['currentYear']);
