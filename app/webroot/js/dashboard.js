@@ -174,7 +174,7 @@ function getSearchData(urldata,sbttype){
                           $('#guage_description_panel5').html('Avg. # Days on Market Same Period Last '+obj.months+' Mos.');
                           $('#guage_description_panel6').html('Average Sq. Ft. Last '+obj.months+' Mos.');
                           $('#perFootLast12MonthsLabel').html('Avg. $ / Ft.('+obj.months+' Mos.)');
-                          $('guage_description_panel1').html('Average $ Per Foot Last '+obj.months+' Months From June 2012');
+                          
                           $('#guage_description_panel4').html('Avg. # Days on Market Last '+obj.months+' Months (Solds).');
                         }
                        // alert(obj.months);
@@ -273,7 +273,9 @@ function getSearchData(urldata,sbttype){
              
                         if(obj.soldSqft['lastYear']!=false){
                             $('#perFootLast12Months').text(obj.soldSqft['lastYear']).formatCurrency();
-                            if(obj.soldSqft['lastYear'] < 0){
+                            //alert(obj.soldSqft);
+                            //alert(obj.soldSqft['previousLastYear']);
+                            if(obj.soldSqft['lastYear'] < obj.soldSqft['previousLastYear']){
                               $('#firstStrategyOuter').attr('class','downStratergyOuter');
                             }
                             
@@ -289,15 +291,19 @@ function getSearchData(urldata,sbttype){
                         //}
                         
                         
-                        if(obj.soldDifferenceWithLastYearAndCurrentYear['lastYear'] < 0){
+                        if(obj.soldDifferenceWithLastYearAndCurrentYear['currentYear'] < obj.soldDifferenceWithLastYearAndCurrentYear['lastYear']){
                           $('#firstsubStrategyOuter').attr('class','downStratergyOuter');
+                        }
+                        else if(obj.soldDifferenceWithLastYearAndCurrentYear['currentYear'] == obj.soldDifferenceWithLastYearAndCurrentYear['lastYear']){
+                          $('#firstsubStrategyOuter').attr('class','strategyOuter');
+                          alert('s');
                         }
                         
                         $('#avgDifferenceWithLastYearAndCurrentYear').html(obj.avgDifferenceWithLastYearAndCurrentYear['currentYear']);
-                        $('#avg_difference').html(obj.avgDifferenceWithLastYearAndCurrentYear['difference']);
+                        $('#avg_difference').html(obj.avgDifferenceWithLastYearAndCurrentYear['lastYear']);
                         
-                        if(obj.avgDifferenceWithLastYearAndCurrentYear['difference'] < 0){
-                          $('#thirdStrategyOuter').attr('class','downStratergyOuter');
+                        if(obj.avgDifferenceWithLastYearAndCurrentYear['currentYear'] < obj.avgDifferenceWithLastYearAndCurrentYear['lastYear']){
+                          $('#fourStrategyOuter').attr('class','downStratergyOuter');
                         }
                         
                         $('#soldAvgSqft').html(Math.floor(obj.soldAvgSqft['lastYear']));
