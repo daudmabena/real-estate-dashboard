@@ -295,7 +295,7 @@ function getSearchData(urldata,sbttype){
                         
                         alert(curValSoldDifference);
                         
-                        if(curValSoldDifference == NaN){
+                        if(curValSoldDifference == "NaN"){
                           $('#firstsubStrategyOuter').attr('class','strategyOuter');
                         }
                         else if(curValSoldDifference < lastYearValSoldDifference){
@@ -315,7 +315,7 @@ function getSearchData(urldata,sbttype){
                         var currentYearValAvgDiff = parseInt(obj.avgDifferenceWithLastYearAndCurrentYear['currentYear']);
                         var lastYearValDiffAvg = parseInt(obj.avgDifferenceWithLastYearAndCurrentYear['lastYear']);
                         
-                        if(currentYearValAvgDiff == NaN){
+                        if(currentYearValAvgDiff == "NaN"){
                           $('#fourStrategyOuter').attr('class','strategyOuter');
                         }
                         else if(currentYearValAvgDiff < lastYearValDiffAvg){
