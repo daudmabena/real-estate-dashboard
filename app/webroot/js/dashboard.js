@@ -298,7 +298,7 @@ function getSearchData(urldata,sbttype){
                           $('#firstsubStrategyOuter').attr('class','strategyOuter');
                           //alert('s');
                         }
-                        else if(obj.soldDifferenceWithLastYearAndCurrentYear['currentYear'] != ""){
+                        else if(obj.soldDifferenceWithLastYearAndCurrentYear['currentYear'] == ""){
                           $('#firstsubStrategyOuter').attr('class','strategyOuter');
                           //alert('s');
                         }
