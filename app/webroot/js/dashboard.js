@@ -307,7 +307,10 @@ function getSearchData(urldata,sbttype){
                         $('#avgDifferenceWithLastYearAndCurrentYear').html(obj.avgDifferenceWithLastYearAndCurrentYear['currentYear']);
                         $('#avg_difference').html(obj.avgDifferenceWithLastYearAndCurrentYear['lastYear']);
                         
-                        if(obj.avgDifferenceWithLastYearAndCurrentYear['currentYear'] < obj.avgDifferenceWithLastYearAndCurrentYear['lastYear']){
+                        if(obj.avgDifferenceWithLastYearAndCurrentYear['currentYear'] == null){
+                          $('#fourStrategyOuter').attr('class','strategyOuter');
+                        }
+                        else if(obj.avgDifferenceWithLastYearAndCurrentYear['currentYear'] < obj.avgDifferenceWithLastYearAndCurrentYear['lastYear']){
                           $('#fourStrategyOuter').attr('class','downStratergyOuter');
                         }
                         
