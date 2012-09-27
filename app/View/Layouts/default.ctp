@@ -61,7 +61,6 @@ $cakeDescription = __d('cake_dev', 'Dashboard');
 			echo $this->Html->script('demoScripts');
 		}
 		else if($pageInnerURL){
-			echo $this->Html->script('ui.datepicker');
 			echo $this->Html->script('demoScripts');
 		}
 		else {
