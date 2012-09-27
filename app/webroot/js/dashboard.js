@@ -364,7 +364,7 @@ function generateChart(monthlyTotal,year){
                     marginBottom: 35,
                     backgroundColor: '#363636',
                     color:'#000',
-                    width: 645
+                    width: 585
                 },  
                 title: {
                     text: 'Median Price Over Time',
