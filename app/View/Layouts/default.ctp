@@ -58,7 +58,6 @@ $cakeDescription = __d('cake_dev', 'Dashboard');
 		$pageInnerURL .= $_SERVER["SERVER_NAME"];
 			
 		if($pageURL == $pageInnerURL.'/dashboard/dashboard'){
-			echo $this->Html->script('ui.datepicker');
 			echo $this->Html->script('demoScripts');
 		}
 		else if($pageInnerURL){
@@ -69,7 +68,6 @@ $cakeDescription = __d('cake_dev', 'Dashboard');
 			$pageInnerURL .= $_SERVER["SERVER_NAME"].'/real-estate-dashboard';
 			
 			if($pageURL == $pageInnerURL.'/dashboard/dashboard'){
-				echo $this->Html->script('ui.datepicker');
 				echo $this->Html->script('demoScripts');
 			}
 		}
@@ -128,6 +126,12 @@ $cakeDescription = __d('cake_dev', 'Dashboard');
 		echo $this->fetch('css');
 		echo $this->fetch('script');
 	?>
+	        <script>
+        $(document).ready(function () {
+
+        alert('sdsd');
+        });
+        </script>
 </head>
 <body>
 	<div id="container">
@@ -135,6 +139,7 @@ $cakeDescription = __d('cake_dev', 'Dashboard');
 		<!--<div id="header">
 			<h1><?php echo $this->Html->link($cakeDescription, 'http://cakephp.org'); ?></h1>
 		</div>-->
+
 		<div id="content">
 			<?php echo $this->Session->flash(); ?>
 			<?php echo $this->fetch('content'); ?>
