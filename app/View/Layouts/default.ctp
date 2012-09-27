@@ -125,12 +125,7 @@ $cakeDescription = __d('cake_dev', 'Dashboard');
 		echo $this->fetch('css');
 		echo $this->fetch('script');
 	?>
-	        <script>
-        $(document).ready(function () {
-jQuery.noConflict();
-        alert('sdsd');
-        });
-        </script>
+
 </head>
 <body>
 	<div id="container">
