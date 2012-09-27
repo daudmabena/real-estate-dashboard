@@ -135,7 +135,6 @@ $cakeDescription = __d('cake_dev', 'Dashboard');
 		<!--<div id="header">
 			<h1><?php echo $this->Html->link($cakeDescription, 'http://cakephp.org'); ?></h1>
 		</div>-->
-		<br><br>
 		<div id="content">
 			<?php echo $this->Session->flash(); ?>
 			<?php echo $this->fetch('content'); ?>
