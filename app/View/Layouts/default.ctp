@@ -58,16 +58,16 @@ $cakeDescription = __d('cake_dev', 'Dashboard');
 		$pageInnerURL .= $_SERVER["SERVER_NAME"];
 			
 		if($pageURL == $pageInnerURL.'/dashboard/dashboard'){
-			echo $this->Html->script('demoScripts');
+			//echo $this->Html->script('demoScripts');
 		}
 		else if($pageInnerURL){
-			echo $this->Html->script('demoScripts');
+			//echo $this->Html->script('demoScripts');
 		}
 		else {
 			$pageInnerURL .= $_SERVER["SERVER_NAME"].'/real-estate-dashboard';
 			
 			if($pageURL == $pageInnerURL.'/dashboard/dashboard'){
-				echo $this->Html->script('demoScripts');
+				//echo $this->Html->script('demoScripts');
 			}
 		}
 	
