@@ -72,9 +72,9 @@ iframe{
 }
 
 .guage-div{
-	width:254px;
+	width:243px;
 	background: white url('../img/boc_bg_repeat.jpg') left center repeat;
-	height: 243px;
+	height: 250px;
 	float: left;
 	margin-left:15px;
 	border: 1px solid #565656;
