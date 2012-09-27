@@ -68,13 +68,13 @@ iframe{
 
 #wrapper{
 	margin: 0 auto;
-    width: 1070px;
+    width: 960px;
 }
 
 .guage-div{
 	width:254px;
 	background: white url('../img/boc_bg_repeat.jpg') left center repeat;
-	height: 250px;
+	height: 243px;
 	float: left;
 	margin-left:15px;
 	border: 1px solid #565656;
@@ -84,7 +84,7 @@ iframe{
 .downstrategy{
 	width:223px;
 	background: white url('../img/boc_bg_repeat.jpg') left center repeat;
-	height: 250px;
+	height: 223px;
 	float: left;
 	margin-left:2px;
 	border: 1px solid #565656;
@@ -251,7 +251,7 @@ background-color: #A3A3A3;
     clear: both;
     float: left;
     margin-bottom: 20px;
-    width: 980px;
+    width: 960px;
     border: 1px solid #565656;
 }
 
@@ -259,7 +259,7 @@ background-color: #A3A3A3;
     background: url("../img/boc_bg_repeat.jpg") repeat scroll left center white;
     clear: both;
     float: left;
-    width: 980px;
+    width: 960px;
     border: 1px solid #565656;
 }
 
@@ -274,7 +274,7 @@ background-color: #A3A3A3;
     padding: 10px;
     text-shadow: 1px 1px 1px #535353, -2px -2px 2px #535353;
     text-transform: uppercase;
-    width: 960px;
+    width: 939px;
     border:1px solid #565656;
     
 }
@@ -491,7 +491,7 @@ label, input {
 	font-size: 1.2em;
 	margin: .2em 0;
 }
-input {
+input, textarea {
 	margin-bottom: 1em;
 }
 
@@ -531,7 +531,7 @@ input {
 .firstGuageGroup .header{
     background: url("../img/boc_bg_repeat.jpg") repeat scroll left center white;
     border:1px solid #565656;
-    width:461px;
+    width:450px;
     height: 20px;
     color: #fff;
     padding: 10px;
