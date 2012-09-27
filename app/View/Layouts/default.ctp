@@ -127,7 +127,7 @@ $cakeDescription = __d('cake_dev', 'Dashboard');
 	?>
 	        <script>
         $(document).ready(function () {
-
+jQuery.noConflict();
         alert('sdsd');
         });
         </script>
