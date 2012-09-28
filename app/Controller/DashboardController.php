@@ -211,7 +211,7 @@ class DashboardController extends AppController {
      $finalInputToJson = array();
      
      /* This is For Sale For Median in tab_median_price_2years*/
-     
+     $args['zipcode'] = $zip;
      $args['selectedFieldName'] = 'for_sale_median';
      $args['tableName']         = 'tab_median_price_2years';
      $args['fieldName']         = 'zip_code_area';
