@@ -202,6 +202,9 @@ class DashboardController extends AppController {
      //$city   = $_POST['city'];
      //$state   = $_POST['state'];
      $zip   = $_POST['zip'];
+     
+     $zip = str_ireplace("%20",'',$zip);
+     
      $_SESSION['zip'] = $zip;
 
      $args = array();

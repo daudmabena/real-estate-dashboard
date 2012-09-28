@@ -109,7 +109,7 @@ function getSearchData(urldata,sbttype){
                 
             var city     = $('#city').val();
             var state    = $('#state').val();
-            var zip      = $('#zipcode').val();
+            var zip      = GetQueryStringParams('zip');
             alert(zip);
             alert(GetQueryStringParams('zip'));
             
