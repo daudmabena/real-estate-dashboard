@@ -386,16 +386,16 @@ class DashboardController extends AppController {
       
       $str = $this->Dashboard->getDateMM($typeDate, $thismonthLastDay, $sixMonthFirstDay, $oneyearFirstDay);
       
-      $str = explode("--",$str);
-      $strTo = explode("/",$str[0]);
-      $strToMonth = $strTo[0];
-      $strToYear = $strTo[2];
+      //$str = explode("--",$str);
+      //$strTo = explode("/",$str[0]);
+      //$strToMonth = $strTo[0];
+      //$strToYear = $strTo[2];
+      //
+      //$strFrom = explode("/",$str[1]);
+      //$strFromMonth = $strFrom[0];
+      //$strFromYear = $strFrom[2];
       
-      $strFrom = explode("/",$str[1]);
-      $strFromMonth = $strFrom[0];
-      $strFromYear = $strFrom[2];
-      
-      echo $strToMonth."-".$strToYear."--".$strFromMonth."-".$strFromYear;
+      echo $str;
       
      $this->autoRender = false;
      }

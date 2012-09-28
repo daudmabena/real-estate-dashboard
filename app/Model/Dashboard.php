@@ -277,7 +277,7 @@ class Dashboard extends AppModel {
 		return $getfieldData;
 	    
 	    }
-	    // {{{ insertDashboardData()
+	    // {{{ updateDashboardData()
 	    /**
 	     * Used for update particular field value with fieldname
 	     *
@@ -286,12 +286,30 @@ class Dashboard extends AppModel {
 	     *
 	     * @return boolean
 	     */
-	    function insertDashboardData($data){
+	    function updateDashboardData($data){
 		extract($data);
 		$query = "update `tab_dashboard_content` set field_value='".$fieldValue."' WHERE field_name='".$selectedFieldValue."'";
 		$rs = $this->query($query);
 		return $rs;
 	    }
+	    // {{{ insertDashboardData()
+	    /**
+	     * Used for update particular field value with fieldname
+	     *
+	     * @access  Public
+	     * @param array $data
+	     * @param $zipcode
+	     *
+	     * @return result status
+	     */
+	    function insertDashboardData($data){
+		extract($data);
+		$query = "insert into `tab_dashboard_content`(zip_code_or_city, field_name, field_value) values('".$zipcode_or_city."'
+								,'".$selectedFieldValue."','".$fieldValue."')";
+		$rs = $this->query($query);
+		return $rs;
+	    }
+	    
 	    // {{{ getZipCodeAreaName()
 	    /**
 	     * Used to get particular zipcode Areaname
@@ -347,8 +365,8 @@ class Dashboard extends AppModel {
 		$min = $result[0][0]['minval'];
 		$max = $result[0][0]['maxval'];
 		
-		$min = date('m/d/Y',strtotime($min));
-		$max = date('m/d/Y',strtotime($max));
+		$min = date('m-d-Y',strtotime($min));
+		$max = date('m-d-Y',strtotime($max));
 		
 		$val = $min."--".$max;
 		
