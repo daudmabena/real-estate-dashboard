@@ -395,7 +395,7 @@ class DashboardController extends AppController {
       $strFromMonth = $strFrom[0];
       $strFromYear = $strFrom[2];
       
-      echo $strToMonth."-".$strToYear."--".$strFromMonth."-".$strFromYear;
+      echo $strToMonth."-".$strToYear."--".$strFromMonth."-".$strFromYear."--".$str[0]."--".$str[1];
       
      $this->autoRender = false;
      }
