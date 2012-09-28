@@ -95,6 +95,7 @@ function getSearchData(urldata,sbttype){
             var city     = $('#city').val();
             var state    = $('#state').val();
             var zip      = $('#zipcode').val();
+            alert(zip);
             
             function parseDate(str) {
               var mdy = str.split('/')

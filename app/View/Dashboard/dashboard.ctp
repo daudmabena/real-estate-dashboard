@@ -152,7 +152,7 @@ $(document).ready(function() {
 	      echo "<div class='sections'>
 		    <div class='formdivider'>";
 	      echo "<label class='labelTxtSearch'>Date Type</label>";
-	      echo "<select id='dateType'  name='dateType' style='width:227px'>
+	      echo "<select id='dateType' name='dateType' style='width:227px'>
 		    <option value='0'>--Select--</option>
 		    <option value='1'>Past 6 Months</option>
 		    <option value='2'>Past 1 Year</option>
@@ -355,18 +355,18 @@ $(document).ready(function() {
 	      <div class="rssReed">
 		<div class='rssFeed1'>
 		  <?php
-		  echo $rssFieldData_left[0]['tab_dashboard_content']['field_value'];
+		  //echo $rssFieldData_left[0]['tab_dashboard_content']['field_value'];
 		  
-		  //$url = urlencode($rssFieldData_left[0]['tab_dashboard_content']['field_value']);
-		  //$this->requestAction('/Dashboard/readingRss/'.$url);
+		  $url = urlencode($rssFieldData_left[0]['tab_dashboard_content']['field_value']);
+		  $this->requestAction('/Dashboard/readingRss/'.$url);
 		  ?>
 		</div>
 		<div class='rssFeed2'>
 		  <?php
-		  echo $rssFieldData_right[0]['tab_dashboard_content']['field_value'];
+		  //echo $rssFieldData_right[0]['tab_dashboard_content']['field_value'];
 		  
-		  //$url = urlencode($rssFieldData_right[0]['tab_dashboard_content']['field_value']);
-		  //$this->requestAction('/Dashboard/readingRss/'.$url);
+		  $url = urlencode($rssFieldData_right[0]['tab_dashboard_content']['field_value']);
+		  $this->requestAction('/Dashboard/readingRss/'.$url);
 		  ?>
 		</div>
 	      </div>
