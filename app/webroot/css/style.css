@@ -616,3 +616,7 @@ input, textarea {
 .cityholder,.zipcodeholder{
     margin-top: 13px;
 }
+
+.searchPanel{
+    display: none;
+}
