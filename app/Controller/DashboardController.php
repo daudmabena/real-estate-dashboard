@@ -374,7 +374,8 @@ class DashboardController extends AppController {
      }
      
      public function getMinAndMaxDate(){
-      $typeDate = $_REQUEST['typeDate'];
+      //$typeDate = $_REQUEST['typeDate'];
+      $typeDate = 2;
       $ts = date('Y-m-d');
       $lastday = date('t',strtotime($ts));
       $thismonthLastDay = date('Y')."-".date('m')."-".$lastday."<br/>";
