@@ -81,46 +81,14 @@ $cakeDescription = __d('cake_dev', 'Dashboard');
 		echo $this->Html->script('highcharts');
 		echo $this->Html->script('exporting');
 		
-		$pageInnerURL = "";
-		
-		$pageInnerURL = (@$_SERVER["HTTPS"] == "on") ? "https://" : "http://";
 
-		$pageInnerURLMaster = (@$_SERVER["HTTPS"] == "on") ? "https://" : "http://";
-		
-		$pageInnerURL .= $_SERVER["SERVER_NAME"];
-		
-		$pageInnerURLMaster .= $_SERVER["SERVER_NAME"]."/";
-
-		if($pageURL == $pageInnerURL.'/dashboard/dashboard'){
 			echo $this->Html->script('dashboard');
 			?>
 			<script>
 			getSearchData("<?php echo Router::url(array('controller' => 'dashboard', 'action' => 'getJsonFormat'));?>",1);
 			</script>
-			<?php
-		}
-		else if($pageURL == $pageInnerURLMaster){
-			echo $this->Html->script('dashboard');
-			?>
-			<script>
-			getSearchData("<?php echo Router::url(array('controller' => 'dashboard', 'action' => 'getJsonFormat'));?>",1);
-			</script>
-			<?php
-		}
-		else{
-			$pageInnerURL='';
-			$pageInnerURL .= 'http://'.$_SERVER["SERVER_NAME"].'/real-estate-dashboard';
-			
-			if($pageURL == $pageInnerURL.'/dashboard/dashboard'){
-				echo $this->Html->script('dashboard');
-			?>
-			<script>
-			getSearchData("<?php echo Router::url(array('controller' => 'dashboard', 'action' => 'getJsonFormat'));?>",1);
-			</script>
-			<?php
-			}
-		}
-		
+
+		<?php
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('script');
