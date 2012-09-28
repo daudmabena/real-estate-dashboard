@@ -32,7 +32,7 @@ return m[1] + 1;
 
 function getSearchData(urldata,sbttype){
     $(document).ready(function() {
-      
+            var fromDateNew,toDateNew = new Date();
             var typeDate = $('#dateType option:selected').val();
               
             if(sbttype == 1){
@@ -45,7 +45,8 @@ function getSearchData(urldata,sbttype){
                 success: function (jsonValue) {
                   //alert(jsonValue);
                   var da = jsonValue.split("--");
-                  
+                  fromDateNew = da[2];
+                  toDateNew = da[3];
                   var dateTo = da[0].split("-");
                   var dateFrom = da[1].split("-");
                   dateTo[1] = dateFrom[1]-1;
@@ -167,7 +168,7 @@ function getSearchData(urldata,sbttype){
             $.ajax({
                 url: urldata,
                 type: 'POST',
-                data: "fromdate="+fromDate+"&todate="+toDate+"&zip="+zip,
+                data: "fromdate="+fromDateNew+"&todate="+toDateNew+"&zip="+zip,
                 dataType: 'json',
                 success: function (json) {
                     if(json){
