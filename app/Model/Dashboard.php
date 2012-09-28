@@ -365,8 +365,8 @@ class Dashboard extends AppModel {
 		$min = $result[0][0]['minval'];
 		$max = $result[0][0]['maxval'];
 		
-		$min = date('m-d-Y',strtotime($min));
-		$max = date('m-d-Y',strtotime($max));
+		$min = date('m/d/Y',strtotime($min));
+		$max = date('m/d/Y',strtotime($max));
 		
 		$val = $min."--".$max;
 		
