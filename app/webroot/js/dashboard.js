@@ -110,8 +110,8 @@ function getSearchData(urldata,sbttype){
             var city     = $('#city').val();
             var state    = $('#state').val();
             var zip      = GetQueryStringParams('zip');
-            alert(zip);
-            alert(GetQueryStringParams('zip'));
+            //alert(zip);
+            //alert(GetQueryStringParams('zip'));
             
             function parseDate(str) {
               var mdy = str.split('/')
