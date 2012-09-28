@@ -20,7 +20,8 @@ function GetQueryStringParams(sParam)
         var sParameterName = sURLVariables[i].split('=');
         if (sParameterName[0] == sParam) 
         {
-            return sParameterName[1];
+          sParameterName[1].replace(/\s/g,"%20");
+          return sParameterName[1];
         }
     }
 }
