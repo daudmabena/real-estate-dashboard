@@ -11,6 +11,20 @@ $(document).ready(function() {
 
 var MinRange,MaxRange,MinRange1,MaxRange1,urldata;
 
+function GetQueryStringParams(sParam)
+{
+    var sPageURL = window.location.search.substring(1);
+    var sURLVariables = sPageURL.split('&');
+    for (var i = 0; i < sURLVariables.length; i++) 
+    {
+        var sParameterName = sURLVariables[i].split('=');
+        if (sParameterName[0] == sParam) 
+        {
+            return sParameterName[1];
+        }
+    }
+}
+
 function addCommas(nStr) {
     nStr += '';
     var x = nStr.split('.');
@@ -96,6 +110,7 @@ function getSearchData(urldata,sbttype){
             var state    = $('#state').val();
             var zip      = $('#zipcode').val();
             alert(zip);
+            alert(GetQueryStringParams('zip'));
             
             function parseDate(str) {
               var mdy = str.split('/')
