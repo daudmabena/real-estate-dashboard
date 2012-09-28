@@ -9,7 +9,7 @@
       if((youtubeData != "")||(rssLeft != "")||(rssRight != "")||(dashboardText != "")){
 	//alert('sdsd');
 	$.ajax({
-	  url: "<?php echo  Router::url(array('controller' => 'DashboardImports', 'action' => 'insertDashboardData'));?>",
+	  url: "<?php echo  Router::url(array('controller' => 'DashboardImports', 'action' => 'updatesDashboardData'));?>",
 	  type: 'POST',
 	  data: "youtube="+youtubeData+"&rssleft="+rssLeft+"&rssright="+rssRight+"&dashboarddata="+dashboardText,
 	  success: function (json) {

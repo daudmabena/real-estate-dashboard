@@ -142,7 +142,6 @@ class DashboardImportsController extends AppController {
                     $impMedianPrice2Yrs = $this->Dashboard->importMedianPrice2YrsForCty('tab_median_price_2years', $medianPrice2Yrs, $city, $state, $zipcodearea,$uploadType);
                }
           }
-
           /*if(isset($medianNoPrice2Yrs) && $medianNoPrice2Yrs!=''){
                $impMedianNoPrice2Yrs = $this->Dashboard->importMedianNoPrice2Yrs('tab_median_noprice_2years', $medianNoPrice2Yrs, $city, $state, $zipcode,$zipcodearea);
           }
@@ -155,8 +154,39 @@ class DashboardImportsController extends AppController {
           if(isset($medianForSoldPriceSqft) && $medianForSoldPriceSqft!=''){
                $impMedianForSoldPriceSqft = $this->Dashboard->importMedianForSoldPriceSqft('tab_media_sold_sqft', $medianForSoldPriceSqft, $city, $state, $zipcode,$zipcodearea);
           }*/
-          
-          
+     }
+     $data = array();
+     $status = "";
+     
+     if($uploadType == 1){
+          $data['zipcode_or_city'] = $zipcodearea;
+     }
+     else if($uploadType == 2){
+         $data['zipcode_or_city'] = $city; 
+     }
+     
+     //print_r($_REQUEST);
+     
+     //Dashboard youtube abd text insertion
+     if($_REQUEST['youtube_data'] != ""){
+          $data['selectedFieldValue']  = 'youtube_data';
+          $data['fieldValue']    = mysql_escape_string($_REQUEST['youtube_data']);
+          $status = $this->Dashboard->insertDashboardData($data);
+     }
+     if($_REQUEST['rss_left'] != ""){
+          $data['selectedFieldValue']  = 'rss_field_left';
+          $data['fieldValue']    = str_replace("'", "&#39;", $_REQUEST['rss_left']);
+          $status = $this->Dashboard->insertDashboardData($data);
+     }
+     if($_REQUEST['rss_right'] != ""){
+          $data['selectedFieldValue']  = 'rss_feed_right';
+          $data['fieldValue']    = str_replace("'", "&#39;", $_REQUEST['rss_right']);
+          $status = $this->Dashboard->insertDashboardData($data);
+     }
+     if($_REQUEST['dashboard_text'] != ""){
+          $data['selectedFieldValue']  = 'text_message';
+          $data['fieldValue']    = str_replace("'", "&#39;", $_REQUEST['dashboard_text']); 
+          $status = $this->Dashboard->insertDashboardData($data);
      }
      echo "Data Inserted";
      exit;
@@ -207,9 +237,6 @@ class DashboardImportsController extends AppController {
     }
     
     public function dashboardAdd(){
-          
-          
-          
           $youtube = $this->Dashboard->getFieldDatas('youtube_data');
           $rss_feed_right = $this->Dashboard->getFieldDatas('rss_feed_right');
           $text_message = $this->Dashboard->getFieldDatas('text_message');
@@ -222,39 +249,38 @@ class DashboardImportsController extends AppController {
           $this->render('dashboardAdd');
     }
     
-    public function insertDashboardData(){
+    public function updatesDashboardData(){
      
      //echo $_REQUEST['youtube'];
      //echo $_REQUEST['rssleft'];
      //echo $_REQUEST['rssright'];
      
-     Controller::loadModel('Dashboard');
      $data = array();
      $status = "";
      if($_REQUEST['youtube'] != ""){
           $data['selectedFieldValue']  = 'youtube_data';
           $data['fieldValue']    = mysql_escape_string($_REQUEST['youtube']);
-          $status = $this->Dashboard->insertDashboardData($data);
+          $status = $this->Dashboard->updateDashboardData($data);
      }
      
      
      if($_REQUEST['rssleft'] != ""){
           $data['selectedFieldValue']  = 'rss_field_left';
           $data['fieldValue']    = str_replace("'", "&#39;", $_REQUEST['rssleft']);
-          $status = $this->Dashboard->insertDashboardData($data);
+          $status = $this->Dashboard->updateDashboardData($data);
      }
      
      
      if($_REQUEST['rssright'] != ""){
           $data['selectedFieldValue']  = 'rss_feed_right';
           $data['fieldValue']    = str_replace("'", "&#39;", $_REQUEST['rssright']);
-          $status = $this->Dashboard->insertDashboardData($data);
+          $status = $this->Dashboard->updateDashboardData($data);
      }
      
      if($_REQUEST['dashboarddata'] != ""){
           $data['selectedFieldValue']  = 'text_message';
           $data['fieldValue']    = str_replace("'", "&#39;", $_REQUEST['dashboarddata']); 
-          $status = $this->Dashboard->insertDashboardData($data);
+          $status = $this->Dashboard->updateDashboardData($data);
      }
      
      if($status == 1){
