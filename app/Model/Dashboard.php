@@ -270,9 +270,10 @@ class Dashboard extends AppModel {
 	     *
 	     * @return boolean
 	     */
-	    function getFieldDatas($fieldName){
+	    function getFieldDatas($fieldName,$zipcode){
 			
-		$getFieldQuery = "SELECT * FROM `tab_dashboard_content` WHERE field_name='".$fieldName."'";
+		$getFieldQuery = "SELECT * FROM `tab_dashboard_content` WHERE field_name='".$fieldName."'
+				    and zip_code_or_city='".$zipcode."'";
 		$getfieldData = $this->query($getFieldQuery);
 		return $getfieldData;
 	    

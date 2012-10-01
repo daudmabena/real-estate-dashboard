@@ -296,15 +296,17 @@ class DashboardController extends AppController {
      
      public function dashboard(){
       
+      $zipcode = $_REQUEST['zip'];
+      
       $currentDate = date('Y-m-d');
       $lastyear = strtotime("-1 year", strtotime($currentDate));
       $lastYear = date("m/d/Y", $lastyear);
       $this->set('lastYear', $lastYear);
       
-      $this->set('youtube_data',$this->Dashboard->getFieldDatas('youtube_data'));
-      $this->set('dashboardData',$this->Dashboard->getFieldDatas('text_message'));
-      $this->set('rssFieldData_left',$this->Dashboard->getFieldDatas('rss_field_left'));
-      $this->set('rssFieldData_right',$this->Dashboard->getFieldDatas('rss_feed_right'));
+      $this->set('youtube_data',$this->Dashboard->getFieldDatas('youtube_data',$zipcode));
+      $this->set('dashboardData',$this->Dashboard->getFieldDatas('text_message',$zipcode));
+      $this->set('rssFieldData_left',$this->Dashboard->getFieldDatas('rss_field_left',$zipcode));
+      $this->set('rssFieldData_right',$this->Dashboard->getFieldDatas('rss_feed_right',$zipcode));
      
       
       $this->set('zipCode',$this->Dashboard->getDataFromDB('zip_code_area','tab_median_price_2years','normalType'));
