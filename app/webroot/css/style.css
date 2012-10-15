@@ -72,6 +72,14 @@ iframe{
     width: 940px;
 }
 
+.guageMeter{
+    float: left;
+}
+
+.guagePercentage{
+    float: left;
+}
+
 @media only screen and (min-width: 320px){
     
     #wrapper{
