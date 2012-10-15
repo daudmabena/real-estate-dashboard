@@ -80,7 +80,7 @@ iframe{
     float: left;
 }
 
-@media only screen and (min-width: 320px){
+@media only screen and (max-width: 320px){
     
     #wrapper{
 	margin: 0 auto;
