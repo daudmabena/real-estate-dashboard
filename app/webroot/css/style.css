@@ -94,7 +94,7 @@ iframe{
     }
     
     .firstGuageGroup .header{
-	width: 316px !important;
+	width: 267px !important;
     }
     
     .guage-div{
@@ -106,13 +106,22 @@ iframe{
     }
     
     .guage_description_down{
-	width: 148px !important;
+	width: 99px !important;
     }
     
     #jGaugeDemo1{
-	margin-left: 7px !important;
-	 height: 114px !important;
-    width: 159px !important;
+  height: 114px !important;
+    margin-left: 2px !important;
+    width: 161px !important;
+    }
+    
+    .downstrategy{
+	width: 107px !important;
+	padding: 64px 56px 56px 39px !important;
+    }
+    
+    .seperator{
+	width: 107px !important;
     }
 
 }
