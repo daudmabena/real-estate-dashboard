@@ -139,6 +139,11 @@ iframe{
 	border-top: none;
 }
 
+
+
+.subcalc{
+    float: left;
+}
 .downstrategy{
 	width:223px;
 	background: white url('../img/boc_bg_repeat.jpg') left center repeat;
