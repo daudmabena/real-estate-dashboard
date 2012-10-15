@@ -150,6 +150,7 @@ iframe{
     margin-top: 2px;
     padding: 10px 5px 0;
     width: 225px;
+    clear: both;
 }
 
 .guage_description_down{
