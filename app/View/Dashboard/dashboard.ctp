@@ -292,16 +292,19 @@ $(document).ready(function() {
 	
 	<!--Statistics Section -->
 	<div id='statistics-wrapper'>
-		<div class='statistics-box' style='margin-left:0px;'>
-		  <div class="statisticsboxHeader" id="perFootLast12MonthsLabel">
-		    Avg. $ / Ft.(6 mos)
+		<div class="subcalc">
+		  <div class='statistics-box' style='margin-left:0px;'>
+		    <div class="statisticsboxHeader" id="perFootLast12MonthsLabel">
+		      Avg. $ / Ft.(6 mos)
+		    </div>
+		    <div class='upStrategyOuter' id="firstStrategyOuter">
+		      <span id='perFootLast12Months' class="strategyPercentage"></span>
+		    </div>
 		  </div>
-		  <div class='upStrategyOuter' id="firstStrategyOuter">
-		    <span id='perFootLast12Months' class="strategyPercentage"></span>
-		  </div>
+		  <div class='guage_description_panel2' id="guage_description_panel1" style='margin-left:0px;'></div>
 		</div>
-		<div class='guage_description_panel2' id="guage_description_panel1" style='margin-left:0px;'></div>
 		
+		<div class="subcalc">
 		<div class='statistics-box' id="soldHome">
 		  <div class="statisticsboxHeader">
 		    # Sold Homes
@@ -311,7 +314,9 @@ $(document).ready(function() {
 		  </div>
 		</div>
 		<div class='guage_description_panel2' id="guage_description_panel2">Number of Sold Homes in [Date]</div>
+		</div>
 		
+		<div class="subcalc">
 		<div class='statistics-box' id="soldHomeLastYr">
 		  <div class="statisticsboxHeader" id="soldHomeLastYrLabel">
 		    Sold Hms Last Yr.
@@ -321,7 +326,9 @@ $(document).ready(function() {
 			</div>
 		</div>
 		<div class='guage_description_panel2' id="guage_description_panel3">Number of Sold Homes Same Period Last Yr</div>
+		</div>
 		
+		<div class="subcalc">
 		<div class='statistics-box' id="daysOnMarket">
 		  <div class="statisticsboxHeader">
 		    Days on Market
@@ -331,7 +338,9 @@ $(document).ready(function() {
 			</div>
 		</div>
 		<div class='guage_description_panel2' id="guage_description_panel4">Avg. # Days on Market Last 6 Months (Solds).</div>
+		</div>
 		
+		<div class="subcalc">
 		<div class='statistics-box' id="domLastYr">
 		  <div class="statisticsboxHeader" id="domLastYrLabel">
 		    DOM Last Yr.
@@ -341,7 +350,9 @@ $(document).ready(function() {
 			</div>
 		</div>
 		<div class='guage_description_panel2' id="guage_description_panel5">Avg. # Days on Market Same Period Last Yr.</div>
+		</div>
 		
+		<div class="subcalc">
 		<div class='statistics-box'>
 		  <div class="statisticsboxHeader">
 		    Avg. Home Size
@@ -351,6 +362,7 @@ $(document).ready(function() {
 			</div>
 		</div>
 		<div class='guage_description_panel2' id="guage_description_panel6">Average Sq. Ft. Last 12 Months</div>
+		</div>
 	</div>
 	<div class="bottom-left-panel">
 	  <div id='video-wrapper'>
