@@ -236,6 +236,7 @@ $(document).ready(function() {
 	  <div class="firstGuageGroup">
 	    <div class="header" id="ZipLabel">
 	    </div>
+	    <div class="guageMeter">
 		<div class='guage-div' style='margin-left:0px;'>
 			<div id="jGaugeDemo1" class="jgauge"></div>
 			<div class="min-max">
@@ -247,6 +248,8 @@ $(document).ready(function() {
 			</div>
 		</div>
 		<div class='guage_description' style='margin-left:0px;'>Median Sold Price Last 12 month Avg</div>
+	    </div>
+	    <div class="guagePercentage">
 		<div class='downstrategy'>
 		    <div class='downTxt' id="firstgauageStrategyLabel">Up</div>
 			<div class='seperator'></div>
@@ -255,22 +258,26 @@ $(document).ready(function() {
 			</div>
 		</div>
 		<div class='guage_description_down'>Previous 12 mos. <span class='prev12MonStrategy'></span></div>
+	    </div>
 	  </div>
 	  <div class="secondGuageGroup">
 	    <div class="header" id="CityValue">
 	      SAN ANTONIO Median Price
 	    </div>
-		<div class='guage-div'>
-		    <div id="jGaugeDemo2" class="jgauge"></div>
-			  <div class="min-max">
-				  <div class='min-max-left'>Min - $70,208</div>
-				  <div class='min-max-right'>Max - $270,208</div>
-			</div>
-			<div class='guage_calculation'>
-			  <span class='saleMedianCityValue'></span>
-			</div>
+	      <div class="guageMeter">
+		  <div class='guage-div'>
+		      <div id="jGaugeDemo2" class="jgauge"></div>
+			    <div class="min-max">
+				    <div class='min-max-left'>Min - $70,208</div>
+				    <div class='min-max-right'>Max - $270,208</div>
+			  </div>
+			  <div class='guage_calculation'>
+			    <span class='saleMedianCityValue'></span>
+			  </div>
+		  </div>
+		  <div class='guage_description'>Median SA Price</div>
 		</div>
-		<div class='guage_description'>Median SA Price</div>
+		<div class="guagePercentage">
 		<div class='downstrategy'>
 		    <div class='downTxt' id="secondgauageStrategyLabel">Up</div>
 			<div class='seperator'></div>
@@ -279,6 +286,7 @@ $(document).ready(function() {
 			</div>
 		</div>
 		<div class='guage_description_down'>SA Previous 12 Months, <span class='prev12MonStrategyCity'></span></div>
+		</div>
 	  </div>
 	</div>
 	
