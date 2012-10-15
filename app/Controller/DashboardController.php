@@ -197,6 +197,9 @@ class DashboardController extends AppController {
      $fromDate = $_POST['fromdate'];
      $toDate   = $_POST['todate'];
      
+     echo $fromDate."<br/>";
+     echo $toDate."<br/>";
+     
      $months = (int)abs((strtotime($fromDate) - strtotime($toDate))/(60*60*24*30));
      
      //$city   = $_POST['city'];
