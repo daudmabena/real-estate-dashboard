@@ -359,6 +359,7 @@ class Dashboard extends AppModel {
 		else if($typeDate == 2){
 		    $query = "SELECT min(month_year) as minval, max(month_year) as maxval FROM tab_median_price_2years
 				where month_year  between '$oneyearFirstDay' and '$thismonthLastDay'";
+				echo $query;
 		    $result = $this->query($query);
 		}
 		
