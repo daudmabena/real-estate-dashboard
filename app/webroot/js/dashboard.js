@@ -180,12 +180,13 @@ function getSearchData(urldata,sbttype){
             }
             $('#ZipLabel').html(zip+" Median Price");
             //$('#CityValue').html(city+" Median Price");      
-            
+            alert(fromDate);
+            alert(toDate);
             
             $.ajax({
                 url: urldata,
                 type: 'POST',
-                data: "fromdate="+fromDateNew+"&todate="+toDateNew+"&zip="+zip,
+                data: "fromdate="+fromDate+"&todate="+toDate+"&zip="+zip,
                 dataType: 'json',
                 success: function (json) {
                     if(json){
