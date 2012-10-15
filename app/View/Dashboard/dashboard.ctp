@@ -246,6 +246,7 @@ $(document).ready(function() {
 			  <span class='saleMedianZipValue'></span>
 			</div>
 		</div>
+		<div class='guage_description' style='margin-left:0px;'>Median Sold Price Last 12 month Avg</div>
 		<div class='downstrategy'>
 		    <div class='downTxt' id="firstgauageStrategyLabel">Up</div>
 			<div class='seperator'></div>
@@ -253,6 +254,7 @@ $(document).ready(function() {
 			  <span class='strategyPercentageZip'></span>
 			</div>
 		</div>
+		<div class='guage_description_down'>Previous 12 mos. <span class='prev12MonStrategy'></span></div>
 	  </div>
 	  <div class="secondGuageGroup">
 	    <div class="header" id="CityValue">
@@ -268,6 +270,7 @@ $(document).ready(function() {
 			  <span class='saleMedianCityValue'></span>
 			</div>
 		</div>
+		<div class='guage_description'>Median SA Price</div>
 		<div class='downstrategy'>
 		    <div class='downTxt' id="secondgauageStrategyLabel">Up</div>
 			<div class='seperator'></div>
@@ -275,11 +278,8 @@ $(document).ready(function() {
 			  <span class='strategyPercentageCity'></span>
 			</div>
 		</div>
-	  </div>
-		<div class='guage_description' style='margin-left:0px;'>Median Sold Price Last 12 month Avg</div>
-		<div class='guage_description_down'>Previous 12 mos. <span class='prev12MonStrategy'></span></div>
-		<div class='guage_description'>Median SA Price</div>
 		<div class='guage_description_down'>SA Previous 12 Months, <span class='prev12MonStrategyCity'></span></div>
+	  </div>
 	</div>
 	
 	<!--Statistics Section -->
