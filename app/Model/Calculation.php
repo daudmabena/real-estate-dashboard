@@ -66,7 +66,7 @@ class Calculation extends AppModel{
                                     FROM ".$this->__tableName." WHERE ".$this->__fieldName."='".$this->__fieldValue."'
                                     AND MONTH_YEAR BETWEEN '".$this->__fromDate."' AND '".$this->__toDate."'";
         
-        echo $medianPrice2Yearsquery."</br></br>";
+        //echo $medianPrice2Yearsquery."</br></br>";
         
         $medianPrice2YearsResult = $this->query($medianPrice2Yearsquery);
         
