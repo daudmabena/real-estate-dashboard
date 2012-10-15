@@ -58,7 +58,7 @@ function getSearchData(urldata,sbttype){
                 async: false,
                 data: "typeDate="+typeDate,
                 success: function (jsonValue) {
-                  //alert(jsonValue);
+                  alert(jsonValue);
                   var da = jsonValue.split("--");
                   fromDateNew = da[2];
                   toDateNew = da[3];
