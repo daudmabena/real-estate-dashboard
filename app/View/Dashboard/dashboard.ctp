@@ -50,7 +50,7 @@ $(document).ready(function() {
 <script type="text/javascript" charset="utf-8">
   $(document).ready(function() {
       $("body").css("background-color","#151515");
-      $('.searchContent').hide();
+      //$('.searchContent').hide();
       var showOrHide;
       var zipValue = $('#zipcode').val();
       $('#ZipLabel').html(zipValue+" Median Price");
