@@ -93,7 +93,7 @@ iframe{
     margin-left: 0px !important;
     }
     
-    .firstGuageGroup .header{
+    .firstGuageGroup .header, .secondGuageGroup .header{
 	width: 267px !important;
     }
     
@@ -125,7 +125,12 @@ iframe{
     padding: 63px 56px 56px 38px !important;
     }
     
-    .strategyPercentageZip{
+    .upStrategy{
+    background: url("../img/green-arrow.png") no-repeat scroll 11px 78px transparent !important;
+    padding: 77px 53px 52px 43px !important;
+    }
+    
+    .strategyPercentageZip, .strategyPercentageCity{
 	font-size: 20px !important;
     }
     
