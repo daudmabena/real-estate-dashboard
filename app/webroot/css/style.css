@@ -163,6 +163,7 @@ background-color: #A3A3A3;
     margin-top: 2px;
     padding: 10px 5px 0;
     width: 215px;
+    clear: both;
 }
 
 .statistics-box{
