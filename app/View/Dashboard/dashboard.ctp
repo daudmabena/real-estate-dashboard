@@ -300,6 +300,8 @@ $(document).ready(function() {
 		    <span id='perFootLast12Months' class="strategyPercentage"></span>
 		  </div>
 		</div>
+		<div class='guage_description_panel2' id="guage_description_panel1" style='margin-left:0px;'></div>
+		
 		<div class='statistics-box' id="soldHome">
 		  <div class="statisticsboxHeader">
 		    # Sold Homes
@@ -308,6 +310,8 @@ $(document).ready(function() {
 		    <span id='soldHomeInDate' class="strategyPercentage"></span>
 		  </div>
 		</div>
+		<div class='guage_description_panel2' id="guage_description_panel2">Number of Sold Homes in [Date]</div>
+		
 		<div class='statistics-box' id="soldHomeLastYr">
 		  <div class="statisticsboxHeader" id="soldHomeLastYrLabel">
 		    Sold Hms Last Yr.
@@ -316,6 +320,8 @@ $(document).ready(function() {
 			  <span id='soldDifferenceWithLastYear' class="strategyPercentage"></span>
 			</div>
 		</div>
+		<div class='guage_description_panel2' id="guage_description_panel3">Number of Sold Homes Same Period Last Yr</div>
+		
 		<div class='statistics-box' id="daysOnMarket">
 		  <div class="statisticsboxHeader">
 		    Days on Market
@@ -324,6 +330,8 @@ $(document).ready(function() {
 			  <span id='avgDifferenceWithLastYearAndCurrentYear' class="strategyPercentage"></span>
 			</div>
 		</div>
+		<div class='guage_description_panel2' id="guage_description_panel4">Avg. # Days on Market Last 6 Months (Solds).</div>
+		
 		<div class='statistics-box' id="domLastYr">
 		  <div class="statisticsboxHeader" id="domLastYrLabel">
 		    DOM Last Yr.
@@ -332,6 +340,8 @@ $(document).ready(function() {
 			  <span id='avg_difference' class="strategyPercentage"></span>
 			</div>
 		</div>
+		<div class='guage_description_panel2' id="guage_description_panel5">Avg. # Days on Market Same Period Last Yr.</div>
+		
 		<div class='statistics-box'>
 		  <div class="statisticsboxHeader">
 		    Avg. Home Size
@@ -340,11 +350,6 @@ $(document).ready(function() {
 			  <span id='soldAvgSqft' class="strategyPercentage"></span>
 			</div>
 		</div>
-		<div class='guage_description_panel2' id="guage_description_panel1" style='margin-left:0px;'></div>
-		<div class='guage_description_panel2' id="guage_description_panel2">Number of Sold Homes in [Date]</div>
-		<div class='guage_description_panel2' id="guage_description_panel3">Number of Sold Homes Same Period Last Yr</div>
-		<div class='guage_description_panel2' id="guage_description_panel4">Avg. # Days on Market Last 6 Months (Solds).</div>
-		<div class='guage_description_panel2' id="guage_description_panel5">Avg. # Days on Market Same Period Last Yr.</div>
 		<div class='guage_description_panel2' id="guage_description_panel6">Average Sq. Ft. Last 12 Months</div>
 	</div>
 	<div class="bottom-left-panel">
