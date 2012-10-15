@@ -89,8 +89,30 @@ iframe{
 	width: 940px;
     }
     
-    .secondGuageGroup .header, .guage-div, .guage_description{
+    .secondGuageGroup .header, .guage-div, .guage_description, div.jgauge{
     margin-left: 0px !important;
+    }
+    
+    .firstGuageGroup .header{
+	width: 316px !important;
+    }
+    
+    .guage-div{
+	width: 176px !important;
+    }
+    
+    .guage_description{
+	width: 168px !important;
+    }
+    
+    .guage_description_down{
+	width: 148px !important;
+    }
+    
+    #jGaugeDemo1{
+	margin-left: 7px !important;
+	 height: 114px !important;
+    width: 159px !important;
     }
 
 }
