@@ -120,6 +120,15 @@ iframe{
     
     }
     
+    .downStratergy{
+    background: url("../img/red_arrow.png") no-repeat scroll 8px 64px transparent !important;
+    padding: 63px 56px 56px 38px !important;
+    }
+    
+    .strategyPercentageZip{
+	font-size: 20px !important;
+    }
+    
     .seperator{
 	width: 107px !important;
     }
