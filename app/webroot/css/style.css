@@ -89,7 +89,7 @@ iframe{
 	width: 940px;
     }
     
-    .secondGuageGroup .header{
+    .secondGuageGroup .header, .guage-div, .guage_description{
     margin-left: 0px !important;
     }
 
