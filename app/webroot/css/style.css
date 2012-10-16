@@ -650,7 +650,6 @@ input, textarea {
 	margin: 0 auto;
 	max-width: 100%;
 	padding: 0;
-	width: 940px;
     }
     .secondGuageGroup .header, .guage-div, .guage_description{
     margin-left: 0px !important;
@@ -661,17 +660,17 @@ input, textarea {
     }
     
     .firstGuageGroup .header, .secondGuageGroup .header{
-	width: 345px !important;
+	width:367px !important;
     }
     
     .secondGuageGroup{
 	margin-left: 5px;
     }
     .guage-div{
-	width: 208px !important;
+	width: 230px !important;
     }
     .guage_description{
-	width: 200px !important;
+	width: 222px !important;
     }
     .guage_description_down{
 	width: 145px !important;
