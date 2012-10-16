@@ -373,7 +373,7 @@ function getSearchData(urldata,sbttype){
 
 function generateChart(monthlyTotal,year){
   var screenWidth = screen.width;
-  var widthChart = 585;
+  var widthChart = 600;
   if(screenWidth == 320){
     widthChart = 320;
   }
