@@ -645,7 +645,7 @@ input, textarea {
 
 /*Media Script for Responsive theme*/
 
-@media only screen and (max-width: 768px){
+@media only screen and (min-width: 361px) and (max-width: 768px){
     #wrapper{
 	margin: 0 auto;
 	max-width: 100%;
@@ -774,7 +774,7 @@ input, textarea {
     }
 }
 
-@media only screen and (min-width: 320px) and (max-width: 360px){
+@media only screen and (min-width: 321px) and (max-width: 360px){
     #wrapper{
 	margin: 0 auto;
 	max-width: 100%;
