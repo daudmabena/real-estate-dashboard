@@ -380,6 +380,9 @@ function generateChart(monthlyTotal,year){
   else if(screenWidth == 360){
     widthChart = 340;
   }
+  else if(screenWidth == 768){
+    widthChart = 400;
+  }
     $(function () {
         var chart;
         $(document).ready(function() {
