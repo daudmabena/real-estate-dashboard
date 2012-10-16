@@ -660,17 +660,17 @@ input, textarea {
     }
     
     .firstGuageGroup .header, .secondGuageGroup .header{
-	width:367px !important;
+	width:361px !important;
     }
     
     .secondGuageGroup{
 	margin-left: 5px;
     }
     .guage-div{
-	width: 230px !important;
+	width: 224px !important;
     }
     .guage_description{
-	width: 222px !important;
+	width: 216px !important;
     }
     .guage_description_down{
 	width: 145px !important;
