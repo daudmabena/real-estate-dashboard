@@ -727,11 +727,11 @@ input, textarea {
     }
     
     .statistics-box{
-	width:123px;
+	width:140px;
 	margin-left: 10px;
     }
     .guage_description_panel2{
-	width: 115px;
+	width: 132px;
 	margin-left: 10px;
 	font-size: 11px !important
     }
@@ -767,7 +767,7 @@ input, textarea {
 	width: 309px !important;
     }
     .chart-panel{
-	width: 395px !important;
+	width: 429px !important;
 	margin-top: 10px !important;
 	margin-left: 10px !important;
     }
