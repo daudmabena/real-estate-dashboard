@@ -129,12 +129,12 @@ iframe{
     }
     .statistics-box{
 	margin-left: 0px !important;
-	width:287px;
+	width:287px !important;
 	margin-top: 10px !important;
     }
     .guage_description_panel2{
 	margin-left: 0px !important;
-	width: 297px;
+	width: 297px !important;
     }
 }
 
