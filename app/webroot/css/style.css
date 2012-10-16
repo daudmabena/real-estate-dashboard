@@ -663,6 +663,10 @@ input, textarea {
     .firstGuageGroup .header, .secondGuageGroup .header{
 	width: 342px !important;
     }
+    
+    .secondGuageGroup{
+	margin-left: 5px;
+    }
     .guage-div{
 	width: 208px !important;
     }
@@ -673,8 +677,8 @@ input, textarea {
 	width: 142px !important;
     }
     #jGaugeDemo1{
-   height: 114px !important;
-    width: 160px !important;
+	height: 114px !important;
+	width: 160px !important;
     }
     .downstrategy{
 	width: 150px !important;    
