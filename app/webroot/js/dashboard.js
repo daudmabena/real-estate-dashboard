@@ -370,8 +370,13 @@ function getSearchData(urldata,sbttype){
 //    }, "") + "." + p[1];
 //}
 
-alert(screen.width);
+
 function generateChart(monthlyTotal,year){
+  var screenWidth = screen.width;
+  var widthChart = 585;
+  if(screenWidth == 320){
+    widthChart = 290;
+  }
     $(function () {
         var chart;
         $(document).ready(function() {
@@ -382,7 +387,7 @@ function generateChart(monthlyTotal,year){
                     marginBottom: 35,
                     backgroundColor: '#363636',
                     color:'#000',
-                    width: 280
+                    width: widthChart
                 },  
                 title: {
                     text: 'Median Price Over Time',
