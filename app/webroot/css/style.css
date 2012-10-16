@@ -645,6 +645,136 @@ input, textarea {
 
 /*Media Script for Responsive theme*/
 
+@media only screen and (min-width: 767px) and (max-width: 800px){
+    #wrapper{
+	margin: 0 auto;
+	max-width: 100%;
+	padding: 0;
+	width: 940px;
+    }
+    .secondGuageGroup .header, .guage-div, .guage_description{
+    margin-left: 0px !important;
+    }
+    
+    .jgauge{
+	margin-left: 23px !important;
+    }
+    
+    .firstGuageGroup .header, .secondGuageGroup .header{
+	width: 345px !important;
+    }
+    
+    .secondGuageGroup{
+	margin-left: 5px;
+    }
+    .guage-div{
+	width: 208px !important;
+    }
+    .guage_description{
+	width: 200px !important;
+    }
+    .guage_description_down{
+	width: 145px !important;
+    }
+    #jGaugeDemo1{
+	height: 114px !important;
+	width: 160px !important;
+    }
+    .downstrategy{
+	width: 153px !important;    
+    }
+    .downStratergy{
+	padding-left: 50px !important;
+	padding-top: 59px !important;
+    }
+    .upStrategy{
+	padding-top: 76px !important;
+    }
+    .strategyPercentageZip, .strategyPercentageCity{
+	font-size: 26px !important;
+    }
+    .seperator{
+	width: 150px !important;
+    }
+    
+    #soldHome{
+	width: 101.5px !important;
+	margin-left: 10px !important;
+    }
+    
+    #guage_description_panel2{
+	width: 93.5px !important;
+	margin-left: 10px !important;
+    }
+    #soldHomeLastYr{
+	width: 123.5px !important;
+    }
+    #guage_description_panel3{
+	width: 115.5px !important;
+    }
+    #daysOnMarket{
+	margin-left: 7px !important;
+	width: 112.5px !important;
+    }
+    #guage_description_panel4{
+	margin-left: 7px !important;
+	width: 104.5px !important;
+    }
+    #domLastYr{
+	width: 111.5px !important;
+    }
+    #guage_description_panel5{
+	width: 103.5px !important;
+    }
+    
+    .statistics-box{
+	width:123px;
+	margin-left: 10px;
+    }
+    .guage_description_panel2{
+	width: 115px;
+	margin-left: 10px;
+	font-size: 11px !important
+    }
+    
+    .downStratergyOuter{
+    background: url("../img/red_arrow.png") no-repeat scroll 11px 41px transparent !important;
+    padding: 40px 56px 56px 43px;
+    }
+    .statisticsboxHeader{
+	font-size: 12px;
+    }
+    .strategyPercentage{
+	font-size: 20px;
+    }
+    .video-panel{
+	width: 329px !important;
+	margin-top: 10px !important;
+    }
+    iframe{
+	width: 329px !important;
+    }
+    .rssReed{
+	margin-top: 10px !important;
+    }
+    .rssFeed1{
+	width: 144px !important;
+    }
+    .rssFeed2{
+	width: 135px !important;
+	margin-left: 174px !important;
+    }
+    .text-panel{
+	width: 309px !important;
+    }
+    .chart-panel{
+	width: 395px !important;
+	margin-top: 10px !important;
+	margin-left: 10px !important;
+    }
+}
+
+
 @media only screen and (min-width: 361px) and (max-width: 768px){
     #wrapper{
 	margin: 0 auto;
