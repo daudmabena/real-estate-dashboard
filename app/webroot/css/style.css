@@ -696,15 +696,46 @@ input, textarea {
     .seperator{
 	width: 150px !important;
     }
-   /* .statistics-box{
+    .statistics-box{
 	margin-left: 0px !important;
-	width:329px !important;
-	margin-top: 10px !important;
+	width:113px !important;
     }
     .guage_description_panel2{
 	margin-left: 0px !important;
-	width: 321px !important;
-    }*/
+	width: 106px !important;
+    }
+    
+    #soldHome{
+	width: 120.5px !important;
+    }
+    
+    #guage_description_panel2{
+	width: 112.5px !important;
+    }
+    #soldHomeLastYr{
+	width: 115.5px !important;
+    }
+    #guage_description_panel3{
+	width: 107.5px !important;
+    }
+    #daysOnMarket{
+	width: 112.5px !important;
+    }
+    #guage_description_panel4{
+	width: 104.5px !important;
+    }
+    #domLastYr{
+	width: 116.5px !important;
+    }
+    #guage_description_panel5{
+	width: 108.5px !important;
+    }
+    .statisticsboxHeader{
+	font-size: 12px;
+    }
+    .strategyPercentage{
+	font-size: 20px;
+    }
     .video-panel{
 	width: 329px !important;
 	margin-top: 10px !important;
