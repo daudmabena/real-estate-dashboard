@@ -699,16 +699,18 @@ input, textarea {
     
     #soldHome{
 	width: 101.5px !important;
+	margin-left: 10px !important;
     }
     
     #guage_description_panel2{
-	width: 93.5px !important;
+	width: 111.5px !important;
+	margin-left: 10px !important;
     }
     #soldHomeLastYr{
-	width: 120.5px !important;
+	width: 123.5px !important;
     }
     #guage_description_panel3{
-	width: 112.5px !important;
+	width: 111.5px !important;
     }
     #daysOnMarket{
 	margin-left: 7px !important;
@@ -719,19 +721,17 @@ input, textarea {
 	width: 104.5px !important;
     }
     #domLastYr{
-	width: 116.5px !important;
+	width: 111.5px !important;
     }
     #guage_description_panel5{
-	width: 108.5px !important;
+	width: 103.5px !important;
     }
     
     .statistics-box{
-	width:113px ;
-	margin-left: 10px !important;
+	width:120px;
     }
     .guage_description_panel2{
-	width: 106px ;
-	margin-left: 10px !important;
+	width: 113px;
 	font-size: 11px !important
     }
     
