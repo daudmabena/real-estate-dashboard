@@ -399,7 +399,7 @@ $(document).ready(function() {
 	</div>
 	  <div class="bottom-right-panel">
 	    <div class='chart-panel'>
-	      <div id="chart-render" style="width: 200px; height: 250px; margin: 0 auto"></div>
+	      <div id="chart-render" style="min-width: 200px; height: 500px; margin: 0 auto"></div>
 	    </div>
 	  </div>
 	  <div class="bottomleft">
