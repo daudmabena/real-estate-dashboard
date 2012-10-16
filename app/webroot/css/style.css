@@ -136,6 +136,22 @@ iframe{
 	margin-left: 0px !important;
 	width: 279px !important;
     }
+    .video-panel{
+	width: 287px !important;
+	margin-top: 10px !important;
+    }
+    iframe{
+	width: 287px !important;
+    }
+    .rssReed{
+	margin-top: 10px !important;
+    }
+    .rssFeed1{
+	width: 125px !important;
+    }
+    .rssFeed2{
+	width: 115px !important;
+    }
 }
 
 .guage-div{
