@@ -661,7 +661,7 @@ input, textarea {
     }
     
     .firstGuageGroup .header, .secondGuageGroup .header{
-	width: 342px !important;
+	width: 345px !important;
     }
     
     .secondGuageGroup{
@@ -674,14 +674,14 @@ input, textarea {
 	width: 200px !important;
     }
     .guage_description_down{
-	width: 142px !important;
+	width: 145px !important;
     }
     #jGaugeDemo1{
 	height: 114px !important;
 	width: 160px !important;
     }
     .downstrategy{
-	width: 150px !important;    
+	width: 153px !important;    
     }
     .downStratergy{
 	padding-left: 50px !important;
@@ -728,11 +728,11 @@ input, textarea {
     }
     
     .statistics-box{
-	width:120px;
+	width:123px;
 	margin-left: 10px;
     }
     .guage_description_panel2{
-	width: 113px;
+	width: 115px;
 	margin-left: 10px;
 	font-size: 11px !important
     }
@@ -768,7 +768,7 @@ input, textarea {
 	width: 309px !important;
     }
     .chart-panel{
-	width: 392px !important;
+	width: 395px !important;
 	margin-top: 10px !important;
 	margin-left: 10px !important;
     }
