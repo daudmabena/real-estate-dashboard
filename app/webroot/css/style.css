@@ -696,14 +696,6 @@ input, textarea {
     .seperator{
 	width: 150px !important;
     }
-    .statistics-box{
-	margin-left: 0px !important;
-	width:113px !important;
-    }
-    .guage_description_panel2{
-	margin-left: 0px !important;
-	width: 106px !important;
-    }
     
     #soldHome{
 	width: 120.5px !important;
@@ -730,6 +722,17 @@ input, textarea {
     #guage_description_panel5{
 	width: 108.5px !important;
     }
+    
+    .statistics-box{
+	margin-left: 0px !important;
+	width:113px !important;
+    }
+    .guage_description_panel2{
+	margin-left: 0px !important;
+	width: 106px !important;
+    }
+    
+
     .statisticsboxHeader{
 	font-size: 12px;
     }
