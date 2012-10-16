@@ -127,6 +127,15 @@ iframe{
     .seperator{
 	width: 107px !important;
     }
+    .statistics-box{
+	margin-left: 0px !important;
+	width:287px;
+	margin-top: 10px !important;
+    }
+    .guage_description_panel2{
+	margin-left: 0px !important;
+	width: 297px;
+    }
 }
 
 .guage-div{
