@@ -151,6 +151,10 @@ iframe{
     }
     .rssFeed2{
 	width: 115px !important;
+	margin-left: 152px !important;
+    }
+    .text-panel{
+	width: 267px !important;
     }
 }
 
