@@ -80,170 +80,9 @@ iframe{
     float: left;
 }
 
-@media only screen and (max-width: 320px){
-    #wrapper{
-	margin: 0 auto;
-	max-width: 100%;
-	padding: 0;
-    }
-    .secondGuageGroup .header, .guage-div, .guage_description, div.jgauge{
-    margin-left: 0px !important;
-    }
-    .firstGuageGroup .header, .secondGuageGroup .header{
-	width: 267px !important;
-    }
-    .secondGuageGroup .header{
-	margin-top: 10px !important;
-    }
-    .guage-div{
-	width: 176px !important;
-    }
-    .guage_description{
-	width: 168px !important;
-    }
-    .guage_description_down{
-	width: 99px !important;
-    }
-    #jGaugeDemo1{
-	height: 114px !important;
-	margin-left: 2px !important;
-	width: 161px !important;
-    }
-    .downstrategy{
-	width: 107px !important;    
-    }
-    .downStratergy{
-	background: url("../img/red_arrow.png") no-repeat scroll 8px 64px transparent !important;
-	padding: 63px 56px 56px 38px !important;
-    }
-    .upStrategy{
-	background: url("../img/green-arrow.png") no-repeat scroll 11px 78px transparent !important;
-	padding: 77px 53px 52px 43px !important;
-    }
-    .strategyPercentageZip, .strategyPercentageCity{
-	font-size: 20px !important;
-    }
-    .seperator{
-	width: 107px !important;
-    }
-    .statistics-box{
-	margin-left: 0px !important;
-	width:287px !important;
-	margin-top: 10px !important;
-    }
-    .guage_description_panel2{
-	margin-left: 0px !important;
-	width: 279px !important;
-    }
-    .video-panel{
-	width: 287px !important;
-	margin-top: 10px !important;
-    }
-    iframe{
-	width: 287px !important;
-    }
-    .rssReed{
-	margin-top: 10px !important;
-    }
-    .rssFeed1{
-	width: 125px !important;
-    }
-    .rssFeed2{
-	width: 115px !important;
-	margin-left: 152px !important;
-    }
-    .text-panel{
-	width: 267px !important;
-    }
-    .chart-panel{
-	width: 287px !important;
-	margin-top: 130px !important;
-	margin-left: 0px !important;
-    }
-}
 
-@media only screen and (min-width: 320px) and (max-width: 360px){
-    #wrapper{
-	margin: 0 auto;
-	max-width: 100%;
-	padding: 0;
-	width: 940px;
-    }
-    .secondGuageGroup .header, .guage-div, .guage_description, div.jgauge{
-    margin-left: 0px !important;
-    }
-    .firstGuageGroup .header, .secondGuageGroup .header{
-	width: 309px !important;
-    }
-    .secondGuageGroup .header{
-	margin-top: 10px !important;
-    }
-    .guage-div{
-	width: 218px !important;
-    }
-    .guage_description{
-	width: 210px !important;
-    }
-    .guage_description_down{
-	width: 99px !important;
-    }
-    #jGaugeDemo1{
-   height: 114px !important;
-    margin-left: 27px !important;
-    width: 159px !important;
-    }
-    .downstrategy{
-	width: 107px !important;    
-    }
-    .downStratergy{
-	background: url("../img/red_arrow.png") no-repeat scroll 8px 64px transparent !important;
-	padding: 63px 56px 56px 38px !important;
-    }
-    .upStrategy{
-	background: url("../img/green-arrow.png") no-repeat scroll 11px 78px transparent !important;
-	padding: 77px 53px 52px 43px !important;
-    }
-    .strategyPercentageZip, .strategyPercentageCity{
-	font-size: 20px !important;
-    }
-    .seperator{
-	width: 107px !important;
-    }
-    .statistics-box{
-	margin-left: 0px !important;
-	width:329px !important;
-	margin-top: 10px !important;
-    }
-    .guage_description_panel2{
-	margin-left: 0px !important;
-	width: 321px !important;
-    }
-    .video-panel{
-	width: 329px !important;
-	margin-top: 10px !important;
-    }
-    iframe{
-	width: 329px !important;
-    }
-    .rssReed{
-	margin-top: 10px !important;
-    }
-    .rssFeed1{
-	width: 144px !important;
-    }
-    .rssFeed2{
-	width: 135px !important;
-	margin-left: 174px !important;
-    }
-    .text-panel{
-	width: 309px !important;
-    }
-    .chart-panel{
-	width: 326px !important;
-	margin-top: 130px !important;
-	margin-left: 0px !important;
-    }
-}
+
+
 
 .guage-div{
 	width:233px;
@@ -802,4 +641,170 @@ input, textarea {
 
 .searchPanel{
     display: none;
+}
+
+
+@media only screen and (min-width: 320px) and (max-width: 360px){
+    #wrapper{
+	margin: 0 auto;
+	max-width: 100%;
+	padding: 0;
+	width: 940px;
+    }
+    .secondGuageGroup .header, .guage-div, .guage_description, div.jgauge{
+    margin-left: 0px !important;
+    }
+    .firstGuageGroup .header, .secondGuageGroup .header{
+	width: 309px !important;
+    }
+    .secondGuageGroup .header{
+	margin-top: 10px !important;
+    }
+    .guage-div{
+	width: 218px !important;
+    }
+    .guage_description{
+	width: 210px !important;
+    }
+    .guage_description_down{
+	width: 99px !important;
+    }
+    #jGaugeDemo1{
+   height: 114px !important;
+    margin-left: 27px !important;
+    width: 159px !important;
+    }
+    .downstrategy{
+	width: 107px !important;    
+    }
+    .downStratergy{
+	background: url("../img/red_arrow.png") no-repeat scroll 8px 64px transparent !important;
+	padding: 63px 56px 56px 38px !important;
+    }
+    .upStrategy{
+	background: url("../img/green-arrow.png") no-repeat scroll 11px 78px transparent !important;
+	padding: 77px 53px 52px 43px !important;
+    }
+    .strategyPercentageZip, .strategyPercentageCity{
+	font-size: 20px !important;
+    }
+    .seperator{
+	width: 107px !important;
+    }
+    .statistics-box{
+	margin-left: 0px !important;
+	width:329px !important;
+	margin-top: 10px !important;
+    }
+    .guage_description_panel2{
+	margin-left: 0px !important;
+	width: 321px !important;
+    }
+    .video-panel{
+	width: 329px !important;
+	margin-top: 10px !important;
+    }
+    iframe{
+	width: 329px !important;
+    }
+    .rssReed{
+	margin-top: 10px !important;
+    }
+    .rssFeed1{
+	width: 144px !important;
+    }
+    .rssFeed2{
+	width: 135px !important;
+	margin-left: 174px !important;
+    }
+    .text-panel{
+	width: 309px !important;
+    }
+    .chart-panel{
+	width: 326px !important;
+	margin-top: 130px !important;
+	margin-left: 0px !important;
+    }
+}
+
+@media only screen and (max-width: 320px){
+    #wrapper{
+	margin: 0 auto;
+	max-width: 100%;
+	padding: 0;
+    }
+    .secondGuageGroup .header, .guage-div, .guage_description, div.jgauge{
+    margin-left: 0px !important;
+    }
+    .firstGuageGroup .header, .secondGuageGroup .header{
+	width: 267px !important;
+    }
+    .secondGuageGroup .header{
+	margin-top: 10px !important;
+    }
+    .guage-div{
+	width: 176px !important;
+    }
+    .guage_description{
+	width: 168px !important;
+    }
+    .guage_description_down{
+	width: 99px !important;
+    }
+    #jGaugeDemo1{
+	height: 114px !important;
+	margin-left: 2px !important;
+	width: 161px !important;
+    }
+    .downstrategy{
+	width: 107px !important;    
+    }
+    .downStratergy{
+	background: url("../img/red_arrow.png") no-repeat scroll 8px 64px transparent !important;
+	padding: 63px 56px 56px 38px !important;
+    }
+    .upStrategy{
+	background: url("../img/green-arrow.png") no-repeat scroll 11px 78px transparent !important;
+	padding: 77px 53px 52px 43px !important;
+    }
+    .strategyPercentageZip, .strategyPercentageCity{
+	font-size: 20px !important;
+    }
+    .seperator{
+	width: 107px !important;
+    }
+    .statistics-box{
+	margin-left: 0px !important;
+	width:287px !important;
+	margin-top: 10px !important;
+    }
+    .guage_description_panel2{
+	margin-left: 0px !important;
+	width: 279px !important;
+    }
+    .video-panel{
+	width: 287px !important;
+	margin-top: 10px !important;
+    }
+    iframe{
+	width: 287px !important;
+    }
+    .rssReed{
+	margin-top: 10px !important;
+    }
+    .rssFeed1{
+	width: 125px !important;
+    }
+    .rssFeed2{
+	width: 115px !important;
+	margin-left: 152px !important;
+    }
+    .text-panel{
+	width: 267px !important;
+    }
+    .chart-panel{
+	width: 287px !important;
+	margin-top: 130px !important;
+	margin-left: 0px !important;
+    }
 }
