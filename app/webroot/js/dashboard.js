@@ -370,7 +370,7 @@ function getSearchData(urldata,sbttype){
 //    }, "") + "." + p[1];
 //}
 
-
+alert(screen.width);
 function generateChart(monthlyTotal,year){
     $(function () {
         var chart;
