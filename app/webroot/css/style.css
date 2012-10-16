@@ -696,7 +696,7 @@ input, textarea {
     .seperator{
 	width: 150px !important;
     }
-    .statistics-box{
+   /* .statistics-box{
 	margin-left: 0px !important;
 	width:329px !important;
 	margin-top: 10px !important;
@@ -704,7 +704,7 @@ input, textarea {
     .guage_description_panel2{
 	margin-left: 0px !important;
 	width: 321px !important;
-    }
+    }*/
     .video-panel{
 	width: 329px !important;
 	margin-top: 10px !important;
