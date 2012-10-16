@@ -703,14 +703,14 @@ input, textarea {
     }
     
     #guage_description_panel2{
-	width: 111.5px !important;
+	width: 93.5px !important;
 	margin-left: 10px !important;
     }
     #soldHomeLastYr{
 	width: 123.5px !important;
     }
     #guage_description_panel3{
-	width: 111.5px !important;
+	width: 115.5px !important;
     }
     #daysOnMarket{
 	margin-left: 7px !important;
@@ -729,9 +729,11 @@ input, textarea {
     
     .statistics-box{
 	width:120px;
+	margin-left: 10px;
     }
     .guage_description_panel2{
 	width: 113px;
+	margin-left: 10px;
 	font-size: 11px !important
     }
     
