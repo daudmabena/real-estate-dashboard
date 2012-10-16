@@ -643,6 +643,86 @@ input, textarea {
     display: none;
 }
 
+/*Media Script for Responsive theme*/
+
+@media only screen and (min-width: 360px) and (max-width: 768px){
+    #wrapper{
+	margin: 0 auto;
+	max-width: 100%;
+	padding: 0;
+	width: 940px;
+    }
+    .secondGuageGroup .header, .guage-div, .guage_description, div.jgauge{
+    margin-left: 0px !important;
+    }
+    .firstGuageGroup .header, .secondGuageGroup .header{
+	width: 342px !important;
+    }
+    .guage-div{
+	width: 208px !important;
+	margin-left: 10px !important;
+    }
+    .guage_description{
+	width: 200px !important;
+    }
+    .guage_description_down{
+	width: 142px !important;
+    }
+    #jGaugeDemo1{
+   height: 114px !important;
+    width: 160px !important;
+    }
+    .downstrategy{
+	width: 150px !important;    
+    }
+    .downStratergy{
+	padding-left: 50px !important;
+	padding-top: 59px !important;
+    }
+    .upStrategy{
+	padding-top: 76px !important;
+    }
+    .strategyPercentageZip, .strategyPercentageCity{
+	font-size: 26px !important;
+    }
+    .seperator{
+	width: 150px !important;
+    }
+    .statistics-box{
+	margin-left: 0px !important;
+	width:329px !important;
+	margin-top: 10px !important;
+    }
+    .guage_description_panel2{
+	margin-left: 0px !important;
+	width: 321px !important;
+    }
+    .video-panel{
+	width: 329px !important;
+	margin-top: 10px !important;
+    }
+    iframe{
+	width: 329px !important;
+    }
+    .rssReed{
+	margin-top: 10px !important;
+    }
+    .rssFeed1{
+	width: 144px !important;
+    }
+    .rssFeed2{
+	width: 135px !important;
+	margin-left: 174px !important;
+    }
+    .text-panel{
+	width: 309px !important;
+    }
+    .chart-panel{
+	width: 326px !important;
+	margin-top: 130px !important;
+	margin-left: 0px !important;
+    }
+}
 
 @media only screen and (min-width: 320px) and (max-width: 360px){
     #wrapper{
