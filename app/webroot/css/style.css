@@ -652,15 +652,19 @@ input, textarea {
 	padding: 0;
 	width: 940px;
     }
-    .secondGuageGroup .header, .guage-div, .guage_description, div.jgauge{
+    .secondGuageGroup .header, .guage-div, .guage_description{
     margin-left: 0px !important;
     }
+    
+    .jgauge{
+	margin-left: 23px !important;
+    }
+    
     .firstGuageGroup .header, .secondGuageGroup .header{
 	width: 342px !important;
     }
     .guage-div{
 	width: 208px !important;
-	margin-left: 10px !important;
     }
     .guage_description{
 	width: 200px !important;
