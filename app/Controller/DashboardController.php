@@ -120,6 +120,8 @@ class DashboardController extends AppController {
      
      $date = date('Y-m-d',strtotime($datetime2.'-1 year'));
      
+     $date = date('Y-m-d',strtotime($datetime2.'-1 month'));
+     
      echo $date;
      //$lastyear = strtotime("-$daysinterval", strtotime($todate));
      
