@@ -101,20 +101,17 @@ class DashboardController extends AppController {
    
    function getDatePreviousYearandLastPreviousYear($currentYear){
      
-           print_r($currentYear);
      extract($currentYear);
-      
-
       
      $datetime1 = new DateTime($fromdate);
      $datetime2 = new DateTime($todate);
-     
-     echo $datetime1."sdsds ".$datetime2;
      //$interval = $datetime1->diff($datetime2);
      //$daysinterval = $interval->format('%a days');
      
      $daysinterval = round(abs($datetime2->format('U') - $datetime1->format('U')) / (60*60*24));
      $daysinterval = $daysinterval.' days';
+     
+     echo $daysinterval;
 
      
      
@@ -134,7 +131,7 @@ class DashboardController extends AppController {
      
      $lastYears = array($lastYear, $previousLastYear);
      
-     print_r($lastYears);
+     //print_r($lastYears);
      
      return $lastYears;
    }
@@ -165,8 +162,6 @@ class DashboardController extends AppController {
      //$getMonthOfLastYear = date_parse_from_format('Y-m-d',$lastTwoYearsDates[0]);
      $dateGetMonLY = explode('-',$lastTwoYearsDates[0]);
      $getMonthOfLastYear = array('year' => $dateGetMonLY[0],'month' => $dateGetMonLY[1],'day' => $dateGetMonLY[2]);
-     echo "This is month";
-     print_r($getMonthOfLastYear);
 
      /*$parameters['fieldName']           = 'month_year';
      $parameters['selectFieldName']     = 'sold';
