@@ -137,7 +137,7 @@ class Calculation extends AppModel{
                                         WHERE YEAR(".$this->__fieldName.") = '".$this->__fieldValue['year']."'
                                         AND MONTH(".$this->__fieldName.") = '".$this->__fieldValue['month']."' AND ZIP_CODE_AREA='".$this->__extrafieldValue."'";
         
-        echo $lastYearSameMonthgetQuery;
+        //echo $lastYearSameMonthgetQuery;
         
         $lastYearSameMonthgetResult = $this->query($lastYearSameMonthgetQuery);
         
