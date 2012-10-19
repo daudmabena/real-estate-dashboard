@@ -126,16 +126,16 @@ class DashboardController extends AppController {
      //$lastyear = strtotime("-$daysinterval", strtotime($todate));
      
      // format and display the computed date
-     $lastYear = date("Y-m-d", $lastyear);
+     //$lastYear = date("Y-m-d", $lastyear);
       
      //Get Second Prevoius Year from Last Year
-      $previouslastyear = date('Y-m-d',strtotime($lastYear.'-1 year'));
+      $previouslastyear = date('Y-m-d',strtotime($lastyear.'-1 year'));
       //$previouslastyear = strtotime("-$daysinterval", strtotime($lastYear));
      
      // format and display the computed date
      $previousLastYear = date("Y-m-d", $previouslastyear);
      
-     $lastYears = array($lastYear, $previousLastYear);
+     $lastYears = array($lastyear, $previouslastyear);
      
      print_r($lastYears);
      
