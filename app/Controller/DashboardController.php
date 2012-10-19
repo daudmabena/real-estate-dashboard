@@ -122,7 +122,7 @@ class DashboardController extends AppController {
      
      $lastyear = date('Y-m-d',strtotime($lastyear.'-1 month'));
      
-     echo $date;
+     echo $lastyear;
      //$lastyear = strtotime("-$daysinterval", strtotime($todate));
      
      // format and display the computed date
