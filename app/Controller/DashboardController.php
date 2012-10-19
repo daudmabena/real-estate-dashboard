@@ -129,7 +129,7 @@ class DashboardController extends AppController {
      
      $lastYears = array($lastYear, $previousLastYear);
      
-     //print_r($lastYears);
+     print_r($lastYears);
      
      return $lastYears;
    }
