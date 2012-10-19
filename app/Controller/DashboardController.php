@@ -101,7 +101,7 @@ class DashboardController extends AppController {
    
    function getDatePreviousYearandLastPreviousYear($currentYear){
      
-     print_r($currentYear);
+     //print_r($currentYear);
      extract($currentYear);
       
       
@@ -118,25 +118,26 @@ class DashboardController extends AppController {
      
      $datetime2 = date('Y-m-d', $datetime2);
      
-     $date = date('Y-m-d',strtotime($datetime2.'-1 year'));
+     $lastyear = date('Y-m-d',strtotime($datetime2.'-1 year'));
      
-     $date = date('Y-m-d',strtotime($date.'-1 month'));
+     $lastyear = date('Y-m-d',strtotime($lastyear.'-1 month'));
      
-     echo $date;
+     //echo $date;
      //$lastyear = strtotime("-$daysinterval", strtotime($todate));
      
      // format and display the computed date
      $lastYear = date("Y-m-d", $lastyear);
       
      //Get Second Prevoius Year from Last Year
-     $previouslastyear = strtotime("-$daysinterval", strtotime($lastYear));
+      $previouslastyear = date('Y-m-d',strtotime($lastYear.'-1 year'));
+      //$previouslastyear = strtotime("-$daysinterval", strtotime($lastYear));
      
      // format and display the computed date
      $previousLastYear = date("Y-m-d", $previouslastyear);
      
      $lastYears = array($lastYear, $previousLastYear);
      
-     //print_r($lastYears);
+     print_r($lastYears);
      
      return $lastYears;
    }
