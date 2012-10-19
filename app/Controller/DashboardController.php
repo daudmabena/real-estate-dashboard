@@ -106,7 +106,7 @@ class DashboardController extends AppController {
      $datetime1 = new DateTime($fromdate);
      $datetime2 = new DateTime($todate);
      
-     print $datetime1." ".$datetime2;
+     print $datetime1."sdsds ".$datetime2;
      //$interval = $datetime1->diff($datetime2);
      //$daysinterval = $interval->format('%a days');
      
