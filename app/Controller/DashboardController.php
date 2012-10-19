@@ -165,6 +165,7 @@ class DashboardController extends AppController {
      //$getMonthOfLastYear = date_parse_from_format('Y-m-d',$lastTwoYearsDates[0]);
      $dateGetMonLY = explode('-',$lastTwoYearsDates[0]);
      $getMonthOfLastYear = array('year' => $dateGetMonLY[0],'month' => $dateGetMonLY[1],'day' => $dateGetMonLY[2]);
+     echo "This is month".$getMonthOfLastYear;
 
      /*$parameters['fieldName']           = 'month_year';
      $parameters['selectFieldName']     = 'sold';
