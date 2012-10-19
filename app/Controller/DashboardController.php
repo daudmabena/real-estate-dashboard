@@ -108,20 +108,18 @@ class DashboardController extends AppController {
      //$interval = $datetime1->diff($datetime2);
      //$daysinterval = $interval->format('%a days');
      
-     $daysinterval = round(abs($datetime2->format('U') - $datetime1->format('U')) / (60*60*24));
-     $daysinterval = $daysinterval.' days';
+     //$daysinterval = round(abs($datetime2->format('U') - $datetime1->format('U')) / (60*60*24));
+     //$daysinterval = $daysinterval.' days';
      
-     echo $daysinterval;
-
+     //echo $daysinterval;
      
+     $date = date('Y-m-d',strtotime('$datetime2 -1 year'));
      
-     // $date = date('Y-m-d',strtotime('2010-01-01 -1 year'));
-     $lastyear = strtotime("-$daysinterval", strtotime($todate));
+     echo $date;
+     //$lastyear = strtotime("-$daysinterval", strtotime($todate));
      
      // format and display the computed date
      $lastYear = date("Y-m-d", $lastyear);
-      
-      //echo $lastYear;
       
      //Get Second Prevoius Year from Last Year
      $previouslastyear = strtotime("-$daysinterval", strtotime($lastYear));
@@ -131,7 +129,7 @@ class DashboardController extends AppController {
      
      $lastYears = array($lastYear, $previousLastYear);
      
-     print_r($lastYears);
+     //print_r($lastYears);
      
      return $lastYears;
    }
