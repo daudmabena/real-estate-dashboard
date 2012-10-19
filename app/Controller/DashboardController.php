@@ -101,7 +101,10 @@ class DashboardController extends AppController {
    
    function getDatePreviousYearandLastPreviousYear($currentYear){
      
+           print_r($currentYear);
      extract($currentYear);
+      
+
       
      $datetime1 = new DateTime($fromdate);
      $datetime2 = new DateTime($todate);
