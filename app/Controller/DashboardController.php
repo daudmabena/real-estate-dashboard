@@ -220,7 +220,7 @@ class DashboardController extends AppController {
      
      /* This is For Sale For Median in tab_median_price_2years*/
 
-     $args['selectedFieldName'] = 'for_sale_median';
+     $args['selectedFieldName'] = 'sold_median';
      $args['tableName']         = 'tab_median_price_2years';
      $args['fieldName']         = 'zip_code_area';
      $args['fieldValue']        = $zip;
