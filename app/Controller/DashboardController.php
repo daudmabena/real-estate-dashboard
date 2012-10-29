@@ -220,7 +220,7 @@ class DashboardController extends AppController {
      
      $resultDb = $this->Dashboard->getDashboardData($zip);
      
-     print_r($resultDb);
+     //print_r($resultDb);
      //exit;
      
      $finalInputToJson['saleMedianZip'] = '{
@@ -342,7 +342,7 @@ class DashboardController extends AppController {
         ]
     }';
 
-     echo json_encode($finalInputToJson);
+     echo $finalInputToJson;
      $this->autoRender = false;
    }
    
