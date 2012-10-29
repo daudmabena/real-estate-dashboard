@@ -27,7 +27,7 @@ class DashboardImportsController extends AppController {
     *
     */
    public function dashboardImport(){
-        $this->render('dashboardImport');
+     $this->render('dashboardImport');
    }
    
    // {{{ method
@@ -97,10 +97,10 @@ class DashboardImportsController extends AppController {
           $medianForSoldPriceDate = '';
           $medianForSoldPriceSqft = '';
           
-          for ($j = 1; $j <= $data->sheets[0]['numCols']; $j++) {
+          for ($j = 2; $j <= $data->sheets[0]['numCols']; $j++) {
               if(isset($data->sheets[0]['cells'][$i][$j])){
                     // $j represents the column for appropriate tables splitted the $j into the tables.     
-                    if($j>=1 && $j<=5){
+                    if($j>=2 && $j<=5){
                          $medianPrice2Yrs[] = $data->sheets[0]['cells'][$i][$j];
                     }
                     if($j>=6 && $j<=8){
@@ -121,11 +121,14 @@ class DashboardImportsController extends AppController {
                     if($j>=20 && $j<=23){
                          $medianForSoldPriceSqft[] = $data->sheets[0]['cells'][$i][$j];
                     }*/
-              }else{
+               } else{
                     $datas[] = '';
-              }
+               }
           }
 
+          print_r($medianPrice2Yrs);
+          exit;
+          
           array_unshift($medianForSoldPriceSqft, $medianForSoldPriceDate);
 
           if($uploadType == 1){
