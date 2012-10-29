@@ -88,7 +88,7 @@ class DashboardImportsController extends AppController {
      
      //Excel import
      
-     for ($i = 3; $i <= $data->sheets[0]['numRows']; $i++) {
+     for ($i = 3; $i <= 3; $i++) {
           
           $medianPrice2Yrs        = '';
           $medianNoPrice2Yrs      = '';
@@ -126,8 +126,7 @@ class DashboardImportsController extends AppController {
                }
           }
 
-          print_r($medianPrice2Yrs);
-          //exit;
+
           
           //array_unshift($medianForSoldPriceSqft, $medianForSoldPriceDate);
 
@@ -145,7 +144,8 @@ class DashboardImportsController extends AppController {
                $impMedianForSoldPriceSqft = $this->Dashboard->importMedianForSoldPriceSqft('tab_media_sold_sqft', $medianForSoldPriceSqft, $city, $state, $zipcode,$zipcodearea);
           }*/
      }
-     
+               print_r($medianPrice2Yrs);
+          exit;
      if($uploadType == 1){
                if(isset($medianPrice2Yrs) && $medianPrice2Yrs!=''){
                     $impMedianPrice2Yrs = $this->Dashboard->importMedianPrice2Yrs('tab_tmp_dashboard_fields', $medianPrice2Yrs, $city, $state, $zipcodearea,$uploadType);
