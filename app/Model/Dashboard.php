@@ -425,6 +425,12 @@ class Dashboard extends AppModel {
 		}
 		return $result;
 	    }
+	    
+	    function getDashboardData($zip){
+		$query = "SELECT * FROM tab_tmp_dashboard_fields WHERE zipcode='".$zip."'";
+		$result = $this->query($query);
+		return $result;
+	    }
 	
 }
 ?>

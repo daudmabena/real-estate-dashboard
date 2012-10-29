@@ -218,79 +218,35 @@ class DashboardController extends AppController {
      $args = array();
      $finalInputToJson = array();
      
-     /* This is For Sale For Median in tab_median_price_2years*/
+     $resultDb = $this->Dashboard->getDashboardData($zip);
+     
+     print_r($resultDb);
+     exit;
+     
+     $finalInputToJson['saleMedianZip'] = '{
+        "MAXLastYear": "79000",
+        "MINLastYear": "3000",
+        "lastYear": 59016.75,
+        "previousLastYear": 57903.666666667,
+        "MAXPreviousYear": "85000",
+        "MINPreviousYear": "1000",
+        "totalOfLastTwoYearsData": 116920.41666667,
+        "diffFromLastYear": 1113.0833333333,
+        "avg_of_lastYear_and_previousLastYear": 0.019223019843303
+    }';
 
-     $args['selectedFieldName'] = 'sold_median';
-     $args['tableName']         = 'tab_median_price_2years';
-     $args['fieldName']         = 'zip_code_area';
-     $args['fieldValue']        = $zip;
-     $args['inputfromDate']     = $fromDate;
-     $args['inputtoDate']       = $toDate;  
+     $finalInputToJson['saleMedianCity'] = "";
      
+     $finalInputToJson['soldSqft'] = "";
      
-     $finalInputToJson['saleMedianZip'] = $this->index($args);
-     
-     /* This is For Sold for Median in tab_median_price_2years*/
-     
-     $args['selectedFieldName'] = 'for_sale_median';
-     $args['tableName']         = 'tab_median_price_2years';
-     $args['fieldName']         = 'city';
-     $args['fieldValue']        = 'san antonio';
+     $finalInputToJson['soldDifferenceWithLastYearAndCurrentYear'] = "";
 
-     $finalInputToJson['saleMedianCity'] = $this->index($args);
-    // 
-     /* This is For Sold for SQFT in tab_media_sold_sqft*/
-     
-     $args['selectedFieldName'] = 'for_sold_sqft';
-     $args['tableName']         = 'tab_media_sold_sqft';
-     $args['fieldName']         = 'zip_code_area';
-     $args['fieldValue']        = $zip;
+     $finalInputToJson['avgDifferenceWithLastYearAndCurrentYear'] = "";
 
-     
-     $finalInputToJson['soldSqft'] = $this->index($args);
-     
-     /*This is For get the Last Year amount of current month*/
-     
-     $args['fieldName']           = 'month_year';
-     $args['selectedFieldName']   = 'sold';
-     $args['tableName']           = 'tab_median_price_2years';
-     $args['inputfromDate']     = $fromDate;
-     $args['inputtoDate']       = $toDate; 
-     
-     $finalInputToJson['soldDifferenceWithLastYearAndCurrentYear'] = $this->getSameMonthDateOfLastYear($args,$zip);
-     
-     /*This is For get the Last Year Avg amount of current month*/
-     
-     $args['fieldName']           = 'month_year';
-     $args['selectedFieldName']   = 'average_dom';
-     $args['tableName']           = 'tab_median_price_2years';
+     $finalInputToJson['soldAvgSqft'] = "";
 
-     
-     $finalInputToJson['avgDifferenceWithLastYearAndCurrentYear'] = $this->getSameMonthDateOfLastYear($args,$zip);
-     
-     
-    /* This is For Sold for Avg SQFT in tab_media_sold_sqft*/
-     
-     $args['selectedFieldName'] = 'for_sold_avg_sqft';
-     $args['tableName']         = 'tab_media_sold_sqft';
-     $args['fieldName']         = 'zip_code_area';
-     $args['fieldValue']        = $zip;
-     
-     $finalInputToJson['soldAvgSqft'] = $this->index($args);
-     
-     //Group by of Month and YearWise     
-     
-     $args['selectFieldName'] = 'sold_median';
-     $args['tableName']         = 'tab_median_price_2years';
-     $args['fieldName']         = 'month_year';
-     //$args['fieldValue']        = '12207';
-     
-     $this->Calculation->setData($args);
-     $finalInputToJson['groupByMonthAndYearForMedian'] = $this->Calculation->groupBymonthWiseWithDifferentYears($zip);
+     $finalInputToJson['groupByMonthAndYearForMedian'] = "";
 
-     $finalInputToJson['months'] = $months;
-    $finalInputToJson['zipcode'] = $zip;
-     
      echo json_encode($finalInputToJson);
      $this->autoRender = false;
    }
