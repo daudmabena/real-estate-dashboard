@@ -224,7 +224,7 @@ class DashboardController extends AppController {
      //exit;
      $finalInputToJson = "{";
      
-     $finalInputToJson .= "saleMedianZip".":".'{
+     $finalInputToJson .= '"'."saleMedianZip".'"'.":".'{
         "MAXLastYear": "'.$resultDb[0]['tab_tmp_dashboard_fields']['median_max'].'",
         "MINLastYear": "'.$resultDb[0]['tab_tmp_dashboard_fields']['median_min'].'",
         "lastYear": "'.$resultDb[0]['tab_tmp_dashboard_fields']['median_price_avg_last_six_months'].'",
@@ -236,7 +236,7 @@ class DashboardController extends AppController {
         "avg_of_lastYear_and_previousLastYear": "'.$resultDb[0]['tab_tmp_dashboard_fields']['median_change_percent'].'"
     },';
 
-     $finalInputToJson .= "saleMedianCity".":".'{
+     $finalInputToJson .= '"'."saleMedianCity".'"'.":".'{
         "MAXLastYear": "'.$resultDb[0]['tab_tmp_dashboard_fields']['san_antonio_max_median'].'",
         "MINLastYear": "'.$resultDb[0]['tab_tmp_dashboard_fields']['san_antonio_min_median'].'",
         "lastYear": "'.$resultDb[0]['tab_tmp_dashboard_fields']['san_antonio_median_last_six_months'].'",
@@ -248,7 +248,7 @@ class DashboardController extends AppController {
         "avg_of_lastYear_and_previousLastYear": "'.$resultDb[0]['tab_tmp_dashboard_fields']['SA_median_change_persent'].'"
     },';
      
-     $finalInputToJson .= "soldSqft".":".'{
+     $finalInputToJson .= '"'."soldSqft".'"'.":".'{
         "MAXLastYear": "",
         "MINLastYear": "",
         "lastYear": "$'.$resultDb[0]['tab_tmp_dashboard_fields']['avg_ft_last_six_month'].'",
@@ -260,21 +260,21 @@ class DashboardController extends AppController {
         "avg_of_lastYear_and_previousLastYear": 0.83333333333333
     },';
      
-     $finalInputToJson .= "soldDifferenceWithLastYearAndCurrentYear".":".'{
+     $finalInputToJson .= '"'."soldDifferenceWithLastYearAndCurrentYear".'"'.":".'{
         "currentYear": "'.$resultDb[0]['tab_tmp_dashboard_fields']['sold_homes'].'",
         "lastYear": "'.$resultDb[0]['tab_tmp_dashboard_fields']['sold_homes_same_period_last_yr'].'",
         "difference": "'.$resultDb[0]['tab_tmp_dashboard_fields']['sold_homes_incre_or_decre'].'",
         "changes": ""
     },';
 
-     $finalInputToJson .= "avgDifferenceWithLastYearAndCurrentYear".":".'{
+     $finalInputToJson .= '"'."avgDifferenceWithLastYearAndCurrentYear".'"'.":".'{
         "currentYear": "'.$resultDb[0]['tab_tmp_dashboard_fields']['avg_days_on_market'].'",
         "lastYear": "'.$resultDb[0]['tab_tmp_dashboard_fields']['avg_days_on_market_same_period_last_yr'].'",
         "difference": "5",
         "changes": 0.052083333333333
     },';
 
-     $finalInputToJson .= "soldAvgSqft".":".'{
+     $finalInputToJson .= '"'."soldAvgSqft".'"'.":".'{
         "MAXLastYear": "3384",
         "MINLastYear": "2969",
         "lastYear":  "'.$resultDb[0]['tab_tmp_dashboard_fields']['avg_home_size_last_six_months'].'",
@@ -286,7 +286,7 @@ class DashboardController extends AppController {
         "avg_of_lastYear_and_previousLastYear": 0.013517622667588
     },';
 
-     $finalInputToJson .= "groupByMonthAndYearForMedian". ":" .'{
+     $finalInputToJson .= '"'."groupByMonthAndYearForMedian".'"'.":" .'{
         "monthlytotal": [
             78272,
             78894,
