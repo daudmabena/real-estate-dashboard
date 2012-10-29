@@ -75,7 +75,6 @@ class Dashboard extends AppModel {
 					'$medianPrice2Yrs[16]',
 					'$medianPrice2Yrs[17]',
 					'$medianPrice2Yrs[18]',
-					'$medianPrice2Yrs[19]',
 					'$zipcodearea')";
     
 		    $rs = $this->query($query);
