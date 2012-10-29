@@ -256,7 +256,7 @@ class DashboardController extends AppController {
      
      $finalInputToJson['groupByMonthAndYearForMedian'] = $this->Calculation->groupBymonthWiseWithDifferentYears($zip);
 
-     echo $finalInputToJson;
+      echo json_encode($finalInputToJson);
      $this->autoRender = false;
    }
    
