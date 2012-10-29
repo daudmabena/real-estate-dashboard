@@ -88,7 +88,7 @@ class DashboardImportsController extends AppController {
      
      //Excel import
      
-     for ($i = 2; $i <= $data->sheets[0]['numRows']; $i++) {
+     for ($i = 3; $i <= $data->sheets[0]['numRows']; $i++) {
           
           $medianPrice2Yrs        = '';
           $medianNoPrice2Yrs      = '';
