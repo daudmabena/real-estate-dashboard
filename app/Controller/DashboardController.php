@@ -254,7 +254,7 @@ class DashboardController extends AppController {
                                                 "avg_of_lastYear_and_previousLastYear" => $resultDb[0]['tab_tmp_dashboard_fields']['SA_median_change_persent'],
                                                 "MINLastYear" => $resultDb[0]['tab_tmp_dashboard_fields']['san_antonio_min_median']);
      
-     $finalInputToJson['groupByMonthAndYearForMedian'] = $this->Calculation->groupBymonthWiseWithDifferentYears($zip);
+     //$finalInputToJson['groupByMonthAndYearForMedian'] = $this->Calculation->groupBymonthWiseWithDifferentYears($zip);
 
       echo json_encode($finalInputToJson);
      $this->autoRender = false;
