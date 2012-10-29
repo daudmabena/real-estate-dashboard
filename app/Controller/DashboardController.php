@@ -222,126 +222,39 @@ class DashboardController extends AppController {
      
      //print_r($resultDb);
      //exit;
-     $finalInputToJson = "{";
+     $finalInputToJson['saleMedianZip'] = array("lastYear" => $resultDb[0]['tab_tmp_dashboard_fields']['median_price_avg_last_six_months'],
+                                                "previousLastYear" => $resultDb[0]['tab_tmp_dashboard_fields']['median_price_avg_previous_six_months'],
+                                                "MAXLastYear" => $resultDb[0]['tab_tmp_dashboard_fields']['median_max'],
+                                                "avg_of_lastYear_and_previousLastYear" => $resultDb[0]['tab_tmp_dashboard_fields']['median_change_percent'],
+                                                "MINLastYear" => $resultDb[0]['tab_tmp_dashboard_fields']['median_min']);
+
+     $finalInputToJson['saleMedianCity'] =  array("lastYear" => $resultDb[0]['tab_tmp_dashboard_fields']['san_antonio_median_last_six_months'],
+                                                "previousLastYear" => $resultDb[0]['tab_tmp_dashboard_fields']['san_antonio_median_previous_six_months'],
+                                                "MAXLastYear" => $resultDb[0]['tab_tmp_dashboard_fields']['san_antonio_max_median'],
+                                                "avg_of_lastYear_and_previousLastYear" => $resultDb[0]['tab_tmp_dashboard_fields']['SA_median_change_persent'],
+                                                "MINLastYear" => $resultDb[0]['tab_tmp_dashboard_fields']['san_antonio_min_median']);
+
+     $finalInputToJson['soldSqft'] = array("lastYear" => $resultDb[0]['tab_tmp_dashboard_fields']['avg_ft_last_six_month'],
+                                                "previousLastYear" => $resultDb[0]['tab_tmp_dashboard_fields']['avg_ft_previous_six_month'],
+                                                "MAXLastYear" => $resultDb[0]['tab_tmp_dashboard_fields']['san_antonio_max_median'],
+                                                "avg_of_lastYear_and_previousLastYear" => $resultDb[0]['tab_tmp_dashboard_fields']['SA_median_change_persent'],
+                                                "MINLastYear" => $resultDb[0]['tab_tmp_dashboard_fields']['san_antonio_min_median']);
      
-     $finalInputToJson .= '"'."saleMedianZip".'"'.":".'{
-        "MAXLastYear": "'.$resultDb[0]['tab_tmp_dashboard_fields']['median_max'].'",
-        "MINLastYear": "'.$resultDb[0]['tab_tmp_dashboard_fields']['median_min'].'",
-        "lastYear": "'.$resultDb[0]['tab_tmp_dashboard_fields']['median_price_avg_last_six_months'].'",
-        "previousLastYear": "'.$resultDb[0]['tab_tmp_dashboard_fields']['median_price_avg_previous_six_months'].'",
-        "MAXPreviousYear": "",
-        "MINPreviousYear": "",
-        "totalOfLastTwoYearsData": ,
-        "diffFromLastYear": ,
-        "avg_of_lastYear_and_previousLastYear": "'.$resultDb[0]['tab_tmp_dashboard_fields']['median_change_percent'].'"
-    },';
-
-     $finalInputToJson .= '"'."saleMedianCity".'"'.":".'{
-        "MAXLastYear": "'.$resultDb[0]['tab_tmp_dashboard_fields']['san_antonio_max_median'].'",
-        "MINLastYear": "'.$resultDb[0]['tab_tmp_dashboard_fields']['san_antonio_min_median'].'",
-        "lastYear": "'.$resultDb[0]['tab_tmp_dashboard_fields']['san_antonio_median_last_six_months'].'",
-        "previousLastYear": "'.$resultDb[0]['tab_tmp_dashboard_fields']['san_antonio_median_previous_six_months'].'",
-        "MAXPreviousYear": null,
-        "MINPreviousYear": null,
-        "totalOfLastTwoYearsData": 0,
-        "diffFromLastYear": 0,
-        "avg_of_lastYear_and_previousLastYear": "'.$resultDb[0]['tab_tmp_dashboard_fields']['SA_median_change_persent'].'"
-    },';
+     $finalInputToJson['soldDifferenceWithLastYearAndCurrentYear'] = array("currentYear" => $resultDb[0]['tab_tmp_dashboard_fields']['sold_homes'],
+                                                                           "lastYear" => $resultDb[0]['tab_tmp_dashboard_fields']['sold_homes_same_period_last_yr'],
+                                                                           );
      
-     $finalInputToJson .= '"'."soldSqft".'"'.":".'{
-        "MAXLastYear": "",
-        "MINLastYear": "",
-        "lastYear": "$'.$resultDb[0]['tab_tmp_dashboard_fields']['avg_ft_last_six_month'].'",
-        "previousLastYear": 3,
-        "MAXPreviousYear": "8",
-        "MINPreviousYear": "0",
-        "totalOfLastTwoYearsData": 8.5,
-        "diffFromLastYear": 2.5,
-        "avg_of_lastYear_and_previousLastYear": 0.83333333333333
-    },';
+     $finalInputToJson['avgDifferenceWithLastYearAndCurrentYear'] = array("currentYear" => $resultDb[0]['tab_tmp_dashboard_fields']['avg_days_on_market'],
+                                                                           "lastYear" => $resultDb[0]['tab_tmp_dashboard_fields']['avg_days_on_market_same_period_last_yr'],
+                                                                           );
      
-     $finalInputToJson .= '"'."soldDifferenceWithLastYearAndCurrentYear".'"'.":".'{
-        "currentYear": "'.$resultDb[0]['tab_tmp_dashboard_fields']['sold_homes'].'",
-        "lastYear": "'.$resultDb[0]['tab_tmp_dashboard_fields']['sold_homes_same_period_last_yr'].'",
-        "difference": "'.$resultDb[0]['tab_tmp_dashboard_fields']['sold_homes_incre_or_decre'].'",
-        "changes": ""
-    },';
-
-     $finalInputToJson .= '"'."avgDifferenceWithLastYearAndCurrentYear".'"'.":".'{
-        "currentYear": "'.$resultDb[0]['tab_tmp_dashboard_fields']['avg_days_on_market'].'",
-        "lastYear": "'.$resultDb[0]['tab_tmp_dashboard_fields']['avg_days_on_market_same_period_last_yr'].'",
-        "difference": "5",
-        "changes": 0.052083333333333
-    },';
-
-     $finalInputToJson .= '"'."soldAvgSqft".'"'.":".'{
-        "MAXLastYear": "3384",
-        "MINLastYear": "2969",
-        "lastYear":  "'.$resultDb[0]['tab_tmp_dashboard_fields']['avg_home_size_last_six_months'].'",
-        "previousLastYear": 3014.5833333333,
-        "MAXPreviousYear": "3176",
-        "MINPreviousYear": "2854",
-        "totalOfLastTwoYearsData": 6069.9166666667,
-        "diffFromLastYear": 40.75,
-        "avg_of_lastYear_and_previousLastYear": 0.013517622667588
-    },';
-
-     $finalInputToJson .= '"'."groupByMonthAndYearForMedian".'"'.":" .'{
-        "monthlytotal": [
-            78272,
-            78894,
-            41900,
-            1000,
-            75000,
-            40000,
-            85000,
-            45000,
-            74000,
-            68000,
-            37000,
-            64050,
-            85000,
-            69500,
-            79000,
-            65442,
-            37500,
-            3000,
-            70000,
-            66500,
-            58000,
-            71814,
-            71000,
-            76450,
-            39995
-        ],
-        "monthYear": [
-            "10 SEP",
-            "10 OCT",
-            "10 NOV",
-            "10 DEC",
-            "11 JAN",
-            "11 FEB",
-            "11 MAR",
-            "11 APR",
-            "11 MAY",
-            "11 JUN",
-            "11 JUL",
-            "11 AUG",
-            "11 SEP",
-            "11 OCT",
-            "11 NOV",
-            "11 DEC",
-            "12 JAN",
-            "12 FEB",
-            "12 MAR",
-            "12 APR",
-            "12 MAY",
-            "12 JUN",
-            "12 JUL",
-            "12 AUG",
-            "12 SEP"
-        ]
-    }}';
+     $finalInputToJson['soldAvgSqft'] = array("lastYear" => $resultDb[0]['tab_tmp_dashboard_fields']['avg_home_size_last_six_months'],
+                                                "previousLastYear" => $resultDb[0]['tab_tmp_dashboard_fields']['avg_ft_previous_six_month'],
+                                                "MAXLastYear" => $resultDb[0]['tab_tmp_dashboard_fields']['san_antonio_max_median'],
+                                                "avg_of_lastYear_and_previousLastYear" => $resultDb[0]['tab_tmp_dashboard_fields']['SA_median_change_persent'],
+                                                "MINLastYear" => $resultDb[0]['tab_tmp_dashboard_fields']['san_antonio_min_median']);
+     
+     $finalInputToJson['groupByMonthAndYearForMedian'] = $this->Calculation->groupBymonthWiseWithDifferentYears($zip);
 
      echo $finalInputToJson;
      $this->autoRender = false;
