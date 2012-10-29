@@ -36,8 +36,47 @@ class Dashboard extends AppModel {
 
 		if($uploadType == 1){
 		    $query = "INSERT INTO $tableName (
-				for_sale_median, sold_median, sold, average_dom, month_year, zip_code_area)
-				VALUES('$forSaleMedian', '$soldMedian', '$medianPrice2Yrs[3]', '$medianPrice2Yrs[4]', '$medianPrice2Yrs[0]', '$zipcodearea')";
+				`median_min`,
+				`median_max`,
+				`median_price_avg_last_six_months`,
+				`median_price_avg_previous_six_months`,
+				`median_change_percent`,
+				`san_antonio_min_median`,
+				`san_antonio_max_median`,
+				`san_antonio_median_last_six_months`,
+				`san_antonio_median_previous_six_months`,
+				`SA_median_change_persent`,
+				`avg_ft_last_six_month`,
+				`avg_ft_previous_six_month`,
+				`sold_homes`,
+				`sold_homes_same_period_last_yr`,
+				`sold_homes_incre_or_decre`,
+				`avg_days_on_market`,
+				`avg_days_on_market_same_period_last_yr`,
+				`avg_days_on_market_incre_or_decre`,
+				`avg_home_size_last_six_months`,
+				`zipcode`)
+				VALUES('$medianPrice2Yrs[0]',
+					'$medianPrice2Yrs[1]',
+					'$medianPrice2Yrs[2]',
+					'$medianPrice2Yrs[3]',
+					'$medianPrice2Yrs[4]',
+					'$medianPrice2Yrs[5]',
+					'$medianPrice2Yrs[6]',
+					'$medianPrice2Yrs[7]',
+					'$medianPrice2Yrs[8]',
+					'$medianPrice2Yrs[9]',
+					'$medianPrice2Yrs[10]',
+					'$medianPrice2Yrs[11]',
+					'$medianPrice2Yrs[12]',
+					'$medianPrice2Yrs[13]',
+					'$medianPrice2Yrs[14]',
+					'$medianPrice2Yrs[15]',
+					'$medianPrice2Yrs[16]',
+					'$medianPrice2Yrs[17]',
+					'$medianPrice2Yrs[18]',
+					'$medianPrice2Yrs[19]',
+					'$zipcodearea')";
     
 		    $rs = $this->query($query);
 		}
