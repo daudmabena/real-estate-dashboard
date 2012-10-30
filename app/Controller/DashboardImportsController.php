@@ -91,64 +91,123 @@ class DashboardImportsController extends AppController {
      //print_r($data->sheets);
      //exit;
      
-     for ($i = 2; $i <= $data->sheets[0]['numRows']; $i++) {
-          
-          $medianPrice2Yrs        = '';
-          $medianNoPrice2Yrs      = '';
-          $median1Price2Yrs       = '';
-          $medianForSalePriceSqft = '';
-          $medianForSoldPriceDate = '';
-          $medianForSoldPriceSqft = '';
-          
-          for ($j = 1; $j <= $data->sheets[0]['numCols']; $j++) {
-              if(isset($data->sheets[0]['cells'][$i][$j])){
-                    // $j represents the column for appropriate tables splitted the $j into the tables.     
-                    if($j>=1 && $j<=5){
-                         $medianPrice2Yrs[] = $data->sheets[0]['cells'][$i][$j];
-                    }
-                    if($j>=6 && $j<=8){
-                         $medianForSoldPriceSqft[] = $data->sheets[0]['cells'][$i][$j];
-                    }
-                    /*if($j>=7 && $j<=10){
-                         $medianNoPrice2Yrs[] = $data->sheets[0]['cells'][$i][$j];
-                    }
-                    if($j>=11 && $j<=14){
-                         $median1Price2Yrs[] = $data->sheets[0]['cells'][$i][$j];
-                    }
-                    if($j>=15 && $j<=19){
-                         $medianForSalePriceSqft[] = $data->sheets[0]['cells'][$i][$j];
-                    }
-                    if($j==15){
-                         $medianForSoldPriceDate = $data->sheets[0]['cells'][$i][$j];
-                    }
-                    if($j>=20 && $j<=23){
-                         $medianForSoldPriceSqft[] = $data->sheets[0]['cells'][$i][$j];
-                    }*/
-              }else{
-                    $datas[] = '';
-              }
-          }
-
-          array_unshift($medianForSoldPriceSqft, $medianForSoldPriceDate);
-
-          if($uploadType == 3){
-               if(isset($medianPrice2Yrs) && $medianPrice2Yrs!=''){
-                    $impMedianPrice2Yrs = $this->Dashboard->importMedianPrice2Yrs('tab_tmp_chart_dashboard', $medianPrice2Yrs, $city, $state, $zipcodearea,$uploadType);
+     if($uploadType == 3){
+     
+          for ($i = 2; $i <= $data->sheets[0]['numRows']; $i++) {
+               
+               $medianPrice2Yrs        = '';
+               $medianNoPrice2Yrs      = '';
+               $median1Price2Yrs       = '';
+               $medianForSalePriceSqft = '';
+               $medianForSoldPriceDate = '';
+               $medianForSoldPriceSqft = '';
+               
+               for ($j = 1; $j <= $data->sheets[0]['numCols']; $j++) {
+                   if(isset($data->sheets[0]['cells'][$i][$j])){
+                         // $j represents the column for appropriate tables splitted the $j into the tables.     
+                         if($j>=1 && $j<=5){
+                              $medianPrice2Yrs[] = $data->sheets[0]['cells'][$i][$j];
+                         }
+                         if($j>=6 && $j<=8){
+                              $medianForSoldPriceSqft[] = $data->sheets[0]['cells'][$i][$j];
+                         }
+                         /*if($j>=7 && $j<=10){
+                              $medianNoPrice2Yrs[] = $data->sheets[0]['cells'][$i][$j];
+                         }
+                         if($j>=11 && $j<=14){
+                              $median1Price2Yrs[] = $data->sheets[0]['cells'][$i][$j];
+                         }
+                         if($j>=15 && $j<=19){
+                              $medianForSalePriceSqft[] = $data->sheets[0]['cells'][$i][$j];
+                         }
+                         if($j==15){
+                              $medianForSoldPriceDate = $data->sheets[0]['cells'][$i][$j];
+                         }
+                         if($j>=20 && $j<=23){
+                              $medianForSoldPriceSqft[] = $data->sheets[0]['cells'][$i][$j];
+                         }*/
+                   }else{
+                         $datas[] = '';
+                   }
                }
-          }
 
-          /*if(isset($medianNoPrice2Yrs) && $medianNoPrice2Yrs!=''){
-               $impMedianNoPrice2Yrs = $this->Dashboard->importMedianNoPrice2Yrs('tab_median_noprice_2years', $medianNoPrice2Yrs, $city, $state, $zipcode,$zipcodearea);
+               array_unshift($medianForSoldPriceSqft, $medianForSoldPriceDate);
+
+               
+                    if(isset($medianPrice2Yrs) && $medianPrice2Yrs!=''){
+                         $impMedianPrice2Yrs = $this->Dashboard->importMedianPrice2Yrs('tab_tmp_chart_dashboard', $medianPrice2Yrs, $city, $state, $zipcodearea,$uploadType);
+                    }
+               
+
+               /*if(isset($medianNoPrice2Yrs) && $medianNoPrice2Yrs!=''){
+                    $impMedianNoPrice2Yrs = $this->Dashboard->importMedianNoPrice2Yrs('tab_median_noprice_2years', $medianNoPrice2Yrs, $city, $state, $zipcode,$zipcodearea);
+               }
+               if(isset($median1Price2Yrs) && $median1Price2Yrs!=''){
+                    $impMedian1Price2Yrs = $this->Dashboard->importMedian1Price2Yrs('tab_median_1price_2years', $median1Price2Yrs, $city, $state, $zipcode,$zipcodearea);
+               }
+               if(isset($medianForSalePriceSqft) && $medianForSalePriceSqft!=''){
+                    $impMedianForSalePriceSqft = $this->Dashboard->importMedianForSalePriceSqft('tab_media_forsale_sqft', $medianForSalePriceSqft, $city, $state, $zipcode,$zipcodearea);
+               }
+               if(isset($medianForSoldPriceSqft) && $medianForSoldPriceSqft!=''){
+                    $impMedianForSoldPriceSqft = $this->Dashboard->importMedianForSoldPriceSqft('tab_media_sold_sqft', $medianForSoldPriceSqft, $city, $state, $zipcode,$zipcodearea);
+               }*/
           }
-          if(isset($median1Price2Yrs) && $median1Price2Yrs!=''){
-               $impMedian1Price2Yrs = $this->Dashboard->importMedian1Price2Yrs('tab_median_1price_2years', $median1Price2Yrs, $city, $state, $zipcode,$zipcodearea);
+     }
+     else if($uploadType == 1){
+     
+          for ($i = 2; $i <= 3; $i++) {
+               
+               $medianPrice2Yrs        = '';
+               $medianNoPrice2Yrs      = '';
+               $median1Price2Yrs       = '';
+               $medianForSalePriceSqft = '';
+               $medianForSoldPriceDate = '';
+               $medianForSoldPriceSqft = '';
+               
+               for ($j = 1; $j <= $data->sheets[0]['numCols']; $j++) {
+                   if(isset($data->sheets[0]['cells'][$i][$j])){
+                         // $j represents the column for appropriate tables splitted the $j into the tables.     
+                         //if($j>=1 && $j<=5){
+                              $medianPrice2Yrs[] = $data->sheets[0]['cells'][$i][$j];
+                         //}
+                        // if($j>=6 && $j<=8){
+                              //$medianForSoldPriceSqft[] = $data->sheets[0]['cells'][$i][$j];
+                        // }
+                         /*if($j>=7 && $j<=10){
+                              $medianNoPrice2Yrs[] = $data->sheets[0]['cells'][$i][$j];
+                         }
+                         if($j>=11 && $j<=14){
+                              $median1Price2Yrs[] = $data->sheets[0]['cells'][$i][$j];
+                         }
+                         if($j>=15 && $j<=19){
+                              $medianForSalePriceSqft[] = $data->sheets[0]['cells'][$i][$j];
+                         }
+                         if($j==15){
+                              $medianForSoldPriceDate = $data->sheets[0]['cells'][$i][$j];
+                         }
+                         if($j>=20 && $j<=23){
+                              $medianForSoldPriceSqft[] = $data->sheets[0]['cells'][$i][$j];
+                         }*/
+                   }else{
+                         $datas[] = '';
+                   }
+               }
+
+               array_unshift($medianForSoldPriceSqft, $medianForSoldPriceDate);
+
+               /*if(isset($medianNoPrice2Yrs) && $medianNoPrice2Yrs!=''){
+                    $impMedianNoPrice2Yrs = $this->Dashboard->importMedianNoPrice2Yrs('tab_median_noprice_2years', $medianNoPrice2Yrs, $city, $state, $zipcode,$zipcodearea);
+               }
+               if(isset($median1Price2Yrs) && $median1Price2Yrs!=''){
+                    $impMedian1Price2Yrs = $this->Dashboard->importMedian1Price2Yrs('tab_median_1price_2years', $median1Price2Yrs, $city, $state, $zipcode,$zipcodearea);
+               }
+               if(isset($medianForSalePriceSqft) && $medianForSalePriceSqft!=''){
+                    $impMedianForSalePriceSqft = $this->Dashboard->importMedianForSalePriceSqft('tab_media_forsale_sqft', $medianForSalePriceSqft, $city, $state, $zipcode,$zipcodearea);
+               }
+               if(isset($medianForSoldPriceSqft) && $medianForSoldPriceSqft!=''){
+                    $impMedianForSoldPriceSqft = $this->Dashboard->importMedianForSoldPriceSqft('tab_media_sold_sqft', $medianForSoldPriceSqft, $city, $state, $zipcode,$zipcodearea);
+               }*/
           }
-          if(isset($medianForSalePriceSqft) && $medianForSalePriceSqft!=''){
-               $impMedianForSalePriceSqft = $this->Dashboard->importMedianForSalePriceSqft('tab_media_forsale_sqft', $medianForSalePriceSqft, $city, $state, $zipcode,$zipcodearea);
-          }
-          if(isset($medianForSoldPriceSqft) && $medianForSoldPriceSqft!=''){
-               $impMedianForSoldPriceSqft = $this->Dashboard->importMedianForSoldPriceSqft('tab_media_sold_sqft', $medianForSoldPriceSqft, $city, $state, $zipcode,$zipcodearea);
-          }*/
      }
           //print_r($medianPrice2Yrs);
           //exit;
