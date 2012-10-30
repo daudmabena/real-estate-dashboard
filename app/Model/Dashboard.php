@@ -94,7 +94,7 @@ class Dashboard extends AppModel {
 		    $query = "INSERT INTO $tableName (
 			    `price_per_sqft_over_time`,
 			    `price`,
-			    `solds`)
+			    `solds`,`zipcode`)
 				VALUES('$medianPrice2Yrs[0]',
 					'$medianPrice2Yrs[1]',
 					'$medianPrice2Yrs[2]',
