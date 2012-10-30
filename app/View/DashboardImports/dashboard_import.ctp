@@ -107,7 +107,7 @@ $(document).ready(function() {
 	$('.zipcodeholder').hide();
 	$('#sbtbutton').show();
       }
-      if(options==3){
+      else if(options==3){
 	$('.zipcodeholder').show();
 	$('.uploadfile').show();
 	$('.cityholder').hide();
