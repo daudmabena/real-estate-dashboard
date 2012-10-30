@@ -163,6 +163,7 @@ class DashboardImportsController extends AppController {
      else if($uploadType == 3){
           if(isset($medianPrice2Yrs) && $medianPrice2Yrs!=''){
                print_r($medianPrice2Yrs);
+               exit;
                //$impMedianPrice2Yrs = $this->Dashboard->importMedianPrice2Yrs('tab_tmp_dashboard_fields', $medianPrice2Yrs, $city, $state, $zipcodearea,$uploadType);
           }
      }
