@@ -95,7 +95,7 @@ class Calculation extends AppModel{
         
         $monthName = array("1"=>"JAN","2"=>"FEB","3"=>"MAR","4"=>"APR","5"=>"MAY","6"=>"JUN","7"=>"JUL","8"=>"AUG","9"=>"SEP","10"=>"OCT","11"=>"NOV","12"=>"DEC");
         
-        $medianPriceWithGroupbyMonthAndYearquery = "SELECT sum(".$this->__selectFiledName.") as MONTHLYTOTAL, month(".$this->__fieldName.") as MONTH, 
+        $medianPriceWithGroupbyMonthAndYearquery = "SELECT sum(".$this->__selectFiledName.") as MONTHLYTOTAL,sum(price) as MonthlyPrice, month(".$this->__fieldName.") as MONTH, 
                                     year(".$this->__fieldName.") as YEAR FROM ".$this->__tableName." WHERE zipcode='".$zip."'
                                     GROUP BY month(".$this->__fieldName.") , year(".$this->__fieldName.") ORDER BY ".$this->__fieldName;
         
@@ -107,6 +107,7 @@ class Calculation extends AppModel{
             $yearVal = substr($medianPriceWithGroupbyMonthAndYearResult[$i][0]['YEAR'], 2);
             $medianPriceFinal['monthlytotal'][] = (int)$medianPriceWithGroupbyMonthAndYearResult[$i][0]['MONTHLYTOTAL'];
             $medianPriceFinal['monthYear'][]    = $yearVal." ".$monthName[$medianPriceWithGroupbyMonthAndYearResult[$i][0]['MONTH']];
+            $medianPriceFinal['monthPrice'][] = (int)$medianPriceWithGroupbyMonthAndYearResult[$i][0]['MonthlyPrice'];
         }
         return $medianPriceFinal;
     }
