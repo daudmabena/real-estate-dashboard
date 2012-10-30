@@ -247,7 +247,7 @@ $(document).ready(function() {
 			  <span class='saleMedianZipValue'></span>
 			</div>
 		</div>
-		<div class='guage_description' style='margin-left:0px;'>Median Sold Price Last 12 month Avg</div>
+		<div class='guage_description' style='margin-left:0px;'>Median Sold Price Avg Over Last 6 Mos.</div>
 	    </div>
 	    <div class="guagePercentage">
 		<div class='downstrategy'>
@@ -257,7 +257,7 @@ $(document).ready(function() {
 			  <span class='strategyPercentageZip'></span>
 			</div>
 		</div>
-		<div class='guage_description_down'>Previous 12 mos. <span class='prev12MonStrategy'></span></div>
+		<div class='guage_description_down'>Previous 6 Month Period : <span class='prev12MonStrategy'></span></div>
 	    </div>
 	  </div>
 	  <div class="secondGuageGroup">
