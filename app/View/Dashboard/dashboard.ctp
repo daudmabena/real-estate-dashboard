@@ -332,7 +332,7 @@ $(document).ready(function() {
 		<div class="subcalc">
 		<div class='statistics-box' id="daysOnMarket">
 		  <div class="statisticsboxHeader">
-		    Days on Market
+		    Avg. Days on Market
 		  </div>
 		    <div class="upStrategyOuter" id="fourStrategyOuter">
 			  <span id='avgDifferenceWithLastYearAndCurrentYear' class="strategyPercentage"></span>
@@ -344,7 +344,7 @@ $(document).ready(function() {
 		<div class="subcalc">
 		<div class='statistics-box' id="domLastYr">
 		  <div class="statisticsboxHeader" id="domLastYrLabel">
-		    DOM Last Yr.
+		    Avg. DOM Last Yr.
 		  </div>
 			<div class='strategyOuter' id="thirdStrategyOuter">
 			  <span id='avg_difference' class="strategyPercentage"></span>
