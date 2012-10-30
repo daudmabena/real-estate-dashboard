@@ -134,16 +134,10 @@ class DashboardImportsController extends AppController {
           if($uploadType == 3){
                if(isset($medianPrice2Yrs) && $medianPrice2Yrs!=''){
                     //$impMedianPrice2Yrs = $this->Dashboard->importMedianPrice2Yrs('tab_median_price_2years', $medianPrice2Yrs, $city, $state, $zipcodearea,$uploadType);
-                   // print_r($medianPrice2Yrs);
+                   print_r($medianPrice2Yrs);
                     echo "<br/>";
                     //exit;
                }
-               
-               if(isset($medianForSoldPriceSqft) && $medianForSoldPriceSqft!=''){
-                    print_r($medianForSoldPriceSqft);
-                    exit;
-                   // $impMedianForSoldPriceSqft = $this->Dashboard->importMedianForSoldPriceSqft('tab_media_sold_sqft', $medianForSoldPriceSqft, $city, $state, $zipcodearea, $uploadType);
-               } 
           }
 
           /*if(isset($medianNoPrice2Yrs) && $medianNoPrice2Yrs!=''){
@@ -160,7 +154,7 @@ class DashboardImportsController extends AppController {
           }*/
      }
           //print_r($medianPrice2Yrs);
-          //exit;
+          exit;
      if($uploadType == 1){
                if(isset($medianPrice2Yrs) && $medianPrice2Yrs!=''){
                     $impMedianPrice2Yrs = $this->Dashboard->importMedianPrice2Yrs('tab_tmp_dashboard_fields', $medianPrice2Yrs, $city, $state, $zipcodearea,$uploadType);
