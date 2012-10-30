@@ -131,7 +131,7 @@ class DashboardImportsController extends AppController {
               }
           }
 
-          array_unshift($medianForSoldPriceSqft, $medianForSoldPriceDate);
+          //array_unshift($medianForSoldPriceSqft, $medianForSoldPriceDate);
 
           if($uploadType == 3){
                if(isset($medianPrice2Yrs) && $medianPrice2Yrs!=''){
