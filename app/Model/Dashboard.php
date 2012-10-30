@@ -34,6 +34,9 @@ class Dashboard extends AppModel {
 		$soldMedian = substr( $medianPrice2Yrs[2], 1 );
 		$soldMedian = str_replace(',', '', $soldMedian);
 
+		$medianPrice2Yrs[9] = str_replace("*","",$medianPrice2Yrs[9]);
+		$medianPrice2Yrs[9] = trim($medianPrice2Yrs[9]);
+		
 		if($uploadType == 1){
 		    $query = "INSERT INTO $tableName (
 				`median_min`,
