@@ -136,12 +136,12 @@ class DashboardImportsController extends AppController {
                     //$impMedianPrice2Yrs = $this->Dashboard->importMedianPrice2Yrs('tab_median_price_2years', $medianPrice2Yrs, $city, $state, $zipcodearea,$uploadType);
                     print_r($medianPrice2Yrs);
                     echo "<br/>";
-                    //exit;
+                    exit;
                }
                
                if(isset($medianForSoldPriceSqft) && $medianForSoldPriceSqft!=''){
-                    print_r($medianForSoldPriceSqft);
-                    exit;
+                   // print_r($medianForSoldPriceSqft);
+                    //exit;
                    // $impMedianForSoldPriceSqft = $this->Dashboard->importMedianForSoldPriceSqft('tab_media_sold_sqft', $medianForSoldPriceSqft, $city, $state, $zipcodearea, $uploadType);
                } 
           }
