@@ -91,14 +91,16 @@ class DashboardImportsController extends AppController {
      //print_r($data->sheets);
      //exit;
      
+     $medianPrice2Yrs        = '';
+     $medianNoPrice2Yrs      = '';
+     $median1Price2Yrs       = '';
+     $medianForSalePriceSqft = '';
+     $medianForSoldPriceDate = '';
+     $medianForSoldPriceSqft = '';
+     
      for ($i = 2; $i <= $data->sheets[0]['numRows']; $i++) {
           
-          $medianPrice2Yrs        = '';
-          $medianNoPrice2Yrs      = '';
-          $median1Price2Yrs       = '';
-          $medianForSalePriceSqft = '';
-          $medianForSoldPriceDate = '';
-          $medianForSoldPriceSqft = '';
+
           
           for ($j = 1; $j <= $data->sheets[0]['numCols']; $j++) {
               if(isset($data->sheets[0]['cells'][$i][$j])){
