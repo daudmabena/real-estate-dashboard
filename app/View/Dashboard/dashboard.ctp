@@ -275,7 +275,7 @@ $(document).ready(function() {
 			    <span class='saleMedianCityValue'></span>
 			  </div>
 		  </div>
-		  <div class='guage_description'>Median SA Price</div>
+		  <div class='guage_description'>Median SA Sold Price Avg Over Last 6 Mos.</div>
 		</div>
 		<div class="guagePercentage">
 		<div class='downstrategy'>
@@ -285,7 +285,7 @@ $(document).ready(function() {
 			  <span class='strategyPercentageCity'></span>
 			</div>
 		</div>
-		<div class='guage_description_down'>SA Previous 12 Months, <span class='prev12MonStrategyCity'></span></div>
+		<div class='guage_description_down'>Previous 6 Month Period : <span class='prev12MonStrategyCity'></span></div>
 		</div>
 	  </div>
 	</div>
