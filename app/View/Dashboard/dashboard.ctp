@@ -362,7 +362,7 @@ $(document).ready(function() {
 			  <span id='soldAvgSqft' class="strategyPercentage"></span>
 			</div>
 		</div>
-		<div class='guage_description_panel2' id="guage_description_panel6">Average Sq. Ft. Last 12 Months</div>
+		<div class='guage_description_panel2' id="guage_description_panel6">Average Sq. Ft. Last 6 Months</div>
 		</div>
 	</div>
 	<div class="bottom-left-panel">
