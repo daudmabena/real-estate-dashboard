@@ -301,8 +301,8 @@ $(document).ready(function() {
 		      <span id='perFootLast12Months' class="strategyPercentage"></span>
 		    </div>
 		  </div>
-		  <div class='guage_description_panel2' id="guage_description_panel1" style='margin-left:0px;'></div>
-		  <span id="guage_description_panel1_value"></span>
+		  <div class='guage_description_panel2' id="guage_description_panel1" style='margin-left:0px;'>Average $ Per Foot Previous 6 Mos. Period : <span id="guage_description_panel1_value"></span></div>
+		  
 		</div>
 		
 		<div class="subcalc">

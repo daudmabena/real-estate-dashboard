@@ -297,7 +297,7 @@ function getSearchData(urldata,sbttype){
              
                         if(obj.soldSqft['lastYear']!=false){
                             $('#perFootLast12Months').text(obj.soldSqft['lastYear']).formatCurrency();
-                             $('#guage_description_panel1').html('Average $ Per Foot Previous 6 Mos. Period : ');
+                             //$('#guage_description_panel1').html('');
                              $('#guage_description_panel1_value').text(obj.soldSqft['previousLastYear']).formatCurrency();
                             //alert(obj.soldSqft);
                             //alert(obj.soldSqft['previousLastYear']);
