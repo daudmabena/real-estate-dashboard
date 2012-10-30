@@ -164,7 +164,7 @@ class DashboardImportsController extends AppController {
                $medianForSoldPriceDate = '';
                $medianForSoldPriceSqft = '';
                
-               for ($j = 1; $j <= $data->sheets[0]['numCols']; $j++) {
+               for ($j = 3; $j <= $data->sheets[0]['numCols']; $j++) {
                    if(isset($data->sheets[0]['cells'][$i][$j])){
                          // $j represents the column for appropriate tables splitted the $j into the tables.     
                          //if($j>=1 && $j<=5){
