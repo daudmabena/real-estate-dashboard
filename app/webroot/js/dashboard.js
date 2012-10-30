@@ -210,7 +210,7 @@ function getSearchData(urldata,sbttype){
                         //for(var i=0;i<obj.groupByMonthAndYearForMedian.length;i++){}
 
                         if(obj.groupByMonthAndYearForMedian != null){
-                        generateChart(obj.groupByMonthAndYearForMedian['monthlytotal'], obj.groupByMonthAndYearForMedian['monthYear']);  
+                        generateChart(obj.groupByMonthAndYearForMedian['monthlytotal'], obj.groupByMonthAndYearForMedian['monthPrice'], obj.groupByMonthAndYearForMedian['monthYear']);  
                         }
                         
                         generateGuage(obj.saleMedianZip['lastYear'], obj.saleMedianCity['lastYear']);
@@ -373,7 +373,7 @@ function getSearchData(urldata,sbttype){
 //}
 
 
-function generateChart(monthlyTotal,year){
+function generateChart(monthlyTotal, Price,year){
   var screenWidth = screen.width;
   var widthChart = 600;
   if(screenWidth == 320){
@@ -468,6 +468,11 @@ function generateChart(monthlyTotal,year){
                     name: 'Dashboard',
                     data: monthlyTotal,
                     color: '#F8AE33'
+                },
+                {
+                    name: 'Price',
+                    data: Price,
+                    color: '#fff'
                 }],
                 exporting: {
                     enabled: false
