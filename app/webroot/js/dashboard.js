@@ -465,7 +465,7 @@ function generateChart(monthlyTotal, Price,year){
                     borderWidth: 0
                 },
                 series: [{
-                    name: 'Dashboard',
+                    name: 'Sold',
                     data: monthlyTotal,
                     color: '#F8AE33'
                 },
