@@ -52,8 +52,8 @@ $(document).ready(function() {
       $("body").css("background-color","#151515");
       $('.searchContent').hide();
       var showOrHide;
-      var zipValue = $('#zipcode').val();
-      $('#ZipLabel').html(zipValue+" Median Price");
+      //var zipValue = $('#zipcode').val();
+      //$('#ZipLabel').html(zipValue+" Median Price");
       $('#searchText').html('Search');
       $('#searchArrow').attr("class","searchDownArrow");
       
