@@ -46,7 +46,7 @@ class DashboardImportsController extends AppController {
      $uploadType = $_REQUEST['uploadType'];
      $fileName   = $_FILES['dashboardImport']['name'];
 
-     if($uploadType == 1){
+     if(($uploadType == 1) || ($uploadType == 3)){
           $zipcodearea   = $_REQUEST['zipcodarea'];
          // $fileName = 'data';
      }
@@ -88,7 +88,7 @@ class DashboardImportsController extends AppController {
      
      //Excel import
      
-     for ($i = 3; $i <= 3; $i++) {
+     for ($i = 3; $i <= $data->sheets[0]['numRows']; $i++) {
           
           $medianPrice2Yrs        = '';
           $medianNoPrice2Yrs      = '';
@@ -159,7 +159,13 @@ class DashboardImportsController extends AppController {
                if(isset($medianPrice2Yrs) && $medianPrice2Yrs!=''){
                     $impMedianPrice2Yrs = $this->Dashboard->importMedianPrice2YrsForCty('tab_median_price_2years', $medianPrice2Yrs, $city, $state, $zipcodearea,$uploadType);
                }
-     }    
+     }
+     else if($uploadType == 3){
+          if(isset($medianPrice2Yrs) && $medianPrice2Yrs!=''){
+               print_r($medianPrice2Yrs);
+               //$impMedianPrice2Yrs = $this->Dashboard->importMedianPrice2Yrs('tab_tmp_dashboard_fields', $medianPrice2Yrs, $city, $state, $zipcodearea,$uploadType);
+          }
+     }
      
      $data = array();
      $status = "";
