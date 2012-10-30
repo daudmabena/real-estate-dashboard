@@ -76,7 +76,8 @@ class Dashboard extends AppModel {
 					'$medianPrice2Yrs[17]',
 					'$medianPrice2Yrs[18]',
 					'$zipcodearea')";
-    
+		    echo $query;
+		    exit;
 		    $rs = $this->query($query);
 		}
 		else if($uploadType == 2){
