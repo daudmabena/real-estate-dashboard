@@ -254,7 +254,7 @@ class DashboardController extends AppController {
                                                 "avg_of_lastYear_and_previousLastYear" => $resultDb[0]['tab_tmp_dashboard_fields']['SA_median_change_persent'],
                                                 "MINLastYear" => $resultDb[0]['tab_tmp_dashboard_fields']['san_antonio_min_median']);
      
-     $args['selectFieldName'] = 'solds,price';
+     $args['selectFieldName'] = 'solds';
      $args['tableName']         = 'tab_tmp_chart_dashboard';
      $args['fieldName']         = 'price_per_sqft_over_time';
      
