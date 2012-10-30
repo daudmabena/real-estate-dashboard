@@ -90,6 +90,17 @@ class Dashboard extends AppModel {
     
 		    $rs = $this->query($query);   
 		}
+		else if($uploadType == 3){
+		    $query = "INSERT INTO $tableName (
+			    `price_per_sqft_over_time`,
+			    `price`,
+			    `solds`)
+				VALUES('$medianPrice2Yrs[0]',
+					'$medianPrice2Yrs[1]',
+					'$medianPrice2Yrs[2]',
+					'$zipcodearea')";
+		    $rs = $this->query($query);   
+		}
 
 		if(!$rs){
 		    $this->log("importMedianPrice2Yrs::importMedianPrice2Yrs(). Data not inserted");
