@@ -172,7 +172,7 @@ function getSearchData(urldata,sbttype){
               var MonthName = getMonthName(monthVal);
               
               var MonthName1 = getMonthName(monthVal1);
-              $('#guage_description_panel1').html('Average $ Per Foot Previous 6 Mos. Period : '+MonthName+'-'+fromDate.split("/")[2]);
+              //$('#guage_description_panel1').html('Average $ Per Foot Previous 6 Mos. Period : '+MonthName+'-'+fromDate.split("/")[2]);
               $('#guage_description_panel2').html('Number of Sold Homes in '+MonthName+'-'+toDate.split("/")[2]);
               $('#guage_description_panel3').html('Number of Sold Homes in '+MonthName1+'-'+fromDate.split("/")[2]);
               $('#guage_description_panel4').html('# Days on Market in '+MonthName+'-'+toDate.split("/")[2]+" (Solds)");
