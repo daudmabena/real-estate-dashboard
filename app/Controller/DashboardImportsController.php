@@ -103,12 +103,12 @@ class DashboardImportsController extends AppController {
           for ($j = 1; $j <= $data->sheets[0]['numCols']; $j++) {
               if(isset($data->sheets[0]['cells'][$i][$j])){
                     // $j represents the column for appropriate tables splitted the $j into the tables.     
-                    if($j>=1 && $j<=5){
+                    if($j>=1 && $j<=8){
                          $medianPrice2Yrs[] = $data->sheets[0]['cells'][$i][$j];
                     }
-                    if($j>=6 && $j<=8){
+                    /*if($j>=6 && $j<=8){
                          $medianForSoldPriceSqft[] = $data->sheets[0]['cells'][$i][$j];
-                    }
+                    }*/
                     /*if($j>=7 && $j<=10){
                          $medianNoPrice2Yrs[] = $data->sheets[0]['cells'][$i][$j];
                     }
