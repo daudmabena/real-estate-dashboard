@@ -106,7 +106,7 @@ class DashboardImportsController extends AppController {
               if(isset($data->sheets[0]['cells'][$i][$j])){
                     // $j represents the column for appropriate tables splitted the $j into the tables.     
                     if($j>=1 && $j<=8){
-                         $medianPrice2Yrs[] = $data->sheets[0]['cells'][$i][$j];
+                         $medianPrice2Yrs[$j] = $data->sheets[0]['cells'][$i][$j];
                     }
                     /*if($j>=6 && $j<=8){
                          $medianForSoldPriceSqft[] = $data->sheets[0]['cells'][$i][$j];
@@ -136,8 +136,7 @@ class DashboardImportsController extends AppController {
           if($uploadType == 3){
                if(isset($medianPrice2Yrs) && $medianPrice2Yrs!=''){
                     //$impMedianPrice2Yrs = $this->Dashboard->importMedianPrice2Yrs('tab_median_price_2years', $medianPrice2Yrs, $city, $state, $zipcodearea,$uploadType);
-                    print_r($medianPrice2Yrs);
-                    echo "<br/>";
+                    
                     
                }
                
@@ -161,6 +160,8 @@ class DashboardImportsController extends AppController {
                $impMedianForSoldPriceSqft = $this->Dashboard->importMedianForSoldPriceSqft('tab_media_sold_sqft', $medianForSoldPriceSqft, $city, $state, $zipcode,$zipcodearea);
           }*/
      }
+     print_r($medianPrice2Yrs);
+                    echo "<br/>";
           print_r(count($medianPrice2Yrs));
           exit;
      if($uploadType == 1){
