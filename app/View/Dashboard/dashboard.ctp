@@ -302,6 +302,7 @@ $(document).ready(function() {
 		    </div>
 		  </div>
 		  <div class='guage_description_panel2' id="guage_description_panel1" style='margin-left:0px;'></div>
+		  <span id="guage_description_panel1_value"></span>
 		</div>
 		
 		<div class="subcalc">
