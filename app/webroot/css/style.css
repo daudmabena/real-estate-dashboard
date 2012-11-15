@@ -223,7 +223,7 @@ background-color: #A3A3A3;
 .upStrategyOuter{
   background: url("../img/green-arrow.png") no-repeat scroll 15px 40px transparent;
     height: 24px;
-    padding: 31px 56px 56px 45px;
+    padding: 38px 56px 56px 45px;
     width: 110px;
 }
 
@@ -252,7 +252,7 @@ background-color: #A3A3A3;
 .strategyPercentageZip{
 	text-shadow:1px 1px 1px #535353, -2px -2px 2px #535353;
 	color:#D3D4D4;
-	font-size:32px;
+	font-size:25px;
 }
 
 .strategyPercentage{
@@ -738,7 +738,7 @@ input, textarea {
     
     .downStratergyOuter{
     background: url("../img/red_arrow.png") no-repeat scroll 11px 41px transparent !important;
-    padding: 40px 56px 56px 43px;
+     padding: 38px 56px 56px 49px;
     }
     .statisticsboxHeader{
 	font-size: 12px;
