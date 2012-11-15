@@ -401,7 +401,7 @@ function generateChart(monthlyTotal, Price,year){
                     width: widthChart
                 },  
                 title: {
-                    text: '<span id="titleText1">Sold $ Per Ft.</span><span id="titleText2"># Sold in Given Month</span>',
+                    text: '<div id="titleText1">Sold $ Per Ft.</div><div id="titleText2"># Sold in Given Month</div>',
                     x: -20,
                     style:{
                       color: '#fff',
