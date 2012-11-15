@@ -401,7 +401,7 @@ function generateChart(monthlyTotal, Price,year){
                     width: widthChart
                 },  
                 title: {
-                    text: 'Median Price Over Time',
+                    text: '<span id="titleText1">Sold $ Per Ft.</span><span id="titleText2"># Sold in Given Month</span>',
                     x: -20,
                     style:{
                       color: '#fff',

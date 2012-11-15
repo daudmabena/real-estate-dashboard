@@ -261,6 +261,10 @@ background: url("../img/red_arrow.png") no-repeat scroll 16px 41px transparent;
 	font-size:25px;
 }
 
+#titleText2{
+ color: #ff8c00;  
+}
+
 .strategyPercentageCity{
 	text-shadow:1px 1px 1px #535353, -2px -2px 2px #535353;
 	color:#D3D4D4;
